@@ -283,14 +283,22 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
 
   .intro-logo-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.5rem, 2vw, 1.5rem);
+    gap: 1rem;
     animation: neon-flicker 4s infinite alternate;
   }
 
+  @media (min-width: 768px) {
+    .intro-logo-row {
+      flex-direction: row;
+      gap: clamp(0.5rem, 2vw, 1.5rem);
+    }
+  }
+
   .intro-logo-icon {
-    height: clamp(140px, 22vw, 260px);
+    height: clamp(100px, 20vw, 260px);
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 25px var(--lime-glow));
@@ -298,11 +306,12 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
   }
 
   .intro-wordmark {
-    font-size: clamp(100px, 16vw, 180px);
+    font-size: clamp(80px, 15vw, 180px);
     line-height: 1;
     letter-spacing: -0.06em;
     font-family: var(--font-sans);
     font-weight: 800;
+    white-space: nowrap;
   }
 
   .intro-dot {
