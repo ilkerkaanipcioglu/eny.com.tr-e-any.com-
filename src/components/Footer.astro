@@ -78,13 +78,8 @@ const { lang = 'tr' } = Astro.props;
         <div class="border-t border-border-main py-6 flex flex-wrap items-center justify-center md:justify-start gap-3 md:gap-5 text-xs text-text-40">
             <span class="font-medium text-text-70 tracking-widest uppercase text-[10px]">eny Ecosystem</span>
             
-            <a href="https://www.linkedin.com/showcase/agentandbot/" target="_blank" rel="noopener noreferrer" class="hover:text-plum transition-colors flex items-center gap-1.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100">
-                <span class="material-symbols-outlined text-[14px]">smart_toy</span> AgentAndBot
-            </a>
-            
-            <span class="opacity-20 hidden md:inline">•</span>
-            <a href={getLocalePath('/urunler', lang)} class="hover:text-plum transition-colors flex items-center gap-1.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100">
-                <span class="material-symbols-outlined text-[14px]">receipt_long</span> e-Someting
+            <a href={getLocalePath('/hizmetler/e-donusum', lang)} class="hover:text-plum transition-colors flex items-center gap-1.5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100">
+                <span class="material-symbols-outlined text-[14px]">receipt_long</span> {lang === 'tr' ? 'e-Dönüşüm Serisi' : 'e-Transformation Series'}
             </a>
             
             <span class="opacity-20 hidden md:inline">•</span>
@@ -104,8 +99,12 @@ const { lang = 'tr' } = Astro.props;
         </div>
 
         <!-- Bottom Bar -->
-        <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <span class="text-xs text-text-40">{t('footerCopyright', lang)}</span>
+        <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left font-mono uppercase">
+            <div class="flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+                <span class="text-[10px] text-lime tracking-widest">{lang === 'tr' ? 'SİSTEM DURUMU: OPERASYONEL' : 'SYSTEM STATUS: OPERATIONAL'}</span>
+            </div>
+            <span class="text-[10px] text-text-40 tracking-widest">© 2026 ENY INFRASTRUCTURE. ALL RIGHTS RESERVED.</span>
             <div class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs text-text-40">
                 <ThemeToggle />
                 <a class="hover:text-plum transition-colors" href={getLocalePath('/kvkk', lang)}>{t('footerKvkk', lang)}</a>

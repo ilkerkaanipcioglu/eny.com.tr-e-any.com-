@@ -4,25 +4,24 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Hizmetler">
     <!-- HERO -->
     <header class="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-bg overflow-hidden border-b border-border-main">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-plum)_0%,_transparent_40%)] opacity-10 pointer-events-none"></div>
-        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-plum/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-lime opacity-5 blur-[120px] -z-10 rounded-full w-[800px] h-[800px] right-0 top-0 pointer-events-none"></div>
 
         <div class="max-w-container mx-auto px-8 md:px-12 relative z-10">
             <div class="w-full md:w-3/4 animate-fade-up">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface text-text-70 text-label mb-8 border border-border">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lime/10 text-lime text-[10px] font-mono tracking-widest uppercase mb-8 border border-lime/20">
                     <span class="material-symbols-outlined text-sm">architecture</span>
                     SAP UZMANLIK HİZMETLERİ
                 </span>
                 
-                <h1 class="display-lg text-4xl md:text-h1 mb-6">
-                    Finansal Sistemlerinizi<br/><span class="bg-clip-text text-transparent bg-gradient-to-r from-teal to-plum">Otomatize Ediyoruz.</span>
+                <h1 class="text-4xl md:text-7xl font-extrabold font-sans mb-6 text-text leading-tight tracking-tighter">
+                    Finansal Sistemlerinizi<br/><span class="text-lime">Otomatize Ediyoruz.</span>
                 </h1>
                 <p class="text-text-70 text-body-lg max-w-2xl font-light leading-relaxed mb-10">
                     Yapay zeka ve SAP mimarisiyle finansal operasyonlarınızı sadeleştiriyor, sınır ötesi dönüşüm stratejinizi güvence altına alıyoruz.
                 </p>
                 
                 <div class="flex flex-wrap gap-4">
-                    <a href="#hizmetler-grid" class="bg-plum text-white px-8 py-4 rounded-lg font-medium text-ui hover:bg-plum-hover transition-colors inline-flex items-center gap-2">
+                    <a href="#hizmetler-grid" class="bg-lime text-black px-8 py-4 rounded-lg font-bold font-mono text-xs uppercase tracking-widest hover:bg-white transition-all inline-flex items-center gap-2">
                         Uzmanlık Alanlarını İncele
                         <span class="material-symbols-outlined text-sm">arrow_downward</span>
                     </a>
@@ -36,10 +35,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="max-w-container mx-auto px-8 md:px-12">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div>
-                    <h2 class="display-lg text-3xl md:text-h2 mb-4">Stratejik Odak Alanlarımız</h2>
-                    <div class="h-1.5 w-24 bg-plum"></div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold font-sans mb-4 text-text tracking-tighter">Stratejik Odak Alanlarımız</h2>
+                    <div class="h-1.5 w-24 bg-lime"></div>
                 </div>
-                <p class="text-text-70 max-w-md text-sm font-light leading-relaxed">
+                <p class="text-text-70 max-w-md text-sm font-sans font-light leading-relaxed">
                     Yüksek hacimli finansal süreçleri optimize ediyor ve veriye dayalı karar alma algoritmaları kuruyoruz.
                 </p>
             </div>
@@ -48,32 +47,32 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Kategori 1 Başlığı -->
                 <div class="md:col-span-12 mt-4 mb-2 border-b border-border-main pb-4">
-                    <h3 class="text-2xl font-serif text-teal flex items-center gap-3">
+                    <h3 class="text-2xl font-bold font-sans text-lime flex items-center gap-3">
                         <span class="material-symbols-outlined">account_tree</span>
                         1. SAP Platformu
                     </h3>
                 </div>
 
 <!-- Card 1: SAP FI & CO / Material Ledger (Merged) -->
-                <div class="md:col-span-8 md:row-span-2 bg-plum p-10 rounded-2xl flex flex-col justify-between text-white relative overflow-hidden group">
-                    <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none"></div>
+                <div class="md:col-span-8 md:row-span-2 bg-bg3/50 p-10 rounded-2xl flex flex-col justify-between text-text relative overflow-hidden group border border-border-main hover:border-lime transition-all">
+                    <div class="absolute right-0 top-0 w-1/2 h-full bg-lime/10 blur-[100px] pointer-events-none opacity-20 transition-opacity group-hover:opacity-40"></div>
                     <div class="relative z-10 w-full">
                         <div class="flex justify-between items-start mb-6">
-                            <span class="material-symbols-outlined text-5xl opacity-80 group-hover:opacity-100 transition-opacity">account_balance</span>
-                            <span class="px-3 py-1 bg-white/20 text-white rounded-full text-[10px] font-bold tracking-[0.1em] uppercase">Amiral Gemisi</span>
+                            <span class="material-symbols-outlined text-5xl text-lime group-hover:scale-110 transition-transform">account_balance</span>
+                            <span class="px-3 py-1 bg-lime/20 text-lime rounded-full text-[10px] font-mono font-bold tracking-[0.1em] uppercase border border-lime/30">Amiral Gemisi</span>
                         </div>
-                        <h3 class="text-3xl font-serif mb-3">SAP FI, CO & Material Ledger</h3>
-                        <p class="text-white/80 text-sm mb-8 font-light max-w-lg">Finansal muhasebe, maliyet kontrolü ve gerçek maliyet hesaplamasını tek bir yapı mimarisinde sunuyoruz.</p>
+                        <h3 class="text-3xl font-extrabold font-sans mb-3 text-text">SAP FI, CO & Material Ledger</h3>
+                        <p class="text-text-70 text-sm mb-8 font-sans font-light max-w-lg">Finansal muhasebe, maliyet kontrolü ve gerçek maliyet hesaplamasını tek bir yapı mimarisinde sunuyoruz.</p>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-6 text-white/90 text-sm font-light">
                             <div>
-                                <p class="text-white font-bold text-[10px] tracking-widest uppercase mb-3">FI — Finansal Muhasebe</p>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-teal rounded-full"></div>Defter-i Kebir (New GL)</li>
-                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-teal rounded-full"></div>Borçlar & Alacaklar (AP/AR)</li>
-                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-teal rounded-full"></div>Duran Varlık Yönetimi</li>
-                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-teal rounded-full"></div>Banka Muhasebesi</li>
-                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-teal rounded-full"></div>Vergi & e-Dönüşüm</li>
+                                <p class="text-text font-bold font-mono text-[10px] tracking-widest uppercase mb-3">FI — Finansal Muhasebe</p>
+                                <ul class="space-y-2 text-text-70">
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-lime rounded-full"></div>Defter-i Kebir (New GL)</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-lime rounded-full"></div>Borçlar & Alacaklar (AP/AR)</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-lime rounded-full"></div>Duran Varlık Yönetimi</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-lime rounded-full"></div>Banka Muhasebesi</li>
+                                    <li class="flex items-center gap-2"><div class="w-1 h-1 bg-lime rounded-full"></div>Vergi & e-Dönüşüm</li>
                                 </ul>
                             </div>
                             <div>
@@ -99,15 +98,15 @@ import Layout from '../layouts/Layout.astro';
 
                 
 <!-- Card 5: S/4HANA -->
-                <div class="md:col-span-4 md:row-span-1 glass-card p-8 rounded-2xl flex flex-col justify-between group hover:border-plum transition-all duration-300">
+                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between group hover:border-lime transition-all duration-300">
                     <div>
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-bg border border-border mb-6 group-hover:border-plum transition-colors">
-                            <span class="material-symbols-outlined text-text-main group-hover:text-plum transition-colors">rocket_launch</span>
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-bg border border-border-main mb-6 group-hover:border-lime transition-colors">
+                            <span class="material-symbols-outlined text-text-main group-hover:text-lime transition-colors">rocket_launch</span>
                         </div>
-                        <h3 class="text-xl font-medium mb-3 text-text-main group-hover:text-plum transition-colors">SAP S/4HANA Dönüşüm</h3>
-                        <p class="text-text-70 text-sm font-light leading-relaxed mb-6">Grow with SAP & Rise with SAP — Greenfield ve Brownfield yaklaşımlarıyla yeni nesil ERP dünyasına sorunsuz geçiş.</p>
+                        <h3 class="text-xl font-bold font-sans mb-3 text-text group-hover:text-lime transition-colors">SAP S/4HANA Dönüşüm</h3>
+                        <p class="text-text-70 text-sm font-sans font-light leading-relaxed mb-6">Grow with SAP & Rise with SAP — Greenfield ve Brownfield yaklaşımlarıyla yeni nesil ERP dünyasına sorunsuz geçiş.</p>
                     </div>
-                    <a href="/s4hana" class="inline-flex items-center gap-2 font-medium text-sm text-text-main group-hover:text-plum transition-colors">Detayları İncele <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                    <a href="/s4hana" class="inline-flex items-center gap-2 font-mono font-bold text-xs uppercase tracking-widest text-text-main group-hover:text-lime transition-colors">Detayları İncele <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
                 </div>
 
                 
@@ -150,16 +149,16 @@ import Layout from '../layouts/Layout.astro';
 
                 
 <!-- Card 13: SAP TRM (Feature Card) -->
-                <div class="md:col-span-12 md:row-span-1 glass-card p-10 md:p-12 rounded-2xl flex flex-col md:flex-row justify-between items-center group hover:border-plum transition-all duration-300 border-l-4 border-l-transparent hover:border-l-plum">
+                <div class="md:col-span-12 md:row-span-1 glass-card p-10 md:p-12 rounded-2xl flex flex-col md:flex-row justify-between items-center group hover:border-lime transition-all duration-300 border-l-4 border-l-transparent hover:border-l-lime">
                     <div class="md:w-2/3 relative z-10">
-                        <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-bg border border-border mb-8 group-hover:border-plum transition-colors">
-                            <span class="material-symbols-outlined text-text-main group-hover:text-plum transition-colors text-3xl">monitoring</span>
+                        <div class="w-16 h-16 rounded-xl flex items-center justify-center bg-bg border border-border-main mb-8 group-hover:border-lime transition-colors">
+                            <span class="material-symbols-outlined text-text-main group-hover:text-lime transition-colors text-3xl">monitoring</span>
                         </div>
-                        <h3 class="text-3xl font-serif mb-4 text-text-main group-hover:text-plum transition-colors">SAP Treasury and Risk Management</h3>
-                        <p class="text-text-70 font-light leading-relaxed md:pr-12">İşletme Sermayesini Optimize Edin, Nakit Verimliliğinde %30 Artış Sağlayın. Finansal veri dokusu üzerinde likidite, ödeme ve risklerinizi tek merkezden yönetin.</p>
+                        <h3 class="text-3xl font-extrabold font-sans mb-4 text-text group-hover:text-lime transition-colors">SAP Treasury and Risk Management</h3>
+                        <p class="text-text-70 font-sans font-light leading-relaxed md:pr-12">İşletme Sermayesini Optimize Edin, Nakit Verimliliğinde %30 Artış Sağlayın. Finansal veri dokusu üzerinde likidite, ödeme ve risklerinizi tek merkezden yönetin.</p>
                     </div>
                     <div class="md:w-1/3 flex md:justify-end mt-8 md:mt-0 relative z-10">
-                        <a href="/sap-trm" class="inline-flex items-center gap-2 font-medium text-sm bg-bg border border-border text-text-main hover:bg-plum hover:text-white px-8 py-4 rounded-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 whitespace-nowrap">Hemen İncele <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                        <a href="/sap-trm" class="inline-flex items-center gap-2 font-mono font-bold text-xs uppercase tracking-widest bg-bg border border-border-main text-text-main hover:bg-lime hover:text-black hover:border-lime px-8 py-4 rounded-lg transition-all duration-300 whitespace-nowrap">Hemen İncele <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
                     </div>
                 </div>
             
@@ -189,7 +188,7 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Kategori 2 Başlığı -->
                 <div class="md:col-span-12 mt-12 mb-2 border-b border-border-main pb-4">
-                    <h3 class="text-2xl font-serif text-teal flex items-center gap-3">
+                    <h3 class="text-2xl font-bold font-sans text-lime flex items-center gap-3">
                         <span class="material-symbols-outlined">receipt_long</span>
                         2. e-Dönüşüm & Dijitalleştirme
                     </h3>
@@ -234,7 +233,7 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Kategori 3 Başlığı -->
                 <div class="md:col-span-12 mt-12 mb-2 border-b border-border-main pb-4">
-                    <h3 class="text-2xl font-serif text-teal flex items-center gap-3">
+                    <h3 class="text-2xl font-bold font-sans text-lime flex items-center gap-3">
                         <span class="material-symbols-outlined">currency_exchange</span>
                         3. Finansal Otomasyon & Banka Entegrasyonu
                     </h3>
@@ -266,7 +265,7 @@ import Layout from '../layouts/Layout.astro';
 
                 <!-- Kategori 4 Başlığı -->
                 <div class="md:col-span-12 mt-12 mb-2 border-b border-border-main pb-4">
-                    <h3 class="text-2xl font-serif text-teal flex items-center gap-3">
+                    <h3 class="text-2xl font-bold font-sans text-lime flex items-center gap-3">
                         <span class="material-symbols-outlined">smart_toy</span>
                         4. AI & Strateji
                     </h3>
@@ -343,12 +342,12 @@ import Layout from '../layouts/Layout.astro';
     <!-- CTA SECTION -->
     <section class="py-24 md:py-32 bg-bg px-8 md:px-12 flex justify-center text-center">
         <div class="max-w-3xl mx-auto">
-            <span class="material-symbols-outlined text-[48px] text-border mb-6">handshake</span>
-            <h2 class="display-lg text-3xl md:text-h2 mb-6">Stratejinizi Birlikte İnşa Edelim</h2>
-            <p class="text-text-70 font-light mb-10 max-w-2xl mx-auto text-lg">İşletmenizin finansal darboğazlarını detaylı bir analizle değerlendirelim ve otomasyon hedeflerinizi doğru planla hayata geçirelim.</p>
+            <span class="material-symbols-outlined text-[64px] text-lime mb-6">handshake</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold font-sans mb-6 text-text tracking-tighter">Stratejinizi Birlikte İnşa Edelim</h2>
+            <p class="text-text-70 font-sans font-light mb-10 max-w-2xl mx-auto text-lg">İşletmenizin finansal darboğazlarını detaylı bir analizle değerlendirelim ve otomasyon hedeflerinizi doğru planla hayata geçirelim.</p>
             
-            <a href="/iletisim" class="bg-plum text-white px-10 py-5 rounded-lg font-medium text-ui hover:bg-plum-hover transition-colors shadow-lg inline-block">
-                Değerlendirme Başlatın
+            <a href="/iletisim" class="bg-lime text-black px-12 py-5 rounded-lg font-bold font-mono text-xs uppercase tracking-widest hover:bg-white transition-all shadow-xl inline-block">
+                Projenizi Konuşalım
             </a>
         </div>
     </section>

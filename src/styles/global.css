@@ -94,11 +94,19 @@
    --color-primary: var(--lime);
    --color-surface-container: var(--bg2);
    --color-surface-container-low: var(--bg);
+   --color-surface-container-lowest: var(--surface);
    --color-surface-variant: var(--surface);
    --color-on-surface: var(--text);
    --color-on-surface-variant: var(--text-70);
    --color-on-background: var(--text);
    --color-outline: var(--border);
+   --color-outline-variant: var(--border);
+
+   --color-plum: #82165F;
+   --color-plum-hover: #A81C7A;
+   --color-teal: #2DD4BF;
+   --color-nav-bg: var(--nav-bg);
+   --color-bg3: var(--surface);
 
    --font-sans: "Syne", sans-serif;
    --font-mono: "JetBrains Mono", monospace;
@@ -139,6 +147,24 @@
 }
 [data-theme="dark"] .hidden-in-dark {
   display: none !important;
+}
+
+/* === GLASS NAV === */
+.glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, background 0.4s;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.glass-nav.scrolled {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
 
 /* Base Styles */
@@ -501,3 +527,29 @@ section { position: relative; }
 .reveal-d2 { transition-delay: 0.2s; }
 .reveal-d3 { transition-delay: 0.3s; }
 .reveal-d4 { transition-delay: 0.4s; }
+
+/* ========================================
+   ENY BRAND UTILITIES
+   ======================================== */
+.dot-lime {
+  color: var(--lime);
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px var(--lime-glow), 0 0 20px var(--lime-soft);
+}
+
+.glass-card-border {
+  border: 1px solid var(--border);
+  background: rgba(17, 26, 19, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+}
+
+.glass-card-border:hover {
+  border-color: var(--lime-glow);
+  background: rgba(17, 26, 19, 0.6);
+}

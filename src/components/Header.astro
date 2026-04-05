@@ -24,8 +24,9 @@ function isActivePath(itemPath: string): boolean {
 
 const alternateLangPath = getAlternateLangPath(currentPath, lang);
 const otherLang = lang === 'tr' ? 'EN' : 'TR';
+const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath === '/en/';
 ---
-<nav class="fixed top-0 w-full z-50 glass-nav" id="main-nav">
+<nav class={`fixed top-0 w-full z-50 glass-nav ${!isHomePage ? 'scrolled' : ''}`} id="main-nav" data-is-home={isHomePage ? 'true' : 'false'}>
     <div class="flex justify-between items-center px-8 md:px-12 py-3.5 max-w-container mx-auto relative z-20">
         <!-- Logo -->
         <div class="flex items-center">
@@ -88,20 +89,21 @@ const otherLang = lang === 'tr' ? 'EN' : 'TR';
                         </div>
                         
                         <!-- Right Side: Promo Action Card -->
-                        <div class="flex-[2] bg-plum p-8 text-white relative flex flex-col justify-end overflow-hidden shadow-inner">
-                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05]"></div>
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-white/15 rounded-full blur-[40px]"></div>
+                        <div class="flex-[2] bg-lime p-8 text-black relative flex flex-col justify-end overflow-hidden shadow-inner font-mono">
+                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.1]"></div>
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-black/5 rounded-full blur-[40px]"></div>
                             
                             <div class="relative z-10 text-left">
-                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-6">
-                                    <span class="material-symbols-outlined text-white text-xl">robot_2</span>
+                                <div class="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center mb-6">
+                                    <span class="material-symbols-outlined text-black text-xl">account_balance</span>
                                 </div>
-                                <h4 class="font-bold text-xl mb-3 leading-tight">{lang === 'tr' ? 'AgentAndBot ile Otomatize Edin' : 'Automate with AgentAndBot'}</h4>
-                                <p class="text-[13px] text-white/80 leading-relaxed mb-6 font-light">
-                                    {lang === 'tr' ? 'Maliyetli manuel bankacılık ve muhasebe operasyonlarınızı yapay zeka ajanlarıyla uçtan uca dönüştürüyoruz.' : 'Transform your costly manual banking and accounting operations end-to-end with AI agents.'}
+                                <h4 class="font-bold text-xl mb-3 leading-tight uppercase tracking-tighter">{lang === 'tr' ? 'eny ile Finansal Dönüşüm' : 'Financial Transformation with eny'}</h4>
+                                <p class="text-[13px] text-black/70 leading-relaxed mb-6 font-medium">
+                                    {lang === 'tr' ? 'Maliyetli manuel bankacılık ve muhasebe operasyonlarınızı yüksek performanslı platformumuzla uçtan uca dönüştürüyoruz.' : 'Transform your costly manual banking and accounting operations end-to-end with our high-performance platform.'}
                                 </p>
-                                <a href={getLocalePath('/iletisim', lang)} class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-plum font-bold text-sm hover:shadow-xl hover:bg-bg2 hover:-translate-y-0.5 transition-all">
-                                    {lang === 'tr' ? 'Demo Randevusu Al' : 'Book a Demo'}
+                                <a href={getLocalePath('/iletisim', lang)} class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black text-white font-bold text-xs uppercase tracking-widest hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                                    {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
                         </div>
@@ -230,8 +232,8 @@ const otherLang = lang === 'tr' ? 'EN' : 'TR';
                 </div>
             </div>
             <!-- CTA (Desktop) -->
-            <a href={getLocalePath('/iletisim', lang)} class="hidden sm:inline-block bg-plum text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:bg-plum-hover transition-colors">
-                {t('navCta', lang)}
+            <a href={getLocalePath('/iletisim', lang)} class="hidden sm:inline-block bg-lime text-black px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-white hover:shadow-[0_0_20px_rgba(208,253,23,0.3)] transition-all">
+                {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
             </a>
             
             <!-- Hamburger Button (Mobile) -->
@@ -259,8 +261,9 @@ const otherLang = lang === 'tr' ? 'EN' : 'TR';
         <div class="mt-4 mb-2 h-px w-full bg-border-main"></div>
 
         <!-- CTA (Mobile) -->
-        <a href={getLocalePath('/iletisim', lang)} class="w-full text-center bg-plum text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-plum-hover transition-colors shadow-md">
-            {t('navCta', lang)}
+        <a href={getLocalePath('/iletisim', lang)} class="w-full text-center bg-lime text-black px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2">
+            {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
+            <span class="material-symbols-outlined">arrow_forward</span>
         </a>
         
         <!-- Theme Toggle (Mobile) -->
@@ -286,14 +289,18 @@ const otherLang = lang === 'tr' ? 'EN' : 'TR';
 </nav>
 
 <script>
-  // Scroll blur effect
+  // Scroll visibility effect
   const nav = document.getElementById('main-nav');
+  const isHome = nav ? nav.getAttribute('data-is-home') === 'true' : true;
+
   window.addEventListener('scroll', () => {
     if (nav) {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 150) {
         nav.classList.add('scrolled');
       } else {
-        nav.classList.remove('scrolled');
+        if (isHome) {
+          nav.classList.remove('scrolled');
+        }
       }
     }
   });

@@ -31,8 +31,8 @@ const replayText = lang === 'tr' ? '↺ tekrar' : '↺ replay';
 const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR';
 
 const heroDesc = lang === 'tr'
-  ? 'Regtech\'ten fintech\'e, e-ticaretten hazine yönetimine — tüm finansal operasyonlarınızı tek bir akıllı platformda yönetin.'
-  : 'From regtech to fintech, e-commerce to treasury management — manage all your financial operations on a single intelligent platform.';
+  ? 'Regtech\'ten fintech\'e, e-ticaretten hazine yönetimine — tüm finansal operasyonlarınızı tek bir akıllı platformda yönetin. Türkiye\'de inşa edildi, dünya standartlarında tasarlandı.'
+  : 'From regtech to fintech, from e-commerce to treasury management — manage all your financial operations on a single intelligent platform. Built in Turkey, designed for global standards.';
 const ctaPrimary = lang === 'tr' ? 'Demo Talep Et' : 'Request a Demo';
 const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platform →';
 ---
@@ -64,8 +64,9 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
         <span class="dom-dot"></span>
         <span class="dom">e-any.com</span>
       </div>
-      <div id="tagline">The Future of Financial Intelligence</div>
-      <div id="sub-tagline">From Istanbul to the World.</div>
+      <div id="tagline">{lang === 'tr' ? 'Her Finansal Süreç.' : 'One Platform.'}</div>
+      <div id="sub-tagline">{lang === 'tr' ? 'Tek Platform.' : 'Every Financial Operation.'}</div>
+      <div id="slogan-line">From Istanbul to the World.</div>
       <p id="hero-desc">{heroDesc}</p>
       <div id="hero-ctas">
         <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="cta-primary" id="cta-demo">{ctaPrimary}</a>
@@ -284,16 +285,30 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
 
   #sub-tagline {
     font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--text);
     opacity: 0;
-    margin-top: 10px;
-    letter-spacing: 0.06em;
+    margin-top: 6px;
+    letter-spacing: 0.1em;
+    transition: opacity 0.8s, transform 0.8s;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #sub-tagline.show { opacity: 0.9; }
+
+  #slogan-line {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--lime);
+    opacity: 0;
+    margin-top: 14px;
+    letter-spacing: 0.08em;
     transition: opacity 0.8s, transform 0.8s;
     text-align: center;
   }
-  #sub-tagline.show { opacity: 0.55; }
+  #slogan-line.show { opacity: 0.75; }
 
   #hero-desc {
     font-family: var(--font-sans);
@@ -354,8 +369,11 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
     padding: 14px 28px;
     border-radius: 12px;
     background: transparent;
-    color: var(--text-70);
+    color: var(--text-40);
     border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 12px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
     letter-spacing: -0.01em;
@@ -666,6 +684,10 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
         tids.push(setTimeout(() => { dom.classList.add('show'); }, 550));
         tids.push(setTimeout(() => { tag.classList.add('show'); }, 820));
         tids.push(setTimeout(() => { subTag.classList.add('show'); }, 1000));
+        tids.push(setTimeout(() => {
+          const slogan = document.getElementById('slogan-line');
+          if(slogan) slogan.classList.add('show');
+        }, 1100));
         tids.push(setTimeout(() => {
           const heroDesc = document.getElementById('hero-desc');
           if(heroDesc) heroDesc.classList.add('show');
