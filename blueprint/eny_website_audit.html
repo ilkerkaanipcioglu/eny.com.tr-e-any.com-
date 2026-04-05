@@ -1,0 +1,186 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.section { margin: 1.5rem 0; }
+.section-title { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px; }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+.badge-red { background: var(--color-background-danger); color: var(--color-text-danger); }
+.badge-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+.badge-green { background: var(--color-background-success); color: var(--color-text-success); }
+.badge-blue { background: var(--color-background-info); color: var(--color-text-info); }
+.issue-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.issue-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.compare-box { padding: 8px 10px; border-radius: 6px; font-size: 12px; line-height: 1.5; }
+.now { background: var(--color-background-danger); color: var(--color-text-danger); }
+.better { background: var(--color-background-success); color: var(--color-text-success); }
+.compare-label { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; opacity: 0.7; }
+.score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.score-label { font-size: 13px; color: var(--color-text-secondary); width: 130px; flex-shrink: 0; }
+.score-bar { flex: 1; height: 6px; background: var(--color-border-tertiary); border-radius: 3px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 3px; }
+.score-val { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); width: 28px; text-align: right; }
+.ask-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: transparent; border: 0.5px solid var(--color-border-secondary); border-radius: 4px; padding: 4px 10px; cursor: pointer; color: var(--color-text-secondary); margin-top: 8px; }
+.ask-btn:hover { background: var(--color-background-secondary); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+</style>
+
+<div style="padding: 0.5rem 0 2rem;">
+
+<div class="section">
+  <div class="section-title">Genel Değerlendirme</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size: 32px; font-weight: 500; color: var(--color-text-warning);">6.2</div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 2px;">Mevcut Skor / 10</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size: 32px; font-weight: 500; color: var(--color-text-success);">9.1</div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 2px;">Blueprint Hedefi / 10</div>
+    </div>
+  </div>
+  <div class="score-row"><span class="score-label">Mesaj netliği</span><div class="score-bar"><div class="score-fill" style="width:55%;background:#EF9F27"></div></div><span class="score-val">5.5</span></div>
+  <div class="score-row"><span class="score-label">Global sinyal</span><div class="score-bar"><div class="score-fill" style="width:45%;background:#E24B4A"></div></div><span class="score-val">4.5</span></div>
+  <div class="score-row"><span class="score-label">Trust & sertifika</span><div class="score-bar"><div class="score-fill" style="width:70%;background:#639922"></div></div><span class="score-val">7.0</span></div>
+  <div class="score-row"><span class="score-label">Teknik içerik</span><div class="score-bar"><div class="score-fill" style="width:75%;background:#639922"></div></div><span class="score-val">7.5</span></div>
+  <div class="score-row"><span class="score-label">CTA etkinliği</span><div class="score-bar"><div class="score-fill" style="width:40%;background:#E24B4A"></div></div><span class="score-val">4.0</span></div>
+  <div class="score-row"><span class="score-label">Okunurluk / UX</span><div class="score-bar"><div class="score-fill" style="width:50%;background:#EF9F27"></div></div><span class="score-val">5.0</span></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Kritik Sorunlar</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-red">Kritik</span>
+      <span class="issue-title">Hero mesajı çift slogan çakışması</span>
+    </div>
+    <p class="issue-body">Hero'da hem "Built for Turkey. Designed for the World." hem "From Istanbul to the World." aynı anda görünüyor. Bu ikisi alternatif seçenekti — ikisi birden zayıflatıyor.</p>
+    <div class="compare">
+      <div class="compare-box now"><div class="compare-label">Şu an</div>"Built for Turkey. Designed for the World." + "From Istanbul to the World." — ikisi birden</div>
+      <div class="compare-box better"><div class="compare-label">Öneri</div>Sadece birini seç. "From Istanbul to the World." daha güçlü — tek cümle, net vizyon.</div>
+    </div>
+    <button class="ask-btn" onclick="sendPrompt('eny hero bölümü için en iyi slogan hangisi olmalı, detaylı karşılaştırma yap')">Detaylı karşılaştır ↗</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-red">Kritik</span>
+      <span class="issue-title">CTA (Eylem çağrısı) yok</span>
+    </div>
+    <p class="issue-body">Ana sayfada belirgin bir "Demo Al", "İletişime Geç" veya "Başla" butonu görünmüyor. Ziyaretçi ne yapacağını bilmiyor. B2B bir fintech sitesinde bu dönüşüm katilleri #1'dir.</p>
+    <div class="compare">
+      <div class="compare-box now"><div class="compare-label">Şu an</div">Sadece "Detaylı İncele →" linkleri var, birincil CTA yok</div>
+      <div class="compare-box better"><div class="compare-label">Öneri</div>Hero'ya "Demo Talep Et" (primary) + "Hizmetleri İncele" (ghost) ikili CTA ekle</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-red">Kritik</span>
+      <span class="issue-title">Teknik jargon okunurluk engeliyor</span>
+    </div>
+    <p class="issue-body">İlk ekranda "Sovereign Cloud Mimarisi", "Multi-jurisdiction Compliance", "ISO 20022", "SWIFT gpi" — karar vericiler (CFO, CTO) için çok yoğun. Teknik detaylar alt sayfalara taşınmalı.</p>
+    <div class="compare">
+      <div class="compare-box now"><div class="compare-label">Şu an</div>Hero trust bandında 5 teknik sertifika + 4 teknik özellik = bilgi seli</div>
+      <div class="compare-box better"><div class="compare-label">Öneri</div>Hero'da 2-3 ana değer önerisi, teknikler aşağıda "neden güvenli" bölümünde</div>
+    </div>
+    <button class="ask-btn" onclick="sendPrompt('eny.com.tr hero bölümü için daha sade ama etkili bir içerik yapısı öner')">İçerik yapısı öner ↗</button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Orta Öncelikli Öneriler</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-amber">Önemli</span>
+      <span class="issue-title">Dil seçici eksik</span>
+    </div>
+    <p class="issue-body">Blueprint'te belirtilen EN / TR toggle navbar'da görünmüyor. Global hedef için bu görünürlük sinyali kritik — özellikle ihale komiteleri İngilizce içerik arar.</p>
+    <div class="tag-row">
+      <span class="tag">Navbar'a 🇹🇷 TR | 🇬🇧 EN ekle</span>
+      <span class="tag">İleride FR, PT desteği</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-amber">Önemli</span>
+      <span class="issue-title">"Proven at Scale" bölümü daha güçlü olabilir</span>
+    </div>
+    <p class="issue-body">%340 tahsilat artışı ve 4.2M kullanıcı verisi var ama görsel hiyerarşi zayıf. Bu rakamlar en büyük ikna aracı — animasyonlu sayaç ve bağlam cümlesi güçlendirilmeli.</p>
+    <div class="compare">
+      <div class="compare-box now"><div class="compare-label">Şu an</div>Rakamlar düz metin içinde, bağlam cümlesi uzun ve teknik</div>
+      <div class="compare-box better"><div class="compare-label">Öneri</div>Büyük animasyonlu sayaçlar + kısa 1 cümlelik açıklama + "nasıl yaptık?" linki</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-amber">Önemli</span>
+      <span class="issue-title">Treasury bölümü linksiz</span>
+    </div>
+    <p class="issue-body">Diğer 3 hizmet kartında "Detaylı İncele" linki var, Treasury'de sadece "#treasury" anchor — alt sayfa yok. Bu güven sorunu yaratır.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-amber">Önemli</span>
+      <span class="issue-title">Sertifika bandı konumu optimize edilmeli</span>
+    </div>
+    <p class="issue-body">GİB, PCI-DSS, ISO sertifikaları hero üstünde ince bir bant olarak görünüyor. Blueprint'e göre ISO 20022 ve SWIFT gpi de eklenmeli, logo/rozet formatına getirilmeli.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">İçerik & Konumlandırma Önerileri</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-blue">İçerik</span>
+      <span class="issue-title">Blueprint'teki "Global Ready" bölümü eksik</span>
+    </div>
+    <p class="issue-body">Blueprint'te tasarlanan ve ihalelerde kritik olan "Global Infrastructure" bölümü ana sayfada yok. Sovereign cloud, veri lokalizasyonu, DPI uyumluluğu — bunlar alt sayfalara gömülmüş.</p>
+    <div class="tag-row">
+      <span class="tag">Sovereign Cloud</span>
+      <span class="tag">Multi-jurisdiction compliance</span>
+      <span class="tag">Financial inclusion</span>
+      <span class="tag">DPI uyumlu</span>
+      <span class="tag">Last-mile payment</span>
+    </div>
+    <button class="ask-btn" onclick="sendPrompt('eny.com.tr için Global Ready bölümü içeriği yaz, Dünya Bankası ve ihale jargonunu kullan')">İçerik yaz ↗</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-blue">İçerik</span>
+      <span class="issue-title">Case Study formatı geliştirilmeli</span>
+    </div>
+    <p class="issue-body">4.2M vatandaş / %340 artış bilgisi var ama "Proven at Scale" bölümü tek bir case study ile sınırlı. Anonim formatla 2-3 farklı sektör/ölçek gösterilebilir.</p>
+    <div class="compare">
+      <div class="compare-box now"><div class="compare-label">Şu an</div>1 case study, 3 metrik</div>
+      <div class="compare-box better"><div class="compare-label">Öneri</div>Kamu / E-ticaret / Treasury olarak 3 farklı anonim case study kartı</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Hızlı Kazanımlar (Bu Hafta Yapılabilir)</div>
+  <div class="card">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--color-text-success);font-weight:500;">1.</span> <span>İkili slogan'dan birini kaldır → "From Istanbul to the World." bırak</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--color-text-success);font-weight:500;">2.</span> <span>Hero'ya "Demo Talep Et" CTA butonu ekle</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--color-text-success);font-weight:500;">3.</span> <span>Navbar'a EN / TR dil toggle ekle</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--color-text-success);font-weight:500;">4.</span> <span>Treasury kartına /hizmetler/treasury linki ver</span></div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="color:var(--color-text-success);font-weight:500;">5.</span> <span>Sertifika bandına ISO 20022 + SWIFT gpi ekle</span></div>
+    </div>
+    <button class="ask-btn" onclick="sendPrompt('eny.com.tr için öncelik sırasına göre tüm değişikliklerin implementation planını hazırla')">Uygulama planı oluştur ↗</button>
+  </div>
+</div>
+
+</div>
