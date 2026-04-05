@@ -56,9 +56,17 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
     <!-- Premium Logo Block -->
     <div id="logo-block">
       <div id="logo-glow"></div>
-      <div id="logo-image-container">
-        <img src="/images/logo/eny_full_dark.png" alt="eny" class="intro-logo hidden-in-light" />
-        <img src="/images/logo/eny_full_light.png" alt="eny" class="intro-logo hidden-in-dark" />
+      <div id="logo-image-container" class="flicker-logo">
+        <div class="intro-logo-row flex items-center justify-center">
+            <div class="intro-icon-wrapper relative">
+                <div class="neon-glow-bg"></div>
+                <img src="/images/logo/eny_icon.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-light" />
+                <img src="/images/logo/eny_icon_black.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-dark" />
+            </div>
+            <div class="intro-text-wrapper">
+                <span class="intro-wordmark text-[100px] md:text-[140px] font-extrabold tracking-tighter text-text-main" style="font-family: var(--font-sans)">eny<span class="intro-dot text-lime">.</span></span>
+            </div>
+        </div>
       </div>
       <div id="domains">
         <span class="dom">eny.com.tr</span>
@@ -270,16 +278,63 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2rem;
   }
-  .intro-logo {
-    height: clamp(100px, 15vw, 180px);
+
+  .intro-logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    animation: neon-flicker 4s infinite alternate;
+  }
+
+  .intro-logo-icon {
+    height: clamp(140px, 22vw, 260px);
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 30px var(--lime-glow));
+    filter: drop-shadow(0 0 25px var(--lime-glow));
     transition: filter 0.6s, transform 0.6s;
   }
+
+  .intro-wordmark {
+    font-size: clamp(100px, 16vw, 180px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    font-family: var(--font-sans);
+    font-weight: 800;
+  }
+
+  .intro-dot {
+    display: inline-block;
+    animation: dot-heartbeat 2.5s infinite;
+    text-shadow: 0 0 20px var(--lime-glow);
+  }
+
+  /* Premium Neon Flicker Animation */
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 30px var(--lime-glow));
+    }
+    20%, 24%, 55% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 10px var(--lime-glow));
+    }
+    22% {
+      opacity: 0.9;
+      filter: drop-shadow(0 0 20px var(--lime-glow));
+    }
+  }
+
+  /* Signature Dot Heartbeat */
+  @keyframes dot-heartbeat {
+    0%, 100% { transform: scale(1); opacity: 1; text-shadow: 0 0 25px var(--lime-glow); }
+    50% { transform: scale(1.15); opacity: 0.8; text-shadow: 0 0 45px var(--lime-glow); }
+  }
+
   .intro-logo:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
     filter: drop-shadow(0 0 50px var(--lime-glow));
   }
   :global([data-theme="light"]) #logo-dot { color: #3a7a20; text-shadow: none; }
