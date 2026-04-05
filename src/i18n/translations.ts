@@ -25,6 +25,15 @@ export const translations = {
     heroStatLabel2: 'Global Entegrasyon',
     heroExpBadge: '%40 Daha Hızlı Finansal Kapanış',
 
+    // -- Intro Animation --
+    introTagline: 'Finansal İşletim Sistemi',
+    introSubTagline: 'Global. Egemen. Entegre.',
+    introHeroDesc: 'Regtech\'ten fintech\'e, e-ticaretten hazine yönetimine — tüm finansal operasyonlarınızı tek bir akıllı platformda yönetin. Türkiye\'de inşa edildi, dünya standartlarında tasarlandı.',
+    introCtaPrimary: 'Demo Talep Et',
+    introCtaSecondary: 'Hizmetleri İncele →',
+    introReplay: '↺ tekrar',
+    introStatus: 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR',
+
     // -- Problem / Solution --
     psSectionTitle: 'Manuel Süreçlerden Otomasyona',
     psSectionDesc: 'SAP mimarisi ve AI destekli yaklaşımlarla finansal operasyonlardaki darboğazları çözüyor, veri odaklı bir altyapı kuruyoruz.',
@@ -201,6 +210,15 @@ export const translations = {
     heroStatLabel1: 'Successfully Completed',
     heroStatLabel2: 'Global Integrations',
     heroExpBadge: '40% Faster Financial Closing',
+
+    // -- Intro Animation --
+    introTagline: 'Financial Operating System',
+    introSubTagline: 'Global. Sovereign. Integrated.',
+    introHeroDesc: 'From regtech to fintech, from e-commerce to treasury management — manage all your financial operations on a single intelligent platform. Built in Turkey, designed for global standards.',
+    introCtaPrimary: 'Request a Demo',
+    introCtaSecondary: 'Explore Platform →',
+    introReplay: '↺ replay',
+    introStatus: 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR',
 
     psSectionTitle: 'From Manual to Automation',
     psSectionDesc: 'We resolve bottlenecks in financial operations with SAP architecture and AI, building a data-driven foundation.',

@@ -1,40 +1,40 @@
 ---
+import { t, type Lang } from '../i18n/utils';
+
 export interface Props {
-  lang?: 'tr' | 'en';
+  lang?: Lang;
 }
 
 const { lang = 'tr' } = Astro.props;
 
 const trWords = [
-  'e-fatura','e-dönüşüm','e-arşiv','e-defter',
-  'e-imza','e-irsaliye','e-ödeme','e-tahsilat',
-  'e-dbs','e-ekstre','e-ticaret','e-devlet',
-  'e-checkout','e-mutabakat','e-sözleşme','e-tebligat',
-  'e-bilet','e-analitik','e-anything','e-everything',
-  'e-something','e-blabla','e-any.com','ENY.COM.TR'
+  'e-fatura', 'e-dönüşüm', 'e-arşiv', 'e-defter',
+  'e-imza', 'e-irsaliye', 'e-ödeme', 'e-tahsilat',
+  'e-dbs', 'e-ekstre', 'e-ticaret', 'e-devlet',
+  'e-checkout', 'e-mutabakat', 'e-sözleşme', 'e-tebligat',
+  'e-bilet', 'e-analitik', 
+  'e-loyalty', 'e-ihracat', 'e-cüzdan', 'e-muhasebe', 
+  'e-lojistik', 'e-satınalma', 'e-öğrenme', 'e-sağlık',
+  'e-anything', 'e-everything',
+  'e-somting', 'e-somethingelse', 'e-any', 'e-any.com', 'ENY.COM.TR', 
 ];
 
 const enWords = [
-  'e-invoice','e-transformation','e-archive','e-ledger',
-  'e-signature','e-waybill','e-payment','e-collection',
-  'e-dbs','e-statement','e-commerce','e-government',
-  'e-checkout','e-reconciliation','e-contract','e-notification',
-  'e-ticket','e-analytics','e-anything','e-everything',
-  'e-something','e-blabla','e-any.com','ENY.COM.TR'
+  'e-invoice', 'e-transformation', 'e-archive', 'e-ledger',
+  'e-signature', 'e-waybill', 'e-payment', 'e-collection',
+  'e-dds', 'e-statement', 'e-commerce', 'e-government',
+  'e-checkout', 'e-reconciliation', 'e-contract', 'e-notification',
+  'e-ticket', 'e-analytics', 
+  'e-loyalty', 'e-export', 'e-wallet', 'e-accounting',
+  'e-logistics', 'e-procurement', 'e-learning', 'e-health',
+  'e-anything', 'e-everything',
+  'e-somting', 'e-somethingelse', 'e-any', 'e-any.com', 'ENY.COM.TR', 
 ];
 
 const words = lang === 'tr' ? trWords : enWords;
 const wordsJson = JSON.stringify(words);
 
-const themeText = lang === 'tr' ? 'tema' : 'theme';
-const replayText = lang === 'tr' ? '↺ tekrar' : '↺ replay';
-const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR';
-
-const heroDesc = lang === 'tr'
-  ? 'Regtech\'ten fintech\'e, e-ticaretten hazine yönetimine — tüm finansal operasyonlarınızı tek bir akıllı platformda yönetin. Türkiye\'de inşa edildi, dünya standartlarında tasarlandı.'
-  : 'From regtech to fintech, from e-commerce to treasury management — manage all your financial operations on a single intelligent platform. Built in Turkey, designed for global standards.';
-const ctaPrimary = lang === 'tr' ? 'Demo Talep Et' : 'Request a Demo';
-const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platform →';
+const introStatus = t('introStatus', lang);
 ---
 
 <div id="intro-stage" data-lang={lang} data-words={wordsJson}>
@@ -69,23 +69,21 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
         </div>
       </div>
       <div id="domains">
-        <span class="dom">eny.com.tr</span>
-        <span class="dom-dot"></span>
-        <span class="dom">e-any.com</span>
+        <span class="dom">{lang === 'tr' ? 'eny.com.tr' : 'e-any.com'}</span>
       </div>
-      <div id="tagline">{lang === 'tr' ? 'Finansal İşletim Sistemi' : 'Financial Operating System'}</div>
-      <div id="sub-tagline">{lang === 'tr' ? 'Global. Egemen. Entegre.' : 'Global. Sovereign. Integrated.'}</div>
-      <p id="hero-desc">{heroDesc}</p>
+      <div id="tagline">{t('introTagline', lang)}</div>
+      <div id="sub-tagline">{t('introSubTagline', lang)}</div>
+      <p id="hero-desc">{t('introHeroDesc', lang)}</p>
       <div id="hero-ctas">
-        <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="cta-primary" id="cta-demo">{ctaPrimary}</a>
-        <a href="#platform" class="cta-ghost" id="cta-explore">{ctaSecondary}</a>
+        <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="cta-primary" id="cta-demo">{t('introCtaPrimary', lang)}</a>
+        <a href="#platform" class="cta-ghost" id="cta-explore">{t('introCtaSecondary', lang)}</a>
       </div>
     </div>
   </div>
 
   <!-- Replay Button -->
-  <button id="replay-btn">{replayText}</button>
-  <div id="status-bar" set:html={statusText}></div>
+  <button id="replay-btn">{t('introReplay', lang)}</button>
+  <div id="status-bar" set:html={introStatus}></div>
 </div>
 
 <style>
