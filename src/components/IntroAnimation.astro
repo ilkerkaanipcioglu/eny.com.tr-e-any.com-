@@ -180,13 +180,20 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
     letter-spacing: 0.04em;
     opacity: 0;
     transform: translateY(4px);
-    transition: color 0.4s, opacity 0.35s, transform 0.35s, text-shadow 0.4s;
+    transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
     white-space: nowrap;
+    text-decoration: none;
+    pointer-events: none;
   }
   :global(.sw.on) {
     opacity: 1;
     transform: translateY(0);
     color: var(--word-on);
+    pointer-events: auto;
+  }
+  :global(.sw.on:hover) {
+    color: var(--lime);
+    transform: translateY(-2px) scale(1.05);
   }
   :global(.sw.glow) {
     color: var(--word-glow);
@@ -590,12 +597,39 @@ const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platfor
       const area = document.getElementById('stream-area');
       area.innerHTML = '';
       const els = [];
+      
+      const getLink = (word) => {
+        const w = word.toLowerCase();
+        if (w === 'e-any.com') return 'https://e-any.com';
+        if (w === 'eny.com.tr') return 'https://eny.com.tr';
+        
+        if (lang === 'tr') {
+          if (['e-fatura','e-arşiv','e-defter','e-irsaliye','e-ödeme','e-tahsilat','e-dbs','e-ekstre','e-checkout','e-mutabakat','e-sözleşme','e-tebligat','e-bilet','e-analitik'].includes(w)) return '/urunler';
+          if (w === 'e-dönüşüm') return '/hizmetler';
+          if (w === 'e-ticaret') return '/e-ticaret';
+          if (w === 'e-devlet' || w === 'e-imza') return '/lokalizasyon';
+          return '/urunler';
+        } else {
+          if (['e-invoice','e-archive','e-ledger','e-waybill','e-payment','e-collection','e-dbs','e-statement','e-checkout','e-reconciliation','e-contract','e-notification','e-ticket','e-analytics'].includes(w)) return '/en/products';
+          if (w === 'e-transformation') return '/en/services';
+          if (w === 'e-commerce') return '/e-ticaret';
+          if (w === 'e-government' || w === 'e-signature') return '/en/rollout';
+          return '/en/products';
+        }
+      };
+
       WORDS.forEach((w, i) => {
-        const s = document.createElement('span');
-        s.className = 'sw' + (i >= WORDS.length - 2 ? ' highlight' : '');
-        s.textContent = w;
-        area.appendChild(s);
-        els.push(s);
+        const el = document.createElement('a');
+        el.href = getLink(w);
+        el.className = 'sw' + (i >= WORDS.length - 2 ? ' highlight' : '');
+        el.textContent = w;
+        // Only point to new tab for external domains
+        if (w.includes('.com') || w.includes('.tr')) {
+           el.target = "_blank";
+           el.rel = "noopener noreferrer";
+        }
+        area.appendChild(el);
+        els.push(el);
       });
 
       const lb = document.getElementById('logo-block');

@@ -29,8 +29,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.
     <title>{title} | eny</title>
     <meta name="description" content={description} />
     
-    <!-- SEO / Canonical -->
+    <!-- SEO / Canonical / Hreflang (Independent Domains) -->
     <link rel="canonical" href={canonicalURL.href} />
+    <link rel="alternate" hreflang="tr" href="https://eny.com.tr/" />
+    <link rel="alternate" hreflang="en" href="https://e-any.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://eny.com.tr/" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
@@ -38,6 +41,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:title" content={`${title} | eny`} />
     <meta property="og:description" content={description} />
+
+    <!-- Geo-IP & Language Preference (Domain Specific) -->
+    <script is:inline>
+      (function() {
+        const pref = localStorage.getItem('eny-lang-pref');
+        const geoChecked = sessionStorage.getItem('eny-geo-checked');
+        const currentPath = window.location.pathname;
+        const currentHost = window.location.hostname;
+        const isEnPath = currentPath.startsWith('/en');
+        const isEnDomain = currentHost === 'e-any.com';
+        const isTrDomain = currentHost === 'eny.com.tr';
+
+        // 1. Skip if on localhost for dev ease (uncomment for production if needed)
+        // if (currentHost === 'localhost') return;
+
+        // 2. Local Preference Override
+        if (pref) {
+          if (pref === 'en' && isTrDomain) {
+            window.location.href = 'https://e-any.com' + currentPath;
+            return;
+          } else if (pref === 'tr' && isEnDomain) {
+            window.location.href = 'https://eny.com.tr' + currentPath.replace('/en/', '/');
+            return;
+          }
+        }
+
+        // 3. Geo-IP Check (Session-based)
+        if (!geoChecked && (currentPath === '/' || currentPath === '/en' || currentPath === '/en/')) {
+          fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(data => {
+              sessionStorage.setItem('eny-geo-checked', 'true');
+              if (data.country_code && data.country_code !== 'TR') {
+                // Non-TR -> Redirect to e-any.com if not already there
+                if (isTrDomain) {
+                  localStorage.setItem('eny-lang-pref', 'en');
+                  window.location.href = 'https://e-any.com' + currentPath;
+                }
+              } else if (data.country_code === 'TR') {
+                // TR -> Redirect to eny.com.tr if not already there
+                if (isEnDomain) {
+                  localStorage.setItem('eny-lang-pref', 'tr');
+                  window.location.href = 'https://eny.com.tr' + currentPath.replace('/en/', '/');
+                }
+              }
+            })
+            .catch(err => {
+              console.error('Geo-IP check failed', err);
+              sessionStorage.setItem('eny-geo-checked', 'true');
+            });
+        }
+      })();
+    </script>
 
     <!-- Theme: track OS preference dynamically -->
     <script is:inline>
@@ -67,6 +123,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+
   </head>
   <body class="selection:bg-lime selection:text-[#050806]">
     <div id="app">

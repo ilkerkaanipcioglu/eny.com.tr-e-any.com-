@@ -220,11 +220,11 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                 <div class="absolute top-full right-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
                     <div class="absolute -top-4 right-0 w-full h-4"></div>
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-xl w-[140px] flex py-2 flex-col overflow-hidden backdrop-blur-3xl">
-                        <a href={getAlternateLangPath(currentPath, 'en')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-plum bg-plum/5 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`}>
+                        <a href={`https://eny.com.tr${getAlternateLangPath(currentPath, 'en')}`} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-plum bg-plum/5 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="tr">
                             Türkçe 
                             {lang === 'tr' && <span class="material-symbols-outlined text-[16px]">check</span>}
                         </a>
-                        <a href={getAlternateLangPath(currentPath, 'tr')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-plum bg-plum/5 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`}>
+                        <a href={`https://e-any.com${getAlternateLangPath(currentPath, 'tr')}`} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-plum bg-plum/5 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="en">
                             English
                             {lang === 'en' && <span class="material-symbols-outlined text-[16px]">check</span>}
                         </a>
@@ -276,11 +276,11 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
              {lang === 'tr' ? (
                  <>
                      <span class="px-6 py-2.5 rounded-full bg-plum text-white text-sm font-bold tracking-wide w-1/2 text-center">TR</span>
-                     <a href={alternateLangPath} class="px-6 py-2.5 rounded-full text-text-40 text-sm font-bold tracking-wide hover:text-text-main transition-colors w-1/2 text-center">EN</a>
+                     <a href={`https://e-any.com${alternateLangPath}`} class="px-6 py-2.5 rounded-full text-text-40 text-sm font-bold tracking-wide hover:text-text-main transition-colors w-1/2 text-center" data-lang-switcher="en">EN</a>
                  </>
              ) : (
                  <>
-                     <a href={alternateLangPath} class="px-6 py-2.5 rounded-full text-text-40 text-sm font-bold tracking-wide hover:text-text-main transition-colors w-1/2 text-center">TR</a>
+                     <a href={`https://eny.com.tr${alternateLangPath}`} class="px-6 py-2.5 rounded-full text-text-40 text-sm font-bold tracking-wide hover:text-text-main transition-colors w-1/2 text-center" data-lang-switcher="tr">TR</a>
                      <span class="px-6 py-2.5 rounded-full bg-plum text-white text-sm font-bold tracking-wide w-1/2 text-center">EN</span>
                  </>
              )}
@@ -326,4 +326,14 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
       }
     });
   }
+
+  // Language Preference Persistence
+  document.querySelectorAll('[data-lang-switcher]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const newLang = el.getAttribute('data-lang-switcher');
+      if (newLang) {
+        localStorage.setItem('eny-lang-pref', newLang);
+      }
+    });
+  });
 </script>
