@@ -92,6 +92,7 @@
    --color-border-hover: var(--lime-soft);
    
    --color-primary: var(--lime);
+   --color-primary-dark: #7A9610;
    --color-surface-container: var(--bg2);
    --color-surface-container-low: var(--bg);
    --color-surface-container-lowest: var(--surface);
@@ -101,10 +102,7 @@
    --color-on-background: var(--text);
    --color-outline: var(--border);
    --color-outline-variant: var(--border);
-
-   --color-plum: #82165F;
-   --color-plum-hover: #A81C7A;
-   --color-teal: #2DD4BF;
+   
    --color-nav-bg: var(--nav-bg);
    --color-bg3: var(--surface);
 
