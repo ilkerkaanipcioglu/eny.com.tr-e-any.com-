@@ -28,7 +28,7 @@ const wordsJson = JSON.stringify(words);
 
 const themeText = lang === 'tr' ? 'tema' : 'theme';
 const replayText = lang === 'tr' ? '↺ tekrar' : '↺ replay';
-const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001';
+const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi';
 ---
 
 <div id="intro-stage" data-lang={lang} data-words={wordsJson}>
@@ -59,6 +59,10 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
         <span class="dom">e-any.com</span>
       </div>
       <div id="tagline">The Future of Financial Intelligence</div>
+      <div id="sub-tagline">
+        <span class="st1">Built for Turkey. Designed for the World.</span>
+        <span class="st2">From Istanbul to the World.</span>
+      </div>
     </div>
   </div>
 </div>
@@ -270,6 +274,37 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
   }
   #tagline.show { opacity: 1; }
 
+  #sub-tagline {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0;
+    margin-top: 8px;
+    height: 16px;
+    position: relative;
+    transition: opacity 0.8s, transform 0.8s;
+    width: 100%;
+  }
+  #sub-tagline.show { opacity: 0.6; }
+
+  #sub-tagline span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    animation: fadeRotate 10s infinite;
+  }
+  #sub-tagline .st1 { animation-delay: 0s; }
+  #sub-tagline .st2 { animation-delay: 5s; }
+
+  @keyframes fadeRotate {
+    0%, 10%   { opacity: 0; transform: translate(-50%, 4px); }
+    15%, 45%  { opacity: 1; transform: translate(-50%, 0); }
+    50%, 100% { opacity: 0; transform: translate(-50%, -4px); }
+  }
+
   .corner {
     position: absolute;
     width: 20px; height: 20px;
@@ -477,6 +512,7 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
       const lb = document.getElementById('logo-block');
       const dom = document.getElementById('domains');
       const tag = document.getElementById('tagline');
+      const subTag = document.getElementById('sub-tagline');
       const rt = document.getElementById('rule-top');
       const rb = document.getElementById('rule-bot');
       const corners = ['c-tl','c-tr','c-bl','c-br'].map(id => document.getElementById(id));
@@ -485,6 +521,7 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
       lb.classList.remove('show');
       dom.classList.remove('show');
       tag.classList.remove('show');
+      subTag.classList.remove('show');
       if(themeBtn) themeBtn.classList.remove('show');
       if(replayBtn) replayBtn.classList.remove('show');
       statusBar.classList.remove('show');
@@ -553,6 +590,7 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
         }, 250));
         tids.push(setTimeout(() => { dom.classList.add('show'); }, 550));
         tids.push(setTimeout(() => { tag.classList.add('show'); }, 820));
+        tids.push(setTimeout(() => { subTag.classList.add('show'); }, 1000));
         tids.push(setTimeout(() => { corners.forEach(c => c.classList.add('show')); }, 400));
         tids.push(setTimeout(() => {
           if(themeBtn) themeBtn.classList.add('show');
