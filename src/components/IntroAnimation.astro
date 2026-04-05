@@ -695,34 +695,62 @@ const introStatus = t('introStatus', lang);
       
       const getLink = (word) => {
         const w = word.toLowerCase();
+        // Specific links for certain branded items
         if (w === 'e-any.com') return 'https://e-any.com';
         if (w === 'eny.com.tr') return 'https://eny.com.tr';
         
-        if (lang === 'tr') {
-          if (['e-fatura','e-arşiv','e-defter','e-irsaliye','e-ödeme','e-tahsilat','e-dbs','e-ekstre','e-checkout','e-mutabakat','e-sözleşme','e-tebligat','e-bilet','e-analitik'].includes(w)) return '/urunler';
-          if (w === 'e-dönüşüm') return '/hizmetler';
-          if (w === 'e-ticaret') return '/e-ticaret';
-          if (w === 'e-devlet' || w === 'e-imza') return '/lokalizasyon';
-          return '/urunler';
-        } else {
-          if (['e-invoice','e-archive','e-ledger','e-waybill','e-payment','e-collection','e-dbs','e-statement','e-checkout','e-reconciliation','e-contract','e-notification','e-ticket','e-analytics'].includes(w)) return '/en/products';
-          if (w === 'e-transformation') return '/en/services';
-          if (w === 'e-commerce') return '/e-ticaret';
-          if (w === 'e-government' || w === 'e-signature') return '/en/rollout';
-          return '/en/products';
+        // Everything else goes to homepage root based on language
+        return lang === 'tr' ? '/' : '/en/';
+      };
+
+      const handleHeader = () => {
+        const nav = document.getElementById('main-nav');
+        if (nav) {
+          nav.classList.add('scrolled', 'forced-show');
+          nav.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
         }
       };
+
+      const skipIntro = (e) => {
+        // If 'e' is a click event, handle href
+        if (e && e.currentTarget) {
+          const href = e.currentTarget.getAttribute('href');
+          if (href && href.startsWith('http')) return; 
+          e.preventDefault();
+        }
+
+        tids.forEach(id => clearTimeout(id));
+        els.forEach(el => {
+          el.classList.remove('glow');
+          el.classList.add('dim');
+          el.classList.add('on');
+        });
+        showLogo();
+        handleHeader();
+      };
+
+      // Auto-skip on scroll (early exit)
+      const onInitialScroll = () => {
+        if (window.scrollY > 25) {
+          skipIntro();
+          window.removeEventListener('scroll', onInitialScroll);
+        }
+      };
+      window.addEventListener('scroll', onInitialScroll);
 
       WORDS.forEach((w, i) => {
         const el = document.createElement('a');
         el.href = getLink(w);
         el.className = 'sw' + (i >= WORDS.length - 2 ? ' highlight' : '');
         el.textContent = w;
-        // Only point to new tab for external domains
+        
         if (w.includes('.com') || w.includes('.tr')) {
            el.target = "_blank";
            el.rel = "noopener noreferrer";
+        } else {
+           el.addEventListener('click', skipIntro);
         }
+
         area.appendChild(el);
         els.push(el);
       });
@@ -804,6 +832,7 @@ const introStatus = t('introStatus', lang);
       };
 
       const showLogo = () => {
+        handleHeader();
         lb.classList.add('show');
         if(lg) lg.classList.add('show');
         nrgs.forEach(n => n.classList.add('on'));
