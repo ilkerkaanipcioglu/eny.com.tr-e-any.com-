@@ -7,16 +7,27 @@
   title="Toggle dark/light theme"
 >
   <!-- Sun icon (shown in dark mode) -->
-  <span class="material-symbols-outlined text-[20px] theme-icon-sun">light_mode</span>
+  <span class="material-symbols-outlined text-[22px] theme-icon-sun">light_mode</span>
   <!-- Moon icon (shown in light mode) -->
-  <span class="material-symbols-outlined text-[20px] theme-icon-moon hidden">dark_mode</span>
+  <span class="material-symbols-outlined text-[22px] theme-icon-moon">dark_mode</span>
 </button>
 
 <style>
-  [data-theme="light"] .theme-icon-sun { display: none; }
-  [data-theme="light"] .theme-icon-moon { display: inline; }
-  [data-theme="dark"] .theme-icon-sun  { display: inline; }
-  [data-theme="dark"] .theme-icon-moon  { display: none; }
+  .theme-toggle-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  .material-symbols-outlined {
+    position: absolute;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+  
+  /* Initial states */
+  [data-theme="dark"] .theme-icon-sun { transform: rotate(0deg); opacity: 1; }
+  [data-theme="dark"] .theme-icon-moon { transform: rotate(90deg); opacity: 0; pointer-events: none; }
+
+  [data-theme="light"] .theme-icon-sun { transform: rotate(-90deg); opacity: 0; pointer-events: none; }
+  [data-theme="light"] .theme-icon-moon { transform: rotate(0deg); opacity: 1; }
 </style>
 
 <script>
