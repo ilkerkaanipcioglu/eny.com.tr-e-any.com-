@@ -1,0 +1,12 @@
+- [/] Phase 1: Brand Identity Update (Logo & Favicon)
+    - [ ] Copy PNG logos to `public/images/logo/`
+    - [ ] Update `Header.astro` with new PNG logos
+    - [ ] Update `Footer.astro` with new PNG logos
+    - [ ] Update `Layout.astro` with new `favicon.png`
+- [ ] Phase 2: Final UX Bug Squashing
+    - [ ] Fix Header visibility on subpages (`forced-show`)
+    - [ ] Fix Vertical Text (Dikey Metin) bug on subpages
+- [ ] Phase 3: Verification
+    - [ ] Browser check: Logo/Favicon visual audit
+    - [ ] Browser check: Header visibility on all pages
+    - [ ] Browser check: Horizontal text on /lokalizasyon

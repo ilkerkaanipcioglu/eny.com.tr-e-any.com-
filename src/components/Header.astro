@@ -26,19 +26,13 @@ const alternateLangPath = getAlternateLangPath(currentPath, lang);
 const otherLang = lang === 'tr' ? 'EN' : 'TR';
 const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath === '/en/';
 ---
-<nav class={`fixed top-0 w-full z-50 glass-nav ${!isHomePage ? 'scrolled' : ''}`} id="main-nav" data-is-home={isHomePage ? 'true' : 'false'}>
+<nav class={`fixed top-0 w-full z-50 glass-nav ${!isHomePage ? 'scrolled forced-show' : ''}`} id="main-nav" data-is-home={isHomePage ? 'true' : 'false'}>
     <div class="flex justify-between items-center px-8 md:px-12 py-3.5 max-w-container mx-auto relative z-20">
         <!-- Logo -->
         <div class="flex items-center">
             <a href={getLocalePath('/', lang)} class="flex items-center group relative">
-                <!-- Dark Theme Logo (Visible in Dark Mode) -->
-                <svg width="120" height="40" viewBox="0 0 120 40" class="h-7 md:h-8 w-auto hidden-in-light text-white group-hover:text-lime transition-colors duration-400 ease-out fill-current">
-                    <text x="0" y="32" font-family="Syne, sans-serif" font-weight="800" font-size="32">eny.</text>
-                </svg>
-                <!-- Light Theme Logo (Visible in Light Mode) -->
-                <svg width="120" height="40" viewBox="0 0 120 40" class="h-7 md:h-8 w-auto hidden-in-dark text-[#0A0F0D] group-hover:text-lime transition-colors duration-400 ease-out fill-current">
-                    <text x="0" y="32" font-family="Syne, sans-serif" font-weight="800" font-size="32">eny.</text>
-                </svg>
+                <img src="/images/logo/eny_icon.png" alt="eny" class="h-10 md:h-11 w-auto object-contain hidden-in-light transition-transform duration-300 group-hover:scale-110" />
+                <img src="/images/logo/eny_icon_black.png" alt="eny" class="h-10 md:h-11 w-auto object-contain hidden-in-dark transition-transform duration-300 group-hover:scale-110" />
             </a>
         </div>
         <!-- Navigation (Desktop) -->
@@ -301,7 +295,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
   window.addEventListener('scroll', () => {
     if (nav) {
-      if (window.scrollY > 150) {
+      if (window.scrollY > 80) {
         nav.classList.add('scrolled');
       } else {
         if (isHome) {

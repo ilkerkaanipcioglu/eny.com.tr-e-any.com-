@@ -1,44 +1,88 @@
 ---
 // ThemeToggle.astro — Dark/Light switch with localStorage persistence
 ---
-<button
-  class="theme-toggle-btn w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-text-70 hover:text-text-main hover:bg-bg2 transition-colors cursor-pointer"
-  aria-label="Toggle theme"
-  title="Toggle dark/light theme"
->
-  <!-- Sun icon (shown in dark mode) -->
-  <span class="material-symbols-outlined text-[22px] theme-icon-sun">light_mode</span>
-  <!-- Moon icon (shown in light mode) -->
-  <span class="material-symbols-outlined text-[22px] theme-icon-moon">dark_mode</span>
-</button>
+<div class="theme-pill-container" title="Toggle dark/light theme">
+  <button class="theme-toggle-btn dark-btn" data-theme-set="dark" aria-label="Dark Mode">
+    <span class="material-symbols-outlined text-[18px]">dark_mode</span>
+  </button>
+  <button class="theme-toggle-btn light-btn" data-theme-set="light" aria-label="Light Mode">
+    <span class="material-symbols-outlined text-[18px]">light_mode</span>
+  </button>
+  <div class="theme-pill-slider"></div>
+</div>
 
 <style>
-  .theme-toggle-btn {
+  .theme-pill-container {
     position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    padding: 3px;
+    border-radius: 999px;
+    width: 82px;
+    height: 38px;
+    transition: border-color 0.4s;
     overflow: hidden;
   }
-  .material-symbols-outlined {
-    position: absolute;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  .theme-pill-container:hover {
+    border-color: var(--lime);
   }
-  
-  /* Initial states */
-  [data-theme="dark"] .theme-icon-sun { transform: rotate(0deg); opacity: 1; }
-  [data-theme="dark"] .theme-icon-moon { transform: rotate(90deg); opacity: 0; pointer-events: none; }
 
-  [data-theme="light"] .theme-icon-sun { transform: rotate(-90deg); opacity: 0; pointer-events: none; }
-  [data-theme="light"] .theme-icon-moon { transform: rotate(0deg); opacity: 1; }
+  .theme-toggle-btn {
+    position: relative;
+    z-index: 10;
+    width: 38px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--text-40);
+    transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .theme-pill-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 36px;
+    height: 32px;
+    background: var(--lime);
+    border-radius: 999px;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(208, 253, 23, 0.2);
+  }
+
+  [data-theme="dark"] .dark-btn { color: #050806; }
+  [data-theme="dark"] .light-btn { color: var(--text-40); }
+  [data-theme="dark"] .theme-pill-slider { transform: translateX(0); }
+
+  [data-theme="light"] .dark-btn { color: var(--text-40); }
+  [data-theme="light"] .light-btn { color: #fff; }
+  [data-theme="light"] .theme-pill-slider { 
+    transform: translateX(40px); 
+    background: #3A6B28;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
 </style>
 
 <script>
-  const toggles = document.querySelectorAll('.theme-toggle-btn');
-  toggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('eny-theme', next);
+  function setupThemeToggle() {
+    const btns = document.querySelectorAll('.theme-toggle-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = btn.getAttribute('data-theme-set');
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          localStorage.setItem('eny-theme', theme);
+        }
+      });
     });
-  });
+  }
+
+  setupThemeToggle();
+  document.addEventListener('astro:page-load', setupThemeToggle);
 </script>
