@@ -107,7 +107,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                     {lang === 'tr' ? 'Maliyetli manuel bankacılık ve muhasebe operasyonlarınızı yüksek performanslı platformumuzla uçtan uca dönüştürüyoruz.' : 'Transform your costly manual banking and accounting operations end-to-end with our high-performance platform.'}
                                 </p>
                                 <a href={getLocalePath('/iletisim', lang)} class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black text-white font-bold text-xs uppercase tracking-widest hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                                    {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
+            {t('navCta', lang)}
                                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                                 </a>
                             </div>
@@ -235,7 +235,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             </div>
             <!-- CTA (Desktop) -->
             <a href={getLocalePath('/iletisim', lang)} class="hidden sm:inline-block bg-lime text-black px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-white hover:shadow-[0_0_20px_rgba(208,253,23,0.3)] transition-all">
-                {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
+                {t('navCta', lang)}
             </a>
             
             <!-- Hamburger Button (Mobile) -->
@@ -264,7 +264,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
         <!-- CTA (Mobile) -->
         <a href={getLocalePath('/iletisim', lang)} class="w-full text-center bg-lime text-black px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2">
-            {lang === 'tr' ? 'Projenizi Konuşalım' : 'Let\'s Talk Project'}
+            {t('navCta', lang)}
             <span class="material-symbols-outlined">arrow_forward</span>
         </a>
         
