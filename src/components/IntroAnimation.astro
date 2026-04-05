@@ -28,7 +28,13 @@ const wordsJson = JSON.stringify(words);
 
 const themeText = lang === 'tr' ? 'tema' : 'theme';
 const replayText = lang === 'tr' ? '↺ tekrar' : '↺ replay';
-const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi';
+const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR' : 'GİB APPROVED &nbsp;·&nbsp; PCI-DSS &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; ISO 20022 &nbsp;·&nbsp; SWIFT gpi &nbsp;·&nbsp; GDPR';
+
+const heroDesc = lang === 'tr'
+  ? 'Regtech\'ten fintech\'e, e-ticaretten hazine yönetimine — tüm finansal operasyonlarınızı tek bir akıllı platformda yönetin.'
+  : 'From regtech to fintech, e-commerce to treasury management — manage all your financial operations on a single intelligent platform.';
+const ctaPrimary = lang === 'tr' ? 'Demo Talep Et' : 'Request a Demo';
+const ctaSecondary = lang === 'tr' ? 'Hizmetleri İncele →' : 'Explore Platform →';
 ---
 
 <div id="intro-stage" data-lang={lang} data-words={wordsJson}>
@@ -59,9 +65,11 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
         <span class="dom">e-any.com</span>
       </div>
       <div id="tagline">The Future of Financial Intelligence</div>
-      <div id="sub-tagline">
-        <span class="st1">Built for Turkey. Designed for the World.</span>
-        <span class="st2">From Istanbul to the World.</span>
+      <div id="sub-tagline">From Istanbul to the World.</div>
+      <p id="hero-desc">{heroDesc}</p>
+      <div id="hero-ctas">
+        <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="cta-primary" id="cta-demo">{ctaPrimary}</a>
+        <a href="#platform" class="cta-ghost" id="cta-explore">{ctaSecondary}</a>
       </div>
     </div>
   </div>
@@ -276,33 +284,96 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
 
   #sub-tagline {
     font-family: var(--font-sans);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--text);
     opacity: 0;
-    margin-top: 8px;
-    height: 16px;
-    position: relative;
+    margin-top: 10px;
+    letter-spacing: 0.06em;
     transition: opacity 0.8s, transform 0.8s;
-    width: 100%;
+    text-align: center;
   }
-  #sub-tagline.show { opacity: 0.6; }
+  #sub-tagline.show { opacity: 0.55; }
 
-  #sub-tagline span {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
+  #hero-desc {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-70);
+    max-width: 520px;
+    text-align: center;
+    line-height: 1.7;
+    margin-top: 18px;
     opacity: 0;
-    animation: fadeRotate 10s infinite;
+    transform: translateY(8px);
+    transition: opacity 0.8s 0.1s, transform 0.8s 0.1s;
   }
-  #sub-tagline .st1 { animation-delay: 0s; }
-  #sub-tagline .st2 { animation-delay: 5s; }
+  #hero-desc.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-  @keyframes fadeRotate {
-    0%, 10%   { opacity: 0; transform: translate(-50%, 4px); }
-    15%, 45%  { opacity: 1; transform: translate(-50%, 0); }
-    50%, 100% { opacity: 0; transform: translate(-50%, -4px); }
+  #hero-ctas {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.7s 0.2s, transform 0.7s 0.2s;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #hero-ctas.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-primary {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 12px;
+    background: var(--lime);
+    color: #0A0F0D;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    letter-spacing: -0.01em;
+    box-shadow: 0 0 24px rgba(208,253,23,0.15);
+  }
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 32px rgba(208,253,23,0.35);
+    background: #BCEB14;
+  }
+
+  .cta-ghost {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-70);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    letter-spacing: -0.01em;
+  }
+  .cta-ghost:hover {
+    border-color: var(--lime);
+    color: var(--lime);
+    transform: translateY(-2px);
+  }
+
+  :global([data-theme="light"]) .cta-primary {
+    background: #2a6018;
+    color: #fff;
+    box-shadow: 0 0 24px rgba(42,96,24,0.15);
+  }
+  :global([data-theme="light"]) .cta-primary:hover {
+    box-shadow: 0 4px 32px rgba(42,96,24,0.35);
+    background: #1f4c12;
   }
 
   .corner {
@@ -522,6 +593,10 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
       dom.classList.remove('show');
       tag.classList.remove('show');
       subTag.classList.remove('show');
+      const heroDescEl = document.getElementById('hero-desc');
+      const heroCtasEl = document.getElementById('hero-ctas');
+      if(heroDescEl) heroDescEl.classList.remove('show');
+      if(heroCtasEl) heroCtasEl.classList.remove('show');
       if(themeBtn) themeBtn.classList.remove('show');
       if(replayBtn) replayBtn.classList.remove('show');
       statusBar.classList.remove('show');
@@ -591,13 +666,21 @@ const statusText = lang === 'tr' ? 'GİB ONAYLI &nbsp;·&nbsp; PCI-DSS &nbsp;·&
         tids.push(setTimeout(() => { dom.classList.add('show'); }, 550));
         tids.push(setTimeout(() => { tag.classList.add('show'); }, 820));
         tids.push(setTimeout(() => { subTag.classList.add('show'); }, 1000));
+        tids.push(setTimeout(() => {
+          const heroDesc = document.getElementById('hero-desc');
+          if(heroDesc) heroDesc.classList.add('show');
+        }, 1200));
+        tids.push(setTimeout(() => {
+          const heroCtas = document.getElementById('hero-ctas');
+          if(heroCtas) heroCtas.classList.add('show');
+        }, 1500));
         tids.push(setTimeout(() => { corners.forEach(c => c.classList.add('show')); }, 400));
         tids.push(setTimeout(() => {
           if(themeBtn) themeBtn.classList.add('show');
           if(replayBtn) replayBtn.classList.add('show');
           statusBar.classList.add('show');
           startDotPulse();
-        }, 1100));
+        }, 1600));
       };
 
       tids.push(setTimeout(step, 350));

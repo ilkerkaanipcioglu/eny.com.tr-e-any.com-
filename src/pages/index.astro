@@ -1,164 +1,401 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import IntroAnimation from '../components/IntroAnimation.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Yeni Nesil Finansal İşletim Sistemi" lang="tr">
-  <!-- 1. HERO ALANI (keny-intro.html içerisindeki Hero Canvas'ımız) -->
+  <Header lang="tr" />
+
+  <!-- 01. HERO (IntroAnimation with CTA) -->
   <IntroAnimation lang="tr" />
   
-  <section class="max-w-container mx-auto px-6 py-24 relative z-10 animate-fade-up">
-    <!-- BÖLÜM 2 — GÜVEN BANDI -->
-    <div class="glass-card rounded-2xl p-8 mb-32 relative overflow-hidden group">
-       <div class="absolute inset-0 bg-[var(--color-lime)] opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
-        <div class="flex flex-wrap justify-center sm:justify-between items-center gap-6 font-mono text-[var(--color-lime)] text-xs sm:text-sm relative z-10 text-center sm:text-left">
-          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> Multi-jurisdiction Compliance</div>
-          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 135+ Para Birimi</div>
-          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 3 Kıtada Aktif</div>
-          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> Sovereign Cloud Mimarisi</div>
+  <section class="max-w-container mx-auto px-6 relative z-10" id="platform">
+
+    <!-- 02. SERTİFİKA TRUST BANDI -->
+    <div class="glass-card rounded-2xl p-6 mb-8 relative overflow-hidden reveal" style="margin-top: -40px;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:20px 32px; font-family:var(--font-mono); font-size:12px; color:var(--text-40); text-align:center;">
+        <span>GİB Onaylı</span>
+        <span style="opacity:0.3">·</span>
+        <span>PCI-DSS</span>
+        <span style="opacity:0.3">·</span>
+        <span>ISO 27001</span>
+        <span style="opacity:0.3">·</span>
+        <span>ISO 20022</span>
+        <span style="opacity:0.3">·</span>
+        <span>SWIFT gpi</span>
+        <span style="opacity:0.3">·</span>
+        <span>GDPR Uyumlu</span>
+      </div>
+    </div>
+
+    <!-- 03. METRİK BANDI -->
+    <div class="metrics-band rounded-2xl overflow-hidden mb-24 reveal" style="border:1px solid var(--border);">
+      <div class="metric-item">
+        <div class="metric-value" data-count="4200000" data-suffix="+">4.2M+</div>
+        <div class="metric-label">Aktif Kullanıcı</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" data-prefix="%" data-count="340">%340</div>
+        <div class="metric-label">Tahsilat Artışı</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" data-count="135" data-suffix="+">135+</div>
+        <div class="metric-label">Para Birimi</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">~100ms</div>
+        <div class="metric-label">İşlem Hızı</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">3 Kıta</div>
+        <div class="metric-label">Aktif Konuşlanma</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value" data-prefix="%" data-count="99">%99</div>
+        <div class="metric-label">Uptime Garantisi</div>
+      </div>
+    </div>
+
+    <!-- 04. HİZMET KARTLARI -->
+    <div class="mb-24">
+      <div class="mb-12 reveal">
+        <span class="section-label">01 / Platform</span>
+        <h2 style="font-size:clamp(32px,5vw,48px); font-weight:800; color:var(--text); line-height:1.1; letter-spacing:-0.03em; margin-bottom:16px; max-width:600px;">
+          Her Finansal Süreç.<br />Tek Platform.
+        </h2>
+        <p style="color:var(--text-70); font-size:17px; max-width:560px; line-height:1.65;">
+          Regtech'ten fintech'e, e-ticaretten hazine yönetimine — ihtiyacınız olan her çözüm eny çatısı altında.
+        </p>
+      </div>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+        <!-- Regtech -->
+        <div class="service-card reveal reveal-d1">
+          <span class="section-label" style="margin-bottom:24px;">REGTECH</span>
+          <h3 style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px;">Sovereign e-Dönüşüm</h3>
+          <p style="color:var(--text-70); font-size:14px; margin-bottom:24px; line-height:1.65;">
+            Ulusal veri gizlilik standartlarına tam uyumlu, sınır ötesi vergi ve fatura yönetimi. Her ülkenin yasal çerçevesine otomatik uyarlanır.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:12px;">
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> e-Fatura & e-Arşiv (GİB Uyumlu)
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Global Vergi Uyum Motoru
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Yasal Raporlama Otomasyonu
+            </li>
+          </ul>
+          <a href="/hizmetler/e-donusum" style="color:var(--lime); font-family:var(--font-mono); font-size:13px; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Detaylı İncele →</a>
         </div>
+
+        <!-- Fintech -->
+        <div class="service-card reveal reveal-d2">
+          <span class="section-label" style="margin-bottom:24px;">FİNTECH</span>
+          <h3 style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px;">Global Tahsilat Altyapısı</h3>
+          <p style="color:var(--text-70); font-size:14px; margin-bottom:24px; line-height:1.65;">
+            Vatandaş veya müşterilerinizin ödemelerini her kanaldan alın. Kamu ve özel sektör için omni-channel ödeme altyapısı.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:12px;">
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Tahsilat Modernizasyonu
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Omni-Channel Ödeme (TÖS Uyumlu)
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> B2B & B2G Mutabakat Sistemi
+            </li>
+          </ul>
+          <a href="/hizmetler/finansal-teknolojiler" style="color:var(--lime); font-family:var(--font-mono); font-size:13px; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Detaylı İncele →</a>
+        </div>
+
+        <!-- E-Commerce -->
+        <div class="service-card reveal reveal-d3">
+          <span class="section-label" style="margin-bottom:24px;">E-TİCARET</span>
+          <h3 style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px;">Sınır Tanımaz Ticaret</h3>
+          <p style="color:var(--text-70); font-size:14px; margin-bottom:24px; line-height:1.65;">
+            Kendi markanızla tüm dünyaya açılın. Yerel ödeme yöntemleri, yapay zeka destekli fraud koruması ve white-label altyapı.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:12px;">
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> White-Label Checkout
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Cross-Border Ödeme Yönlendirme
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Yapay Zeka Destekli Fraud Koruması (%99)
+            </li>
+          </ul>
+          <a href="/hizmetler/e-ticaret" style="color:var(--lime); font-family:var(--font-mono); font-size:13px; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Detaylı İncele →</a>
+        </div>
+
+        <!-- Treasury -->
+        <div class="service-card reveal reveal-d4">
+          <span class="section-label" style="margin-bottom:24px;">TREASURY</span>
+          <h3 style="font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px;">Hazine & Finansal Kontrol</h3>
+          <p style="color:var(--text-70); font-size:14px; margin-bottom:24px; line-height:1.65;">
+            Ulusal veya kurumsal ölçekte hazine operasyonlarınızı gerçek zamanlı yönetin. Birbiriyle konuşan sistemler, %98 doğrulukla finansal görünürlük.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:12px;">
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Nakit Projeksiyonu & Analitik
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Birlikte Çalışabilir Ödeme Yönetimi
+            </li>
+            <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text);">
+              <span style="color:var(--lime); font-family:var(--font-mono);">→</span> Gerçek Zamanlı Risk Analizi
+            </li>
+          </ul>
+          <a href="/hizmetler/treasury" style="color:var(--lime); font-family:var(--font-mono); font-size:13px; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Detaylı İncele →</a>
+        </div>
+      </div>
     </div>
 
-    <!-- BÖLÜM 3 — ÜRÜN GRUPLARI -->
-    <div class="mb-32">
-       <div class="mb-16">
-         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">01 / PLATFORM</span>
-         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Her Finansal Süreç. <br />Tek Platform.</h2>
-         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
-           Regtech'ten fintech'e, e-ticaretten treasury yönetimine — ihtiyaç duyduğunuz her çözüm eny çatısı altında.
-         </p>
-       </div>
-       
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-         <!-- Regtech -->
-         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
-            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">REGTECH</span>
-             <h3 class="text-2xl font-sans font-bold mb-4">Sovereign e-Dönüşüm</h3>
-            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Ulusal veri gizliliği standartlarına uygun (Sovereign Data Residency), multi-jurisdiction regülasyon kapasitesine sahip e-dönüşüm mimarisi.</p>
-            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Fatura & e-Arşiv (GİB Uyumlu)</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Global Vergi Uyum Motoru</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Yasal Raporlama Otomasyonu</li>
-            </ul>
-            <a href="/hizmetler/e-donusum" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
-         </div>
+    <!-- 05. PROVEN AT SCALE — 3 CASE STUDY -->
+    <div class="mb-24">
+      <div class="mb-12 reveal">
+        <span class="section-label">02 / Proven at Scale</span>
+        <h2 style="font-size:clamp(32px,5vw,48px); font-weight:800; color:var(--text); line-height:1.1; letter-spacing:-0.03em; max-width:600px;">
+          Milyonlarca Vatandaş.<br/>Milyarlarca İşlem.
+        </h2>
+      </div>
 
-         <!-- Fintech -->
-         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
-            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">FINTECH</span>
-            <h3 class="text-2xl font-sans font-bold mb-4">Global Tahsilat Altyapısı</h3>
-            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Vatandaşların veya müşterilerin ödemelerini her kanaldan tahsil eden ulusal ve uluslararası ödeme (Government payment gateway) altyapısı.</p>
-            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Tahsilat Modernizasyonu</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Omni-channel Ödeme (TÖS)</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> B2B & B2G Mutabakat Sistemi</li>
-            </ul>
-            <a href="/hizmetler/finansal-teknolojiler" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
-         </div>
-
-         <!-- E-Commerce -->
-         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
-            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">E-TİCARET</span>
-            <h3 class="text-2xl font-sans font-bold mb-4">Sınır Tanımaz Ticaret</h3>
-            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Kendi markanızla (White-label, country-branded) tüm dünyaya açılın. Lokal ödeme yöntemleri ve %99 fraud korumasıyla (AI).</p>
-            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> White-Label Checkout</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Cross-Border Payment Routing</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Akıllı Fraud Koruması</li>
-            </ul>
-            <a href="/hizmetler/e-ticaret" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
-         </div>
-
-         <!-- Treasury -->
-         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
-            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">TREASURY</span>
-            <h3 class="text-2xl font-sans font-bold mb-4">Treasury & Financial Inclusion</h3>
-            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Ulusal veya kurumsal ölçekte hazine operasyonlarını yönetin. Interoperable sistemler ile %98 doğrulukla finansal kontrol.</p>
-            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Nakit Projeksiyonu & Analitik</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Interoperable Ödeme Yönetimi</li>
-              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Gerçek Zamanlı Risk Analizi</li>
-            </ul>
-            <a href="#treasury" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
-         </div>
-       </div>
-    </div>
-
-    <!-- BÖLÜM 4 — PROVEN AT SCALE (GLOBAL INFRASTRUCTURE) -->
-    <div class="mb-32">
-       <div class="mb-16 text-center lg:text-left flex flex-col lg:flex-row justify-between items-end gap-6">
-         <div>
-           <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">02 / PROVEN AT SCALE</span>
-           <h2 class="text-4xl md:text-5xl font-sans font-extrabold text-[var(--text)] leading-tight max-w-2xl">Milyonlarca Vatandaş.<br/>Milyarlarca İşlem.</h2>
-         </div>
-       </div>
-
-       <div class="glass-card rounded-2xl p-10 md:p-16 relative overflow-hidden group hover:border-[var(--color-lime)] transition-colors duration-500">
-         <div class="absolute right-0 top-0 w-64 h-64 bg-[var(--color-lime)] blur-[150px] opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity"></div>
-         <div class="flex flex-col lg:flex-row items-center gap-12 relative z-10">
-           <div class="flex-1">
-             <h3 class="text-3xl md:text-4xl font-sans font-bold mb-6 text-[var(--text)]">Bir Metropolün Tahsilatını<br/>Baştan Tasarladık.</h3>
-             <p class="text-[var(--text-70)] text-lg leading-relaxed mb-6">
-               <span class="text-[var(--color-lime)] font-bold">4.2 milyon</span> vatandaşın su ve vergi ödemelerini uçtan uca sayısallaştırarak, tahsilat oranlarında <span class="text-[var(--color-lime)] font-bold">18 ay içerisinde %340 büyüme</span> sağladık. 
-             </p>
-             <p class="text-[var(--text-70)] text-sm leading-relaxed max-w-xl">
-               Uluslararası standartlarda (Digital public infrastructure), donor-funding projelerine uyumlu yapısıyla gelişmekte olan tüm bölgeler ve kurumsal pazar liderleri için optimize edilmiş TCO.
-             </p>
-           </div>
-           <div class="w-full lg:w-auto flex flex-col gap-8 font-mono bg-black/20 p-8 rounded-xl border border-white/5">
-              <div class="border-l-2 border-[var(--color-lime)] pl-6">
-                <div class="text-4xl font-bold text-[var(--color-lime)] mb-2">%340</div>
-                <div class="text-sm text-[var(--text-70)]">Tahsilat Artışı</div>
-              </div>
-              <div class="border-l-2 border-[var(--color-lime)] pl-6">
-                <div class="text-4xl font-bold text-[var(--color-lime)] mb-2">4.2M</div>
-                <div class="text-sm text-[var(--text-70)]">Aktif Kullanıcı</div>
-              </div>
-              <div class="border-l-2 border-[var(--color-lime)] pl-6">
-                <div class="text-4xl font-bold text-[var(--color-lime)] mb-2">~100ms</div>
-                <div class="text-sm text-[var(--text-70)]">İşlem Hızı</div>
-              </div>
-           </div>
-         </div>
-       </div>
-    </div>
-
-    <!-- BÖLÜM 5 — TEKNOLOJİ & YAPI -->
-    <div class="mb-32">
-       <div class="mb-16">
-         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">03 / TEKNOLOJİ & YAPI</span>
-         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Finansın<br/>Yeni Mimarisi.</h2>
-         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
-           Sisteminizi kurarken sadece bugünün değil, yarının da global standartlarını ve regülasyonlarını merkeze alıyoruz. Tamamen API-first, tamamen güvenli.
-         </p>
-       </div>
-       
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Item 1 -->
-          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden group hover:border-[var(--color-lime)] transition-colors duration-500 bg-[var(--surface)]/30 backdrop-blur-sm">
-            <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">🔒</div>
-            <h4 class="text-xl font-bold mb-4 font-sans text-[var(--text)] group-hover:text-[var(--color-lime)] transition-colors">Zero-Trust Security</h4>
-            <p class="text-sm text-[var(--text-70)] leading-relaxed">
-              Verileriniz sadece şifrelenmez; uluslararası standartlarda parçalanarak soyutlanır. Yüksek ölçekli finans kurumlarında (DPI) kullanılan askeri düzeyde koruma ve veri bütünlüğü onayları.
-            </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+        <!-- Case 1: Kamu Tahsilat -->
+        <div class="case-card reveal reveal-d1">
+          <span class="case-tag">Kamu Tahsilat</span>
+          <h3 class="case-title">Bir metropolün tahsilatını baştan tasarladık.</h3>
+          <p class="case-desc">4,2 milyon vatandaşın su ve vergi ödemelerini uçtan uca dijitalleştirdik. Sonuç: 18 ay içinde %340 tahsilat artışı.</p>
+          <div class="case-metrics">
+            <div class="case-metric-item">
+              <div class="case-metric-val">%340</div>
+              <div class="case-metric-label">Tahsilat Artışı</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">4.2M</div>
+              <div class="case-metric-label">Vatandaş</div>
+            </div>
           </div>
-          <!-- Item 2 -->
-          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden group hover:border-[var(--color-lime)] transition-colors duration-500 bg-[var(--surface)]/30 backdrop-blur-sm">
-            <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">⚡</div>
-            <h4 class="text-xl font-bold mb-4 font-sans text-[var(--text)] group-hover:text-[var(--color-lime)] transition-colors">API-First Architecture</h4>
-            <p class="text-sm text-[var(--text-70)] leading-relaxed">
-              Kapsamlı dokümantasyona sahip, esnek ve anlık yanıt veren REST/GraphQL yapısı. SAP, Oracle veya kendi geliştirdiğiniz özel yazılımlar ile saatler içinde native konuşabilen teknoloji.
-            </p>
+        </div>
+
+        <!-- Case 2: E-Ticaret -->
+        <div class="case-card reveal reveal-d2">
+          <span class="case-tag">E-Ticaret Ödeme</span>
+          <h3 class="case-title">Cross-border ödemeleri yerelleştirdik.</h3>
+          <p class="case-desc">135'ten fazla para birimiyle çalışan bir e-ticaret altyapısı kurduk. Fraud oranı %1'in altında, dönüşüm oranı %40 arttı.</p>
+          <div class="case-metrics">
+            <div class="case-metric-item">
+              <div class="case-metric-val">135+</div>
+              <div class="case-metric-label">Para Birimi</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">%40</div>
+              <div class="case-metric-label">Dönüşüm Artışı</div>
+            </div>
           </div>
-          <!-- Item 3 -->
-          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden group hover:border-[var(--color-lime)] transition-colors duration-500 bg-[var(--surface)]/30 backdrop-blur-sm">
-            <div class="text-4xl mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">🌐</div>
-            <h4 class="text-xl font-bold mb-4 font-sans text-[var(--text)] group-hover:text-[var(--color-lime)] transition-colors">Cross-Border Uyumu</h4>
-            <p class="text-sm text-[var(--text-70)] leading-relaxed">
-              Farklı ülkelerin yasal regülasyonlarına (Multi-jurisdictional compliance) otomatik adapte olan, sınır ötesi ticareti şirketiniz için yerelmiş gibi gösteren altyapı.
-            </p>
+        </div>
+
+        <!-- Case 3: Treasury -->
+        <div class="case-card reveal reveal-d3">
+          <span class="case-tag">Treasury</span>
+          <h3 class="case-title">Kurumsal hazineyi gerçek zamana taşıdık.</h3>
+          <p class="case-desc">Çok şubeli bir kurumun tüm nakit hareketlerini tek ekrandan görünür kıldık. Manuel mutabakat süresi %80 azaldı.</p>
+          <div class="case-metrics">
+            <div class="case-metric-item">
+              <div class="case-metric-val">%80</div>
+              <div class="case-metric-label">Süre Azalması</div>
+            </div>
+            <div class="case-metric-item">
+              <div class="case-metric-val">~100ms</div>
+              <div class="case-metric-label">İşlem Hızı</div>
+            </div>
           </div>
-       </div>
+        </div>
+      </div>
     </div>
+
+    <!-- 06. TEKNOLOJİ & MİMARİ -->
+    <div class="mb-24">
+      <div class="mb-12 reveal">
+        <span class="section-label">03 / Teknoloji & Yapı</span>
+        <h2 style="font-size:clamp(32px,5vw,48px); font-weight:800; color:var(--text); line-height:1.1; letter-spacing:-0.03em; margin-bottom:16px; max-width:600px;">
+          Finansın<br/>Yeni Mimarisi.
+        </h2>
+        <p style="color:var(--text-70); font-size:17px; max-width:560px; line-height:1.65;">
+          Bugünün ihtiyaçları için değil, yarının standartları için inşa ettik. API-first, güvenli ve tamamen ölçeklenebilir.
+        </p>
+      </div>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+        <div class="tech-card reveal reveal-d1">
+          <div style="font-size:36px; margin-bottom:20px; opacity:0.85;">🔒</div>
+          <h4 style="font-size:19px; font-weight:700; color:var(--text); margin-bottom:12px;">Zero-Trust Güvenlik</h4>
+          <p style="font-size:14px; color:var(--text-70); line-height:1.65;">
+            Verileriniz yalnızca şifrelenmez; uluslararası standartlarda parçalanarak soyutlanır. Askeri düzeyde koruma, her katmanda.
+          </p>
+        </div>
+        <div class="tech-card reveal reveal-d2">
+          <div style="font-size:36px; margin-bottom:20px; opacity:0.85;">⚡</div>
+          <h4 style="font-size:19px; font-weight:700; color:var(--text); margin-bottom:12px;">API-First Mimari</h4>
+          <p style="font-size:14px; color:var(--text-70); line-height:1.65;">
+            SAP, Oracle veya kendi yazılımınızla saatler içinde entegre olun. REST ve GraphQL desteğiyle kapsamlı dokümantasyon.
+          </p>
+        </div>
+        <div class="tech-card reveal reveal-d3">
+          <div style="font-size:36px; margin-bottom:20px; opacity:0.85;">🌐</div>
+          <h4 style="font-size:19px; font-weight:700; color:var(--text); margin-bottom:12px;">Cross-Border Uyumu</h4>
+          <p style="font-size:14px; color:var(--text-70); line-height:1.65;">
+            Farklı ülkelerin yasal düzenlemelerine otomatik uyum sağlar. Sınır ötesi ticaret, yerel gibi çalışır.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07. GLOBAL READY (YENİ BÖLÜM) -->
+    <div class="mb-24">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;" class="reveal">
+        <div>
+          <span class="section-label">04 / Global Ready</span>
+          <h2 style="font-size:clamp(32px,5vw,48px); font-weight:800; color:var(--text); line-height:1.1; letter-spacing:-0.03em; margin-bottom:16px;">
+            Altyapımız<br/>Sınır Tanımaz.
+          </h2>
+          <p style="color:var(--text-70); font-size:17px; line-height:1.65; max-width:460px;">
+            Yerel uzmanlık, global standart. Dünyanın her yerinde konuşlandırılmaya hazır.
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">135+ para birimi desteği</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">Çok dilli & çok bölgeli mimari</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">ISO 20022 & SWIFT gpi uyumlu</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">Sovereign cloud & veri lokalizasyonu</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">Yerel regülasyona uyarlanabilir compliance motoru</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">Kamu ihalelerine uygun white-label lisanslama</span>
+          </div>
+          <div class="global-feature-item">
+            <div class="global-feature-icon"></div>
+            <span class="global-feature-text">Digital Public Infrastructure (DPI) uyumlu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08. KAPANIŞ CTA -->
+    <div class="mb-24 reveal">
+      <div class="cta-section">
+        <h2>Finansal operasyonlarınızı<br/>dönüştürmeye hazır mısınız?</h2>
+        <p>Demo talep edin, ekibimiz 24 saat içinde sizinle iletişime geçsin.</p>
+        <div class="cta-btns">
+          <a href="/iletisim" class="cta-btn-primary">Demo Talep Et</a>
+          <a href="/iletisim" class="cta-btn-ghost">Bize Yazın →</a>
+        </div>
+      </div>
+    </div>
+
   </section>
+
+  <Footer lang="tr" />
 </Layout>
+
+<style>
+  /* Global Ready responsive */
+  @media (max-width: 768px) {
+    div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+  }
+</style>
+
+<script>
+  // Scroll reveal animation
+  function initReveal() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
+  // Animated counters
+  function initCounters() {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent || '';
+          const count = parseInt(el.dataset.count || '0');
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          
+          if (!count) return;
+          
+          let start = 0;
+          const duration = 2000;
+          const startTime = performance.now();
+          
+          function animate(now: number) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * count);
+            
+            let display = '';
+            if (count >= 1000000) {
+              display = (current / 1000000).toFixed(1) + 'M';
+            } else {
+              display = current.toString();
+            }
+            
+            el.textContent = prefix + display + suffix;
+            
+            if (progress < 1) requestAnimationFrame(animate);
+          }
+          
+          requestAnimationFrame(animate);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.metric-value[data-count]').forEach(el => {
+      counterObserver.observe(el);
+    });
+  }
+
+  // Init
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => { initReveal(); initCounters(); });
+  } else {
+    initReveal();
+    initCounters();
+  }
+  document.addEventListener('astro:page-load', () => { initReveal(); initCounters(); });
+</script>
