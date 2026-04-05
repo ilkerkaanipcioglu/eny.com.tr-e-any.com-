@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import IntroAnimation from '../../components/IntroAnimation.astro';
+---
+
+<Layout title="The New Operating System of Finance" lang="en">
+  <!-- 1. HERO AREA -->
+  <IntroAnimation lang="en" />
+  
+  <section class="max-w-container mx-auto px-6 py-24 relative z-10 animate-fade-up">
+    <!-- SECTION 2 — TRUST METRICS -->
+    <div class="glass-card rounded-2xl p-8 mb-32 relative overflow-hidden group">
+       <div class="absolute inset-0 bg-[var(--color-lime)] opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
+       <div class="flex flex-wrap justify-center sm:justify-between items-center gap-6 font-mono text-[var(--color-lime)] text-xs sm:text-sm relative z-10 text-center sm:text-left">
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 10.000+ Businesses</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 135+ Currencies</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 20+ Bank Integrations</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 98% Accuracy</div>
+       </div>
+    </div>
+
+    <!-- SECTION 3 — PRODUCT SUITES -->
+    <div class="mb-32">
+       <div class="mb-16">
+         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">01 / PLATFORM</span>
+         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Every Financial Process. <br />One Platform.</h2>
+         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
+           From regtech to fintech, from e-commerce to treasury management — every solution you need is under the eny umbrella.
+         </p>
+       </div>
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <!-- Regtech -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">REGTECH</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">e-Transformation Series</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Turn legal requirements into an operational advantage. GİB-compliant, auto-updating, zero-error tolerance.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Invoice & e-Archive</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Ledger</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Waybill</li>
+            </ul>
+            <a href="/en/services/e-transformation" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Explore Details →</a>
+         </div>
+
+         <!-- Fintech -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">FINTECH</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Smart Collections & Payments</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Manage the flow of money like a symphony. Omni-channel collection, smart routing, instant reconciliation.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Global e-Collection</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Payment & BPS</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-DBS</li>
+            </ul>
+            <a href="/en/services/financial-technologies" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Explore Details →</a>
+         </div>
+
+         <!-- E-Commerce -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">E-COMMERCE</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Next-Gen Commerce</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Transform your digital store into a global financial center. One-Click Pay, fraud protection, and marketplace support.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Checkout Excellence</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Subscription & Recurring Payments</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Fraud Protection (AI)</li>
+            </ul>
+            <a href="/en/services/e-commerce" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Explore Details →</a>
+         </div>
+
+         <!-- Treasury -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">TREASURY</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Cash Flow Analytics</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Turn data into decisions, and decisions into profit. 98% accurate cash projection and risk analytics.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Cash Flow Projection</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Board Reports</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Customer & Dealer Risk Analytics</li>
+            </ul>
+            <a href="#treasury" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Explore Details →</a>
+         </div>
+       </div>
+    </div>
+
+    <!-- SECTION 5 — ERP INTEGRATION -->
+    <div class="mb-32">
+       <div class="mb-16">
+         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">03 / INTEGRATION</span>
+         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Works Flawlessly <br/> With Your System.</h2>
+         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
+           Native integration with all ERP systems, primarily SAP. Or use it from scratch as a self-sufficient financial operating system.
+         </p>
+       </div>
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden">
+             <h4 class="text-xl font-bold mb-6">For ERP Users</h4>
+             <ul class="space-y-3 text-sm text-[var(--text-70)] mb-8">
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Fully SAP compatible</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Integration with other ERPs</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> API-first architecture</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Data synchronization</li>
+             </ul>
+             <a href="#erp" class="bg-[var(--surface)] text-[var(--text)] border border-[var(--border)] font-mono px-6 py-3 rounded-lg text-sm hover:text-[var(--color-bg)] hover:bg-[var(--color-lime)] hover:border-[var(--color-lime)] transition-colors">
+               Integration Docs →
+             </a>
+          </div>
+
+          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden">
+             <h4 class="text-xl font-bold mb-6">For Non-ERP Users</h4>
+             <ul class="space-y-3 text-sm text-[var(--text-70)] mb-8">
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Quick setup (&lt; 1 day)</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Easy-to-use interface</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> All processes in one panel</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Get started immediately</li>
+             </ul>
+             <a href="#demo" class="bg-[var(--color-lime)] text-[var(--color-bg)] font-mono font-bold px-6 py-3 rounded-lg text-sm hover:opacity-80 transition-opacity">
+               Try for Free →
+             </a>
+          </div>
+       </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+---
+// ThemeToggle.astro — Dark/Light switch with localStorage persistence
+---
+<button
+  class="theme-toggle-btn w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center text-text-70 hover:text-text-main hover:bg-bg2 transition-colors cursor-pointer"
+  aria-label="Toggle theme"
+  title="Toggle dark/light theme"
+>
+  <!-- Sun icon (shown in dark mode) -->
+  <span class="material-symbols-outlined text-[20px] theme-icon-sun">light_mode</span>
+  <!-- Moon icon (shown in light mode) -->
+  <span class="material-symbols-outlined text-[20px] theme-icon-moon hidden">dark_mode</span>
+</button>
+
+<style>
+  [data-theme="light"] .theme-icon-sun { display: none; }
+  [data-theme="light"] .theme-icon-moon { display: inline; }
+  [data-theme="dark"] .theme-icon-sun  { display: inline; }
+  [data-theme="dark"] .theme-icon-moon  { display: none; }
+</style>
+
+<script>
+  const toggles = document.querySelectorAll('.theme-toggle-btn');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('harezm-theme', next);
+    });
+  });
+</script>

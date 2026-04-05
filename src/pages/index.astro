@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IntroAnimation from '../components/IntroAnimation.astro';
+---
+
+<Layout title="Yeni Nesil Finansal İşletim Sistemi" lang="tr">
+  <!-- 1. HERO ALANI (keny-intro.html içerisindeki Hero Canvas'ımız) -->
+  <IntroAnimation lang="tr" />
+  
+  <section class="max-w-container mx-auto px-6 py-24 relative z-10 animate-fade-up">
+    <!-- BÖLÜM 2 — GÜVEN BANDI -->
+    <div class="glass-card rounded-2xl p-8 mb-32 relative overflow-hidden group">
+       <div class="absolute inset-0 bg-[var(--color-lime)] opacity-0 group-hover:opacity-5 transition-opacity duration-700"></div>
+       <div class="flex flex-wrap justify-center sm:justify-between items-center gap-6 font-mono text-[var(--color-lime)] text-xs sm:text-sm relative z-10 text-center sm:text-left">
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 10.000+ İşletme</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 135+ Para Birimi</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> 20+ Banka Ent.</div>
+          <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[var(--color-lime)]"></span> %98 Doğruluk</div>
+       </div>
+    </div>
+
+    <!-- BÖLÜM 3 — ÜRÜN GRUPLARI -->
+    <div class="mb-32">
+       <div class="mb-16">
+         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">01 / PLATFORM</span>
+         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Her Finansal Süreç. <br />Tek Platform.</h2>
+         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
+           Regtech'ten fintech'e, e-ticaretten treasury yönetimine — ihtiyaç duyduğunuz her çözüm eny çatısı altında.
+         </p>
+       </div>
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <!-- Regtech -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">REGTECH</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">e-Dönüşüm Serisi</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Yasal zorunlulukları operasyonel avantaja dönüştürün. GİB uyumlu, otomatik güncellemeli, sıfır hata toleranslı.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Fatura & e-Arşiv</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Defter</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-İrsaliye</li>
+            </ul>
+            <a href="/hizmetler/e-donusum" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
+         </div>
+
+         <!-- Fintech -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">FINTECH</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Akıllı Tahsilat & Ödeme</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Paranın hareketini bir senfoni gibi yönetin. Omni-channel tahsilat, akıllı yönlendirme, anlık mutabakat.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Global e-Tahsilat</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-Ödeme & TÖS</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> e-DBS</li>
+            </ul>
+            <a href="/hizmetler/finansal-teknolojiler" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
+         </div>
+
+         <!-- E-Commerce -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">E-TİCARET</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Yeni Nesil Ticaret</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Dijital mağazanızı global bir finans merkezine dönüştürün. One-Click Pay, fraud koruması ve marketplace desteği.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Checkout Excellence</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Abonelik & Tekrarlı Ödemeler</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Fraud Protection (AI)</li>
+            </ul>
+            <a href="/hizmetler/e-ticaret" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
+         </div>
+
+         <!-- Treasury -->
+         <div class="glass-card p-10 rounded-2xl group hover:border-[var(--color-lime)] transition-colors duration-500">
+            <span class="font-mono text-[var(--text-40)] text-xs mb-8 block group-hover:text-[var(--color-lime)] transition-colors">TREASURY</span>
+            <h3 class="text-2xl font-sans font-bold mb-4">Nakit Akışı Analitiği</h3>
+            <p class="text-[var(--text-70)] text-sm mb-8 leading-relaxed">Veriyi karara, kararı kâra dönüştürün. %98 doğrulukla nakit projeksiyonu ve risk analitiği.</p>
+            <ul class="text-[var(--text)] text-sm space-y-4 font-sans mb-10">
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Nakit Akışı Projeksiyonu</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Yönetim Kurulu Raporları</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-lime)] font-mono">→</span> Müşteri & Bayi Risk Analitiği</li>
+            </ul>
+            <a href="#treasury" class="text-[var(--color-lime)] font-mono text-sm hover:underline">Detaylı İncele →</a>
+         </div>
+       </div>
+    </div>
+
+    <!-- BÖLÜM 5 — ERP ENTEGRASYONU -->
+    <div class="mb-32">
+       <div class="mb-16">
+         <span class="font-mono text-[var(--color-lime)] text-xs tracking-widest uppercase mb-4 block">03 / ENTEGRASYON</span>
+         <h2 class="text-4xl md:text-5xl font-sans font-extrabold mb-6 max-w-2xl text-[var(--text)] leading-tight">Mevcut Sisteminizle<br/>Kusursuz Çalışır.</h2>
+         <p class="text-[var(--text-70)] font-sans text-lg max-w-xl">
+           SAP başta olmak üzere tüm ERP sistemleriyle native entegrasyon. Ya da sıfırdan, kendi kendine yeten bir finansal işletim sistemi olarak kullanın.
+         </p>
+       </div>
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden">
+             <h4 class="text-xl font-bold mb-6">ERP Kullananlar İçin</h4>
+             <ul class="space-y-3 text-sm text-[var(--text-70)] mb-8">
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> SAP tam uyumlu</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Diğer ERP'lerle entegrasyon</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> API-first mimari</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Veri senkronizasyonu</li>
+             </ul>
+             <a href="#erp" class="bg-[var(--surface)] text-[var(--text)] border border-[var(--border)] font-mono px-6 py-3 rounded-lg text-sm hover:text-[var(--color-bg)] hover:bg-[var(--color-lime)] hover:border-[var(--color-lime)] transition-colors">
+               Entegrasyon Dökümanı →
+             </a>
+          </div>
+
+          <div class="border border-[var(--border)] p-10 rounded-xl relative overflow-hidden">
+             <h4 class="text-xl font-bold mb-6">ERP Kullanmayanlar İçin</h4>
+             <ul class="space-y-3 text-sm text-[var(--text-70)] mb-8">
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Hızlı kurulum (&lt; 1 gün)</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Kullanımı kolay arayüz</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Tüm süreçler tek panelde</li>
+               <li class="flex items-center gap-2"><span class="text-[var(--color-lime)]">✓</span> Hemen başlayın</li>
+             </ul>
+             <a href="#demo" class="bg-[var(--color-lime)] text-[var(--color-bg)] font-mono font-bold px-6 py-3 rounded-lg text-sm hover:opacity-80 transition-opacity">
+               Ücretsiz Deneyin →
+             </a>
+          </div>
+       </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harezm Brand Architecture · v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ══════════════════════════════════════════
+   GLOBAL DESIGN TOKENS — DARK (default)
+══════════════════════════════════════════ */
+:root, [data-theme="dark"] {
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shell */
+  --bg:         #080608;
+  --surface-1:  #100D14;
+  --surface-2:  #161220;
+  --surface-3:  #1C1728;
+  --border:     rgba(255,255,255,0.06);
+  --border-md:  rgba(255,255,255,0.10);
+  --border-str: rgba(255,255,255,0.16);
+  --text-1:     #F4F1FF;
+  --text-2:     rgba(244,241,255,0.55);
+  --text-3:     rgba(244,241,255,0.28);
+  --shadow:     0 4px 24px rgba(0,0,0,0.55);
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.40);
+
+  /* Harezm brand */
+  --hz-primary:       #5A0E45;
+  --hz-primary-light: #7A1560;
+  --hz-primary-dark:  #3A0830;
+  --hz-teal:          #2DD4BF;
+  --hz-teal-dim:      rgba(45,212,191,0.12);
+  --hz-bg:            #07050A;
+  --hz-surface:       #120E18;
+  --hz-text:          #F4F1FF;
+  --hz-text-60:       rgba(244,241,255,0.60);
+  --hz-accent-bg:     rgba(90,14,69,0.15);
+  --hz-accent-border: rgba(90,14,69,0.35);
+
+  /* agentandbot brand */
+  --ab-primary:       #00E5FF;
+  --ab-primary-light: #6EEEFF;
+  --ab-primary-dark:  #0091A8;
+  --ab-glow:          rgba(0,229,255,0.28);
+  --ab-dim:           rgba(0,229,255,0.10);
+  --ab-border:        rgba(0,229,255,0.22);
+  --ab-bg:            #040B14;
+  --ab-surface:       #081422;
+  --ab-text:          #E0FAFF;
+  --ab-plum-bridge:   #5A0E45;
+
+  /* eny brand */
+  --en-primary:       #D0FD17;
+  --en-primary-dark:  #7A9610;
+  --en-olive:         #6B7C2E;
+  --en-gold:          #D4AF37;
+  --en-dim:           rgba(208,253,23,0.10);
+  --en-border:        rgba(208,253,23,0.18);
+  --en-bg:            #0A0F0D;
+  --en-surface:       #111810;
+  --en-text:          #EEF5E0;
+  --en-glow:          rgba(208,253,23,0.18);
+}
+
+/* ══════════════════════════════════════════
+   GLOBAL DESIGN TOKENS — LIGHT
+══════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:         #F6F4FA;
+  --surface-1:  #FFFFFF;
+  --surface-2:  #F0EDF8;
+  --surface-3:  #E8E4F4;
+  --border:     rgba(0,0,0,0.07);
+  --border-md:  rgba(0,0,0,0.11);
+  --border-str: rgba(0,0,0,0.18);
+  --text-1:     #130A20;
+  --text-2:     rgba(19,10,32,0.55);
+  --text-3:     rgba(19,10,32,0.35);
+  --shadow:     0 4px 24px rgba(0,0,0,0.10);
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.08);
+
+  /* Harezm brand — light */
+  --hz-primary:       #5A0E45;
+  --hz-primary-light: #7A1560;
+  --hz-primary-dark:  #3A0830;
+  --hz-teal:          #0F9C8A;
+  --hz-teal-dim:      rgba(15,156,138,0.10);
+  --hz-bg:            #FAF5FD;
+  --hz-surface:       #FFFFFF;
+  --hz-text:          #130A20;
+  --hz-text-60:       rgba(19,10,32,0.60);
+  --hz-accent-bg:     rgba(90,14,69,0.07);
+  --hz-accent-border: rgba(90,14,69,0.20);
+
+  /* agentandbot brand — light */
+  --ab-primary:       #0077A8;
+  --ab-primary-light: #009FD4;
+  --ab-primary-dark:  #005580;
+  --ab-glow:          rgba(0,119,168,0.18);
+  --ab-dim:           rgba(0,119,168,0.08);
+  --ab-border:        rgba(0,119,168,0.20);
+  --ab-bg:            #F0F8FC;
+  --ab-surface:       #FFFFFF;
+  --ab-text:          #041520;
+  --ab-plum-bridge:   #5A0E45;
+
+  /* eny brand — light */
+  --en-primary:       #D0FD17;
+  --en-hover:         #BCEB14;
+  --en-active:        #A3CF10;
+  --en-bg:            #EFF4DB;
+  --en-surface:       #F6FBEA;
+  --en-border:        #DADFCB;
+  --en-text:          #1A1F16;
+  --en-text-sec:      #6B7C2E;
+}
+
+/* ══════════════════════════════════════════
+   BASE
+══════════════════════════════════════════ */
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: var(--font-display);
+  color: var(--text-1);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   SHELL
+══════════════════════════════════════════ */
+.shell {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px 16px 70px;
+}
+
+/* ══════════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════════ */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid var(--border);
+}
+.eco-mark {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(140deg, var(--hz-primary-light), var(--hz-primary-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: rgba(255,255,255,0.92);
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(90,14,69,0.4);
+}
+.eco-title { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.3px; }
+.eco-version { font-size: 10px; color: var(--text-3); font-family: var(--font-mono); }
+
+/* ── Theme Toggle ── */
+.theme-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border-md);
+  border-radius: 30px;
+  padding: 3px 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.theme-toggle:hover { border-color: var(--border-str); }
+.theme-opt {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: var(--text-3);
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.theme-opt.active {
+  background: var(--surface-1);
+  color: var(--text-1);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="light"] .theme-opt.active { background: var(--surface-3); }
+.theme-sun  { display: none; }
+.theme-moon { display: none; }
+[data-theme="dark"]  .t-dark  { display: block; }
+[data-theme="light"] .t-light { display: block; }
+
+/* ══════════════════════════════════════════
+   BRAND TABS
+══════════════════════════════════════════ */
+.brand-tabs {
+  display: flex;
+  gap: 0;
+  background: var(--surface-1);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.brand-tabs::-webkit-scrollbar { display: none; }
+.btab {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--text-3);
+  transition: all 0.18s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btab:hover { color: var(--text-2); }
+.btab.on {
+  background: var(--surface-2);
+  color: var(--text-1);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Content tabs (Dark / Light per brand) ── */
+.mode-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 0.5px solid var(--border);
+  margin-bottom: 16px;
+}
+.mtab {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+  color: var(--text-3);
+  border-bottom: 2px solid transparent;
+  transition: all 0.16s;
+  margin-bottom: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+}
+.mtab:hover { color: var(--text-2); }
+.mtab.on { color: var(--text-1); }
+.mtab-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* ── Panes ── */
+.pane { display: none; }
+.pane.on { display: block; animation: fadeUp 0.2s ease; }
+.mpane { display: none; }
+.mpane.on { display: block; animation: fadeUp 0.2s ease; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════
+   SECTION HEADING
+══════════════════════════════════════════ */
+.sh {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 16px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sh::after { content:''; flex:1; height:0.5px; background:var(--border); }
+
+/* ══════════════════════════════════════════
+   THEME PREVIEW CARD
+══════════════════════════════════════════ */
+.preview-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid var(--border);
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+.preview-card:hover { border-color: var(--border-str); }
+.preview-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--border);
+}
+.preview-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.preview-badge {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.preview-body { padding: 14px 16px; }
+
+/* ══════════════════════════════════════════
+   SWATCH SYSTEM
+══════════════════════════════════════════ */
+.sw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+.sw-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.sw {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 0.5px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.sw:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.sw-c { height: 38px; }
+.sw-i { padding: 6px 8px; background: var(--surface-2); }
+.sw-n { font-size: 10px; font-weight: 600; color: var(--text-1); }
+.sw-h { font-size: 10px; color: var(--text-2); font-family: var(--font-mono); margin-top: 1px; }
+.sw-r { font-size: 9px; color: var(--text-3); margin-top: 2px; }
+
+/* ══════════════════════════════════════════
+   LIVE UI MOCK
+══════════════════════════════════════════ */
+.mock-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 0.5px solid var(--border-md);
+  margin: 10px 0;
+}
+.mock-nav {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--border);
+}
+.mock-logo { font-size: 13px; font-weight: 800; letter-spacing: -0.3px; }
+.mock-nav-links { display: flex; gap: 12px; }
+.mock-nav-link { font-size: 10px; color: var(--text-3); }
+.mock-body { padding: 18px 14px 16px; }
+.mock-eyebrow { font-size: 9px; font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+.mock-h1 { font-size: 20px; font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 8px; }
+.mock-sub { font-size: 11px; line-height: 1.6; margin-bottom: 14px; }
+.mock-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.mock-btn { padding: 8px 16px; border-radius: 8px; font-size: 11px; font-weight: 700; font-family: var(--font-display); border: none; cursor: default; letter-spacing: -0.1px; }
+.mock-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mock-card { padding: 10px 12px; border-radius: 8px; border: 0.5px solid var(--border); }
+.mock-card-label { font-size: 10px; font-weight: 600; margin-bottom: 3px; }
+.mock-card-val { font-size: 11px; }
+
+/* ══════════════════════════════════════════
+   RATIO BAR
+══════════════════════════════════════════ */
+.ratio-wrap { margin: 8px 0; }
+.ratio-label { font-size: 10px; color: var(--text-3); margin-bottom: 5px; font-family: var(--font-mono); }
+.ratio-bar { display: flex; border-radius: 6px; overflow: hidden; height: 20px; gap: 1.5px; }
+.ratio-seg { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; font-family: var(--font-mono); }
+
+/* ══════════════════════════════════════════
+   RULE TABLE
+══════════════════════════════════════════ */
+.rule-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+.rule-table th, .rule-table td { padding: 8px 10px; font-size: 10.5px; border-bottom: 0.5px solid var(--border); text-align: left; vertical-align: middle; }
+.rule-table th { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); font-family: var(--font-mono); font-weight: 500; }
+.rule-table td { color: var(--text-2); }
+.rule-table td:first-child { font-weight: 600; color: var(--text-1); }
+.rule-table tr:last-child td { border-bottom: none; }
+.check { color: #4ade80; } .cross { color: #f87171; } .warn  { color: #fbbf24; }
+
+/* ══════════════════════════════════════════
+   PILL ROW
+══════════════════════════════════════════ */
+.pill-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+.pill { font-size: 9.5px; padding: 3px 9px; border-radius: 20px; border: 0.5px solid var(--border-md); color: var(--text-3); font-family: var(--font-mono); }
+
+/* ══════════════════════════════════════════
+   LAYER ROW (arch page)
+══════════════════════════════════════════ */
+.layer-row { display: flex; align-items: stretch; border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 6px; transition: border-color 0.2s; }
+.layer-row:hover { border-color: var(--border-md); }
+.layer-accent { width: 3px; flex-shrink: 0; }
+.layer-body { padding: 9px 12px; flex: 1; }
+.layer-title { font-size: 11px; font-weight: 600; color: var(--text-1); }
+.layer-desc { font-size: 10.5px; color: var(--text-2); margin-top: 3px; line-height: 1.55; }
+.layer-chips { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+.chip { font-size: 9px; padding: 2px 8px; border-radius: 4px; font-family: var(--font-mono); font-weight: 500; }
+
+/* ══════════════════════════════════════════
+   TOKEN BOX
+══════════════════════════════════════════ */
+.token-box { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 10.5px; font-family: var(--font-mono); color: var(--text-2); line-height: 2.1; margin: 6px 0 14px; }
+.tk-key { color: var(--text-3); }
+.tk-hz  { color: #9A3577; }
+.tk-ab-dark { color: #00E5FF; }
+.tk-ab-light { color: #0077A8; }
+.tk-en-dark { color: #B8E010; }
+.tk-en-light { color: #4E5F00; }
+.tk-neutral { color: var(--text-2); }
+
+/* ── conditional token colors ── */
+[data-theme="dark"]  .tk-ab { color: #00E5FF; }
+[data-theme="light"] .tk-ab { color: #0077A8; }
+[data-theme="dark"]  .tk-en { color: #B8E010; }
+[data-theme="light"] .tk-en { color: #4E5F00; }
+
+/* ══════════════════════════════════════════
+   ARCH CARDS
+══════════════════════════════════════════ */
+.arch-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.arch-card { padding: 12px 10px; border-radius: 12px; border: 0.5px solid var(--border); background: var(--surface-1); text-align: center; position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; }
+.arch-card:hover { transform: translateY(-2px); }
+.arch-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.arch-card.hz::before { background: var(--hz-primary-light); }
+.arch-card.ab::before { background: var(--ab-primary); }
+.arch-card.en::before { background: var(--en-primary); }
+.arch-swatch { height: 32px; border-radius: 7px; margin-bottom: 8px; }
+.arch-name { font-size: 11px; font-weight: 700; color: var(--text-1); }
+.arch-sub { font-size: 9.5px; color: var(--text-3); margin-top: 3px; line-height: 1.5; }
+.arch-role { display: inline-block; font-size: 8.5px; font-family: var(--font-mono); padding: 2px 6px; border-radius: 3px; margin-top: 6px; }
+.arch-card.hz .arch-role { background: var(--hz-accent-bg); color: var(--hz-primary-light); }
+.arch-card.ab .arch-role { background: var(--ab-dim); color: var(--ab-primary); }
+.arch-card.en .arch-role { background: var(--en-dim); color: var(--en-primary); }
+
+/* ══════════════════════════════════════════
+   GLOW DEMO
+══════════════════════════════════════════ */
+.glow-demo { border-radius: 10px; padding: 14px; margin: 10px 0; border: 0.5px solid var(--ab-border); }
+[data-theme="dark"]  .glow-demo { background: var(--ab-bg); }
+[data-theme="light"] .glow-demo { background: var(--ab-bg); }
+
+/* ══════════════════════════════════════════
+   ENY DARK PANEL (always dark regardless of app theme)
+══════════════════════════════════════════ */
+.eny-dark-panel {
+  background: #0A0F0D;
+  border-radius: 10px;
+  padding: 14px;
+  border: 0.5px solid rgba(208,253,23,0.08);
+  margin: 10px 0;
+}
+.eny-light-panel {
+  background: linear-gradient(
+    180deg,
+    #F6FBEA 0%,
+    #EFF4DB 100%
+  );
+  border-radius: 10px;
+  padding: 14px;
+  border: 0.5px solid rgba(90,110,0,0.20);
+  margin: 10px 0;
+}
+
+/* ══════════════════════════════════════════
+   COMPARISON SPLIT
+══════════════════════════════════════════ */
+.compare-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+.compare-half {
+  border-radius: 10px;
+  padding: 12px;
+  border: 0.5px solid var(--border);
+}
+.compare-label {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ══════════════════════════════════════════
+   DIVIDER
+══════════════════════════════════════════ */
+.divider { height: 0.5px; background: var(--border); margin: 16px 0; }
+
+/* ══════════════════════════════════════════
+   ECO CONNECTOR
+══════════════════════════════════════════ */
+.eco-connector { display: flex; align-items: center; background: var(--surface-1); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
+.eco-node { flex: 1; padding: 12px 10px; text-align: center; }
+.eco-node-name { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.eco-node-role { font-size: 9px; font-family: var(--font-mono); color: var(--text-3); }
+.eco-sep { width: 0.5px; height: 44px; background: var(--border-md); flex-shrink: 0; }
+
+/* ══════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════ */
+.toast { position: fixed; bottom: 20px; right: 20px; background: var(--surface-2); border: 0.5px solid var(--border-str); border-radius: 8px; padding: 8px 14px; font-size: 11px; font-family: var(--font-mono); color: var(--text-1); opacity: 0; pointer-events: none; transition: opacity 0.15s, transform 0.15s; transform: translateY(6px); z-index: 100; box-shadow: var(--shadow); }
+.toast.on { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-md); border-radius: 4px; }
+
+/* ══════════════════════════════════════════
+   ENY LIGHT CUSTOM UI FIXES
+══════════════════════════════════════════ */
+#mode-en-light .mock-btn { transition: all 0.2s; cursor: pointer; }
+#mode-en-light .mock-btn.primary { background: #D0FD17 !important; color: #0A0F0D !important; }
+#mode-en-light .mock-btn.primary:hover { background: #BCEB14 !important; }
+#mode-en-light .mock-btn.secondary { border: 0.5px solid #D0FD17 !important; color: #6B7C2E !important; background: transparent !important; }
+#mode-en-light .mock-btn.secondary:hover { background: #E7FF7A !important; }
+#mode-en-light .mock-btn.tertiary { border: 0.5px solid #DADFCB !important; color: #6B7C2E !important; background: transparent !important; }
+#mode-en-light .mock-btn.tertiary:hover { background: rgba(208,253,23,0.05) !important; }
+#mode-en-light .mock-card { transition: all 0.2s; cursor: pointer; border: 0.5px solid rgba(208,253,23,0.2) !important; background: #F6FBEA !important; }
+#mode-en-light .mock-card:hover { border-color: #D0FD17 !important; box-shadow: 0 0 0 2px rgba(208,253,23,0.15) !important; }
+#mode-en-light .mock-nav-link { transition: border-color 0.2s, color 0.2s; cursor: pointer; border-bottom: 2px solid transparent; padding-bottom: 2px; }
+#mode-en-light .mock-nav-link:hover { border-bottom-color: #D0FD17; color: #1A1F16 !important; }
+.mtab.on[data-mode="en-light"] .mtab-dot { border-color: #D0FD17 !important; box-shadow: 0 0 6px rgba(208,253,23,0.6) !important; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ══ TOP BAR ══ -->
+  <div class="top-bar">
+    <div class="eco-mark">H</div>
+    <div>
+      <div class="eco-title">Harezm Ekosistemi</div>
+      <div class="eco-version">v3.0 · brand architecture</div>
+    </div>
+  </div>
+
+  <!-- ══ BRAND TABS ══ -->
+  <div class="brand-tabs">
+    <div class="btab on"  data-pane="arch">Mimari</div>
+    <div class="btab"     data-pane="harezm">Harezm</div>
+    <div class="btab"     data-pane="agent">agentandbot</div>
+    <div class="btab"     data-pane="eny">eny</div>
+    <div class="btab"     data-pane="tokens">CSS tokens</div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       PANE: MİMARİ
+  ════════════════════════════════════ -->
+  <div id="pane-arch" class="pane on">
+
+    <div class="mode-tabs">
+      <div class="mtab on" data-global-theme="dark">
+        <div class="mtab-dot" style="background:#080608;border:1.5px solid rgba(255,255,255,0.2)"></div>
+        Dark
+      </div>
+      <div class="mtab" data-global-theme="light">
+        <div class="mtab-dot" style="background:#F6F4FA;border:1.5px solid rgba(0,0,0,0.2)"></div>
+        Light
+      </div>
+    </div>
+
+    <div class="eco-connector">
+      <div class="eco-node">
+        <div class="eco-node-name" style="color:var(--hz-primary-light)">Harezm</div>
+        <div class="eco-node-role">Kimlik · Strateji</div>
+      </div>
+      <div class="eco-sep"></div>
+      <div class="eco-node">
+        <div class="eco-node-name" style="color:var(--ab-primary)">agentandbot</div>
+        <div class="eco-node-role">AI · Otomasyon</div>
+      </div>
+      <div class="eco-sep"></div>
+      <div class="eco-node">
+        <div class="eco-node-name" style="color:var(--en-primary)">eny</div>
+        <div class="eco-node-role">Fintech · Regtech</div>
+      </div>
+    </div>
+
+    <div class="arch-row">
+      <div class="arch-card hz" data-goto="harezm">
+        <div class="arch-swatch" style="background:linear-gradient(135deg,#5A0E45,#3A0830)"></div>
+        <div class="arch-name">Harezm</div>
+        <div class="arch-sub">Ana şirket<br>Plum · kurumsal</div>
+        <div class="arch-role">trust / strategy</div>
+      </div>
+      <div class="arch-card ab" data-goto="agent">
+        <div class="arch-swatch" style="background:linear-gradient(135deg,#00E5FF,#0091A8);box-shadow:0 2px 12px rgba(0,229,255,0.2)"></div>
+        <div class="arch-name">agentandbot</div>
+        <div class="arch-sub">AI & Otomasyon<br>Cyan · hız</div>
+        <div class="arch-role">speed / automation</div>
+      </div>
+      <div class="arch-card en" data-goto="eny">
+        <div class="arch-swatch" style="background:linear-gradient(135deg,#D0FD17,#7A9610)"></div>
+        <div class="arch-name">eny</div>
+        <div class="arch-sub">Next-gen fintech<br>Lime · regtech</div>
+        <div class="arch-role">fintech / regtech</div>
+      </div>
+    </div>
+
+    <div class="sh">Renk & tema kuralları</div>
+    <table class="rule-table">
+      <thead>
+        <tr><th>Marka</th><th>Dark primary</th><th>Light primary</th><th>Glow</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Harezm</td>
+          <td><span style="color:#7A1560">#5A0E45</span></td>
+          <td><span style="color:#7A1560">#5A0E45</span></td>
+          <td><span class="cross">✕</span></td>
+        </tr>
+        <tr>
+          <td>agentandbot</td>
+          <td><span style="color:#00E5FF">#00E5FF</span></td>
+          <td><span style="color:#0077A8">#0077A8</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>eny</td>
+          <td><span style="color:#D0FD17">#D0FD17</span></td>
+          <td><span style="color:#D0FD17">#D0FD17</span></td>
+          <td><span class="warn">⚠ minimal</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sh">Harezm sitesinde accent ekonomisi</div>
+    <div class="layer-row">
+      <div class="layer-accent" style="background:#5A0E45"></div>
+      <div class="layer-body">
+        <div class="layer-title">SAP & Danışmanlık — Plum</div>
+        <div class="layer-desc">Kimlik rengi dominant. Dark ve light modda aynı plum, sadece bg değişir.</div>
+        <div class="layer-chips">
+          <span class="chip" style="background:rgba(90,14,69,0.15);color:#7A1560">#5A0E45 dark</span>
+          <span class="chip" style="background:rgba(90,14,69,0.08);color:#5A0E45">#5A0E45 light</span>
+        </div>
+      </div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-accent" style="background:var(--ab-primary)"></div>
+      <div class="layer-body">
+        <div class="layer-title">Otomasyon — Cyan / Dark Cyan</div>
+        <div class="layer-desc">Dark: neon #00E5FF · Light: derin #0077A8. Yalnızca badge/border/icon.</div>
+        <div class="layer-chips">
+          <span class="chip" style="background:rgba(0,229,255,0.10);color:#00E5FF">#00E5FF dark</span>
+          <span class="chip" style="background:rgba(0,119,168,0.10);color:#0077A8">#0077A8 light</span>
+        </div>
+      </div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-accent" style="background:var(--en-primary)"></div>
+      <div class="layer-body">
+        <div class="layer-title">Fintech — Neon Lime</div>
+        <div class="layer-desc">Dark: neon #D0FD17 · Light: neon #D0FD17. Yalnızca buton, icon ve noktalama. (%5 kuralı)</div>
+        <div class="layer-chips">
+          <span class="chip" style="background:rgba(208,253,23,0.10);color:#D0FD17">#D0FD17 dark</span>
+          <span class="chip" style="background:rgba(208,253,23,0.10);color:#6B7C2E">#D0FD17 light</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sh">Renk oranı — tüm modlar</div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">Harezm · Dark</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#0d0a12;color:#4a3a56;flex:85">85%</div>
+        <div class="ratio-seg" style="background:#5A0E45;color:#fcc;flex:10">10%</div>
+        <div class="ratio-seg" style="background:#00E5FF;color:#001a20;flex:3">3%</div>
+        <div class="ratio-seg" style="background:#D0FD17;color:#1a200a;flex:2">2%</div>
+      </div>
+    </div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">Harezm · Light</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#F6F4FA;color:#888;flex:85">85%</div>
+        <div class="ratio-seg" style="background:#5A0E45;color:#fcc;flex:10">10%</div>
+        <div class="ratio-seg" style="background:#0077A8;color:#E0F4FF;flex:3">3%</div>
+        <div class="ratio-seg" style="background:#5A6E00;color:#E8F4D0;flex:2">2%</div>
+      </div>
+    </div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">agentandbot · Dark</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#040B14;color:#2a5a6a;flex:85">85%</div>
+        <div class="ratio-seg" style="background:#00E5FF;color:#001a20;flex:10;box-shadow:0 0 6px rgba(0,229,255,0.4)">10%</div>
+        <div class="ratio-seg" style="background:rgba(0,229,255,0.35);color:#001a20;flex:5">5%</div>
+      </div>
+    </div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">agentandbot · Light</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#F0F8FC;color:#555;flex:85">85%</div>
+        <div class="ratio-seg" style="background:#0077A8;color:#fff;flex:10">10%</div>
+        <div class="ratio-seg" style="background:#009FD4;color:#fff;flex:5">5%</div>
+      </div>
+    </div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">eny · Dark</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#0A0F0D;color:#2a3a20;flex:85">85%</div>
+        <div class="ratio-seg" style="background:#D0FD17;color:#1a200a;flex:10">10%</div>
+        <div class="ratio-seg" style="background:#D4AF37;color:#3a2800;flex:5">5%</div>
+      </div>
+    </div>
+    <div class="ratio-wrap">
+      <div class="ratio-label">eny · Light</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg" style="background:#EFF4DB;color:#6B7C2E;flex:80">80%</div>
+        <div class="ratio-seg" style="background:#1A1F16;color:#EFF4DB;flex:15">15%</div>
+        <div class="ratio-seg" style="background:#D0FD17;color:#0A0F0D;flex:5">5%</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════
+       PANE: HAREZM
+  ════════════════════════════════════ -->
+  <div id="pane-harezm" class="pane">
+
+    <!-- Mode tabs -->
+    <div class="mode-tabs">
+      <div class="mtab on" data-mode="hz-dark" data-group="hz">
+        <div class="mtab-dot" style="background:#100D14;border:1.5px solid #5A0E45"></div>
+        Dark
+      </div>
+      <div class="mtab" data-mode="hz-light" data-group="hz">
+        <div class="mtab-dot" style="background:#FAF5FD;border:1.5px solid #5A0E45"></div>
+        Light
+      </div>
+    </div>
+
+    <!-- DARK -->
+    <div id="mode-hz-dark" class="mpane on">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#07050A">
+          <span class="preview-label" style="color:#7A1560">Harezm · Dark</span>
+          <span class="preview-badge" style="background:rgba(90,14,69,0.2);color:#7A1560">#07050A base</span>
+        </div>
+        <div class="preview-body" style="background:#07050A">
+          <!-- Mock UI -->
+          <div class="mock-wrap" style="border-color:rgba(90,14,69,0.2)">
+            <div class="mock-nav" style="background:#100D14;border-color:rgba(255,255,255,0.06)">
+              <div class="mock-logo" style="color:#7A1560">Harezm<span style="color:#5A0E45">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:rgba(244,241,255,0.35)">SAP</span>
+                <span class="mock-nav-link" style="color:rgba(244,241,255,0.35)">Otomasyon</span>
+                <span class="mock-nav-link" style="color:rgba(244,241,255,0.35)">Fintech</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#07050A">
+              <div class="mock-eyebrow" style="color:#7A1560">SAP & AI Financial Architecture</div>
+              <div class="mock-h1" style="color:#F4F1FF">Geleceği<br><span style="color:#7A1560">şimdi inşa et</span><span style="color:#5A0E45">.</span></div>
+              <div class="mock-sub" style="color:rgba(244,241,255,0.55)">Kurumsal yazılım, yapay zeka ve fintech — tek ekosistem altında.</div>
+              <div class="mock-btns">
+                <div class="mock-btn" style="background:#5A0E45;color:#F4F1FF">Keşfet</div>
+                <div class="mock-btn" style="background:rgba(90,14,69,0.15);color:#7A1560;border:0.5px solid rgba(90,14,69,0.35)">Hizmetler</div>
+                <div class="mock-btn" style="background:transparent;color:#2DD4BF;border:0.5px solid rgba(45,212,191,0.25)">Detay →</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:#100D14;border-color:rgba(255,255,255,0.06)">
+                  <div class="mock-card-label" style="color:#7A1560">agentandbot</div>
+                  <div class="mock-card-val" style="color:rgba(244,241,255,0.55);font-size:10px">AI otomasyon platformu</div>
+                </div>
+                <div class="mock-card" style="background:#100D14;border-color:rgba(255,255,255,0.06)">
+                  <div class="mock-card-label" style="color:#2DD4BF">eny</div>
+                  <div class="mock-card-val" style="color:rgba(244,241,255,0.55);font-size:10px">Next-gen fintech</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(244,241,255,0.28)">Dark paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#161220"><div class="sw-n">Plum</div><div class="sw-h">#5A0E45</div><div class="sw-r">Primary</div></div></div>
+            <div class="sw" data-hex="#3A0830"><div class="sw-c" style="background:#3A0830"></div><div class="sw-i" style="background:#161220"><div class="sw-n">Plum Dark</div><div class="sw-h">#3A0830</div><div class="sw-r">Hover / gradient</div></div></div>
+            <div class="sw" data-hex="#7A1560"><div class="sw-c" style="background:#7A1560"></div><div class="sw-i" style="background:#161220"><div class="sw-n">Plum Light</div><div class="sw-h">#7A1560</div><div class="sw-r">Active / text</div></div></div>
+            <div class="sw" data-hex="#2DD4BF"><div class="sw-c" style="background:#2DD4BF"></div><div class="sw-i" style="background:#161220"><div class="sw-n">Teal</div><div class="sw-h">#2DD4BF</div><div class="sw-r">Premium accent</div></div></div>
+            <div class="sw" data-hex="#07050A"><div class="sw-c" style="background:#07050A;border-top:0.5px solid #1a1a1a"></div><div class="sw-i" style="background:#161220"><div class="sw-n">BG Base</div><div class="sw-h">#07050A</div><div class="sw-r">Background</div></div></div>
+            <div class="sw" data-hex="#120E18"><div class="sw-c" style="background:#120E18;border-top:0.5px solid #1a1a1a"></div><div class="sw-i" style="background:#161220"><div class="sw-n">Surface</div><div class="sw-h">#120E18</div><div class="sw-r">Card / panel</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Glow ❌</span>
+        <span class="pill">Gradient: #5A0E45→#3A0830</span>
+        <span class="pill">Teal yalnızca accent</span>
+      </div>
+    </div>
+
+    <!-- LIGHT -->
+    <div id="mode-hz-light" class="mpane">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#FAF5FD">
+          <span class="preview-label" style="color:#5A0E45">Harezm · Light</span>
+          <span class="preview-badge" style="background:rgba(90,14,69,0.07);color:#5A0E45">#FAF5FD base</span>
+        </div>
+        <div class="preview-body" style="background:#FAF5FD">
+          <div class="mock-wrap" style="border-color:rgba(90,14,69,0.12)">
+            <div class="mock-nav" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+              <div class="mock-logo" style="color:#5A0E45">Harezm<span style="color:#7A1560">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:rgba(19,10,32,0.40)">SAP</span>
+                <span class="mock-nav-link" style="color:rgba(19,10,32,0.40)">Otomasyon</span>
+                <span class="mock-nav-link" style="color:rgba(19,10,32,0.40)">Fintech</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#FAF5FD">
+              <div class="mock-eyebrow" style="color:#5A0E45">SAP & AI Financial Architecture</div>
+              <div class="mock-h1" style="color:#130A20">Geleceği<br><span style="color:#5A0E45">şimdi inşa et</span><span style="color:#7A1560">.</span></div>
+              <div class="mock-sub" style="color:rgba(19,10,32,0.55)">Kurumsal yazılım, yapay zeka ve fintech — tek ekosistem altında.</div>
+              <div class="mock-btns">
+                <div class="mock-btn" style="background:#5A0E45;color:#FFFFFF">Keşfet</div>
+                <div class="mock-btn" style="background:rgba(90,14,69,0.07);color:#5A0E45;border:0.5px solid rgba(90,14,69,0.20)">Hizmetler</div>
+                <div class="mock-btn" style="background:transparent;color:#0F9C8A;border:0.5px solid rgba(15,156,138,0.25)">Detay →</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+                  <div class="mock-card-label" style="color:#5A0E45">agentandbot</div>
+                  <div class="mock-card-val" style="color:rgba(19,10,32,0.55);font-size:10px">AI otomasyon platformu</div>
+                </div>
+                <div class="mock-card" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+                  <div class="mock-card-label" style="color:#0F9C8A">eny</div>
+                  <div class="mock-card-val" style="color:rgba(19,10,32,0.55);font-size:10px">Next-gen fintech</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(19,10,32,0.30)">Light paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">Plum</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#5A0E45</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Primary · değişmez</div></div></div>
+            <div class="sw" data-hex="#7A1560"><div class="sw-c" style="background:#7A1560"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">Plum Light</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#7A1560</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Hover / active</div></div></div>
+            <div class="sw" data-hex="#0F9C8A"><div class="sw-c" style="background:#0F9C8A"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">Teal</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#0F9C8A</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Light teal</div></div></div>
+            <div class="sw" data-hex="#FAF5FD"><div class="sw-c" style="background:#FAF5FD;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">BG Base</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#FAF5FD</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Background</div></div></div>
+            <div class="sw" data-hex="#FFFFFF"><div class="sw-c" style="background:#FFFFFF;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">Surface</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#FFFFFF</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Card / panel</div></div></div>
+            <div class="sw" data-hex="#130A20"><div class="sw-c" style="background:#130A20"></div><div class="sw-i" style="background:#F0EDF8"><div class="sw-n" style="color:#130A20">Text</div><div class="sw-h" style="color:rgba(19,10,32,0.55)">#130A20</div><div class="sw-r" style="color:rgba(19,10,32,0.35)">Primary text</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Plum değişmez</span>
+        <span class="pill">BG: mor-beyaz tonu</span>
+        <span class="pill">Teal → koyu #0F9C8A</span>
+        <span class="pill">Glow ❌</span>
+      </div>
+    </div>
+
+  </div><!-- /pane-harezm -->
+
+  <!-- ════════════════════════════════════
+       PANE: AGENTANDBOT
+  ════════════════════════════════════ -->
+  <div id="pane-agent" class="pane">
+
+    <div class="mode-tabs">
+      <div class="mtab on" data-mode="ab-dark" data-group="ab">
+        <div class="mtab-dot" style="background:#040B14;border:1.5px solid #00E5FF"></div>
+        Dark
+      </div>
+      <div class="mtab" data-mode="ab-light" data-group="ab">
+        <div class="mtab-dot" style="background:#F0F8FC;border:1.5px solid #0077A8"></div>
+        Light
+      </div>
+    </div>
+
+    <!-- AB DARK -->
+    <div id="mode-ab-dark" class="mpane on">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#040B14">
+          <span class="preview-label" style="color:#00E5FF">agentandbot · Dark</span>
+          <span class="preview-badge" style="background:rgba(0,229,255,0.10);color:#00E5FF">cyan + glow</span>
+        </div>
+        <div class="preview-body" style="background:#040B14">
+          <div class="mock-wrap" style="border-color:rgba(0,229,255,0.14)">
+            <div class="mock-nav" style="background:#081422;border-color:rgba(0,229,255,0.08)">
+              <div class="mock-logo" style="color:#00E5FF;text-shadow:0 0 12px rgba(0,229,255,0.5)">agentandbot<span style="color:#6EEEFF">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:rgba(224,250,255,0.35)">Agents</span>
+                <span class="mock-nav-link" style="color:rgba(224,250,255,0.35)">Fiyat</span>
+                <span class="mock-nav-link" style="color:rgba(224,250,255,0.35)">Docs</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#040B14">
+              <div class="mock-eyebrow" style="color:rgba(0,229,255,0.6)">AI · Automation · Speed</div>
+              <div class="mock-h1" style="color:#E0FAFF">Workflow'larını<br><span style="color:#00E5FF">otomatikleştir</span><span style="color:#6EEEFF">.</span></div>
+              <div class="mock-sub" style="color:rgba(224,250,255,0.50)">Saniyeler içinde agent kur, süreçleri serbest bırak.</div>
+              <div class="mock-btns">
+                <div class="mock-btn" style="background:#00E5FF;color:#001a20;box-shadow:0 0 18px rgba(0,229,255,0.35)">Workflow kur</div>
+                <div class="mock-btn" style="background:rgba(0,229,255,0.10);color:#00E5FF;border:0.5px solid rgba(0,229,255,0.25)">Demo gör</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:#081422;border-color:rgba(0,229,255,0.10)">
+                  <div class="mock-card-label" style="color:#00E5FF">10x</div>
+                  <div class="mock-card-val" style="color:rgba(224,250,255,0.50);font-size:10px">daha hızlı otomasyon</div>
+                </div>
+                <div class="mock-card" style="background:#081422;border-color:rgba(0,229,255,0.10)">
+                  <div class="mock-card-label" style="color:#00E5FF">∞</div>
+                  <div class="mock-card-val" style="color:rgba(224,250,255,0.50);font-size:10px">paralel agent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(224,250,255,0.28)">Dark paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#00E5FF"><div class="sw-c" style="background:#00E5FF;box-shadow:inset 0 -2px 8px rgba(0,229,255,0.3)"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">Cyan</div><div class="sw-h">#00E5FF</div><div class="sw-r">Primary · glow</div></div></div>
+            <div class="sw" data-hex="#6EEEFF"><div class="sw-c" style="background:#6EEEFF"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">Cyan Light</div><div class="sw-h">#6EEEFF</div><div class="sw-r">Hover</div></div></div>
+            <div class="sw" data-hex="#0091A8"><div class="sw-c" style="background:#0091A8"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">Cyan Dark</div><div class="sw-h">#0091A8</div><div class="sw-r">Pressed</div></div></div>
+            <div class="sw" data-hex="#040B14"><div class="sw-c" style="background:#040B14;border-top:0.5px solid #1a2a3a"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">BG Base</div><div class="sw-h">#040B14</div><div class="sw-r">Background</div></div></div>
+            <div class="sw" data-hex="#081422"><div class="sw-c" style="background:#081422;border-top:0.5px solid #1a2a3a"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">Surface</div><div class="sw-h">#081422</div><div class="sw-r">Card</div></div></div>
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#0C1A26"><div class="sw-n">Plum Bridge</div><div class="sw-h">#5A0E45</div><div class="sw-r">Harezm link</div></div></div>
+          </div>
+
+          <div class="sh" style="color:rgba(224,250,255,0.28)">Glow sistemi</div>
+          <div class="glow-demo">
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <div style="width:42px;height:42px;border-radius:9px;background:#00E5FF;box-shadow:0 0 22px rgba(0,229,255,0.40),0 0 8px rgba(0,229,255,0.25)"></div>
+              <div>
+                <div style="font-size:10px;color:#00E5FF;font-family:var(--font-mono)">0 0 22px rgba(0,229,255,0.40)</div>
+                <div style="font-size:9px;color:rgba(224,250,255,0.35);margin-top:2px">Button glow</div>
+              </div>
+              <div style="width:42px;height:42px;border-radius:9px;background:transparent;border:1px solid #00E5FF;box-shadow:0 0 10px rgba(0,229,255,0.18)"></div>
+              <div>
+                <div style="font-size:10px;color:#00E5FF;font-family:var(--font-mono)">0 0 10px rgba(0,229,255,0.18)</div>
+                <div style="font-size:9px;color:rgba(224,250,255,0.35);margin-top:2px">Border glow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Glow ✓ primary'de</span>
+        <span class="pill">Dark UI · %85 dark</span>
+        <span class="pill">Cyan neon · #00E5FF</span>
+      </div>
+    </div>
+
+    <!-- AB LIGHT -->
+    <div id="mode-ab-light" class="mpane">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#F0F8FC">
+          <span class="preview-label" style="color:#0077A8">agentandbot · Light</span>
+          <span class="preview-badge" style="background:rgba(0,119,168,0.08);color:#0077A8">derin cyan</span>
+        </div>
+        <div class="preview-body" style="background:#F0F8FC">
+          <div class="mock-wrap" style="border-color:rgba(0,119,168,0.15)">
+            <div class="mock-nav" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+              <div class="mock-logo" style="color:#0077A8">agentandbot<span style="color:#00E5FF">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:rgba(4,21,32,0.40)">Agents</span>
+                <span class="mock-nav-link" style="color:rgba(4,21,32,0.40)">Fiyat</span>
+                <span class="mock-nav-link" style="color:rgba(4,21,32,0.40)">Docs</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#F0F8FC">
+              <div class="mock-eyebrow" style="color:#0077A8">AI · Automation · Speed</div>
+              <div class="mock-h1" style="color:#041520">Workflow'larını<br><span style="color:#0077A8">otomatikleştir</span><span style="color:#00E5FF">.</span></div>
+              <div class="mock-sub" style="color:rgba(4,21,32,0.55)">Saniyeler içinde agent kur, süreçleri serbest bırak.</div>
+              <div class="mock-btns">
+                <div class="mock-btn" style="background:#0077A8;color:#FFFFFF">Workflow kur</div>
+                <div class="mock-btn" style="background:rgba(0,119,168,0.08);color:#0077A8;border:0.5px solid rgba(0,119,168,0.20)">Demo gör</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+                  <div class="mock-card-label" style="color:#0077A8">10x</div>
+                  <div class="mock-card-val" style="color:rgba(4,21,32,0.50);font-size:10px">daha hızlı otomasyon</div>
+                </div>
+                <div class="mock-card" style="background:#FFFFFF;border-color:rgba(0,0,0,0.07)">
+                  <div class="mock-card-label" style="color:#0077A8">∞</div>
+                  <div class="mock-card-val" style="color:rgba(4,21,32,0.50);font-size:10px">paralel agent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(4,21,32,0.30)">Light paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#0077A8"><div class="sw-c" style="background:#0077A8"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">Cyan Deep</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#0077A8</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Primary · light</div></div></div>
+            <div class="sw" data-hex="#009FD4"><div class="sw-c" style="background:#009FD4"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">Cyan Mid</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#009FD4</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Hover</div></div></div>
+            <div class="sw" data-hex="#005580"><div class="sw-c" style="background:#005580"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">Cyan Dark</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#005580</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Pressed</div></div></div>
+            <div class="sw" data-hex="#F0F8FC"><div class="sw-c" style="background:#F0F8FC;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">BG Base</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#F0F8FC</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Background</div></div></div>
+            <div class="sw" data-hex="#FFFFFF"><div class="sw-c" style="background:#FFFFFF;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">Surface</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#FFFFFF</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Card</div></div></div>
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#E8F4FA"><div class="sw-n" style="color:#041520">Plum Bridge</div><div class="sw-h" style="color:rgba(4,21,32,0.55)">#5A0E45</div><div class="sw-r" style="color:rgba(4,21,32,0.35)">Harezm link</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Neon → derin cyan</span>
+        <span class="pill">Glow ⚠ çok azaltıldı</span>
+        <span class="pill">Light BG · #F0F8FC</span>
+      </div>
+    </div>
+
+  </div><!-- /pane-agent -->
+
+  <!-- ════════════════════════════════════
+       PANE: ENY
+  ════════════════════════════════════ -->
+  <div id="pane-eny" class="pane">
+
+    <div class="mode-tabs">
+      <div class="mtab on" data-mode="en-dark" data-group="en">
+        <div class="mtab-dot" style="background:#0A0F0D;border:1.5px solid #D0FD17"></div>
+        Dark
+      </div>
+      <div class="mtab" data-mode="en-light" data-group="en">
+        <div class="mtab-dot" style="background:#EFF4DB;border:1.5px solid #4E5F00"></div>
+        Light
+      </div>
+    </div>
+
+    <!-- EN DARK -->
+    <div id="mode-en-dark" class="mpane on">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#0A0F0D">
+          <span class="preview-label" style="color:#D0FD17">eny · Dark</span>
+          <span class="preview-badge" style="background:rgba(208,253,23,0.10);color:#D0FD17">neon lime</span>
+        </div>
+        <div class="preview-body" style="background:#0A0F0D">
+          <div class="mock-wrap" style="border-color:rgba(208,253,23,0.10)">
+            <div class="mock-nav" style="background:#111810;border-color:rgba(208,253,23,0.06)">
+              <div class="mock-logo" style="color:#D0FD17">eny<span style="color:#EEF5E0">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:rgba(238,245,224,0.35)">e-Fatura</span>
+                <span class="mock-nav-link" style="color:rgba(238,245,224,0.35)">e-Defter</span>
+                <span class="mock-nav-link" style="color:rgba(238,245,224,0.35)">Fiyat</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#0A0F0D">
+              <div class="mock-eyebrow" style="color:rgba(208,253,23,0.55)">Next-gen Fintech · AI + Regtech</div>
+              <div class="mock-h1" style="color:#EEF5E0">Finansı<br><span style="color:#D0FD17">akıllılaştır</span><span style="color:#EEF5E0">.</span></div>
+              <div class="mock-sub" style="color:rgba(238,245,224,0.50)">e-Dönüşüm, e-Fatura ve AI regtech — hepsi tek platformda.</div>
+              <div class="mock-btns">
+                <div class="mock-btn" style="background:#D0FD17;color:#0A0F0D">Hemen başla</div>
+                <div class="mock-btn" style="background:rgba(208,253,23,0.10);color:#D0FD17;border:0.5px solid rgba(208,253,23,0.20)">Fiyatlar</div>
+                <div class="mock-btn" style="background:transparent;color:#D4AF37;border:0.5px solid rgba(212,175,55,0.25)">Demo</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:#111810;border-color:rgba(208,253,23,0.08)">
+                  <div class="mock-card-label" style="color:#D0FD17">e-Fatura</div>
+                  <div class="mock-card-val" style="color:rgba(238,245,224,0.50);font-size:10px">AI destekli fatura</div>
+                </div>
+                <div class="mock-card" style="background:#111810;border-color:rgba(212,175,55,0.08)">
+                  <div class="mock-card-label" style="color:#D4AF37">Gold Plan</div>
+                  <div class="mock-card-val" style="color:rgba(238,245,224,0.50);font-size:10px">Premium regtech</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(238,245,224,0.28)">Dark paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#D0FD17"><div class="sw-c" style="background:#D0FD17"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">Neon Lime</div><div class="sw-h">#D0FD17</div><div class="sw-r">Primary</div></div></div>
+            <div class="sw" data-hex="#6B7C2E"><div class="sw-c" style="background:#6B7C2E"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">Olive</div><div class="sw-h">#6B7C2E</div><div class="sw-r">Tonal support</div></div></div>
+            <div class="sw" data-hex="#D4AF37"><div class="sw-c" style="background:#D4AF37"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">Gold</div><div class="sw-h">#D4AF37</div><div class="sw-r">Premium accent</div></div></div>
+            <div class="sw" data-hex="#0A0F0D"><div class="sw-c" style="background:#0A0F0D;border-top:0.5px solid #1a2a1a"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">BG Base</div><div class="sw-h">#0A0F0D</div><div class="sw-r">Background</div></div></div>
+            <div class="sw" data-hex="#111810"><div class="sw-c" style="background:#111810;border-top:0.5px solid #1a2a1a"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">Surface</div><div class="sw-h">#111810</div><div class="sw-r">Card</div></div></div>
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#1A2010"><div class="sw-n">Plum Bridge</div><div class="sw-h">#5A0E45</div><div class="sw-r">Harezm link</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Dark UI ✓</span>
+        <span class="pill">Glow ⚠ minimal</span>
+        <span class="pill">Lime + Gold + Olive</span>
+      </div>
+    </div>
+
+    <!-- EN LIGHT -->
+    <div id="mode-en-light" class="mpane">
+      <div class="preview-card">
+        <div class="preview-header" style="background:#EFF4DB">
+          <span class="preview-label" style="color:#3A4800">eny · Light</span>
+          <span class="preview-badge" style="background:rgba(90,110,0,0.08);color:#4E5F00">derin lime</span>
+        </div>
+        <div class="preview-body" style="background:#EFF4DB">
+          <div class="mock-wrap" style="border-color:rgba(90,110,0,0.12)">
+            <div class="mock-nav" style="background:#F6FBEA;border-color:rgba(0,0,0,0.07)">
+              <div class="mock-logo" style="color:#1A1F16">eny<span style="color:#D0FD17">.</span></div>
+              <div class="mock-nav-links">
+                <span class="mock-nav-link" style="color:#6B7C2E">e-Fatura</span>
+                <span class="mock-nav-link" style="color:#6B7C2E">e-Defter</span>
+                <span class="mock-nav-link" style="color:#6B7C2E">Fiyat</span>
+              </div>
+            </div>
+            <div class="mock-body" style="background:#EFF4DB">
+              <div class="mock-eyebrow" style="color:#6B7C2E">Next-gen Fintech · AI + Regtech</div>
+              <div class="mock-h1" style="color:#1A1F16">Finansı<br><span style="color:#A3CF10">akıllılaştır</span><span style="color:#D0FD17">.</span></div>
+              <div class="mock-sub" style="color:#6B7C2E">e-Dönüşüm, e-Fatura ve AI regtech — hepsi tek platformda.</div>
+              <div class="mock-btns">
+                <div class="mock-btn primary">Hemen başla</div>
+                <div class="mock-btn secondary">Fiyatlar</div>
+                <div class="mock-btn tertiary">Demo</div>
+              </div>
+              <div class="mock-cards">
+                <div class="mock-card">
+                  <div class="mock-card-label" style="color:#1A1F16">e-Fatura</div>
+                  <div class="mock-card-val" style="color:#6B7C2E;font-size:10px">AI destekli fatura</div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-card-label" style="color:#1A1F16">Gold Plan</div>
+                  <div class="mock-card-val" style="color:#6B7C2E;font-size:10px">Premium regtech</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh" style="color:rgba(26,32,10,0.30)">Light paleti</div>
+          <div class="sw-grid">
+            <div class="sw" data-hex="#D0FD17"><div class="sw-c" style="background:#D0FD17"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Primary</div><div class="sw-h" style="color:#6B7C2E">#D0FD17</div><div class="sw-r" style="color:#6B7C2E">Neon Lime</div></div></div>
+            <div class="sw" data-hex="#BCEB14"><div class="sw-c" style="background:#BCEB14"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Hover</div><div class="sw-h" style="color:#6B7C2E">#BCEB14</div><div class="sw-r" style="color:#6B7C2E">Hover Soft</div></div></div>
+            <div class="sw" data-hex="#A3CF10"><div class="sw-c" style="background:#A3CF10"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Active</div><div class="sw-h" style="color:#6B7C2E">#A3CF10</div><div class="sw-r" style="color:#6B7C2E">Pressed State</div></div></div>
+            <div class="sw" data-hex="#EFF4DB"><div class="sw-c" style="background:#EFF4DB;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Background</div><div class="sw-h" style="color:#6B7C2E">#EFF4DB</div><div class="sw-r" style="color:#6B7C2E">Base Fill</div></div></div>
+            <div class="sw" data-hex="#F6FBEA"><div class="sw-c" style="background:#F6FBEA;border:0.5px solid rgba(0,0,0,0.08)"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Card</div><div class="sw-h" style="color:#6B7C2E">#F6FBEA</div><div class="sw-r" style="color:#6B7C2E">Surface UI</div></div></div>
+            <div class="sw" data-hex="#DADFCB"><div class="sw-c" style="background:#DADFCB"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Border</div><div class="sw-h" style="color:#6B7C2E">#DADFCB</div><div class="sw-r" style="color:#6B7C2E">Soft Edges</div></div></div>
+            <div class="sw" data-hex="#5A0E45"><div class="sw-c" style="background:#5A0E45"></div><div class="sw-i" style="background:#ECF2D8"><div class="sw-n" style="color:#1A1F16">Plum Bridge</div><div class="sw-h" style="color:#6B7C2E">#5A0E45</div><div class="sw-r" style="color:#6B7C2E">Harezm link</div></div></div>
+          </div>
+
+          <div class="sh" style="color:rgba(26,32,10,0.30)">Dark vs Light karşılaştırma</div>
+          <div class="compare-split">
+            <div class="compare-half" style="background:#0A0F0D;border-color:rgba(208,253,23,0.08)">
+              <div class="compare-label" style="color:rgba(208,253,23,0.5)">Dark mod</div>
+              <div style="font-size:22px;font-weight:800;color:#D0FD17;margin-bottom:4px">₺</div>
+              <div style="font-size:10px;color:rgba(238,245,224,0.50)">Neon Lime üzerine</div>
+            </div>
+            <div class="compare-half" style="background:#EFF4DB;border-color:rgba(90,110,0,0.12)">
+              <div class="compare-label" style="color:rgba(90,110,0,0.55)">Light mod</div>
+              <div style="font-size:22px;font-weight:800;color:#4E5F00;margin-bottom:4px">₺</div>
+              <div style="font-size:10px;color:rgba(26,32,10,0.50)">Derin Lime üzerine</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Neon Lime %5</span>
+        <span class="pill">BG: yeşil-krem tonu %80</span>
+        <span class="pill">Metin: #1A1F16 / #6B7C2E</span>
+        <span class="pill">Accent = Premium Glow</span>
+      </div>
+    </div>
+
+  </div><!-- /pane-eny -->
+
+  <!-- ════════════════════════════════════
+       PANE: TOKENS
+  ════════════════════════════════════ -->
+  <div id="pane-tokens" class="pane">
+
+    <div class="mode-tabs">
+      <div class="mtab on" data-mode="tok-dark" data-group="tok">
+        <div class="mtab-dot" style="background:#080608;border:1.5px solid rgba(255,255,255,0.2)"></div>
+        Dark tokens
+      </div>
+      <div class="mtab" data-mode="tok-light" data-group="tok">
+        <div class="mtab-dot" style="background:#F6F4FA;border:1.5px solid rgba(0,0,0,0.2)"></div>
+        Light tokens
+      </div>
+    </div>
+
+    <!-- DARK TOKENS -->
+    <div id="mode-tok-dark" class="mpane on">
+
+      <div class="sh">Shell (dark)</div>
+      <div class="token-box">
+        <span class="tk-key">--bg:              </span><span class="tk-neutral">#080608</span>;<br>
+        <span class="tk-key">--surface-1:       </span><span class="tk-neutral">#100D14</span>;<br>
+        <span class="tk-key">--surface-2:       </span><span class="tk-neutral">#161220</span>;<br>
+        <span class="tk-key">--border:          </span><span class="tk-neutral">rgba(255,255,255,0.06)</span>;<br>
+        <span class="tk-key">--text-1:          </span><span class="tk-neutral">#F4F1FF</span>;<br>
+        <span class="tk-key">--text-2:          </span><span class="tk-neutral">rgba(244,241,255,0.55)</span>;<br>
+        <span class="tk-key">--text-3:          </span><span class="tk-neutral">rgba(244,241,255,0.28)</span>;
+      </div>
+
+      <div class="sh">Harezm (dark)</div>
+      <div class="token-box">
+        <span class="tk-key">--hz-primary:      </span><span class="tk-hz">#5A0E45</span>;<br>
+        <span class="tk-key">--hz-primary-light:</span><span class="tk-hz">#7A1560</span>;<br>
+        <span class="tk-key">--hz-primary-dark: </span><span class="tk-hz">#3A0830</span>;<br>
+        <span class="tk-key">--hz-teal:         </span><span class="tk-ab-dark">#2DD4BF</span>;<br>
+        <span class="tk-key">--hz-bg:           </span><span class="tk-neutral">#07050A</span>;<br>
+        <span class="tk-key">--hz-surface:      </span><span class="tk-neutral">#120E18</span>;
+      </div>
+
+      <div class="sh">agentandbot (dark)</div>
+      <div class="token-box">
+        <span class="tk-key">--ab-primary:      </span><span class="tk-ab-dark">#00E5FF</span>;<br>
+        <span class="tk-key">--ab-primary-light:</span><span class="tk-ab-dark">#6EEEFF</span>;<br>
+        <span class="tk-key">--ab-primary-dark: </span><span class="tk-ab-dark">#0091A8</span>;<br>
+        <span class="tk-key">--ab-glow:         </span><span class="tk-ab-dark">rgba(0,229,255,0.28)</span>;<br>
+        <span class="tk-key">--ab-dim:          </span><span class="tk-ab-dark">rgba(0,229,255,0.10)</span>;<br>
+        <span class="tk-key">--ab-bg:           </span><span class="tk-neutral">#040B14</span>;<br>
+        <span class="tk-key">--ab-surface:      </span><span class="tk-neutral">#081422</span>;
+      </div>
+
+      <div class="sh">eny (dark)</div>
+      <div class="token-box">
+        <span class="tk-key">--en-primary:      </span><span class="tk-en-dark">#D0FD17</span>;<br>
+        <span class="tk-key">--en-primary-dark: </span><span class="tk-en-dark">#7A9610</span>;<br>
+        <span class="tk-key">--en-olive:        </span><span class="tk-en-dark">#6B7C2E</span>;<br>
+        <span class="tk-key">--en-gold:         </span><span class="tk-neutral">#D4AF37</span>;<br>
+        <span class="tk-key">--en-dim:          </span><span class="tk-en-dark">rgba(208,253,23,0.10)</span>;<br>
+        <span class="tk-key">--en-bg:           </span><span class="tk-neutral">#0A0F0D</span>;<br>
+        <span class="tk-key">--en-surface:      </span><span class="tk-neutral">#111810</span>;
+      </div>
+    </div>
+
+    <!-- LIGHT TOKENS -->
+    <div id="mode-tok-light" class="mpane">
+
+      <div class="sh">Shell (light)</div>
+      <div class="token-box">
+        <span class="tk-key">--bg:              </span><span class="tk-neutral">#F6F4FA</span>;<br>
+        <span class="tk-key">--surface-1:       </span><span class="tk-neutral">#FFFFFF</span>;<br>
+        <span class="tk-key">--surface-2:       </span><span class="tk-neutral">#F0EDF8</span>;<br>
+        <span class="tk-key">--border:          </span><span class="tk-neutral">rgba(0,0,0,0.07)</span>;<br>
+        <span class="tk-key">--text-1:          </span><span class="tk-neutral">#130A20</span>;<br>
+        <span class="tk-key">--text-2:          </span><span class="tk-neutral">rgba(19,10,32,0.55)</span>;<br>
+        <span class="tk-key">--text-3:          </span><span class="tk-neutral">rgba(19,10,32,0.35)</span>;
+      </div>
+
+      <div class="sh">Harezm (light)</div>
+      <div class="token-box">
+        <span class="tk-key">--hz-primary:      </span><span class="tk-hz">#5A0E45</span>; <span class="tk-neutral">/* değişmez */</span><br>
+        <span class="tk-key">--hz-primary-light:</span><span class="tk-hz">#7A1560</span>;<br>
+        <span class="tk-key">--hz-teal:         </span><span class="tk-ab-light">#0F9C8A</span>;<br>
+        <span class="tk-key">--hz-bg:           </span><span class="tk-neutral">#FAF5FD</span>;<br>
+        <span class="tk-key">--hz-surface:      </span><span class="tk-neutral">#FFFFFF</span>;<br>
+        <span class="tk-key">--hz-text:         </span><span class="tk-neutral">#130A20</span>;
+      </div>
+
+      <div class="sh">agentandbot (light)</div>
+      <div class="token-box">
+        <span class="tk-key">--ab-primary:      </span><span class="tk-ab-light">#0077A8</span>;<br>
+        <span class="tk-key">--ab-primary-light:</span><span class="tk-ab-light">#009FD4</span>;<br>
+        <span class="tk-key">--ab-primary-dark: </span><span class="tk-ab-light">#005580</span>;<br>
+        <span class="tk-key">--ab-glow:         </span><span class="tk-ab-light">rgba(0,119,168,0.18)</span>;<br>
+        <span class="tk-key">--ab-dim:          </span><span class="tk-ab-light">rgba(0,119,168,0.08)</span>;<br>
+        <span class="tk-key">--ab-bg:           </span><span class="tk-neutral">#F0F8FC</span>;<br>
+        <span class="tk-key">--ab-surface:      </span><span class="tk-neutral">#FFFFFF</span>;
+      </div>
+
+      <div class="sh">eny (light)</div>
+      <div class="token-box">
+        <span class="tk-key">--en-primary:      </span><span class="tk-en-light">#D0FD17</span>;<br>
+        <span class="tk-key">--en-hover:        </span><span class="tk-en-light">#BCEB14</span>;<br>
+        <span class="tk-key">--en-active:       </span><span class="tk-en-light">#A3CF10</span>;<br>
+        <span class="tk-key">--en-bg:           </span><span class="tk-neutral">#EFF4DB</span>;<br>
+        <span class="tk-key">--en-surface:      </span><span class="tk-neutral">#F6FBEA</span>;<br>
+        <span class="tk-key">--en-border:       </span><span class="tk-neutral">#DADFCB</span>;<br>
+        <span class="tk-key">--en-text:         </span><span class="tk-neutral">#1A1F16</span>;<br>
+        <span class="tk-key">--en-text-sec:     </span><span class="tk-neutral">#6B7C2E</span>;
+      </div>
+
+    </div>
+
+  </div><!-- /pane-tokens -->
+
+</div><!-- /shell -->
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ══ Global Vars ══ */
+const html = document.documentElement;
+
+/* ══ Brand tab switching ══ */
+document.querySelectorAll('.btab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const paneId = 'pane-' + this.dataset.pane;
+    document.querySelectorAll('.btab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    this.classList.add('on');
+    const pane = document.getElementById(paneId);
+    if (pane) pane.classList.add('on');
+  });
+});
+
+/* ══ Mode tab switching (dark/light per brand) ══ */
+document.querySelectorAll('.mtab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    if (this.dataset.globalTheme) {
+      const targetTheme = this.dataset.globalTheme;
+      html.setAttribute('data-theme', targetTheme);
+      document.querySelectorAll('.mtab[data-global-theme]').forEach(t => t.classList.remove('on'));
+      this.classList.add('on');
+      return;
+    }
+    const group = this.dataset.group;
+    const modeId = 'mode-' + this.dataset.mode;
+    // deactivate all mtabs in same group
+    document.querySelectorAll(`.mtab[data-group="${group}"]`).forEach(t => t.classList.remove('on'));
+    // hide all mpanes for this group
+    document.querySelectorAll('.mpane').forEach(p => {
+      if (p.id.startsWith('mode-' + group)) p.classList.remove('on');
+    });
+    // also handle token group
+    if (group === 'tok') {
+      document.querySelectorAll('.mpane').forEach(p => {
+        if (p.id.startsWith('mode-tok')) p.classList.remove('on');
+      });
+    }
+    this.classList.add('on');
+    const pane = document.getElementById(modeId);
+    if (pane) pane.classList.add('on');
+  });
+});
+
+/* ══ Arch card navigation ══ */
+document.querySelectorAll('.arch-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const goto = this.dataset.goto;
+    if (!goto) return;
+    document.querySelectorAll('.btab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    const targetTab = document.querySelector(`.btab[data-pane="${goto}"]`);
+    if (targetTab) targetTab.classList.add('on');
+    const targetPane = document.getElementById('pane-' + goto);
+    if (targetPane) targetPane.classList.add('on');
+  });
+});
+
+/* ══ Swatch copy ══ */
+document.querySelectorAll('.sw').forEach(sw => {
+  sw.addEventListener('click', function() {
+    const hex = this.dataset.hex || this.querySelector('.sw-h')?.textContent;
+    if (hex) cp(hex);
+  });
+});
+
+function cp(hex) {
+  navigator.clipboard.writeText(hex).catch(() => {});
+  const t = document.getElementById('toast');
+  t.textContent = hex + ' kopyalandı';
+  t.classList.add('on');
+  setTimeout(() => t.classList.remove('on'), 1500);
+}
+</script>
+</body>
+</html>
