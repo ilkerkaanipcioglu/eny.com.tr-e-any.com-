@@ -93,19 +93,20 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
     <!-- Theme: track OS preference dynamically -->
     <script is:inline>
       (function() {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        
         function applyTheme() {
           const stored = localStorage.getItem('eny-theme');
-          // Enforce dark theme as default if no preference is stored
-          const preferred = mediaQuery.matches ? 'dark' : 'dark'; 
-          document.documentElement.setAttribute('data-theme', stored || preferred);
+          if (stored) {
+            document.documentElement.setAttribute('data-theme', stored);
+            return;
+          }
+          // Default to dark if no preference
+          document.documentElement.setAttribute('data-theme', 'dark');
         }
         
         applyTheme();
 
-        // If user changes Windows setting, apply it
-        mediaQuery.addEventListener('change', (e) => {
+        // Listen for OS changes only if no manual preference stored
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
           if(!localStorage.getItem('eny-theme')) {
             document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
           }
