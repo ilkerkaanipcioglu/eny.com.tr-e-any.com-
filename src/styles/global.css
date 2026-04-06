@@ -9,6 +9,7 @@
   --lime-glow: rgba(208, 253, 23, 0.55);
   --lime-soft: rgba(208, 253, 23, 0.12);
   --gold: #D4AF37;
+  --gray: #71717A; /* Industrial Gray for B2B readability */
   --trans: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -36,6 +37,9 @@
   /* added typical readable text color */
   --text-70: rgba(232, 237, 233, 0.70);
   --text-40: rgba(232, 237, 233, 0.40);
+  --nav-pill-bg: rgba(208, 253, 23, 0.15);
+  --nav-pill-text: #D0FD17;
+  --accent-text: #D0FD17; /* Signature Neon in dark mode */
   --nav-bg: rgba(5, 8, 6, 0.85);
   color-scheme: dark;
 }
@@ -62,7 +66,18 @@
   --text: #1A1C1F;
   --text-70: rgba(26, 28, 31, 0.70);
   --text-40: rgba(26, 28, 31, 0.40);
+  --gray: #64748b; /* Slate Gray for icons */
+  --lime: #D0FD17; /* Original Neon Lime */
+  --nav-pill-bg: #D0FD17;
+  --nav-pill-text: #000000;
+  --accent-text: #1A1C1F; 
   --nav-bg: rgba(244, 247, 240, 0.92);
+  
+  /* ── LIGHT MODE: Lime Pill Sistemi ── */
+  --lime-pill-bg:     #eefab5;
+  --lime-pill-text:   #2d4000;
+  --lime-pill-border: #c4e830;
+  
   color-scheme: light;
 }
 
@@ -106,6 +121,9 @@
 
   --color-nav-bg: var(--nav-bg);
   --color-bg3: var(--surface);
+  --color-accent-text: var(--accent-text);
+  --color-nav-pill-bg: var(--nav-pill-bg);
+  --color-nav-pill-text: var(--nav-pill-text);
 
   --font-sans: "Syne", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -169,16 +187,71 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* === VERTICAL TEXT BUG RESET === */
-/* Prevents stray scripts from splitting paragraphs into vertical words on subpages */
-p {
-  display: block !important;
-  text-align: inherit;
-  width: 100%;
+/* === TYPOGRAPHY REFINEMENT === */
+/* Prevents stray scripts or layout shifts from splitting words into vertical columns on mobile */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  overflow-wrap: normal;
+  word-wrap: normal;
+  word-break: normal;
+  white-space: normal;
 }
-p span {
-  display: inline !important;
-  white-space: normal !important;
+
+.display-lg {
+  text-wrap: balance;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+/* === ICON VISIBILITY FIX === */
+/* All glass-card icons use high-contrast solid backgrounds in light mode */
+.glass-card .material-symbols-outlined {
+  color: var(--gray);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="light"] .glass-card .w-12, 
+[data-theme="light"] .glass-card .w-16,
+[data-theme="light"] .glass-card .w-14 {
+  background: var(--lime-pill-bg) !important;
+  border: 1px solid var(--lime-pill-border) !important;
+  color: var(--lime-pill-text) !important;
+  box-shadow: 0 4px 12px rgba(208, 253, 23, 0.1);
+}
+
+[data-theme="light"] .glass-card .w-12 span, 
+[data-theme="light"] .glass-card .w-16 span,
+[data-theme="light"] .glass-card .w-14 span {
+  color: var(--lime-pill-text) !important;
+}
+
+[data-theme="dark"] .glass-card .material-symbols-outlined {
+  color: var(--lime);
+  filter: drop-shadow(0 0 10px var(--lime-soft));
+}
+
+.glass-card:hover .material-symbols-outlined {
+  color: var(--accent-text);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px var(--lime-glow));
+}
+
+[data-theme="light"] .glass-card:hover .w-12, 
+[data-theme="light"] .glass-card:hover .w-16,
+[data-theme="light"] .glass-card:hover .w-14 {
+  background: var(--lime-pill-text) !important;
+  border-color: var(--lime-pill-text) !important;
+  color: var(--lime) !important;
+}
+
+[data-theme="light"] .glass-card:hover .w-12 span, 
+[data-theme="light"] .glass-card:hover .w-16 span,
+[data-theme="light"] .glass-card:hover .w-14 span {
+  color: var(--lime) !important;
+}
+
+/* Products page specific fix */
+.urunler-icon-fix .material-symbols-outlined {
+  color: var(--text) !important;
 }
 
 /* Base Styles */
@@ -284,6 +357,57 @@ section {
   font-size: 13px;
   color: var(--text-70);
   font-weight: 400;
+}
+
+/* ── LIGHT MODE: Lime Pill Uygulamaları ── */
+[data-theme="light"] .section-label {
+  color: var(--lime-pill-text);
+  background: var(--lime-pill-bg);
+  border: 1px solid var(--lime-pill-border);
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+[data-theme="light"] .case-tag {
+  color: var(--lime-pill-text);
+  background: var(--lime-pill-bg);
+  border: 1px solid var(--lime-pill-border);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+[data-theme="light"] .metric-value {
+  color: var(--lime-pill-text) !important;
+}
+
+[data-theme="light"] .metric-value::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--lime);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+[data-theme="light"] .case-metric-val {
+  color: var(--lime-pill-text) !important;
+}
+
+[data-theme="light"] .case-metric-item {
+  border-left-color: var(--lime);
+}
+
+[data-theme="light"] .global-feature-icon {
+  background: var(--lime-pill-text);
+  box-shadow: 0 0 0 2px var(--lime-pill-bg), 0 0 0 3px var(--lime-pill-border);
+}
+
+[data-theme="light"] .neon-glow {
+  text-shadow: none;
 }
 
 /* ========================================

@@ -36,7 +36,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             </button>
             <!-- Wordmark (Home Link) -->
             <a href={getLocalePath('/', lang)} class="flex items-center group">
-                <span class="text-xl md:text-2xl font-extrabold tracking-tighter text-text-main group-hover:text-lime transition-colors duration-300" style="font-family: var(--font-sans)">eny<span class="text-lime">.</span></span>
+                <span class="text-xl md:text-2xl font-extrabold tracking-tighter text-text-main group-hover:text-accent-text transition-colors duration-300" style="font-family: var(--font-sans)">eny<span class="text-lime">.</span></span>
             </a>
         </div>
         <!-- Navigation (Desktop) -->
@@ -44,9 +44,9 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             
             <!-- Çözümler Dropdown (Mega Menu) -->
             <div class="relative group h-full flex items-center">
-                <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${isActivePath('/urunler') ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
+                <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${isActivePath('/urunler') ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navSolutions', lang)}
-                    <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+                    <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
                 <!-- Mega Menu Panel -->
@@ -180,9 +180,9 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
             <!-- Hizmetlerimiz Dropdown (Mega Menu) -->
             <div class="relative group h-full flex items-center">
-                <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${isActivePath('/hizmetler') ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
+                <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${isActivePath('/hizmetler') ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {lang === 'tr' ? 'Hizmetlerimiz' : 'Services'}
-                    <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+                    <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
                 <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
@@ -240,9 +240,9 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
             <!-- Kurumsal Dropdown -->
             <div class="relative group h-full flex items-center">
-                <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
+                <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navAbout', lang)}
-                    <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+                    <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
                 <div class="absolute top-full -translate-x-2/3 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
