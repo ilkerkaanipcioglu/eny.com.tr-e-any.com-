@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Yönlendiriliyorsunuz..." lang="tr">
+    <div class="min-h-screen flex items-center justify-center bg-bg">
+        <div class="text-center">
+            <span class="material-symbols-outlined text-6xl text-lime mb-6 animate-spin">autorenew</span>
+            <h1 class="text-2xl font-bold text-text mb-4">Yeni Çözüm Sayfamıza Yönlendiriliyorsunuz</h1>
+            <p class="text-text-70">e-Ticaret ve Pazaryeri çözümlerimiz artık tek bir çatı altında birleşti.</p>
+        </div>
+    </div>
+    <script is:inline>
+        window.location.href = '/e-ticaret';
+    </script>
+</Layout>

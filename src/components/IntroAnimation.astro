@@ -7,44 +7,97 @@ export interface Props {
 
 const { lang = 'tr' } = Astro.props;
 
-const trWords = [
-  'e-fatura', 'e-dönüşüm', 'e-arşiv', 'e-defter',
-  'e-imza', 'e-irsaliye', 'e-ödeme', 'e-tahsilat',
-  'e-dbs', 'e-ekstre', 'e-ticaret', 'e-devlet',
-  'e-checkout', 'e-mutabakat', 'e-sözleşme', 'e-tebligat',
-  'e-bilet', 'e-analitik', 
-  'e-loyalty', 'e-ihracat', 'e-cüzdan', 'e-muhasebe', 
-  'e-lojistik', 'e-satınalma', 'e-öğrenme', 'e-sağlık',
-  'e-anything', 'e-everything',
-  'e-any', 'eny.com.tr', 'ENY', 
+interface WordMap {
+  w: string;
+  l: string;
+}
+
+const trWords: WordMap[] = [
+  { w: 'e-fatura', l: '/urunler' },
+  { w: 'e-dönüşüm', l: '/hizmetler' },
+  { w: 'e-arşiv', l: '/urunler' },
+  { w: 'e-defter', l: '/urunler' },
+  { w: 'e-imza', l: '/urunler' },
+  { w: 'e-irsaliye', l: '/urunler' },
+  { w: 'e-ödeme', l: '/e-payment' },
+  { w: 'e-tahsilat', l: '/e-tahsilat' },
+  { w: 'e-dbs', l: '/e-dbs' },
+  { w: 'e-ekstre', l: '/e-ekstre' },
+  { w: 'e-ticaret', l: '/e-ticaret' },
+  { w: 'e-devlet', l: '/urunler' },
+  { w: 'e-mutabakat', l: '/urunler' },
+  { w: 'e-sözleşme', l: '/urunler' },
+  { w: 'e-bordro', l: '/urunler' },
+  { w: 'e-teklif', l: '/urunler' },
+  { w: 'e-satın alma', l: '/e-ticaret' },
+  { w: 'e-sipariş', l: '/e-ticaret' },
+  { w: 'e-stok', l: '/urunler' },
+  { w: 'e-masraf', l: '/urunler' },
+  { w: 'e-bütçe', l: '/hizmetler' },
+  { w: 'e-kasa', l: '/hizmetler' },
+  { w: 'e-denetim', l: '/urunler' },
+  { w: 'e-risk', l: '/teknoloji' },
+  { w: 'e-scoring', l: '/teknoloji' },
+  { w: 'e-kyc', l: '/teknoloji' },
+  { w: 'e-onboarding', l: '/teknoloji' },
+  { w: 'e-abonelik', l: '/e-tahsilat' },
+  { w: 'e-sadakat', l: '/urunler' },
+  { w: 'e-wallet', l: '/e-payment' },
+  { w: 'e-treasury', l: '/hizmetler' },
+  { w: 'e-tös', l: '/e-payment' },
+  { w: 'e-nakit akışı', l: '/e-cashflow' },
+  { w: 'e-any', l: '/' },
+  { w: 'eny.com.tr', l: '/' },
+  { w: 'ENY', l: '/' },
 ];
 
-const enWords = [
-  'e-invoice', 'e-transformation', 'e-archive', 'e-ledger',
-  'e-signature', 'e-waybill', 'e-payment', 'e-collection',
-  'e-dds', 'e-statement', 'e-commerce', 'e-government',
-  'e-checkout', 'e-reconciliation', 'e-contract', 'e-notification',
-  'e-ticket', 'e-analytics', 
-  'e-loyalty', 'e-export', 'e-wallet', 'e-accounting',
-  'e-logistics', 'e-procurement', 'e-learning', 'e-health',
-  'e-anything', 'e-everything',
-  'e-any', 'eny.com.tr', 'ENY', 
+const enWords: WordMap[] = [
+  { w: 'e-invoice', l: '/en/products' },
+  { w: 'e-transformation', l: '/en/services' },
+  { w: 'e-archive', l: '/en/products' },
+  { w: 'e-ledger', l: '/en/products' },
+  { w: 'e-signature', l: '/en/products' },
+  { w: 'e-waybill', l: '/en/products' },
+  { w: 'e-payment', l: '/en/e-payment' },
+  { w: 'e-collection', l: '/en/e-collection' },
+  { w: 'e-dbs', l: '/en/e-dbs' },
+  { w: 'e-dds', l: '/en/e-dbs' },
+  { w: 'e-statement', l: '/en/e-statement' },
+  { w: 'e-commerce', l: '/en/e-commerce' },
+  { w: 'e-government', l: '/en/products' },
+  { w: 'e-reconciliation', l: '/en/products' },
+  { w: 'e-contract', l: '/en/products' },
+  { w: 'e-procurement', l: '/en/e-commerce' },
+  { w: 'e-order', l: '/en/e-commerce' },
+  { w: 'e-audit', l: '/en/products' },
+  { w: 'e-risk', l: '/en/technology' },
+  { w: 'e-scoring', l: '/en/technology' },
+  { w: 'e-kyc', l: '/en/technology' },
+  { w: 'e-onboarding', l: '/en/technology' },
+  { w: 'e-subscription', l: '/en/e-collection' },
+  { w: 'e-loyalty', l: '/en/products' },
+  { w: 'e-wallet', l: '/en/e-payment' },
+  { w: 'e-treasury', l: '/en/services' },
+  { w: 'e-cashflow', l: '/en/e-cashflow' },
+  { w: 'e-rollout', l: '/en/rollout' },
+  { w: 'e-any', l: '/en/' },
+  { w: 'eny.com.tr', l: '/en/' },
+  { w: 'ENY', l: '/en/' },
 ];
 
 const words = lang === 'tr' ? trWords : enWords;
 const wordsJson = JSON.stringify(words);
-
 const introStatus = t('introStatus', lang);
 ---
 
 <div id="intro-stage" data-lang={lang} data-words={wordsJson}>
   <canvas id="intro-bg"></canvas>
-  <!-- Higgsfield-style Neon Glows -->
   <div class="neon-radial-glow top-left"></div>
   <div class="neon-radial-glow bottom-right"></div>
   <div id="grid-overlay"></div>
   <div id="vignette"></div>
   <div id="scan"></div>
+  <div id="glitch-overlay"></div>
 
   <div class="corner" id="c-tl"></div>
   <div class="corner" id="c-tr"></div>
@@ -53,41 +106,25 @@ const introStatus = t('introStatus', lang);
 
   <div id="intro-content">
     <div id="stream-area"></div>
-    <!-- Premium Logo Block -->
     <div id="logo-block">
       <div id="logo-glow"></div>
-      <div id="logo-image-container" class="flicker-logo">
+      <div id="logo-image-container">
         <div class="intro-logo-row flex items-center justify-center">
-            <div class="intro-icon-wrapper relative">
-                <div class="neon-glow-bg"></div>
-                <img src="/images/logo/eny_icon.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-light" />
-                <img src="/images/logo/eny_icon_black.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-dark" />
-            </div>
-            <div class="intro-text-wrapper">
-                <span class="intro-wordmark text-[100px] md:text-[140px] font-extrabold tracking-tighter text-text-main" style="font-family: var(--font-sans)">eny<span class="intro-dot text-lime">.</span></span>
-            </div>
+          <div class="intro-icon-wrapper relative">
+            <img src="/images/logo/eny_icon.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-light" />
+            <img src="/images/logo/eny_icon_black.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-dark" />
+          </div>
+          <div class="intro-text-wrapper">
+            <span class="intro-wordmark text-[100px] md:text-[140px] font-extrabold tracking-tighter text-white" style="font-family: var(--font-sans)">eny<span class="intro-dot">.</span></span>
+          </div>
         </div>
       </div>
-      <div id="domains">
-        <span class="dom">eny.com.tr</span>
-      </div>
-      <div id="tagline">{t('introTagline', lang)}</div>
-      <div id="sub-tagline">{t('introSubTagline', lang)}</div>
-      <p id="hero-desc">{t('introHeroDesc', lang)}</p>
-      <div id="hero-ctas">
-        <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="cta-primary" id="cta-demo">{t('introCtaPrimary', lang)}</a>
-        <a href="#platform" class="cta-ghost" id="cta-explore">{t('introCtaSecondary', lang)}</a>
-      </div>
+      <div id="logo-domain">ENY.COM.TR</div>
     </div>
   </div>
-
-  <!-- Replay Button -->
-  <button id="replay-btn">{t('introReplay', lang)}</button>
-  <div id="status-bar" set:html={introStatus}></div>
 </div>
 
 <style>
-  /* Intro Stage Scoped Styles */
   #intro-stage {
     width: 100%;
     height: 100vh;
@@ -106,7 +143,15 @@ const introStatus = t('introStatus', lang);
     inset: 0;
     width: 100%;
     height: 100%;
-    transition: opacity 0.6s;
+  }
+
+  #glitch-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: screen;
   }
 
   #vignette {
@@ -116,10 +161,10 @@ const introStatus = t('introStatus', lang);
     z-index: 1;
   }
   :global([data-theme="dark"]) #vignette {
-    background: radial-gradient(ellipse at center, transparent 25%, rgba(4,6,5,0.92) 100%);
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(4,6,5,0.95) 100%);
   }
   :global([data-theme="light"]) #vignette {
-    background: radial-gradient(ellipse at center, transparent 25%, rgba(240,245,236,0.7) 100%);
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(240,245,236,0.75) 100%);
   }
 
   .neon-radial-glow {
@@ -132,9 +177,9 @@ const introStatus = t('introStatus', lang);
     pointer-events: none;
     z-index: 0;
     background: radial-gradient(circle, var(--lime-glow) 0%, transparent 70%);
-    transition: opacity 2s ease;
+    transition: opacity 1.2s ease;
   }
-  .neon-radial-glow.on { opacity: 0.12; }
+  .neon-radial-glow.on { opacity: 0.14; }
   .top-left { top: -20%; left: -20%; }
   .bottom-right { bottom: -20%; right: -20%; }
 
@@ -143,19 +188,19 @@ const introStatus = t('introStatus', lang);
     inset: 0;
     z-index: 0;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
     pointer-events: none;
   }
   :global([data-theme="dark"]) #grid-overlay {
     background-image:
-      linear-gradient(rgba(208,253,23,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(208,253,23,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(208,253,23,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(208,253,23,0.04) 1px, transparent 1px);
     background-size: 52px 52px;
   }
   :global([data-theme="light"]) #grid-overlay {
     background-image:
-      linear-gradient(rgba(80,140,50,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(80,140,50,0.06) 1px, transparent 1px);
+      linear-gradient(rgba(80,140,50,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(80,140,50,0.07) 1px, transparent 1px);
     background-size: 52px 52px;
   }
   #grid-overlay.on { opacity: 1; }
@@ -163,17 +208,20 @@ const introStatus = t('introStatus', lang);
   #scan {
     position: absolute;
     left: 0; right: 0;
-    height: 1px;
+    height: 2px;
     z-index: 2;
     top: 0;
     pointer-events: none;
     opacity: 0;
+    filter: blur(0.5px);
   }
   :global([data-theme="dark"]) #scan {
-    background: linear-gradient(90deg, transparent, rgba(208,253,23,0.6), transparent);
+    background: linear-gradient(90deg, transparent 0%, rgba(208,253,23,0.0) 10%, rgba(208,253,23,0.8) 50%, rgba(208,253,23,0.0) 90%, transparent 100%);
+    box-shadow: 0 0 12px rgba(208,253,23,0.5);
   }
   :global([data-theme="light"]) #scan {
-    background: linear-gradient(90deg, transparent, rgba(60,140,30,0.5), transparent);
+    background: linear-gradient(90deg, transparent 0%, rgba(60,140,30,0.0) 10%, rgba(60,140,30,0.6) 50%, rgba(60,140,30,0.0) 90%, transparent 100%);
+    box-shadow: 0 0 8px rgba(60,140,30,0.4);
   }
 
   #intro-content {
@@ -205,37 +253,48 @@ const introStatus = t('introStatus', lang);
     color: var(--word-base);
     letter-spacing: 0.04em;
     opacity: 0;
-    transform: translateY(4px);
-    transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+    transform: translateY(6px) scale(0.95);
+    transition: opacity 0.25s cubic-bezier(0.22,1,0.36,1),
+                transform 0.25s cubic-bezier(0.22,1,0.36,1),
+                color 0.2s,
+                text-shadow 0.2s;
     white-space: nowrap;
     text-decoration: none;
     pointer-events: none;
   }
   :global(.sw.on) {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     color: var(--word-on);
     pointer-events: auto;
   }
   :global(.sw.on:hover) {
     color: var(--lime);
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-2px) scale(1.06);
   }
   :global(.sw.glow) {
     color: var(--word-glow);
-    text-shadow: 0 0 10px var(--lime-glow), 0 0 24px var(--lime-soft);
+    text-shadow: 0 0 12px var(--lime-glow), 0 0 28px var(--lime-soft);
   }
   :global([data-theme="light"] .sw.glow) {
-    text-shadow: 0 0 8px rgba(42,96,24,0.4);
+    text-shadow: 0 0 8px rgba(42,96,24,0.5);
   }
   :global(.sw.dim) {
-    opacity: 1;
+    opacity: 0.55;
     color: var(--word-on);
     text-shadow: none;
   }
   :global(.sw.highlight) {
     font-weight: 600;
     font-size: 13px;
+  }
+  :global(.sw.burst) {
+    animation: sw-burst 0.35s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  @keyframes sw-burst {
+    0%   { opacity: 0; transform: translateY(10px) scale(0.8); }
+    60%  { opacity: 1; transform: translateY(-2px) scale(1.08); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   #logo-block {
@@ -244,32 +303,43 @@ const introStatus = t('introStatus', lang);
     align-items: center;
     gap: 14px;
     opacity: 0;
-    transform: translateY(14px) scale(0.94);
-    transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
-                transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    transform: translateY(16px) scale(0.92);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                transform 0.7s cubic-bezier(0.22,1,0.36,1);
     position: relative;
   }
   #logo-block.show {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+  #logo-block.glitch {
+    animation: logo-glitch 0.4s steps(2) forwards;
+  }
+  @keyframes logo-glitch {
+    0%   { clip-path: inset(0 0 85% 0); transform: translate(-3px, 0) scale(1); }
+    20%  { clip-path: inset(40% 0 30% 0); transform: translate(3px, 0) scale(1); }
+    40%  { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 0) scale(1); }
+    60%  { clip-path: none; transform: translate(0) scale(1.01); }
+    80%  { clip-path: inset(10% 0 80% 0); transform: translate(2px, 0) scale(1); }
+    100% { clip-path: none; transform: translate(0) scale(1); }
+  }
 
   #logo-glow {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     background: var(--lime-glow);
-    filter: blur(80px);
+    filter: blur(100px);
     opacity: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: -1;
-    transition: opacity 1.5s ease;
+    transition: opacity 1s ease;
   }
-  #logo-glow.show { opacity: 0.18; }
-  :global([data-theme="light"]) #logo-glow.show { opacity: 0.08; background: #3a7a20; }
+  #logo-glow.show { opacity: 0.1; }
+  :global([data-theme="light"]) #logo-glow.show { opacity: 0.05; background: #3a7a20; }
 
   #logo-image-container {
     position: relative;
@@ -285,9 +355,7 @@ const introStatus = t('introStatus', lang);
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    animation: neon-flicker 4s infinite alternate;
   }
-
   @media (min-width: 768px) {
     .intro-logo-row {
       flex-direction: row;
@@ -299,8 +367,7 @@ const introStatus = t('introStatus', lang);
     height: clamp(100px, 20vw, 260px);
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 25px var(--lime-glow));
-    transition: filter 0.6s, transform 0.6s;
+    animation: icon-glow-pulse 2.5s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
   }
 
   .intro-wordmark {
@@ -310,190 +377,35 @@ const introStatus = t('introStatus', lang);
     font-family: var(--font-sans);
     font-weight: 800;
     white-space: nowrap;
+    color: #FFFFFF;
+    text-shadow: none !important;
   }
 
   .intro-dot {
     display: inline-block;
-    animation: dot-heartbeat 2.5s infinite;
-    text-shadow: 0 0 20px var(--lime-glow);
+    color: var(--lime);
   }
 
-  /* Premium Neon Flicker Animation */
-  @keyframes neon-flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      opacity: 1;
-      filter: drop-shadow(0 0 30px var(--lime-glow));
-    }
-    20%, 24%, 55% {
-      opacity: 0.8;
-      filter: drop-shadow(0 0 10px var(--lime-glow));
-    }
-    22% {
-      opacity: 0.9;
-      filter: drop-shadow(0 0 20px var(--lime-glow));
-    }
+  @keyframes icon-glow-pulse {
+    0% { filter: drop-shadow(0 0 5px rgba(208,253,23,0.1)); opacity: 0.88; }
+    100% { filter: drop-shadow(0 0 40px rgba(208,253,23,0.65)); opacity: 1; }
   }
 
-  /* Signature Dot Heartbeat */
-  @keyframes dot-heartbeat {
-    0%, 100% { transform: scale(1); opacity: 1; text-shadow: 0 0 25px var(--lime-glow); }
-    50% { transform: scale(1.15); opacity: 0.8; text-shadow: 0 0 45px var(--lime-glow); }
-  }
-
-  .intro-logo:hover {
-    transform: scale(1.02);
-    filter: drop-shadow(0 0 50px var(--lime-glow));
-  }
-  :global([data-theme="light"]) #logo-dot { color: #3a7a20; text-shadow: none; }
-
-  #domains {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: opacity 0.7s, transform 0.7s;
-  }
-  #domains.show { opacity: 1; transform: translateY(0); }
-
-  .dom {
+  #logo-domain {
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--domain-color);
-    transition: color 0.6s;
-  }
-  .dom-dot {
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: var(--border);
-    transition: background 0.6s;
-  }
-
-  #tagline {
-    font-family: var(--font-sans);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--tagline);
     opacity: 0;
-    transition: opacity 0.8s, color 0.6s;
-    margin-top: 2px;
+    transform: translateY(4px);
+    transition: opacity 0.6s, transform 0.6s;
+    margin-top: -10px;
   }
-  #tagline.show { opacity: 1; }
-
-  #sub-tagline {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    opacity: 0;
-    margin-top: 6px;
-    letter-spacing: 0.1em;
-    transition: opacity 0.8s, transform 0.8s;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  #sub-tagline.show { opacity: 0.9; }
-
-  #slogan-line {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--lime);
-    opacity: 0;
-    margin-top: 14px;
-    letter-spacing: 0.08em;
-    transition: opacity 0.8s, transform 0.8s;
-    text-align: center;
-  }
-  #slogan-line.show { opacity: 0.75; }
-
-  #hero-desc {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--text-70);
-    max-width: 520px;
-    text-align: center;
-    line-height: 1.7;
-    margin-top: 18px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.8s 0.1s, transform 0.8s 0.1s;
-  }
-  #hero-desc.show {
-    opacity: 1;
+  #logo-domain.show {
+    opacity: 0.85;
     transform: translateY(0);
-  }
-
-  #hero-ctas {
-    display: flex;
-    gap: 14px;
-    margin-top: 28px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.7s 0.2s, transform 0.7s 0.2s;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  #hero-ctas.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .cta-primary {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 700;
-    padding: 14px 32px;
-    border-radius: 12px;
-    background: var(--lime);
-    color: #0A0F0D;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
-    letter-spacing: -0.01em;
-    box-shadow: 0 0 24px rgba(208,253,23,0.15);
-  }
-  .cta-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 32px rgba(208,253,23,0.35);
-    background: #BCEB14;
-  }
-
-  .cta-ghost {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 12px;
-    background: transparent;
-    color: var(--text-40);
-    border: 1px solid var(--border);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    font-size: 12px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
-    letter-spacing: -0.01em;
-  }
-  .cta-ghost:hover {
-    border-color: var(--lime);
-    color: var(--lime);
-    transform: translateY(-2px);
-  }
-
-  :global([data-theme="light"]) .cta-primary {
-    background: #2a6018;
-    color: #fff;
-    box-shadow: 0 0 24px rgba(42,96,24,0.15);
-  }
-  :global([data-theme="light"]) .cta-primary:hover {
-    box-shadow: 0 4px 32px rgba(42,96,24,0.35);
-    background: #1f4c12;
   }
 
   .corner {
@@ -501,7 +413,7 @@ const introStatus = t('introStatus', lang);
     width: 20px; height: 20px;
     opacity: 0;
     z-index: 3;
-    transition: opacity 0.6s, border-color 0.6s;
+    transition: opacity 0.4s, border-color 0.4s;
     border-color: var(--corner);
     border-style: solid;
   }
@@ -510,42 +422,6 @@ const introStatus = t('introStatus', lang);
   #c-bl { bottom: 22px; left: 22px; border-width: 0 0 1px 1px; }
   #c-br { bottom: 22px; right: 22px; border-width: 0 1px 1px 0; }
   .corner.show { opacity: 1; }
-
-  #theme-btn {
-    position: absolute;
-    top: 22px; right: 64px;
-    z-index: 10;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--btn-c);
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 5px 10px;
-    cursor: pointer;
-    letter-spacing: 0.06em;
-    transition: color 0.3s, border-color 0.3s, background 0.3s;
-    opacity: 0;
-  }
-  #theme-btn.show { opacity: 1; transition: opacity 0.6s, color 0.3s, border-color 0.3s; }
-  #theme-btn:hover { color: var(--btn-h); border-color: var(--btn-h); }
-
-  #replay-btn {
-    position: absolute;
-    bottom: 22px; right: 64px;
-    z-index: 10;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--btn-c);
-    background: none;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    opacity: 0;
-    transition: opacity 0.6s, color 0.3s;
-  }
-  #replay-btn.show { opacity: 1; }
-  #replay-btn:hover { color: var(--btn-h); }
 
   #status-bar {
     position: absolute;
@@ -556,16 +432,13 @@ const introStatus = t('introStatus', lang);
     color: var(--word-on);
     letter-spacing: 0.06em;
     opacity: 0;
-    transition: opacity 0.6s, color 0.6s;
+    transition: opacity 0.4s, color 0.4s;
   }
   #status-bar.show { opacity: 1; }
 
   @media (max-width: 480px) {
-    #stream-area { gap: 6px 10px; padding: 0 24px; font-size: 11px; }
+    #stream-area { gap: 6px 10px; padding: 0 24px; }
     :global(.sw) { font-size: 11px; }
-    #logo-text { font-size: 64px; }
-    #theme-btn { right: 22px; }
-    #replay-btn { right: 22px; }
     #status-bar { left: 22px; }
   }
 </style>
@@ -579,100 +452,97 @@ const introStatus = t('introStatus', lang);
     const WORDS = JSON.parse(stage.getAttribute('data-words') || '[]');
 
     const canvas = document.getElementById('intro-bg') as HTMLCanvasElement;
-    if(!canvas) return;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let W, H, particles = [], rafId, tids = [];
 
-    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'dark'; }
+    let W: number, H: number;
+    let particles: any[] = [];
+    let rafId: number;
+    let tids: ReturnType<typeof setTimeout>[] = [];
+    let mouseX = 0, mouseY = 0;
 
-    function toggleTheme() {
-      const current = getTheme();
-      const t = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', t);
-      localStorage.setItem('eny-theme', t);
-      const btn = document.getElementById('theme-btn');
-      if(btn) {
-        btn.textContent = t === 'dark' 
-          ? (lang === 'tr' ? '◐ tema' : '◐ theme') 
-          : (lang === 'tr' ? '◑ tema' : '◑ theme');
-      }
-      initParticles();
-    }
+    const getTheme = () => document.documentElement.getAttribute('data-theme') || 'dark';
 
-    const themeBtn = document.getElementById('theme-btn');
-    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
-
-    const replayBtn = document.getElementById('replay-btn');
-    if(replayBtn) replayBtn.addEventListener('click', startIntro);
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }, { passive: true });
 
     function resize() {
-      // make it responsive to parent
       const rect = stage.getBoundingClientRect();
       W = canvas.width = rect.width;
       H = canvas.height = rect.height;
     }
 
     function mkParticle() {
+      const lime = Math.random() < 0.18;
       return {
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
-        r: Math.random() * 1.3 + 0.3,
-        a: Math.random() * 0.5 + 0.1,
-        lime: Math.random() < 0.14,
-        pulse: Math.random() * Math.PI * 2
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.32,
+        r: Math.random() * 1.6 + 0.3,
+        a: Math.random() * 0.55 + 0.1,
+        lime,
+        pulse: Math.random() * Math.PI * 2,
+        speed: 0.018 + Math.random() * 0.012,
       };
     }
 
     function initParticles() {
       particles = [];
-      const pCount = Math.min(130, Math.floor(W * H / 10000)); // responsive count
-      for (let i = 0; i < pCount; i++) particles.push(mkParticle());
+      const count = Math.min(150, Math.floor(W * H / 8500));
+      for (let i = 0; i < count; i++) particles.push(mkParticle());
     }
 
-    function drawBg() {
-      if(!ctx) return;
+    let lastFrame = 0;
+    function drawBg(ts = 0) {
+      if (!ctx) return;
+      const dt = Math.min((ts - lastFrame) / 16.67, 3);
+      lastFrame = ts;
+
       ctx.clearRect(0, 0, W, H);
       const dark = getTheme() === 'dark';
+      const cx = mouseX || W / 2;
+      const cy = mouseY || H / 2;
 
-      const limeColor = dark
-        ? (a) => `rgba(208,253,23,${a})`
-        : (a) => `rgba(60,130,30,${a})`;
-      const neutralColor = dark
-        ? (a) => `rgba(60,90,65,${a})`
-        : (a) => `rgba(120,170,90,${a})`;
-      const lineColor = dark
-        ? (a) => `rgba(42,61,46,${a})`
-        : (a) => `rgba(120,170,90,${a})`;
+      const limeC   = (a: number) => dark ? `rgba(208,253,23,${a})`    : `rgba(60,130,30,${a})`;
+      const neutralC = (a: number) => dark ? `rgba(60,90,65,${a})`     : `rgba(120,170,90,${a})`;
+      const lineC   = (a: number) => dark ? `rgba(42,61,46,${a})`      : `rgba(120,170,90,${a})`;
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
-        p.x += p.vx; p.y += p.vy;
-        p.pulse += 0.02;
+        const dx = (cx - p.x) * 0.00006;
+        const dy = (cy - p.y) * 0.00006;
+        p.vx += dx * dt; p.vy += dy * dt;
+        const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (spd > 0.5) { p.vx *= 0.5 / spd; p.vy *= 0.5 / spd; }
+        p.x += p.vx * dt; p.y += p.vy * dt;
+        p.pulse += p.speed * dt;
         if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
         if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-        const pulse = 0.7 + Math.sin(p.pulse) * 0.3;
+        const pulse = 0.75 + Math.sin(p.pulse) * 0.25;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * pulse, 0, Math.PI * 2);
         ctx.fillStyle = p.lime
-          ? limeColor(p.a * pulse * (dark ? 1 : 0.6))
-          : neutralColor(p.a * 0.5 * pulse * (dark ? 1 : 0.7));
+          ? limeC(p.a * pulse * (dark ? 1 : 0.65))
+          : neutralC(p.a * 0.55 * pulse * (dark ? 1 : 0.7));
         ctx.fill();
       }
 
+      const MAX_DIST = 100;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 90) {
-            const alpha = (1 - d / 90) * (dark ? 0.4 : 0.3);
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MAX_DIST * MAX_DIST) {
+            const alpha = (1 - Math.sqrt(d2) / MAX_DIST) * (dark ? 0.45 : 0.32);
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = lineColor(alpha);
-            ctx.lineWidth = 0.4;
+            ctx.strokeStyle = lineC(alpha);
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
@@ -682,234 +552,153 @@ const introStatus = t('introStatus', lang);
 
     function clearTids() { tids.forEach(clearTimeout); tids = []; }
 
-    let dotInterval;
+    function tid(fn: () => void, ms: number) {
+      const id = setTimeout(fn, ms);
+      tids.push(id);
+      return id;
+    }
+
+    function triggerGlitch() {
+      const overlay = document.getElementById('glitch-overlay');
+      if (!overlay) return;
+      const dark = getTheme() === 'dark';
+      const frames = [
+        { bg: dark ? 'rgba(208,253,23,0.06)' : 'rgba(60,130,30,0.04)', clip: 'inset(15% 0 70% 0)' },
+        { bg: dark ? 'rgba(208,253,23,0.04)' : 'rgba(60,130,30,0.03)', clip: 'inset(60% 0 20% 0)' },
+        { bg: 'transparent', clip: 'none' },
+      ];
+      let fi = 0;
+      const next = () => {
+        if (fi >= frames.length) { overlay.style.opacity = '0'; return; }
+        overlay.style.opacity = '1';
+        overlay.style.background = frames[fi].bg;
+        overlay.style.clipPath = frames[fi].clip;
+        fi++;
+        setTimeout(next, 60);
+      };
+      next();
+    }
 
     function startIntro() {
       clearTids();
       cancelAnimationFrame(rafId);
-      clearInterval(dotInterval);
 
       const area = document.getElementById('stream-area');
+      if (!area) return;
       area.innerHTML = '';
-      const els = [];
-      
-      const getLink = (word) => {
-        const w = word.toLowerCase();
-        // Everything goes to homepage root based on language
-        return lang === 'tr' ? '/' : '/en/';
-      };
+      const els: HTMLAnchorElement[] = [];
 
-      const handleHeader = () => {
-        const nav = document.getElementById('main-nav');
-        if (nav) {
-          nav.classList.add('scrolled', 'forced-show');
-          nav.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      const skipIntro = (e?: Event) => {
+        if (e && e.target instanceof HTMLAnchorElement && e.target.href) {
+           // allow natural navigation if clicking a link during animation
+           return;
         }
-      };
-
-      const skipIntro = (e) => {
-        // If 'e' is a click event, handle href
-        if (e && e.currentTarget) {
-          const href = e.currentTarget.getAttribute('href');
-          if (href && href.startsWith('http')) return; 
-          e.preventDefault();
-        }
-
-        tids.forEach(id => clearTimeout(id));
+        clearTids();
         els.forEach(el => {
-          el.classList.remove('glow');
-          el.classList.add('dim');
-          el.classList.add('on');
+          el.classList.remove('glow', 'burst');
+          el.classList.add('dim', 'on');
         });
-        showLogo();
-        // Removed immediate handleHeader() - let interaction handle it
-        
-        // Unified Domain Redirect for e-any.com
-        if (window.location.hostname === 'e-any.com' || window.location.hostname === 'www.e-any.com') {
-           setTimeout(() => {
-              window.location.href = 'https://eny.com.tr/en/';
-           }, 1500);
-        }
+        showLogo(true);
       };
 
-      // Auto-skip on scroll (early exit)
-      const onInitialScroll = () => {
-        if (window.scrollY > 25) {
-          skipIntro();
-          window.removeEventListener('scroll', onInitialScroll);
-        }
+      const onScroll = () => {
+        if (window.scrollY > 20) { skipIntro(); window.removeEventListener('scroll', onScroll); }
       };
-      window.addEventListener('scroll', onInitialScroll);
+      window.addEventListener('scroll', onScroll);
 
-      WORDS.forEach((w, i) => {
+      WORDS.forEach((itemObj: { w: string, l: string }, i: number) => {
         const el = document.createElement('a');
-        el.href = getLink(w);
-        el.className = 'sw' + (i >= WORDS.length - 2 ? ' highlight' : '');
-        el.textContent = w;
-        
-        if (w.includes('.com') || w.includes('.tr')) {
-           el.target = "_blank";
-           el.rel = "noopener noreferrer";
-        } else {
-           el.addEventListener('click', skipIntro);
-        }
-
+        el.href = itemObj.l;
+        el.className = 'sw' + (i >= WORDS.length - 3 ? ' highlight' : '');
+        el.textContent = itemObj.w;
         area.appendChild(el);
         els.push(el);
       });
 
-      const lb = document.getElementById('logo-block');
-      const lg = document.getElementById('logo-glow');
-      const nrgs = document.querySelectorAll('.neon-radial-glow');
-      const dom = document.getElementById('domains');
-      const tag = document.getElementById('tagline');
-      const subTag = document.getElementById('sub-tagline');
-      const corners = ['c-tl','c-tr','c-bl','c-br'].map(id => document.getElementById(id));
-      const statusBar = document.getElementById('status-bar');
+      const lb         = document.getElementById('logo-block');
+      const lg         = document.getElementById('logo-glow');
+      const nrgs       = document.querySelectorAll('.neon-radial-glow');
+      const logoDomain = document.getElementById('logo-domain');
+      const corners    = ['c-tl','c-tr','c-bl','c-br'].map(id => document.getElementById(id));
+      const grid       = document.getElementById('grid-overlay');
 
-      lb.classList.remove('show');
-      if(lg) lg.classList.remove('show');
+      [lb, lg, grid, logoDomain].forEach(el => {
+        el?.classList.remove('show', 'on', 'glitch');
+      });
       nrgs.forEach(n => n.classList.remove('on'));
-      dom.classList.remove('show');
-      tag.classList.remove('show');
-      subTag.classList.remove('show');
-      const heroDescEl = document.getElementById('hero-desc');
-      const heroCtasEl = document.getElementById('hero-ctas');
-      if(heroDescEl) heroDescEl.classList.remove('show');
-      if(heroCtasEl) heroCtasEl.classList.remove('show');
-      if(replayBtn) replayBtn.classList.remove('show');
-      statusBar.classList.remove('show');
-      corners.forEach(c => c.classList.remove('show'));
-      document.getElementById('grid-overlay').classList.remove('on');
+      corners.forEach(c => c?.classList.add('show'));
 
       initParticles();
       rafId = requestAnimationFrame(drawBg);
 
       const scan = document.getElementById('scan');
-      let scanPos = 0;
-      scan.style.opacity = '1';
-      scan.style.top = '0';
-      const scanAnim = () => {
-        scanPos += 2.5;
-        scan.style.top = scanPos + 'px';
-        if (scanPos < H) requestAnimationFrame(scanAnim);
-        else scan.style.opacity = '0';
-      };
-      
-      tids.push(setTimeout(() => {
-        document.getElementById('grid-overlay').classList.add('on');
-        requestAnimationFrame(scanAnim);
-      }, 200));
+      if (scan) {
+        let scanPos = -2;
+        scan.style.opacity = '1';
+        scan.style.top = '0px';
+        const scanRaf = () => {
+          scanPos += 4;
+          scan.style.top = scanPos + 'px';
+          if (scanPos < H) requestAnimationFrame(scanRaf);
+          else { scan.style.opacity = '0'; }
+        };
+        tid(() => { grid?.classList.add('on'); requestAnimationFrame(scanRaf); }, 80);
+      }
 
-      let i = 0;
-      const step = () => {
-        if (i < els.length) {
+      const BATCH = 3;
+      const WORD_INTERVAL = 28;
+      let wordsDone = 0;
+
+      const streamBatch = () => {
+        const end = Math.min(wordsDone + BATCH, els.length);
+        for (let i = wordsDone; i < end; i++) {
           const el = els[i];
           el.classList.add('on');
-          tids.push(setTimeout(() => {
+          setTimeout(() => {
             el.classList.add('glow');
-            tids.push(setTimeout(() => {
-              el.classList.remove('glow');
-              el.classList.add('dim');
-            }, 480));
-          }, 60));
-          i++;
-          const isLast2 = i >= els.length - 1;
-          tids.push(setTimeout(step, isLast2 ? 220 : 85));
+            setTimeout(() => { el.classList.remove('glow'); el.classList.add('dim'); }, 200);
+          }, 20);
+        }
+        wordsDone = end;
+        if (wordsDone < els.length) {
+          tid(streamBatch, WORD_INTERVAL);
         } else {
-          tids.push(setTimeout(flashAll, 320));
+          tid(flashAll, 100);
         }
       };
 
       const flashAll = () => {
-        els.forEach((el, idx) => {
-          tids.push(setTimeout(() => {
-            el.classList.remove('dim');
-            el.classList.add('glow');
-          }, idx * 28));
-        });
-        tids.push(setTimeout(() => {
+        els.forEach(el => { el.classList.remove('dim'); el.classList.add('glow'); });
+        tid(() => {
           els.forEach(el => { el.classList.remove('glow'); el.classList.add('dim'); });
-          showLogo();
-        }, els.length * 28 + 600));
+          tid(() => showLogo(false), 120);
+        }, 260);
       };
 
-      const showLogo = () => {
-        // handleHeader() call removed to wait for user interaction
-        lb.classList.add('show');
-        if(lg) lg.classList.add('show');
+      const showLogo = (instant = false) => {
+        triggerGlitch();
+        lb?.classList.add('show');
+        lg?.classList.add('show');
+        logoDomain?.classList.add('show');
         nrgs.forEach(n => n.classList.add('on'));
-        tids.push(setTimeout(() => { dom.classList.add('show'); }, 550));
-        tids.push(setTimeout(() => { tag.classList.add('show'); }, 820));
-        tids.push(setTimeout(() => { subTag.classList.add('show'); }, 1000));
-        tids.push(setTimeout(() => {
-          const slogan = document.getElementById('slogan-line');
-          if(slogan) slogan.classList.add('show');
-        }, 1100));
-        tids.push(setTimeout(() => {
-          const heroDesc = document.getElementById('hero-desc');
-          if(heroDesc) heroDesc.classList.add('show');
-        }, 1200));
-        tids.push(setTimeout(() => {
-          const heroCtas = document.getElementById('hero-ctas');
-          if(heroCtas) heroCtas.classList.add('show');
-        }, 1500));
-        tids.push(setTimeout(() => { corners.forEach(c => c.classList.add('show')); }, 400));
-        tids.push(setTimeout(() => {
-          if(themeBtn) themeBtn.classList.add('show');
-          if(replayBtn) replayBtn.classList.add('show');
-          statusBar.classList.add('show');
-          startDotPulse();
-          listenForHeaderTrigger();
-        }, 1600));
+        corners.forEach(c => c?.classList.add('show'));
       };
 
-      const listenForHeaderTrigger = () => {
-        let triggered = false;
-        const trigger = () => {
-            if (triggered) return;
-            triggered = true;
-            handleHeader();
-            // Remove listeners
-            ['mousemove', 'mousedown', 'touchstart', 'wheel', 'keydown'].forEach(ev => {
-                window.removeEventListener(ev, trigger);
-            });
-        };
-
-        // Attach listeners
-        ['mousemove', 'mousedown', 'touchstart', 'wheel', 'keydown'].forEach(ev => {
-            window.addEventListener(ev, trigger, { passive: true });
-        });
-      };
-
-      tids.push(setTimeout(step, 350));
-    }
-
-    function startDotPulse() {
-      clearInterval(dotInterval);
-      let on = true;
-      dotInterval = setInterval(() => {
-        const d = document.getElementById('logo-dot');
-        if (d) d.style.opacity = on ? '1' : '0.15';
-        on = !on;
-      }, 950);
+      tid(streamBatch, 350);
     }
 
     resize();
     startIntro();
-    window.addEventListener('resize', () => { resize(); initParticles(); });
+    window.addEventListener('resize', () => { resize(); initParticles(); }, { passive: true });
     
-    // Cleanup on component unmount
     document.addEventListener('astro:after-swap', () => {
       cancelAnimationFrame(rafId);
       clearTids();
-      clearInterval(dotInterval);
     });
   }
 
-  // Support for Astro view transitions
   document.addEventListener('astro:page-load', initIntroAnimation);
-  // Also run on first load
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initIntroAnimation);
   } else {

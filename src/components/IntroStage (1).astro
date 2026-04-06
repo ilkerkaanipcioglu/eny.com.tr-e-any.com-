@@ -1,0 +1,589 @@
+---
+import { t, type Lang } from '../i18n/utils';
+
+export interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'tr' } = Astro.props;
+
+interface WordMap {
+  w: string;
+  l: string;
+}
+
+const trWords: WordMap[] = [
+  { w: 'e-fatura', l: '/urunler' },
+  { w: 'e-dönüşüm', l: '/hizmetler' },
+  { w: 'e-arşiv', l: '/urunler' },
+  { w: 'e-defter', l: '/urunler' },
+  { w: 'e-imza', l: '/urunler' },
+  { w: 'e-irsaliye', l: '/urunler' },
+  { w: 'e-ödeme', l: '/e-payment' },
+  { w: 'e-tahsilat', l: '/e-tahsilat' },
+  { w: 'e-dbs', l: '/e-dbs' },
+  { w: 'e-ekstre', l: '/e-ekstre' },
+  { w: 'e-ticaret', l: '/e-ticaret' },
+  { w: 'e-devlet', l: '/urunler' },
+  { w: 'e-mutabakat', l: '/urunler' },
+  { w: 'e-sözleşme', l: '/urunler' },
+  { w: 'e-bordro', l: '/urunler' },
+  { w: 'e-teklif', l: '/urunler' },
+  { w: 'e-satın alma', l: '/e-ticaret' },
+  { w: 'e-sipariş', l: '/e-ticaret' },
+  { w: 'e-stok', l: '/urunler' },
+  { w: 'e-masraf', l: '/urunler' },
+  { w: 'e-bütçe', l: '/hizmetler' },
+  { w: 'e-kasa', l: '/hizmetler' },
+  { w: 'e-denetim', l: '/urunler' },
+  { w: 'e-risk', l: '/teknoloji' },
+  { w: 'e-scoring', l: '/teknoloji' },
+  { w: 'e-kyc', l: '/teknoloji' },
+  { w: 'e-onboarding', l: '/teknoloji' },
+  { w: 'e-abonelik', l: '/e-tahsilat' },
+  { w: 'e-sadakat', l: '/urunler' },
+  { w: 'e-wallet', l: '/e-payment' },
+  { w: 'e-treasury', l: '/hizmetler' },
+  { w: 'e-tös', l: '/e-payment' },
+  { w: 'e-nakit akışı', l: '/e-cashflow' },
+  { w: 'e-any', l: '/' },
+  { w: 'eny.com.tr', l: '/' },
+  { w: 'ENY', l: '/' },
+];
+
+const enWords: WordMap[] = [
+  { w: 'e-invoice', l: '/en/products' },
+  { w: 'e-transformation', l: '/en/services' },
+  { w: 'e-archive', l: '/en/products' },
+  { w: 'e-ledger', l: '/en/products' },
+  { w: 'e-signature', l: '/en/products' },
+  { w: 'e-waybill', l: '/en/products' },
+  { w: 'e-payment', l: '/en/e-payment' },
+  { w: 'e-collection', l: '/en/e-collection' },
+  { w: 'e-dbs', l: '/en/e-dbs' },
+  { w: 'e-dds', l: '/en/e-dbs' },
+  { w: 'e-statement', l: '/en/e-statement' },
+  { w: 'e-commerce', l: '/en/e-commerce' },
+  { w: 'e-government', l: '/en/products' },
+  { w: 'e-reconciliation', l: '/en/products' },
+  { w: 'e-contract', l: '/en/products' },
+  { w: 'e-procurement', l: '/en/e-commerce' },
+  { w: 'e-order', l: '/en/e-commerce' },
+  { w: 'e-audit', l: '/en/products' },
+  { w: 'e-risk', l: '/en/technology' },
+  { w: 'e-scoring', l: '/en/technology' },
+  { w: 'e-kyc', l: '/en/technology' },
+  { w: 'e-onboarding', l: '/en/technology' },
+  { w: 'e-subscription', l: '/en/e-collection' },
+  { w: 'e-loyalty', l: '/en/products' },
+  { w: 'e-wallet', l: '/en/e-payment' },
+  { w: 'e-treasury', l: '/en/services' },
+  { w: 'e-cashflow', l: '/en/e-cashflow' },
+  { w: 'e-rollout', l: '/en/rollout' },
+  { w: 'e-any', l: '/en/' },
+  { w: 'eny.com.tr', l: '/en/' },
+  { w: 'ENY', l: '/en/' },
+];
+
+const words = lang === 'tr' ? trWords : enWords;
+const wordsJson = JSON.stringify(words);
+---
+
+<div id="intro-stage" data-lang={lang} data-words={wordsJson}>
+  <div class="neon-radial-glow top-left"></div>
+  <div class="neon-radial-glow bottom-right"></div>
+  <div id="grid-overlay"></div>
+  <div id="vignette"></div>
+  <div id="scan"></div>
+  <div id="glitch-overlay"></div>
+
+  <div class="corner" id="c-tl"></div>
+  <div class="corner" id="c-tr"></div>
+  <div class="corner" id="c-bl"></div>
+  <div class="corner" id="c-br"></div>
+
+  <div id="intro-content">
+    <div id="stream-area"></div>
+    <div id="logo-block">
+      <div id="logo-glow"></div>
+      <div id="logo-image-container">
+        <div class="intro-logo-row flex items-center justify-center">
+          <div class="intro-icon-wrapper relative">
+            <img src="/images/logo/eny_icon.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-light" />
+            <img src="/images/logo/eny_icon_black.png" alt="eny" class="intro-logo-icon h-32 md:h-40 w-auto object-contain hidden-in-dark" />
+          </div>
+          <div class="intro-text-wrapper">
+            <span class="intro-wordmark text-[100px] md:text-[140px] font-extrabold tracking-tighter text-white" style="font-family: var(--font-sans)">eny<span class="intro-dot">.</span></span>
+          </div>
+        </div>
+      </div>
+      <div id="logo-domain">ENY.COM.TR</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #intro-stage {
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+
+  #glitch-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: screen;
+  }
+
+  #vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  :global([data-theme="dark"]) #vignette {
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(4,6,5,0.95) 100%);
+  }
+  :global([data-theme="light"]) #vignette {
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(240,245,236,0.75) 100%);
+  }
+
+  .neon-radial-glow {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, var(--lime-glow) 0%, transparent 70%);
+    transition: opacity 1.2s ease;
+  }
+  .neon-radial-glow.on { opacity: 0.14; }
+  .top-left { top: -20%; left: -20%; }
+  .bottom-right { bottom: -20%; right: -20%; }
+
+  #grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  :global([data-theme="dark"]) #grid-overlay {
+    background-image:
+      linear-gradient(rgba(208,253,23,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(208,253,23,0.04) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+  :global([data-theme="light"]) #grid-overlay {
+    background-image:
+      linear-gradient(rgba(80,140,50,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(80,140,50,0.07) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+  #grid-overlay.on { opacity: 1; }
+
+  #scan {
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    z-index: 2;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(0.5px);
+    transition: top 0s;
+  }
+  :global([data-theme="dark"]) #scan {
+    background: linear-gradient(90deg, transparent 0%, rgba(208,253,23,0.0) 10%, rgba(208,253,23,0.9) 50%, rgba(208,253,23,0.0) 90%, transparent 100%);
+    box-shadow: 0 0 16px rgba(208,253,23,0.6);
+  }
+  :global([data-theme="light"]) #scan {
+    background: linear-gradient(90deg, transparent 0%, rgba(60,140,30,0.0) 10%, rgba(60,140,30,0.7) 50%, rgba(60,140,30,0.0) 90%, transparent 100%);
+    box-shadow: 0 0 8px rgba(60,140,30,0.4);
+  }
+
+  #intro-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #stream-area {
+    width: 100%;
+    max-width: 720px;
+    min-height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px 14px;
+    padding: 0 40px;
+    margin-bottom: 52px;
+  }
+
+  /* ── Word tokens ── */
+  :global(.sw) {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--word-base);
+    letter-spacing: 0.04em;
+    opacity: 0;
+    /* start offset set via inline style by JS */
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(0.82);
+    transition:
+      opacity 0.32s cubic-bezier(0.22,1,0.36,1),
+      transform 0.38s cubic-bezier(0.22,1,0.36,1),
+      color 0.18s,
+      text-shadow 0.18s;
+    white-space: nowrap;
+    text-decoration: none;
+    pointer-events: none;
+    /* subtle scanline underline */
+    border-bottom: 1px solid transparent;
+  }
+  :global(.sw.on) {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    color: var(--word-on);
+    pointer-events: auto;
+  }
+  :global(.sw.on:hover) {
+    color: var(--lime);
+    transform: translate(0, -2px) scale(1.07);
+    border-bottom-color: var(--lime);
+    text-shadow: 0 0 10px var(--lime-glow);
+  }
+  :global(.sw.glow) {
+    color: var(--word-glow);
+    text-shadow: 0 0 12px var(--lime-glow), 0 0 28px var(--lime-soft);
+    border-bottom-color: var(--lime);
+  }
+  :global(.sw.dim) {
+    opacity: 0.45;
+    color: var(--word-on);
+    text-shadow: none;
+    border-bottom-color: transparent;
+  }
+  :global(.sw.highlight) {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Logo block ── */
+  #logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition:
+      opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+      transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    position: relative;
+  }
+  #logo-block.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  #logo-block.glitch {
+    animation: logo-glitch 0.3s steps(2) forwards;
+  }
+  @keyframes logo-glitch {
+    0%   { clip-path: inset(0 0 85% 0); transform: translate(-4px, 0); }
+    25%  { clip-path: inset(40% 0 30% 0); transform: translate(4px, 0); }
+    50%  { clip-path: inset(70% 0 5% 0); transform: translate(-2px, 0); }
+    75%  { clip-path: none; transform: translate(0) scale(1.015); }
+    100% { clip-path: none; transform: translate(0) scale(1); }
+  }
+
+  #logo-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: var(--lime-glow);
+    filter: blur(100px);
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.8s ease;
+  }
+  #logo-glow.show { opacity: 0.12; }
+  :global([data-theme="light"]) #logo-glow.show { opacity: 0.05; background: #3a7a20; }
+
+  #logo-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .intro-logo-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .intro-logo-row {
+      flex-direction: row;
+      gap: clamp(0.5rem, 2vw, 1.5rem);
+    }
+  }
+
+  .intro-logo-icon {
+    height: clamp(100px, 20vw, 260px);
+    width: auto;
+    object-fit: contain;
+    animation: icon-glow-pulse 2.5s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+  }
+
+  .intro-wordmark {
+    font-size: clamp(80px, 15vw, 180px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    white-space: nowrap;
+    color: #FFFFFF;
+    text-shadow: none !important;
+  }
+
+  .intro-dot {
+    display: inline-block;
+    color: var(--lime);
+  }
+
+  @keyframes icon-glow-pulse {
+    0%   { filter: drop-shadow(0 0 5px rgba(208,253,23,0.1)); opacity: 0.88; }
+    100% { filter: drop-shadow(0 0 40px rgba(208,253,23,0.65)); opacity: 1; }
+  }
+
+  #logo-domain {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--domain-color);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-top: -10px;
+  }
+  #logo-domain.show {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+
+  /* ── Corners ── */
+  .corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 0.3s, border-color 0.3s;
+    border-color: var(--corner);
+    border-style: solid;
+  }
+  #c-tl { top: 22px; left: 22px;   border-width: 1px 0 0 1px; }
+  #c-tr { top: 22px; right: 22px;  border-width: 1px 1px 0 0; }
+  #c-bl { bottom: 22px; left: 22px;  border-width: 0 0 1px 1px; }
+  #c-br { bottom: 22px; right: 22px; border-width: 0 1px 1px 0; }
+  .corner.show { opacity: 1; }
+
+  @media (max-width: 480px) {
+    #stream-area { gap: 6px 10px; padding: 0 24px; }
+    :global(.sw) { font-size: 11px; }
+  }
+</style>
+
+<script>
+  function initIntroAnimation() {
+    const stage = document.getElementById('intro-stage');
+    if (!stage) return;
+
+    const WORDS: { w: string; l: string }[] = JSON.parse(
+      stage.getAttribute('data-words') || '[]'
+    );
+
+    let tids: ReturnType<typeof setTimeout>[] = [];
+    const tid = (fn: () => void, ms: number) => {
+      const id = setTimeout(fn, ms);
+      tids.push(id);
+      return id;
+    };
+    const clearTids = () => { tids.forEach(clearTimeout); tids = []; };
+
+    // ── Glitch overlay ──────────────────────────────────────────────
+    function triggerGlitch() {
+      const overlay = document.getElementById('glitch-overlay');
+      if (!overlay) return;
+      const dark = document.documentElement.getAttribute('data-theme') !== 'light';
+      const frames = [
+        { bg: dark ? 'rgba(208,253,23,0.07)' : 'rgba(60,130,30,0.05)', clip: 'inset(10% 0 75% 0)' },
+        { bg: dark ? 'rgba(208,253,23,0.05)' : 'rgba(60,130,30,0.03)', clip: 'inset(55% 0 15% 0)' },
+        { bg: 'transparent', clip: 'none' },
+      ];
+      let fi = 0;
+      const next = () => {
+        if (fi >= frames.length) { overlay.style.opacity = '0'; return; }
+        overlay.style.opacity = '1';
+        overlay.style.background = frames[fi].bg;
+        overlay.style.clipPath = frames[fi].clip;
+        fi++;
+        setTimeout(next, 50);
+      };
+      next();
+    }
+
+    // ── Random settle offset for each word ─────────────────────────
+    // Words fly in from a random direction (not too far) and settle to position
+    function randomOffset(): { x: number; y: number } {
+      const angle = Math.random() * Math.PI * 2;
+      const dist  = 28 + Math.random() * 48;
+      return {
+        x: Math.round(Math.cos(angle) * dist),
+        y: Math.round(Math.sin(angle) * dist),
+      };
+    }
+
+    // ── Main sequence ───────────────────────────────────────────────
+    function startIntro() {
+      clearTids();
+
+      const area = document.getElementById('stream-area');
+      if (!area) return;
+      area.innerHTML = '';
+
+      const els: HTMLAnchorElement[] = [];
+
+      // Build word elements with random start offsets
+      WORDS.forEach((item, i) => {
+        const el = document.createElement('a');
+        el.href = item.l;
+        el.className = 'sw' + (i >= WORDS.length - 3 ? ' highlight' : '');
+        el.textContent = item.w;
+
+        const { x, y } = randomOffset();
+        el.style.setProperty('--tx', `${x}px`);
+        el.style.setProperty('--ty', `${y}px`);
+
+        area.appendChild(el);
+        els.push(el);
+      });
+
+      // DOM references
+      const lb         = document.getElementById('logo-block');
+      const lg         = document.getElementById('logo-glow');
+      const nrgs       = document.querySelectorAll('.neon-radial-glow');
+      const logoDomain = document.getElementById('logo-domain');
+      const corners    = ['c-tl','c-tr','c-bl','c-br'].map(id => document.getElementById(id));
+      const grid       = document.getElementById('grid-overlay');
+      const scan       = document.getElementById('scan');
+
+      // Reset
+      [lb, lg, grid, logoDomain].forEach(el => el?.classList.remove('show', 'on', 'glitch'));
+      nrgs.forEach(n => n.classList.remove('on'));
+      corners.forEach(c => c?.classList.add('show'));
+
+      // Skip on scroll
+      const skipIntro = () => {
+        clearTids();
+        els.forEach(el => { el.classList.remove('glow', 'burst'); el.classList.add('dim', 'on'); });
+        showLogo(true);
+        window.removeEventListener('scroll', onScroll);
+      };
+      const onScroll = () => { if (window.scrollY > 20) skipIntro(); };
+      window.addEventListener('scroll', onScroll);
+
+      // ── Scan line (fast: 600ms total) ──────────────────────────
+      if (scan) {
+        const stageH = stage.getBoundingClientRect().height;
+        scan.style.opacity = '1';
+        scan.style.top = '0px';
+        let scanPos = 0;
+        const SCAN_DURATION = 500; // ms
+        const SCAN_START = performance.now();
+        const animScan = (now: number) => {
+          const p = Math.min((now - SCAN_START) / SCAN_DURATION, 1);
+          scan.style.top = (p * stageH) + 'px';
+          if (p < 1) requestAnimationFrame(animScan);
+          else scan.style.opacity = '0';
+        };
+        grid?.classList.add('on');
+        requestAnimationFrame(animScan);
+      }
+
+      // ── Stream words (fast batches) ────────────────────────────
+      // Each word pops in from its random offset and settles.
+      // Stagger: 10ms per word (was 28ms), batch 5 at once.
+      const STAGGER = 10; // ms between each word
+      const GLOW_DUR = 160; // ms word stays glowing
+
+      els.forEach((el, i) => {
+        tid(() => {
+          el.classList.add('on');          // triggers translate → 0,0 transition
+          el.classList.add('glow');
+          tid(() => {
+            el.classList.remove('glow');
+            el.classList.add('dim');
+          }, GLOW_DUR);
+        }, 120 + i * STAGGER);
+      });
+
+      // ── Flash all → show logo ──────────────────────────────────
+      const allDone = 120 + els.length * STAGGER + GLOW_DUR + 40;
+
+      tid(() => {
+        // brief collective flash
+        els.forEach(el => { el.classList.remove('dim'); el.classList.add('glow'); });
+        tid(() => {
+          els.forEach(el => { el.classList.remove('glow'); el.classList.add('dim'); });
+          tid(() => showLogo(false), 80);
+        }, 200);
+      }, allDone);
+
+      // ── Logo reveal ────────────────────────────────────────────
+      function showLogo(_instant = false) {
+        triggerGlitch();
+        lb?.classList.add('show');
+        lg?.classList.add('show');
+        logoDomain?.classList.add('show');
+        nrgs.forEach(n => n.classList.add('on'));
+      }
+    }
+
+    startIntro();
+
+    document.addEventListener('astro:after-swap', clearTids);
+  }
+
+  document.addEventListener('astro:page-load', initIntroAnimation);
+  if (document.readyState !== 'loading') initIntroAnimation();
+  else document.addEventListener('DOMContentLoaded', initIntroAnimation);
+</script>

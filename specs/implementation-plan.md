@@ -1,42 +1,48 @@
-# Eny Platform UX Finalization & Identity Update
+# Integration of E-Ödeme (Bulk Payment System)
+
+This plan outlines the steps to add the **E-Ödeme / E-TÖS (Toplu Ödeme Sistemi)** product to the `eny.com.tr` platform, including multilingual support and visual consistency with other products like E-POS and E-DBS.
 
 ## User Review Required
-- **Logo Transition**: Moving from SVG-text logo to the provided PNG assets for better brand continuity.
-- **Header Visibility**: Fixing subpage navigation accessibility.
-- **Vertical Text Bug**: Resolving the layout issue on secondary pages.
+
+> [!IMPORTANT]
+> The product will be referred to as **E-Ödeme (Toplu Ödeme Sistemi)** in Turkish and **E-Payment (Bulk Payment System)** in English.
 
 ## Proposed Changes
 
-### Phase 1: Brand Identity Update (Logo & Favicon)
-The user has provided high-quality PNG logos. I will transition from SVG-text logos to these assets.
+### [Product Detail Pages]
 
-#### Assets Setup
-- Copy `b:\DEV\eny.com.tr\assets\logo\any_logo_with text (1).png` -> `public/images/logo/eny_logo_light.png`
-- Copy `b:\DEV\eny.com.tr\assets\logo\any_logo_with text (2).png` -> `public/images/logo/eny_logo_dark.png`
-- Copy `b:\DEV\eny.com.tr\assets\logo\eny_logo_square (1).png` -> `public/favicon.png`
+#### [NEW] [e-payment.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/e-payment.astro)
+*   Create the Turkish product detail page.
+*   Use `ServiceDetailLayout` with the provided content (Multi-recipient transfers, simultaneous bank integration, approval workflows, ERP integration, etc.).
 
-#### [MODIFY] Header.astro
-- Update logo section to use `<img>` tags pointing to the new PNG assets.
-- Ensure proper sizing for retina displays.
+#### [NEW] [e-payment.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/e-payment.astro)
+*   Create the English product detail page.
+*   Translate the content into English as provided in the request.
 
-#### [MODIFY] Footer.astro
-- Update brand column with the new logos.
+---
 
-#### [MODIFY] Layout.astro
-- Update `<head>` to use the new `favicon.png`.
+### [Navigation and Grids]
 
-### Phase 2: Final UX Bug Squashing
+#### [MODIFY] [Header.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Header.astro)
+*   Add **E-Ödeme Sistemi** / **E-Payment System** to the "Çözümler" (Solutions) mega menu.
+*   Icon will be `payments` or `hub`.
 
-#### 1. Header Visibility on Subpages
-- **Issue**: Header is hidden on subpages until scroll.
-- **Fix**: Refine `.forced-show` logic in `Header.astro` and ensure CSS specificity in `global.css`.
+#### [MODIFY] [hizmetler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/hizmetler.astro)
+*   Add a card for E-Ödeme to the services grid.
 
-#### 2. Vertical Text (Dikey Metin) Bug
-- **Issue**: Hero paragraphs on subpages (like /lokalizasyon) are splitting into vertical words.
-- **Root Cause**: Likely a SplitText script in `index.astro` or `Layout.astro` targeting too broad or a leakage in `global.css`.
-- **Fix**: Scoped targeting of animation scripts to only the `IntroAnimation` component or specific homepage hero IDs.
+#### [MODIFY] [services.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/services.astro)
+*   Add a card for E-Payment to the English services grid.
+
+#### [MODIFY] [urunler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/urunler.astro)
+*   Update the existing "e-Ödeme" card to point to `/e-payment` instead of `/iletisim`.
+*   Update its description and label to match the new branding "E-Ödeme Sistemleri".
+
+#### [MODIFY] [products.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/products.astro)
+*   Update the existing "e-Payment" card to point to `/en/e-payment` instead of `/en/contact`.
 
 ## Verification Plan
-1.  **Visual Audit**: Verify new logos look sharp in both themes.
-2.  **Navigation Check**: Verify header is visible on `/hizmetler`, `/lokalizasyon`, etc.
-3.  **Layout Check**: Verify `/lokalizasyon` hero text is horizontal.
+
+### Manual Verification
+*   Verify the existence and appearance of `/e-payment` and `/en/e-payment`.
+*   Ensure navigation links in the header and footer work correctly.
+*   Check that the services grids and product overview pages reflect the new links and branding.

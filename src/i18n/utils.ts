@@ -38,6 +38,10 @@ export function getLocalePath(path: string, lang: Lang): string {
     '/teknoloji': '/en/technology',
     '/online-dbs': '/en/online-dbs',
     '/e-ticaret': '/en/e-commerce',
+    '/pazaryeri-cozumu': '/en/marketplace-solution',
+    '/e-tahsilat': '/en/e-collection',
+    '/e-ekstre': '/en/e-statement',
+    '/e-pos': '/en/e-pos',
   };
   return pathMap[path] || `/en${path}`;
 }
@@ -67,6 +71,10 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/teknoloji': '/en/technology',
       '/online-dbs': '/en/online-dbs',
       '/e-ticaret': '/en/e-commerce',
+      '/pazaryeri-cozumu': '/en/marketplace-solution',
+      '/e-tahsilat': '/en/e-collection',
+      '/e-ekstre': '/en/e-statement',
+      '/e-pos': '/en/e-pos',
     };
     return map[currentPath] || `/en${currentPath}`;
   } else {
@@ -94,6 +102,10 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/en/technology': '/teknoloji',
       '/en/online-dbs': '/online-dbs',
       '/en/e-commerce': '/e-ticaret',
+      '/en/marketplace-solution': '/pazaryeri-cozumu',
+      '/en/e-collection': '/e-tahsilat',
+      '/en/e-statement': '/e-ekstre',
+      '/en/e-pos': '/e-pos',
     };
     return map[currentPath] || currentPath.replace('/en', '');
   }

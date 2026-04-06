@@ -1,0 +1,128 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+.fts-wrap { font-family: 'DM Sans', var(--font-sans); padding: 2.5rem 0 3rem; }
+.fts-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.6rem; }
+.fts-hero-title { font-family: 'DM Serif Display', var(--font-serif); font-size: clamp(26px, 4vw, 40px); font-weight: 400; color: var(--color-text-primary); line-height: 1.2; margin: 0 0 0.6rem; }
+.fts-hero-sub { font-size: 15px; color: var(--color-text-secondary); max-width: 560px; line-height: 1.6; margin: 0 0 2.5rem; }
+
+.fts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--color-border-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; margin-bottom: 2.5rem; }
+
+.fts-card { background: var(--color-background-primary); padding: 1.4rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 8px; cursor: pointer; transition: background 0.15s; }
+.fts-card:hover { background: var(--color-background-secondary); }
+
+.fts-icon-row { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.fts-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.fts-icon svg { width: 16px; height: 16px; }
+
+.ic-teal { background: #E1F5EE; color: #0F6E56; }
+.ic-blue { background: #E6F1FB; color: #185FA5; }
+.ic-amber { background: #FAEEDA; color: #854F0B; }
+.ic-coral { background: #FAECE7; color: #993C1D; }
+.ic-purple { background: #EEEDFE; color: #534AB7; }
+
+.fts-card-num { font-size: 11px; color: var(--color-text-secondary); letter-spacing: 0.05em; }
+.fts-card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); line-height: 1.3; }
+.fts-card-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.55; flex: 1; }
+.fts-cta { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; color: var(--color-text-info); margin-top: 4px; border: none; background: none; padding: 0; cursor: pointer; }
+.fts-cta:hover { opacity: 0.75; }
+
+.fts-quote-block { background: var(--color-background-secondary); border-left: 2px solid var(--color-border-secondary); border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+.fts-quote-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+.fts-quote-text { font-family: 'DM Serif Display', var(--font-serif); font-style: italic; font-size: 15px; line-height: 1.65; color: var(--color-text-primary); margin: 0 0 0.75rem; }
+.fts-quote-attr { font-size: 12px; color: var(--color-text-secondary); }
+
+.fts-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); }
+.fts-bottom-text p { margin: 0; }
+.fts-bottom-text .fts-eyebrow { margin-bottom: 4px; }
+.fts-bottom-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.fts-bottom-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px !important; }
+.fts-btn { background: var(--color-text-primary); color: var(--color-background-primary); border: none; border-radius: var(--border-radius-md); padding: 10px 20px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; }
+.fts-btn:hover { opacity: 0.8; }
+</style>
+
+<div class="fts-wrap">
+  <p class="fts-eyebrow">Finansal Teknoloji Seti</p>
+  <h1 class="fts-hero-title">Muhasebe Sisteminizin<br>Kalbinden Çalışan Altyapı</h1>
+  <p class="fts-hero-sub">Banka entegrasyonlarından e-Devlet süreçlerine kadar tüm finansal operasyonlarınızı, kullandığınız muhasebe veya iş yazılımından bağımsız olarak tek noktadan yönetin. Mevcut sisteminize entegre olur, dışına çıkmaz.</p>
+
+  <div class="fts-grid">
+
+    <div class="fts-card">
+      <div class="fts-icon-row">
+        <div class="fts-icon ic-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <span class="fts-card-num">01</span>
+      </div>
+      <p class="fts-card-title">e-Tahsilat</p>
+      <p class="fts-card-desc">Sanal POS entegrasyonları ile tahsilat süreçlerinizi dijitalleştirin. Gelen ödemeler otomatik olarak muhasebe kaydınızla eşleşir — hangi sistemi kullanırsanız kullanın.</p>
+      <button class="fts-cta" onclick="sendPrompt('e-Tahsilat modülü hakkında bilgi almak istiyorum')">Konuşalım →</button>
+    </div>
+
+    <div class="fts-card">
+      <div class="fts-icon-row">
+        <div class="fts-icon ic-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="10" ry="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+        </div>
+        <span class="fts-card-num">02</span>
+      </div>
+      <p class="fts-card-title">Banka Hub — Çoklu Banka Bağlantısı</p>
+      <p class="fts-card-desc">Ayrı banka portallarına son. Tüm hesap hareketlerinizi, mutabakatlarınızı ve anlık bakiyelerinizi tek ekrandan, yapay zeka destekli otomatik eşleştirmeyle yönetin.</p>
+      <button class="fts-cta" onclick="sendPrompt('Banka Hub çözümü hakkında bilgi almak istiyorum')">Konuşalım →</button>
+    </div>
+
+    <div class="fts-card">
+      <div class="fts-icon-row">
+        <div class="fts-icon ic-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="fts-card-num">03</span>
+      </div>
+      <p class="fts-card-title">e-DBS — Doğrudan Borçlandırma</p>
+      <p class="fts-card-desc">Bayi ağınızdan yapacağınız tahsilatları garanti altına alın. Limit takibini otomatikleştirin, operasyonel riski minimize edin.</p>
+      <button class="fts-cta" onclick="sendPrompt('e-DBS çözümü hakkında bilgi almak istiyorum')">Konuşalım →</button>
+    </div>
+
+    <div class="fts-card">
+      <div class="fts-icon-row">
+        <div class="fts-icon ic-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <span class="fts-card-num">04</span>
+      </div>
+      <p class="fts-card-title">e-Ödeme</p>
+      <p class="fts-card-desc">Satıcı ödemeleri, vergi ve maaş transferlerini onay hiyerarşisine uygun biçimde doğrudan iş yazılımınızdan bankaya iletin. Entegrasyon, sisteminize göre şekillenir.</p>
+      <button class="fts-cta" onclick="sendPrompt('e-Ödeme modülü hakkında bilgi almak istiyorum')">Konuşalım →</button>
+    </div>
+
+    <div class="fts-card">
+      <div class="fts-icon-row">
+        <div class="fts-icon ic-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <span class="fts-card-num">05</span>
+      </div>
+      <p class="fts-card-title">e-Devlet Serisi</p>
+      <p class="fts-card-desc">e-Fatura, e-Defter, e-İrsaliye ve e-Arşiv süreçlerinde GİB mevzuatıyla %100 uyumlu, kesintisiz entegrasyon. Mevcut yazılımınızla çalışır.</p>
+      <button class="fts-cta" onclick="sendPrompt('e-Devlet serisi hakkında bilgi almak istiyorum')">Konuşalım →</button>
+    </div>
+
+  </div>
+
+  <div class="fts-quote-block">
+    <p class="fts-quote-label">Insight · Konsolidasyon &amp; Finansal Mimari</p>
+    <p class="fts-quote-text">"Birden fazla tüzel kişilik veya coğrafyada faaliyet gösteren organizasyonlarda finansal kapanış, takvimin en emek yoğun sürecidir. Şirketlerarası eliminasyonlar, kur çevrimi ve çok standartlı raporlama gereksinimleri haftalar süren ve yine de manuel müdahale gerektiren bir sürece dönüşebilir. Doğru mimariyle konsolidasyon mantığını doğrudan finansal çekirdeğinize gömerek bu bağımlılığı kırabilirsiniz — tüm organizasyonda tek, denetlenebilir bir finansal gerçek ve bu gerçeğe gerçek zamanlı erişim."</p>
+    <p class="fts-quote-attr">Finansal Mimari Vizyonu · Insight Serisi</p>
+  </div>
+
+  <div class="fts-bottom">
+    <div class="fts-bottom-text">
+      <p class="fts-eyebrow">Sistem entegrasyonu &amp; finansal mimari</p>
+      <p class="fts-bottom-title">Kendi Ekosisteminizi Kurun</p>
+      <p class="fts-bottom-sub">İşletmenize özel yol haritasını birlikte çıkaralım.</p>
+    </div>
+    <button class="fts-btn" onclick="sendPrompt('Finansal mimari danışmanlığı için görüşme talep ediyorum')">e-Konuşalım →</button>
+  </div>
+</div>

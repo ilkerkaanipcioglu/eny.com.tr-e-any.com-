@@ -45,7 +45,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <!-- Çözümler Dropdown (Mega Menu) -->
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${isActivePath('/urunler') ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
-                    {t('navSolutions', lang) || (lang === 'tr' ? 'Çözümler' : 'Solutions')}
+                    {t('navSolutions', lang)}
                     <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
@@ -54,19 +54,19 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                     <!-- Bridge (invisible area so hover doesn't break) -->
                     <div class="absolute -top-4 left-0 w-full h-4"></div>
                     
-                    <div class="bg-bg shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-2xl w-[750px] flex flex-row overflow-hidden backdrop-blur-3xl">
+                    <div class="bg-bg shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-2xl w-[950px] flex flex-row overflow-hidden backdrop-blur-3xl">
                         
                         <!-- Left Side: Product Links -->
-                        <div class="flex-[3] p-8 bg-bg/95">
-                            <h4 class="text-xs font-bold tracking-widest text-text-40 uppercase mb-5">{lang === 'tr' ? 'E-Dönüşüm & Altyapı' : 'E-Transformation & Infra'}</h4>
-                            <div class="space-y-1.5">
+                        <div class="flex-[4] p-8 bg-bg/95">
+                            <h4 class="text-xs font-bold tracking-widest text-text-40 uppercase mb-5">{lang === 'tr' ? 'E-Dönüşüm & Altyapı Çözümleri' : 'E-Transformation & Solutions'}</h4>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-1">
                                 <a href={getLocalePath('/urunler', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
                                         <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'eny Nakit Yönetimi' : 'Cash Management Hub'}</h5>
-                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Banka Hub, e-Tahsilat, MT940 mutabakatı ve DBS süreçlerini SAP içinden çıkmadan tek panelde yönetin.' : 'Manage Bank Hub, e-Collection, MT940 reconciliation directly within SAP.'}</p>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Banka Hub, e-Tahsilat, MT940 mutabakatı ve DBS süreçlerini iş yazılımınızdan çıkmadan tek panelde yönetin.' : 'Manage Bank Hub, e-Collection, MT940 reconciliation directly within your business software.'}</p>
                                     </div>
                                 </a>
                                 
@@ -76,7 +76,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'e-Devlet Serisi Çözümleri' : 'e-Government Series'}</h5>
-                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Tam uyumlu e-Fatura, e-Defter, e-İrsaliye çözümlerini %100 SAP FI modülü üzerine kurun.' : 'Install fully compliant e-Invoice and e-Ledger solutions naturally on SAP FI.'}</p>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Tam uyumlu e-Fatura, e-Defter, e-İrsaliye çözümlerini mevcut muhasebe sisteminiz üzerine kurun.' : 'Install fully compliant e-Invoice and e-Ledger solutions naturally on your accounting system.'}</p>
                                     </div>
                                 </a>
 
@@ -85,15 +85,77 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                         <span class="material-symbols-outlined text-2xl">storefront</span>
                                     </div>
                                     <div class="flex-1">
-                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'Pazaryeri & e-Ticaret' : 'Commerce & Marketplace'}</h5>
-                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Shopify, Trendyol ve Hepsiburada siparişlerini otomatik faturalaştırıp muhasebeleşmesini sağlayın.' : 'Automatically invoice and account Shopify, Trendyol and other marketplace orders.'}</p>
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'e-Ticaret & Pazaryeri' : 'e-Commerce & Marketplace'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Shopify ve pazaryeri siparişlerini, ödeme ve komisyon süreçleriyle tam entegre yönetin.' : 'Manage Shopify and marketplace orders, including payment and commission flows.'}</p>
+                                    </div>
+                                </a>
+
+
+
+                                <a href={getLocalePath('/e-tahsilat', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Tahsilat Platformu' : 'E-Collection Platform'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Müşteri ve bayilerinizden saniyeler içinde güvenli online ödeme alın.' : 'Collect secure online payments from customers and dealers in seconds.'}</p>
+                                    </div>
+                                </a>
+
+                                <a href={getLocalePath('/e-ekstre', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">account_tree</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Ekstre & Açık Bankacılık' : 'E-Statement & Open Banking'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Tüm banka hesaplarını tek panelden yöneten Açık Bankacılık çözümü.' : 'Open Banking solution that manages all bank accounts from a single panel.'}</p>
+                                    </div>
+                                </a>
+
+                                <a href={getLocalePath('/e-pos', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">payments</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-POS Takip & Raporlama' : 'E-POS Tracking & Reporting'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Fiziksel ve sanal POS hareketlerini tek panelden yöneten raporlama çözümü.' : 'Reporting solution that manages physical and virtual POS movements from a single panel.'}</p>
+                                    </div>
+                                </a>
+
+                                <a href={getLocalePath('/e-dbs', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">account_balance</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-DBS Sistemi' : 'E-DBS System'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Çok bankalı Doğrudan Borçlandırma Sistemi süreçlerinizi tek panelden yönetin.' : 'Manage your multi-bank Direct Debit System processes from a single panel.'}</p>
+                                    </div>
+                                </a>
+
+                                <a href={getLocalePath('/e-payment', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">hub</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Ödeme (TÖS)' : 'E-Payment (Bulk)'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Toplu ödemelerinizi tüm bankalara aynı anda güvenle iletin.' : 'Securely send your bulk payments to all banks simultaneously.'}</p>
+                                    </div>
+                                </a>
+
+                                <a href={getLocalePath('/e-cashflow', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
+                                    <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-2xl">analytics</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Nakit Akışı' : 'E-Cash Flow'}</h5>
+                                        <p class="text-[13px] text-text-70 leading-relaxed font-light">{lang === 'tr' ? 'Finansal görünürlük ve yapay zeka destekli nakit tahminleme platformu.' : 'Financial visibility and AI-powered cash forecasting platform.'}</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
                         
                         <!-- Right Side: Promo Action Card -->
-                        <div class="flex-[2] bg-lime p-8 text-black relative flex flex-col justify-end overflow-hidden shadow-inner font-mono">
+                        <div class="flex-[1.5] bg-lime p-8 text-black relative flex flex-col justify-end overflow-hidden shadow-inner font-mono">
                             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.1]"></div>
                             <div class="absolute top-0 right-0 w-32 h-32 bg-black/5 rounded-full blur-[40px]"></div>
                             
@@ -136,9 +198,13 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                 </h4>
                                 <ul class="space-y-3.5">
                                     <li><a href={getLocalePath('/hizmetler/e-donusum', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcTv', lang)}</a></li>
-                                    <li><a href={getLocalePath('/online-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcGci', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcGci', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-ticaret', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCbc', lang)}</a></li>
-                                    <li><a href={getLocalePath('/online-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCt', lang)}</a></li>
+                                    <li><a href={getLocalePath('/pazaryeri-cozumu', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcMp', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-tahsilat', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcEt', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-ekstre', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcEks', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-pos', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcPos', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCt', lang)}</a></li>
                                 </ul>
                             </div>
 

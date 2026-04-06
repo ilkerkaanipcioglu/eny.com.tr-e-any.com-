@@ -147,7 +147,7 @@ const {
             <!-- Tag Cloud -->
             {tags.length > 0 && (
                 <div class="glass-card p-8 rounded-2xl border border-border-main">
-                    <h3 class="text-sm font-medium text-text-40 tracking-widest uppercase mb-6">İlgili SAP Modülleri</h3>
+                    <h3 class="text-sm font-medium text-text-40 tracking-widest uppercase mb-6">{lang === 'tr' ? 'İlgili Teknolojiler' : 'Related Technologies'}</h3>
                     <div class="flex flex-wrap gap-2">
                         {tags.map(tag => (
                             <span class="px-3 py-1.5 rounded bg-bg border border-border text-text-70 text-sm">{tag}</span>
@@ -159,7 +159,7 @@ const {
             <!-- Related Services -->
             {relatedServices.length > 0 && (
                 <div class="glass-card p-8 rounded-2xl border border-border-main">
-                    <h3 class="text-sm font-medium text-text-40 tracking-widest uppercase mb-6">Benzer Çözümler</h3>
+                    <h3 class="text-sm font-medium text-text-40 tracking-widest uppercase mb-6">{lang === 'tr' ? 'Benzer Çözümler' : 'Similar Solutions'}</h3>
                     <ul class="space-y-4">
                         {relatedServices.map(service => (
                             <li>
@@ -175,10 +175,14 @@ const {
 
             <!-- Sidebar CTA -->
             <div class="bg-plum p-8 rounded-2xl text-white">
-                <h3 class="text-xl font-medium mb-4">Ücretsiz Sistem Analizi</h3>
-                <p class="text-white/80 text-sm font-light mb-8">Finansal altyapınızdaki dar boğazları ve SAP potansiyelinizi değerlendirelim.</p>
-                <a href="/iletisim" class="block text-center w-full px-6 py-3 bg-white text-plum rounded-lg font-medium hover:bg-bg2 transition-colors">
-                    Randevu Alın
+                <h3 class="text-xl font-medium mb-4">{lang === 'tr' ? 'Ücretsiz Sistem Analizi' : 'Free System Analysis'}</h3>
+                <p class="text-white/80 text-sm font-light mb-8">
+                    {lang === 'tr' 
+                        ? 'Finansal altyapınızdaki dar boğazları ve teknolojik potansiyelinizi değerlendirelim.' 
+                        : 'Let’s evaluate the bottlenecks in your financial infrastructure and your technological potential.'}
+                </p>
+                <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="block text-center w-full px-6 py-3 bg-white text-plum rounded-lg font-medium hover:bg-bg2 transition-colors">
+                    {lang === 'tr' ? 'Randevu Alın' : 'Book a Meeting'}
                 </a>
             </div>
         </aside>
@@ -187,10 +191,14 @@ const {
     <!-- Bottom CTA -->
     <section class="py-24 bg-bg2 border-t border-border-main flex justify-center text-center px-8">
         <div class="max-w-2xl">
-            <h2 class="text-3xl font-medium mb-6">Mimari Değişim Başlasın</h2>
-            <p class="text-text-70 font-light mb-8">Finansal operasyonlarınızı otomatize etmek ve sistemlerinizi geleceğe hazırlamak için ilk adımı atın.</p>
-            <a href="/iletisim" class="inline-flex items-center gap-2 bg-plum text-white px-8 py-4 rounded-lg font-medium hover:bg-plum-hover transition-colors">
-                Görüşme Ayarla <span class="material-symbols-outlined text-sm">arrow_outward</span>
+            <h2 class="text-3xl font-medium mb-6">{lang === 'tr' ? 'Mimari Değişim Başlasın' : 'Start the Architectural Change'}</h2>
+            <p class="text-text-70 font-light mb-8">
+                {lang === 'tr' 
+                    ? 'Finansal operasyonlarınızı otomatize etmek ve sistemlerinizi geleceğe hazırlamak için ilk adımı atın.' 
+                    : 'Take the first step to automate your financial operations and prepare your systems for the future.'}
+            </p>
+            <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="inline-flex items-center gap-2 bg-plum text-white px-8 py-4 rounded-lg font-medium hover:bg-plum-hover transition-colors">
+                {lang === 'tr' ? 'Görüşme Ayarla' : 'Schedule a Call'} <span class="material-symbols-outlined text-sm">arrow_outward</span>
             </a>
         </div>
     </section>
