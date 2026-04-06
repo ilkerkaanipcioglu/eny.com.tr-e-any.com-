@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { t } from '../../i18n/utils';
+const lang = 'en' as const;
+---
+<Layout title={`Industries | eny`} lang={lang}>
+    <Header lang={lang} />
+    <section class="pt-40 pb-24 bg-surface px-8 border-b border-outline-variant/10">
+        <div class="max-w-[1440px] mx-auto">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-6">{t('sectorsBadge', lang)}</span>
+            <h1 class="display-lg text-5xl md:text-7xl font-bold font-headline text-on-background tracking-tight mb-8">
+                {t('sectorsTitle1', lang)}<br/>{t('sectorsTitle2', lang)}
+            </h1>
+            <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-3xl">
+                {t('sectorsDesc', lang)}
+            </p>
+        </div>
+    </section>
+
+    <!-- Sectors Detailed List -->
+    <section class="py-0">
+        <!-- 1: Retail -->
+        <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4">
+                    <div class="w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-600 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">storefront</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Retail and<br/>FMCG</h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">Critical Challenge</h4>
+                        <p class="text-on-background leading-relaxed">Reconciling massive transactions flowing simultaneously from thousands of stores and dozens of different POS devices, calculating turnover premiums, and tracking cash logistics is a daunting operational burden.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">eny Solution</h4>
+                        <p class="text-on-background leading-relaxed">We build automated structures that monitor all cash flow instantly and extract store-based profitability through SAP POS Data Transfer & Audit (POSDTA) and SAP Cash Management integration.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2: Manufacturing -->
+        <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4">
+                    <div class="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Manufacturing and<br/>Automotive</h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">Critical Challenge</h4>
+                        <p class="text-on-background leading-relaxed">Fluctuations in raw material prices, complex supply chain financing, and the difficulty of real-world product-based cost (Material Ledger) analysis for long-term investment decisions.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">eny Solution</h4>
+                        <p class="text-on-background leading-relaxed">We build integrated factories that hedge commodity risks via SAP TRM and provide real-time precise cost reporting with SAP CO-PC/ML modules.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3: Real Estate -->
+        <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">domain</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Construction and<br/>Real Estate (REIT)</h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">Critical Challenge</h4>
+                        <p class="text-on-background leading-relaxed">Managing contracts, turnover-indexed rent increases, and common area expenses for hundreds of tenants across numerous shopping mall or office projects without error.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">eny Solution</h4>
+                        <p class="text-on-background leading-relaxed">By implementing the central SAP RE-FX module, we fully automate IFRS 16 calculations, m²-based invoicing, and facility maintenance alerts.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4: Finance -->
+        <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4">
+                    <div class="w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">account_balance</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Financial Services<br/>and Holdings</h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">Critical Challenge</h4>
+                        <p class="text-on-background leading-relaxed">Inability to manage the cash of different subsidiaries within a holding in a single pool, leading to time and commission losses in intra-group fund transfers.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">eny Solution</h4>
+                        <p class="text-on-background leading-relaxed">We increase holding efficiency by 40% by establishing a virtual internal bank with advanced In-House Cash (IHC) and Cash Pooling strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5: Logistics -->
+        <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-4">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">local_shipping</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Logistics and<br/>Supply Chain</h2>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">Critical Challenge</h4>
+                        <p class="text-on-background leading-relaxed">Delays in processing complex fleet expenses, fuel costs, and customs invoices creating blind spots in the company budget.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm tracking-widest text-on-surface-variant uppercase font-bold mb-4">eny Solution</h4>
+                        <p class="text-on-background leading-relaxed">We provide instant expense visibility by processing transportation and supplier invoices via OCR within seconds using SAP and OpenText VIM systems.</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-4xl mx-auto px-8 text-center text-on-background">
+            <h2 class="text-3xl font-bold font-headline mb-6">Would You Like to Be a Pioneer<br/>in Your Industry Too?</h2>
+            <a href="/en/contact" class="inline-flex items-center gap-2 bg-on-background text-white px-8 py-3 rounded-lg font-bold hover:-translate-y-1 hover:shadow-xl transition-all">
+                Contact Us <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+    <Footer lang={lang} />
+</Layout>

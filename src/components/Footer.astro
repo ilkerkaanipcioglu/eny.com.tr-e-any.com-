@@ -32,8 +32,8 @@ const { lang = 'tr' } = Astro.props;
             <div class="md:col-span-2">
                 <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{t('footerQuickLinks', lang)}</h4>
                 <ul class="space-y-3">
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler', lang)}>{t('footerServices', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/lokalizasyon', lang)}>Roll-out & Lokalizasyon</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler', lang)}>{t('navServices', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/lokalizasyon', lang)}>{t('navRollout', lang)}</a></li>
                     <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hakkimizda', lang)}>{t('navAbout', lang)}</a></li>
                     <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/iletisim', lang)}>{t('navContact', lang)}</a></li>
                 </ul>
@@ -41,25 +41,19 @@ const { lang = 'tr' } = Astro.props;
 
             <!-- Services -->
             <div class="md:col-span-3">
-                <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{lang === 'tr' ? 'Hizmetler' : 'Services'}</h4>
+                <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{t('footerServices', lang)}</h4>
                 <ul class="space-y-3">
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler/e-donusum', lang)}>{lang === 'tr' ? 'Sovereign e-Dönüşüm' : 'Sovereign e-Transformation'}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler/finansal-teknolojiler', lang)}>{lang === 'tr' ? 'Global Tahsilat Altyapısı' : 'Global Collection Infra'}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler/e-ticaret', lang)}>{lang === 'tr' ? 'Sınır Tanımaz Ticaret' : 'Cross-Border Commerce'}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler/treasury', lang)}>{lang === 'tr' ? 'Hazine & Treasury' : 'Cash & Treasury'}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler/e-donusum', lang)}>{t('footerSvcTv', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/online-dbs', lang)}>{t('footerSvcGci', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-ticaret', lang)}>{t('footerSvcCbc', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/online-dbs', lang)}>{t('footerSvcCt', lang)}</a></li>
                 </ul>
             </div>
 
         <div class="md:col-span-3">
-            {lang === 'tr' ? (
                 <p class="text-text-70 text-sm font-light">
-                    Satış ekibine değil, doğrudan çözüm mimarına ulaşırsınız. WhatsApp, Telegram veya LinkedIn üzerinden yazın, hazır teklif değil gerçek analiz alın.
+                    {t('footerDesc', lang)}
                 </p>
-            ) : (
-                <p class="text-text-70 text-sm font-light">
-                    You reach out directly to the solution architect, not a sales team. Message us on WhatsApp, Telegram, or LinkedIn to get a real analysis rather than a generic proposal.
-                </p>
-            )}
             <div class="flex gap-3 mt-4">
                 {/* 1 - WhatsApp */}
                 <a href="https://wa.me/905332388975" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-bg3 border border-border-main flex items-center justify-center text-text-40 hover:bg-[#25D366] hover:text-white transition-colors" title="WhatsApp">
@@ -99,7 +93,7 @@ const { lang = 'tr' } = Astro.props;
         <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left font-mono uppercase">
             <div class="flex items-center gap-3">
                 <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
-                <span class="text-[10px] text-lime tracking-widest">{lang === 'tr' ? 'SİSTEM DURUMU: OPERASYONEL' : 'SYSTEM STATUS: OPERATIONAL'}</span>
+                <span class="text-[10px] text-lime tracking-widest uppercase">{lang === 'tr' ? 'Sistem Durumu: Operasyonel' : 'System Status: Operational'}</span>
             </div>
             <span class="text-[10px] text-text-40 tracking-widest">© 2026 ENY INFRASTRUCTURE. ALL RIGHTS RESERVED.</span>
             <div class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs text-text-40">

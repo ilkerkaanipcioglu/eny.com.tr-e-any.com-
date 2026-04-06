@@ -1,5 +1,7 @@
 ---
 import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface RelatedService {
     title: string;
@@ -20,11 +22,12 @@ interface Props {
     resultTitle?: string;
     resultText?: string;
     
-    insightTitle?: string;
-    insightContent?: string;
+    visionTitle?: string;
+    visionContent?: string;
     
     tags?: string[];
     relatedServices?: RelatedService[];
+    lang?: 'tr' | 'en';
 }
 
 const { 
@@ -37,13 +40,15 @@ const {
     solutionText, 
     resultTitle = "İş Sonuçları", 
     resultText, 
-    insightTitle,
-    insightContent,
+    visionTitle,
+    visionContent,
     tags = [], 
-    relatedServices = [] 
+    relatedServices = [],
+    lang = 'tr'
 } = Astro.props;
 ---
-<Layout title={`${title} | Hizmetler`}>
+<Layout title={`${title} | Hizmetler`} lang={lang}>
+    <Header lang={lang} />
     <!-- Mini Hero -->
     <header class="pt-40 pb-20 md:pt-48 md:pb-24 bg-bg border-b border-border-main relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-plum)_0%,_transparent_50%)] opacity-5 pointer-events-none"></div>
@@ -113,22 +118,22 @@ const {
                 </section>
             )}
 
-            <!-- Insight Block -->
-            {insightContent && (
+            <!-- Vision Block -->
+            {visionContent && (
                 <section class="mt-24">
                     <div class="glass-card p-10 rounded-2xl border border-border-main relative overflow-hidden bg-bg2">
                         <span class="material-symbols-outlined text-6xl text-plum opacity-20 mb-6 block">format_quote</span>
-                        {insightTitle && (
-                            <h3 class="text-xs font-medium tracking-widest text-plum uppercase mb-6">{insightTitle}</h3>
+                        {visionTitle && (
+                            <h3 class="text-xs font-medium tracking-widest text-plum uppercase mb-6">{visionTitle}</h3>
                         )}
                         <p class="text-xl md:text-2xl text-text-main font-light leading-relaxed mb-8 relative z-10 italic">
-                            "{insightContent}"
+                            "{visionContent}"
                         </p>
                         <div class="flex items-center gap-4 relative z-10 mt-8 pt-6 border-t border-border-main/50">
                             <span class="material-symbols-outlined text-teal text-2xl">architecture</span>
                             <div>
-                                <h4 class="text-sm font-medium text-text-main">eny Insight Series</h4>
-                                <span class="text-xs text-text-70 uppercase tracking-widest">Finansal Mimari Vizyonu</span>
+                                <h4 class="text-sm font-medium text-text-main">eny Platform Vision</h4>
+                                <span class="text-xs text-text-70 uppercase tracking-widest">{lang === 'tr' ? 'Mimari Bakış Açısı' : 'Architectural Perspective'}</span>
                             </div>
                         </div>
                     </div>
@@ -189,4 +194,5 @@ const {
             </a>
         </div>
     </section>
+    <Footer lang={lang} />
 </Layout>

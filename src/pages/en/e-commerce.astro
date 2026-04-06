@@ -1,0 +1,23 @@
+---
+import ServiceDetailLayout from '../../layouts/ServiceDetailLayout.astro';
+const lang = 'en' as const;
+---
+<ServiceDetailLayout 
+    lang={lang}
+    title="E-Commerce and Marketplace Integrations"
+    description="Streamline order, inventory, shipping, and e-invoice data from your e-commerce site into your SAP infrastructure in real-time."
+    icon="storefront"
+    problemTitle="Broken Sync, Bloated Operations"
+    problemText="Disaster begins when order entries and inventory checks for multi-channel sales firms do not sync with ERP. Invoices are issued for unsold products, out-of-stock items continue to be listed on marketplaces; manual cancellation/return management suffocates finance teams."
+    solutionTitle="API First Cloud Architecture"
+    solutionText="We integrate your B2B and B2C e-commerce sites with popular marketplaces (Amazon, Shopify, Trendyol, Hepsiburada, etc.) bi-directionally through SAP S/4HANA via BTP (Business Technology Platform) or a middleware layer. As soon as an order flows in, warehouse delivery is initiated, the e-invoice is transmitted to the tax authority (GİB) in the same second, and the accounting record is posted."
+    resultTitle="Instant Reconciliation, Zero Latency"
+    resultText="We automatically match 99% of collection and bank POS reconciliations for retail transactions reaching tens of thousands of lines. We eliminate operational blindness and enable you to see at a glance how profitable each channel is instantly through SAP."
+    visionTitle="Digital Commerce Architecture"
+    visionContent="Modern e-commerce is no longer about just selling products; it's about the orchestration of trust, speed, and cross-border financial compliance at a global scale."
+    tags={["Marketplace API Integration", "Shopify/Magento/WooCommerce", "e-Invoice Automation", "Bulk POS Reconciliation", "Real-Time Inventory"]}
+    relatedServices={[
+        { title: "SAP & OpenText", href: "/en/services" },
+        { title: "Online DBS & Bank Integration", href: "/en/online-dbs" }
+    ]}
+/>

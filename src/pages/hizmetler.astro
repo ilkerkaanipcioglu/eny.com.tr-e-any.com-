@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const lang = 'tr' as const;
 ---
-<Layout title="Hizmetler">
+<Layout title="Hizmetler | eny" lang={lang}>
+    <Header lang={lang} />
     <!-- HERO -->
     <header class="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-bg overflow-hidden border-b border-border-main">
         <div class="absolute inset-0 bg-lime opacity-5 blur-[120px] -z-10 rounded-full w-[800px] h-[800px] right-0 top-0 pointer-events-none"></div>
@@ -351,4 +355,5 @@ import Layout from '../layouts/Layout.astro';
             </a>
         </div>
     </section>
+    <Footer lang={lang} />
 </Layout>

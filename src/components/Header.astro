@@ -13,8 +13,7 @@ const currentPath = Astro.url.pathname;
 const navItems: { label: string; enLabel: string; path: string }[] = [
   { label: 'Çözümler', enLabel: 'Solutions', path: '/urunler' },
   { label: 'Hizmetler', enLabel: 'Services', path: '/hizmetler' },
-  { label: 'Kurumsal', enLabel: 'Corporate', path: '/hakkimizda' },
-  { label: 'eny Insight', enLabel: 'Insight', path: '/insight' },
+  { label: 'Teknoloji', enLabel: 'Technology', path: '/teknoloji' },
 ];
 
 function isActivePath(itemPath: string): boolean {
@@ -46,7 +45,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <!-- Çözümler Dropdown (Mega Menu) -->
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${isActivePath('/urunler') ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
-                    {lang === 'tr' ? 'Çözümlerımız' : 'Solutions'}
+                    {t('navSolutions', lang) || (lang === 'tr' ? 'Çözümler' : 'Solutions')}
                     <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
@@ -136,10 +135,10 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                     <span class="material-symbols-outlined text-[16px]">domain</span> {lang === 'tr' ? 'Endüstri Çözümleri' : 'Industry Solutions'}
                                 </h4>
                                 <ul class="space-y-3.5">
-                                    <li><a href={getLocalePath('/hizmetler/e-donusum', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'Sovereign e-Dönüşüm' : 'Sovereign e-Transformation'}</a></li>
-                                    <li><a href={getLocalePath('/hizmetler/finansal-teknolojiler', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'Global Tahsilat Altyapısı' : 'Global Collection Infra'}</a></li>
-                                    <li><a href={getLocalePath('/hizmetler/e-ticaret', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'Sınır Tanımaz Ticaret' : 'Cross-Border Commerce'}</a></li>
-                                    <li><a href={getLocalePath('/hizmetler/treasury', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'Nakit ve Treasury' : 'Cash & Treasury'}</a></li>
+                                    <li><a href={getLocalePath('/hizmetler/e-donusum', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcTv', lang)}</a></li>
+                                    <li><a href={getLocalePath('/online-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcGci', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-ticaret', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCbc', lang)}</a></li>
+                                    <li><a href={getLocalePath('/online-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCt', lang)}</a></li>
                                 </ul>
                             </div>
 
@@ -176,7 +175,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <!-- Kurumsal Dropdown -->
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'text-lime font-semibold' : 'text-text-70 group-hover:text-text-main'}`}>
-                    {lang === 'tr' ? 'Kurumsal' : 'Corporate'}
+                    {t('navAbout', lang)}
                     <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
                 </button>
                 
@@ -188,9 +187,9 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                 <span class="material-symbols-outlined text-[16px]">corporate_fare</span> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
                             </h4>
                             <ul class="space-y-3.5">
-                                <li><a href={getLocalePath('/hakkimizda', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-semibold">{lang === 'tr' ? 'Biz Kimiz?' : 'Who We Are'}</a></li>
-                                <li><a href={getLocalePath('/sektorler', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'Hizmet Verdiğimiz Sektörler' : 'Industries We Serve'}</a></li>
-                                <li><a href={getLocalePath('/iletisim', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'İletişim & Konum' : 'Contact & Location'}</a></li>
+                                <li><a href={getLocalePath('/hakkimizda', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-semibold">{t('navAbout', lang)}</a></li>
+                                <li><a href={getLocalePath('/sektorler', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('navSectors', lang)}</a></li>
+                                <li><a href={getLocalePath('/iletisim', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('navContact', lang)}</a></li>
                             </ul>
                         </div>
                         <div>
@@ -222,11 +221,11 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                 <div class="absolute top-full right-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
                     <div class="absolute -top-4 right-0 w-full h-4"></div>
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-xl w-[140px] flex py-2 flex-col overflow-hidden backdrop-blur-3xl">
-                        <a href={`https://eny.com.tr${getAlternateLangPath(currentPath, 'en')}`} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="tr">
+                        <a href={getAlternateLangPath(currentPath, 'en')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="tr">
                             Türkçe 
                             {lang === 'tr' && <span class="material-symbols-outlined text-[16px]">check</span>}
                         </a>
-                        <a href={`https://e-any.com${getAlternateLangPath(currentPath, 'tr')}`} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="en">
+                        <a href={getAlternateLangPath(currentPath, 'tr')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="en">
                             English
                             {lang === 'en' && <span class="material-symbols-outlined text-[16px]">check</span>}
                         </a>

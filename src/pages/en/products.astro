@@ -1,8 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 const lang = 'en' as const;
 ---
 <Layout title="Products | eny" lang={lang}>
+    <Header lang={lang} />
     <!-- Hero -->
     <section class="relative pt-40 pb-32 bg-bg text-center overflow-hidden">
         <div class="absolute inset-0 bg-lime opacity-5 blur-[100px] -z-10 rounded-full w-[600px] h-[600px] left-1/2 -translate-x-1/2 top-0"></div>
@@ -135,4 +138,5 @@ const lang = 'en' as const;
             </div>
         </div>
     </section>
+    <Footer lang={lang} />
 </Layout>

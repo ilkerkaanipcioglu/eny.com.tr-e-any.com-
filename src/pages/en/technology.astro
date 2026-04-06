@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { t } from '../../i18n/utils';
+const lang = 'en' as const;
+---
+<Layout title={`Technology | eny`} lang={lang}>
+    <Header lang={lang} />
+    <section class="relative pt-40 pb-24 bg-surface text-center overflow-hidden">
+        <div class="max-w-[1440px] mx-auto px-8 relative z-10">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-6">{t('techBadge', lang)}</span>
+            <h1 class="display-lg text-5xl md:text-7xl font-bold font-headline mb-8 text-on-background">
+                Enterprise Software<br/>is Being Rewritten.
+            </h1>
+            <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-3xl mx-auto">
+                {t('techDesc', lang)}
+            </p>
+        </div>
+    </section>
+
+    <!-- Technology Grid -->
+    <section class="py-24 bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">cloud_done</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4">S/4HANA Cloud</h3>
+                    <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">An intelligent and flexible cloud ERP platform breaking speed limits with next-generation in-memory database architecture.</p>
+                    <a href="/en/services" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+                <!-- 2 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">smart_toy</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4">Joule (SAP AI)</h3>
+                    <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">SAP's language model integrated into corporate processes. Retrieve reports and receive analysis in seconds using natural language commands.</p>
+                    <a href="/en/about" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+                <!-- 3 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6 relative z-10">api</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4 relative z-10">SAP BTP</h3>
+                    <p class="text-on-surface-variant mb-6 text-sm leading-relaxed relative z-10">Write integrations, perform data mining, and develop custom applications for your business without touching the ERP core using the Business Technology Platform.</p>
+                    <a href="/en/contact" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all relative z-10">Discover Platform <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+                <!-- 4 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">insights</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4">SAP Signavio</h3>
+                    <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">A cloud-based process transformation suite. Identify operational blind spots, design, and continuously improve your processes.</p>
+                    <a href="/en/services" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">View Analysis <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+                <!-- 5 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-6">build_circle</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4">SAP Build</h3>
+                    <p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Low-code/no-code architecture. Enables even non-coding professionals to quickly create automations for their departmental needs.</p>
+                    <a href="/en/contact" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+                <!-- 6 -->
+                <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10 bg-on-background text-white">
+                    <span class="material-symbols-outlined text-primary-container text-4xl mb-6 flex">memory</span>
+                    <h3 class="text-2xl font-bold font-headline mb-4 text-white">AI Agents</h3>
+                    <p class="text-white/70 mb-6 text-sm leading-relaxed">The era of autonomous corporate AI agents that read and record invoices automatically and resolve reconciliation issues on their own is beginning.</p>
+                    <a href="/en/services" class="text-primary-container text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Examine the Future <span class="material-symbols-outlined text-sm">arrow_right_alt</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- eny Platform Vision Content -->
+    <section class="py-24 bg-surface border-t border-outline-variant/10">
+        <div class="max-w-7xl mx-auto px-8 space-y-16">
+            <!-- AI Block -->
+            <div class="bg-surface-container-low p-10 md:p-14 rounded-3xl border border-outline-variant/20 relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+                <span class="material-symbols-outlined text-6xl text-primary/20 mb-6 block">format_quote</span>
+                <h3 class="text-sm font-bold tracking-widest text-primary uppercase mb-6">05 · SAP AI & JOULE</h3>
+                <p class="text-xl md:text-2xl text-on-background font-light leading-relaxed mb-8 relative z-10 italic">
+                    "AI in enterprise software has moved beyond the pilot phase. SAP Joule, integrated across S/4HANA, SuccessFactors, Ariba, and BTP, represents a generative AI layer that understands business context, not just language. The practical results are tangible: invoice matching that handles exceptions autonomously, payment delay prediction that triggers preventive action before disputes arise, and financial closing processes that flag variances in real-time. Agentic AI takes this further — complex, multi-step workflows that previously required human coordination can now operate autonomously within defined guardrails. BTP AI Foundation provides organizations with the infrastructure to develop corporate AI solutions on their own SAP data without exposing sensitive financial information to external models. Companies gaining a competitive advantage from AI are not those trying it — they are those who have structured their data architecture to make AI truly useful. eny positions every implementation with this horizon in mind."
+                </p>
+                <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-sm">architecture</span>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-on-background">eny Platform Vision</h4>
+                        <span class="text-xs text-on-surface-variant uppercase tracking-widest">Architectural Perspective</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BTP Block -->
+            <div class="bg-surface-container-low p-10 md:p-14 rounded-3xl border border-outline-variant/20 relative overflow-hidden">
+                <div class="absolute w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none -left-10 -bottom-10"></div>
+                <span class="material-symbols-outlined text-6xl text-primary/20 mb-6 block">format_quote</span>
+                <h3 class="text-sm font-bold tracking-widest text-primary uppercase mb-6">07 · SAP BTP</h3>
+                <p class="text-xl md:text-2xl text-on-background font-light leading-relaxed mb-8 relative z-10 italic">
+                    "The corporate technology stack has moved beyond what any single vendor can fully provide. Organizations operate SAP alongside Salesforce, Workday, legacy systems, and dozens of point solutions — the cost of keeping these synchronized is one of IT's largest hidden expenses. SAP Business Technology Platform provides the integration, extensibility, and data orchestration layer that makes a heterogeneous environment manageable. Integration Suite connects SAP and non-SAP systems through ready-made adapters and API management; it eliminates custom point-to-point integrations that accumulate technical debt. SAP Build accelerates development with low-code tools — allowing finance and operations teams to automate processes without waiting for IT backlogs. The platform's AI Foundation layer allows organizations to build enterprise intelligence on their own data. For eny, BTP is not a technical add-on — it's the connective tissue of modern SAP architecture; every implementation we design considers how this platform will evolve over time."
+                </p>
+                <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-sm">architecture</span>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-on-background">eny Platform Vision</h4>
+                        <span class="text-xs text-on-surface-variant uppercase tracking-widest">Architectural Perspective</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer lang={lang} />
+</Layout>

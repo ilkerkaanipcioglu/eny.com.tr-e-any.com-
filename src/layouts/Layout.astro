@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 
 // Default URL for eny.com.tr
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.tr');
+const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
 ---
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href={canonicalURL.href} />
     <link rel="alternate" hreflang="tr" href="https://eny.com.tr/" />
-    <link rel="alternate" hreflang="en" href="https://e-any.com/en/" />
+    <link rel="alternate" hreflang="en" href="https://eny.com.tr/en/" />
     <link rel="alternate" hreflang="x-default" href="https://eny.com.tr/" />
     <meta name="robots" content="index, follow" />
 
@@ -51,45 +51,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://eny.com.
         const currentPath = window.location.pathname;
         const currentHost = window.location.hostname;
         const isEnPath = currentPath.startsWith('/en');
-        const isEnDomain = currentHost === 'e-any.com';
-        const isTrDomain = currentHost === 'eny.com.tr';
+        const isEnDomain = currentHost === 'e-any.com' || currentHost === 'www.e-any.com';
 
-        // 1. Skip if on localhost for dev ease (uncomment for production if needed)
-        // if (currentHost === 'localhost') return;
+        // 1. Domain-based override for e-any.com (English Portal)
+        if (isEnDomain && !isEnPath && currentPath === '/') {
+          window.location.href = '/en/';
+          return;
+        }
 
-        // 2. Local Preference Override
+        // 2. Local Preference Sync (Stay on same domain)
         if (pref) {
-          if (pref === 'en' && isTrDomain) {
-            window.location.href = 'https://e-any.com' + currentPath;
+          if (pref === 'en' && !isEnPath && currentPath === '/') {
+            window.location.href = '/en/';
             return;
-          } else if (pref === 'tr' && isEnDomain) {
-            window.location.href = 'https://eny.com.tr' + currentPath.replace('/en/', '/');
-            return;
+          } else if (pref === 'tr' && isEnPath) {
+            // Optional: User has explicit TR preference but is on EN path
+            // Usually we let them stay where they are unless it's the root
           }
         }
 
-        // 3. Geo-IP Check (Session-based)
+        // 3. Simple Geo-IP (Optional, unified domain)
         if (!geoChecked && (currentPath === '/' || currentPath === '/en' || currentPath === '/en/')) {
           fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
               sessionStorage.setItem('eny-geo-checked', 'true');
               if (data.country_code && data.country_code !== 'TR') {
-                // Non-TR -> Redirect to e-any.com if not already there
-                if (isTrDomain) {
-                  localStorage.setItem('eny-lang-pref', 'en');
-                  window.location.href = 'https://e-any.com' + currentPath;
-                }
-              } else if (data.country_code === 'TR') {
-                // TR -> Redirect to eny.com.tr if not already there
-                if (isEnDomain) {
-                  localStorage.setItem('eny-lang-pref', 'tr');
-                  window.location.href = 'https://eny.com.tr' + currentPath.replace('/en/', '/');
+                if (!isEnPath) {
+                   localStorage.setItem('eny-lang-pref', 'en');
+                   window.location.href = '/en/';
                 }
               }
             })
             .catch(err => {
-              console.error('Geo-IP check failed', err);
               sessionStorage.setItem('eny-geo-checked', 'true');
             });
         }

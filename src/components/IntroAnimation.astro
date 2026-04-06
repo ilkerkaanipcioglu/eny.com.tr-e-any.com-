@@ -16,7 +16,7 @@ const trWords = [
   'e-loyalty', 'e-ihracat', 'e-cüzdan', 'e-muhasebe', 
   'e-lojistik', 'e-satınalma', 'e-öğrenme', 'e-sağlık',
   'e-anything', 'e-everything',
-  'e-somting', 'e-somethingelse', 'e-any', 'e-any.com', 'ENY.COM.TR', 
+  'e-any', 'eny.com.tr', 'ENY', 
 ];
 
 const enWords = [
@@ -28,7 +28,7 @@ const enWords = [
   'e-loyalty', 'e-export', 'e-wallet', 'e-accounting',
   'e-logistics', 'e-procurement', 'e-learning', 'e-health',
   'e-anything', 'e-everything',
-  'e-somting', 'e-somethingelse', 'e-any', 'e-any.com', 'ENY.COM.TR', 
+  'e-any', 'eny.com.tr', 'ENY', 
 ];
 
 const words = lang === 'tr' ? trWords : enWords;
@@ -695,11 +695,7 @@ const introStatus = t('introStatus', lang);
       
       const getLink = (word) => {
         const w = word.toLowerCase();
-        // Specific links for certain branded items
-        if (w === 'e-any.com') return 'https://e-any.com';
-        if (w === 'eny.com.tr') return 'https://eny.com.tr';
-        
-        // Everything else goes to homepage root based on language
+        // Everything goes to homepage root based on language
         return lang === 'tr' ? '/' : '/en/';
       };
 
@@ -726,7 +722,14 @@ const introStatus = t('introStatus', lang);
           el.classList.add('on');
         });
         showLogo();
-        handleHeader();
+        // Removed immediate handleHeader() - let interaction handle it
+        
+        // Unified Domain Redirect for e-any.com
+        if (window.location.hostname === 'e-any.com' || window.location.hostname === 'www.e-any.com') {
+           setTimeout(() => {
+              window.location.href = 'https://eny.com.tr/en/';
+           }, 1500);
+        }
       };
 
       // Auto-skip on scroll (early exit)
@@ -832,7 +835,7 @@ const introStatus = t('introStatus', lang);
       };
 
       const showLogo = () => {
-        handleHeader();
+        // handleHeader() call removed to wait for user interaction
         lb.classList.add('show');
         if(lg) lg.classList.add('show');
         nrgs.forEach(n => n.classList.add('on'));
@@ -857,7 +860,26 @@ const introStatus = t('introStatus', lang);
           if(replayBtn) replayBtn.classList.add('show');
           statusBar.classList.add('show');
           startDotPulse();
+          listenForHeaderTrigger();
         }, 1600));
+      };
+
+      const listenForHeaderTrigger = () => {
+        let triggered = false;
+        const trigger = () => {
+            if (triggered) return;
+            triggered = true;
+            handleHeader();
+            // Remove listeners
+            ['mousemove', 'mousedown', 'touchstart', 'wheel', 'keydown'].forEach(ev => {
+                window.removeEventListener(ev, trigger);
+            });
+        };
+
+        // Attach listeners
+        ['mousemove', 'mousedown', 'touchstart', 'wheel', 'keydown'].forEach(ev => {
+            window.addEventListener(ev, trigger, { passive: true });
+        });
       };
 
       tids.push(setTimeout(step, 350));

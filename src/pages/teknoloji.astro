@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const lang = 'tr' as const;
 ---
-<Layout title="Teknoloji | eny">
+<Layout title="Teknoloji | eny" lang={lang}>
+    <Header lang={lang} />
     <section class="relative pt-40 pb-24 bg-surface text-center overflow-hidden">
         <div class="max-w-[1440px] mx-auto px-8 relative z-10">
             <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-6">GELECEK MİMARİSİ</span>
@@ -65,7 +69,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </section>
 
-    <!-- eny Insights Series -->
+    <!-- eny Platform Vision Content -->
     <section class="py-24 bg-surface border-t border-outline-variant/10">
         <div class="max-w-7xl mx-auto px-8 space-y-16">
             <!-- AI Block -->
@@ -81,8 +85,8 @@ import Layout from '../layouts/Layout.astro';
                         <span class="material-symbols-outlined text-sm">architecture</span>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-on-background">eny Insight Series</h4>
-                        <span class="text-xs text-on-surface-variant uppercase tracking-widest">Finansal Mimari Vizyonu</span>
+                        <h4 class="text-sm font-bold text-on-background">eny Platform Vision</h4>
+                        <span class="text-xs text-on-surface-variant uppercase tracking-widest">Mimari Bakış Açısı</span>
                     </div>
                 </div>
             </div>
@@ -107,4 +111,5 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
     </section>
+    <Footer lang={lang} />
 </Layout>

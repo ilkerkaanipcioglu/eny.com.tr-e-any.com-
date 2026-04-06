@@ -34,6 +34,10 @@ export function getLocalePath(path: string, lang: Lang): string {
     '/kvkk': '/en/kvkk',
     '/gizlilik-politikasi': '/en/privacy-policy',
     '/cerez-politikasi': '/en/cookie-policy',
+    '/sektorler': '/en/industries',
+    '/teknoloji': '/en/technology',
+    '/online-dbs': '/en/online-dbs',
+    '/e-ticaret': '/en/e-commerce',
   };
   return pathMap[path] || `/en${path}`;
 }
@@ -59,6 +63,10 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/kvkk': '/en/kvkk',
       '/gizlilik-politikasi': '/en/privacy-policy',
       '/cerez-politikasi': '/en/cookie-policy',
+      '/sektorler': '/en/industries',
+      '/teknoloji': '/en/technology',
+      '/online-dbs': '/en/online-dbs',
+      '/e-ticaret': '/en/e-commerce',
     };
     return map[currentPath] || `/en${currentPath}`;
   } else {
@@ -82,6 +90,10 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/en/kvkk': '/kvkk',
       '/en/privacy-policy': '/gizlilik-politikasi',
       '/en/cookie-policy': '/cerez-politikasi',
+      '/en/industries': '/sektorler',
+      '/en/technology': '/teknoloji',
+      '/en/online-dbs': '/online-dbs',
+      '/en/e-commerce': '/e-ticaret',
     };
     return map[currentPath] || currentPath.replace('/en', '');
   }
