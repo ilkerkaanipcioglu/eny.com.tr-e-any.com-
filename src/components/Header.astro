@@ -1,4 +1,4 @@
----
+﻿---
 import { t, getLocalePath, getAlternateLangPath, type Lang } from '../i18n/utils';
 import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
@@ -223,7 +223,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                     <li><a href={getLocalePath('/hizmetler/e-donusum', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcTv', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-dbs', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcGci', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-ticaret', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcCbc', lang)}</a></li>
-                                    <li><a href={getLocalePath('/pazaryeri-cozumu', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcMp', lang)}</a></li>
+                                    <li><a href={getLocalePath('/e-pazaryeri', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcMp', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-tahsilat', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcEt', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-ekstre', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcEks', lang)}</a></li>
                                     <li><a href={getLocalePath('/e-pos', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcPos', lang)}</a></li>
@@ -446,3 +446,4 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
     });
   });
 </script>
+
