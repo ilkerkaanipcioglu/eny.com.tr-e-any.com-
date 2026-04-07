@@ -203,25 +203,46 @@ h1, h2, h3, h4, h5, h6, p, span, div {
 }
 
 /* === ICON VISIBILITY FIX === */
-/* All glass-card icons use high-contrast solid backgrounds in light mode */
+/* Universal: targets ALL bg-lime/10 icon containers (mega menu, products, services) */
+
+/* ── Light Mode: Dark gray container + Neon lime icon = Max contrast ── */
+[data-theme="light"] .bg-lime\/10 {
+  background-color: #374151 !important; /* gray-700: dark enough for neon to pop */
+  border: 1px solid #4b5563 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Force ALL icons inside bg-lime/10 containers to neon lime in light mode */
+[data-theme="light"] .bg-lime\/10 .material-symbols-outlined,
+[data-theme="light"] .bg-lime\/10 > span {
+  color: #D0FD17 !important; /* Original neon lime — brand color preserved */
+  filter: drop-shadow(0 0 4px rgba(208, 253, 23, 0.4));
+}
+
+/* Also handle text-text-main icons that start black (e.g., product cards) */
+[data-theme="light"] .bg-lime\/10.text-text-main .material-symbols-outlined {
+  color: #D0FD17 !important;
+}
+
+/* ── Light Mode: Hover states ── */
+[data-theme="light"] .bg-lime\/10:hover,
+[data-theme="light"] .group:hover .bg-lime\/10,
+[data-theme="light"] [class*="group-hover"] .bg-lime\/10 {
+  background-color: #1f2937 !important; /* gray-800: deeper on hover */
+  border-color: #D0FD17 !important;
+  box-shadow: 0 4px 16px rgba(208, 253, 23, 0.15);
+}
+
+/* ── Dark Mode: Keep original neon glow ── */
+[data-theme="dark"] .bg-lime\/10 .material-symbols-outlined {
+  color: var(--lime);
+  filter: drop-shadow(0 0 10px var(--lime-soft));
+}
+
+/* ── Also fix glass-card icon fallbacks (for cards without bg-lime/10) ── */
 .glass-card .material-symbols-outlined {
   color: var(--gray);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-[data-theme="light"] .glass-card .w-12, 
-[data-theme="light"] .glass-card .w-16,
-[data-theme="light"] .glass-card .w-14 {
-  background: var(--lime-pill-bg) !important;
-  border: 1px solid var(--lime-pill-border) !important;
-  color: var(--lime-pill-text) !important;
-  box-shadow: 0 4px 12px rgba(208, 253, 23, 0.1);
-}
-
-[data-theme="light"] .glass-card .w-12 span, 
-[data-theme="light"] .glass-card .w-16 span,
-[data-theme="light"] .glass-card .w-14 span {
-  color: var(--lime-pill-text) !important;
 }
 
 [data-theme="dark"] .glass-card .material-symbols-outlined {
@@ -233,20 +254,6 @@ h1, h2, h3, h4, h5, h6, p, span, div {
   color: var(--accent-text);
   transform: scale(1.1);
   filter: drop-shadow(0 0 15px var(--lime-glow));
-}
-
-[data-theme="light"] .glass-card:hover .w-12, 
-[data-theme="light"] .glass-card:hover .w-16,
-[data-theme="light"] .glass-card:hover .w-14 {
-  background: var(--lime-pill-text) !important;
-  border-color: var(--lime-pill-text) !important;
-  color: var(--lime) !important;
-}
-
-[data-theme="light"] .glass-card:hover .w-12 span, 
-[data-theme="light"] .glass-card:hover .w-16 span,
-[data-theme="light"] .glass-card:hover .w-14 span {
-  color: var(--lime) !important;
 }
 
 /* Products page specific fix */
