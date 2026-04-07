@@ -2,6 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { 
+  CreditCard, 
+  Network, 
+  Landmark, 
+  ShieldCheck, 
+  History, 
+  ArrowRight,
+  Cpu,
+  Quote
+} from '@lucide/astro';
 const lang = 'tr' as const;
 ---
 <Layout title="Ürünler | eny" lang={lang}>
@@ -28,14 +38,14 @@ const lang = 'tr' as const;
                 <!-- 1 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">payments</span>
+                        <CreditCard size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Tahsilat</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
                         Sanal POS entegrasyonları ile tahsilat süreçlerinizi dijitalleştirin. Gelen ödemeler otomatik olarak muhasebe modülüyle eşleşir ve muhasebeleşir.
                     </p>
                     <a href="/e-tahsilat" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        DETAYLARI İNCELE <ArrowRight size={16} />
                     </a>
                 </div>
 
@@ -43,70 +53,70 @@ const lang = 'tr' as const;
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full lg:col-span-2 relative overflow-hidden bg-bg3/30">
                     <div class="absolute right-0 top-0 w-64 h-64 bg-lime/20 blur-3xl group-hover:bg-lime/30 transition-colors pointer-events-none opacity-20"></div>
                     <div class="w-16 h-16 rounded-2xl bg-lime text-black flex justify-center items-center mb-8 group-hover:scale-110 transition-transform relative z-10">
-                        <span class="material-symbols-outlined text-3xl">hub</span>
+                        <Network size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-3xl font-bold font-sans mb-4 text-text relative z-10">Banka Hub (Multi-Bank Connectivity)</h3>
                     <p class="text-text-70 text-lg leading-relaxed mb-8 max-w-2xl relative z-10">
                         Ayrı ayrı banka portallarına girmeye son. Tüm hesap hareketlerinizi, MT940 mutabakatlarınızı ve anlık bakiye görüntülemelerinizi tek bir ekrandan, doğrudan sisteminiz üzerinden gerçekleştirin. Yapay zeka ile otomatik eşleştirme.
                     </p>
                     <a href="/e-ekstre" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline mt-auto relative z-10">
-                        DETAYLARI İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        DETAYLARI İNCELE <ArrowRight size={16} />
                     </a>
                 </div>
 
                 <!-- 3 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">account_balance</span>
+                        <Landmark size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-DBS</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
                         Çok bankalı Doğrudan Borçlandırma Sistemi ile bayi ağınızdan yapacağınız tahsilatları tek panelden yönetin ve nakit akışınızı garanti altına alın.
                     </p>
                     <a href="/e-dbs" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        DETAYLARI İNCELE <ArrowRight size={16} />
                     </a>
                 </div>
 
                 <!-- 4 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">hub</span>
+                        <Network size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-Ödeme (TÖS)</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
                         Farklı banka ve hesaplara aynı anda toplu ödeme işlemleri gerçekleştirin, onay hiyerarşinizi doğrudan ERP sisteminizden yönetin.
                     </p>
                     <a href="/e-payment" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        DETAYLARI İNCELE <ArrowRight size={16} />
                     </a>
                 </div>
 
                 <!-- 5 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">gavel</span>
+                        <ShieldCheck size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Devlet Serisi</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
                         e-Fatura, e-Defter, e-İrsaliye ve e-Arşiv süreçlerinizde GİB mevzuatlarıyla %100 uyumlu, kesintisiz sistem entegrasyonu.
                     </p>
                     <a href="/iletisim" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        e-KONUŞALIM <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        e-KONUŞALIM <ArrowRight size={16} />
                     </a>
                 </div>
 
                 <!-- 6 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">analytics</span>
+                        <History size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-Nakit Akışı</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
                         Tüm finansal hareketlerinizi gerçek zamanlı izleyin, geleceğe yönelik nakit akışı tahminlemeleri ve senaryo planlamaları yapın.
                     </p>
                     <a href="/e-cashflow" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        DETAYLARI İNCELE <ArrowRight size={16} />
                     </a>
                 </div>
 
@@ -119,14 +129,14 @@ const lang = 'tr' as const;
         <div class="max-w-7xl mx-auto px-8">
             <div class="bg-surface-container-low p-10 md:p-14 rounded-3xl border border-outline-variant/20 relative overflow-hidden">
                 <div class="absolute w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none -right-10 -bottom-10"></div>
-                <span class="material-symbols-outlined text-6xl text-primary/20 mb-6 block">format_quote</span>
+                <Quote size={64} class="text-primary/20 mb-6 block" />
                 <h3 class="text-sm font-bold tracking-widest text-primary uppercase mb-6">06 · KURUMSAL FİNANSAL RAPORLAMA</h3>
                 <p class="text-xl md:text-2xl text-on-background font-light leading-relaxed mb-8 relative z-10 italic">
                     "Birden fazla tüzel kişilik, bağlı ortaklık veya coğrafyada faaliyet gösteren organizasyonlar için finansal kapanış, genellikle finans takvimininin en emek yoğun sürecidir. Şirketlerarası eliminasyonlar, kur çevrimi ve çok standartlı raporlama gereksinimleri, haftalar süren ve yine de manuel müdahale gerektiren bir sürece dönüşebilir. Modern ERP sistemleri içine doğal olarak entegre edilmiş kurumsal raporlama araçları, konsolidasyon mantığını doğrudan merkezi deftere gömerek bu sorunu ele alır. 2025 ve 2026 sürümlerinde tanıtılan yeni kural motorları, en karmaşık dağıtım ve eliminasyon senaryolarını otomatize ederek çevrimdışı çalışma kitaplarına ve konsolidasyon uzmanlarına olan bağımlılığı azaltır. Merkezi Finans mimarisi bu yapıyı heterojen ortamlara genişletir — birden fazla yazılım sistemi işleten organizasyonlar, yan kuruluşların sistem geçişi gerektirmeksizin finansal verileri tek bir merkezde toplayabilir. Sonuç: tüm organizasyonda tek, denetlenebilir bir finansal gerçek — ve bu gerçeğe gerçek zamanlı erişim."
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <span class="material-symbols-outlined text-sm">architecture</span>
+                        <Cpu size={14} />
                     </div>
                     <div>
                         <h4 class="text-sm font-bold text-on-background">eny Insight Series</h4>
