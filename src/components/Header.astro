@@ -382,12 +382,22 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
   window.addEventListener('scroll', () => {
     if (nav) {
-      if (window.scrollY > 5) {
+      if (window.scrollY > 10) {
         nav.classList.add('scrolled', 'forced-show');
         nav.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      } else if (isHome) {
+        // Only hide on home page when at top
+        nav.classList.remove('scrolled', 'forced-show');
+        nav.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
       }
     }
-  });
+  }, { passive: true });
+
+  // Initial check for subpages
+  if (nav && !isHome) {
+    nav.classList.add('scrolled', 'forced-show');
+    nav.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+  }
 
   // Mobile Menu Toggle
   const mobileBtn = document.getElementById('mobile-menu-btn');

@@ -85,18 +85,21 @@
      Surface: #23260A (Lime kart yüzeyi — V2 spec)
   */
 
-  /* Backgrounds — çok hafif lime hint, olive değil */
-  --bg: #050701;               /* Neredeyse siyah, mikro lime ton */
-  --bg2: #0c0e03;              /* Çok koyu, barely-visible lime */
-  --surface: #151706;          /* Kart yüzeyi — derin ama olive değil */
+  /* Backgrounds — Strictly neutral darks to make Neon Lime pop without 'olive' muddy tones */
+  --bg: #000000;               /* Pure black background for Eny high-contrast */
+  --bg2: #050505;              /* Slightly lighter dark for layering */
+  --bg3: #0a0a0a;              /* Deeper card layering — neutral */
+  --surface: #111111;          /* Neutral surface — absolutely zero olive hint */
+  --surface-on: #f0f0f0;
 
-  /* Borders */
-  --border: rgba(208, 253, 23, 0.10);  /* Çok hafif lime border */
+  /* Borders — Clear neon or neutral, never muddy */
+  --border: rgba(208, 253, 23, 0.15);  /* Slightly stronger Neon Lime border */
+  --outline: #222222;                  /* Neutral outline */
   --border-focus: #82165f;             /* Focus: Harezm primary */
 
-  /* Intro / word stream vars */
-  --word-base: #0c0e03;
-  --word-on: #1e2106;
+  /* Intro / word stream vars — Neutral context */
+  --word-base: #000000;
+  --word-on: #0a0c02;
   --word-glow: #D0FD17;
   --logo-color: #ffffff;
   --logo-sub: #82165f;
@@ -301,6 +304,7 @@
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .glass-nav.scrolled,
@@ -313,11 +317,23 @@
 
 /* === TYPOGRAPHY REFINEMENT === */
 /* Prevents stray scripts or layout shifts from splitting words into vertical columns on mobile */
-h1, h2, h3, h4, h5, h6, p, span, div {
-  overflow-wrap: normal;
-  word-wrap: normal;
-  word-break: normal;
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   white-space: normal;
+}
+
+/* Ensure no vertical columns bug */
+p {
+  width: 100%;
+  max-width: 100%;
 }
 
 .display-lg {

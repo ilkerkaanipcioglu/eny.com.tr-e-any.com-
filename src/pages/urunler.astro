@@ -3,17 +3,22 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
-  Acorn,
-  Fish,
-  Bird,
-  Sprout,
-  Shell,
-  Leaf,
-  Sparkles,
+  Zap,
+  Layers,
+  Bot,
   ArrowRight,
   Cpu,
-  Quote
+  Quote,
+  Network
 } from '@lucide/astro';
+
+const Acorn = Zap;
+const Fish = Bot;
+const Bird = Layers;
+const Sprout = Zap;
+const Shell = Bot;
+const Leaf = Layers;
+const Sparkles = Zap;
 const lang = 'tr' as const;
 ---
 <Layout title="Ürünler | eny" lang={lang}>
@@ -26,7 +31,7 @@ const lang = 'tr' as const;
             <h1 class="text-5xl md:text-7xl font-extrabold font-sans mb-8 text-text leading-tight tracking-tighter">
                 Sisteminizle Entegre<br/>Finansal Altyapı.
             </h1>
-            <p class="text-xl md:text-2xl text-text-70 font-sans font-light leading-relaxed max-w-3xl mx-auto">
+            <p class="text-xl md:text-2xl text-text-70 font-sans font-light leading-relaxed max-w-3xl mx-auto w-full block" style="width: 100%; min-width: 100%;">
                 Banka entegrasyonlarından e-Devlet süreçlerine kadar tüm operasyonlarınızı, dış yazılımlara ihtiyaç duymadan doğrudan muhasebe sisteminizin kalbinden yönetin.
             </p>
         </div>

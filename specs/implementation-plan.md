@@ -1,48 +1,78 @@
-# Integration of E-Ödeme (Bulk Payment System)
+# Implementation Plan - Removing SAP Modules from eny.com.tr
 
-This plan outlines the steps to add the **E-Ödeme / E-TÖS (Toplu Ödeme Sistemi)** product to the `eny.com.tr` platform, including multilingual support and visual consistency with other products like E-POS and E-DBS.
+The goal is to transition the `eny.com.tr` platform from an SAP-centric service provider to a general, software-agnostic financial technology and "e-product" platform. This involves removing all SAP module names (FI/CO, TRM, RE-FX, etc.) and branding (SAP Joule, SAP BTP, etc.) and replacing them with functional, high-level fintech terminology.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> The product will be referred to as **E-Ödeme (Toplu Ödeme Sistemi)** in Turkish and **E-Payment (Bulk Payment System)** in English.
+> The 'Teknoloji' page will be significantly restructured to focus on "Agentic AI" and "Financial Operating Systems" rather than specific SAP products.
+> 
+> All services currently listed as "SAP [Module]" will be renamed to their functional equivalents (e.g., "SAP TRM" -> "Hazine & Risk Yönetimi").
 
 ## Proposed Changes
 
-### [Product Detail Pages]
+### [Teknoloji Page](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/teknoloji.astro)
 
-#### [NEW] [e-payment.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/e-payment.astro)
-*   Create the Turkish product detail page.
-*   Use `ServiceDetailLayout` with the provided content (Multi-recipient transfers, simultaneous bank integration, approval workflows, ERP integration, etc.).
-
-#### [NEW] [e-payment.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/e-payment.astro)
-*   Create the English product detail page.
-*   Translate the content into English as provided in the request.
+#### [MODIFY] [teknoloji.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/teknoloji.astro)
+- Replace "Modern SAP ekosistemi" with "Modern finansal teknoloji ekosistemi".
+- Replace "S/4HANA Cloud" with "Bulut Tabanlı ERP Entegrasyonu".
+- Replace "Joule (SAP AI)" with "Finansal Yapay Zeka Ajanları".
+- Replace "SAP BTP" with "Düşük Kodlu (Low-Code) Platformlar".
+- Replace "SAP Signavio" with "Süreç Madenciliği & Optimizasyon".
+- Replace "SAP Build" with "Otonom İş Akışları".
+- Generalize the "Insight" and "Vision" sections to remove SAP-specific product names while keeping the architectural wisdom.
 
 ---
 
-### [Navigation and Grids]
-
-#### [MODIFY] [Header.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Header.astro)
-*   Add **E-Ödeme Sistemi** / **E-Payment System** to the "Çözümler" (Solutions) mega menu.
-*   Icon will be `payments` or `hub`.
+### [Hizmetler Page](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/hizmetler.astro)
 
 #### [MODIFY] [hizmetler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/hizmetler.astro)
-*   Add a card for E-Ödeme to the services grid.
+- **Generalize Cards**:
+    - "SAP FI & CO" -> "Finansal Muhasebe & Maliyet Yönetimi".
+    - "S/4HANA" -> "Dijital ERP Dönüşümü".
+    - "SAP RE-FX" -> "Gayrimenkul Portföy Yönetimi".
+    - "SAP Cash Management" -> "Nakit ve Likidite Yönetimi".
+    - "SAP TRM" -> "Hazine ve Risk Yönetimi".
+    - "SAP Sabit Kıymet" -> "Varlık ve Sabit Kıymet Yönetimi".
+    - "SAP Finansal Konsolidasyon" -> "Finansal Konsolidasyon ve Gruplama".
+    - "SAP & OpenText" -> "Dijital Arşiv ve Fatura Otomasyonu".
+    - "SAP Joule" -> "Yapay Zeka ve Otonom Finans Ajanları".
+    - "SAP Eğitimleri" -> "Akademi ve Yetkinlik Merkezi".
+    - "SAP Check-Up" -> "Sistem Optimizasyonu & Check-Up".
 
-#### [MODIFY] [services.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/services.astro)
-*   Add a card for E-Payment to the English services grid.
+---
 
-#### [MODIFY] [urunler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/urunler.astro)
-*   Update the existing "e-Ödeme" card to point to `/e-payment` instead of `/iletisim`.
-*   Update its description and label to match the new branding "E-Ödeme Sistemleri".
+### [Sektörler Page](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/sektorler.astro)
 
-#### [MODIFY] [products.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/products.astro)
-*   Update the existing "e-Payment" card to point to `/en/e-payment` instead of `/en/contact`.
+#### [MODIFY] [sektorler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/sektorler.astro)
+- **Perakende**: Remove "SAP POSDTA" and "SAP Cash Management" mentions; replace with "POS Veri Ambarı ve Nakit Yönetim Entegrasyonu".
+- **Üretim**: Remove "Material Ledger" and "SAP TRM"; replace with "Gelişmiş Maliyet Analizi ve Hazine Risk Yönetimi".
+- **İnşaat**: Remove "SAP RE-FX"; replace with "Merkezi Gayrimenkul ve Kira Yönetimi".
+- **Lojistik**: Remove "SAP ve OpenText VIM"; replace with "Akıllı Fatura ve Gider Yönetim Sistemleri".
+
+---
+
+### [Other Pages & Components]
+
+#### [MODIFY] [kvkk.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/kvkk.astro)
+- Remove mentions of "SAP projeleri" and "SAP danışmanlığı".
+
+#### [MODIFY] [online-dbs.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/online-dbs.astro)
+- Generalize "SAP Treasury (TRM)" to "Kurumsal Hazine Yönetimi".
+
+#### [MODIFY] [Header.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Header.astro) and [Footer.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Footer.astro)
+- Update any menu items that might still lead to "SAP" branded sections.
+
+## Open Questions
+
+- Should I keep the URLs like `/sap-trm` or redirect them to more general slugs like `/hazine-yonetimi`? 
+- Are there any specific "e-product" names (like e-Fatura, e-DBS) that should be prioritized over the general descriptions?
 
 ## Verification Plan
 
+### Automated Tests
+- N/A (Build verification only)
+
 ### Manual Verification
-*   Verify the existence and appearance of `/e-payment` and `/en/e-payment`.
-*   Ensure navigation links in the header and footer work correctly.
-*   Check that the services grids and product overview pages reflect the new links and branding.
+- Verify that no "SAP" text remains on the site using `grep`.
+- Review the modified pages visually (using browser tool) to ensure the layout remains premium and the new terminology fits perfectly.
