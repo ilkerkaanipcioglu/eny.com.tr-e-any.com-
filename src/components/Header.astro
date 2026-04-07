@@ -4,9 +4,14 @@ import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
 import { 
   ChevronDown, 
-  Wallet, 
-  ReceiptText, 
-  Store, 
+  Acorn,
+  Fish,
+  Bird,
+  Sprout,
+  Shell,
+  Waves,
+  Leaf,
+  Sparkles,
   CreditCard, 
   Network, 
   BarChart3, 
@@ -79,7 +84,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <div class="grid grid-cols-2 gap-x-4 gap-y-1">
                                 <a href={getLocalePath('/urunler', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Wallet size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Acorn size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'eny Nakit Yönetimi' : 'Cash Management Hub'}</h5>
@@ -89,7 +94,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                 
                                 <a href={getLocalePath('/urunler', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <ReceiptText size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Leaf size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'e-Devlet Serisi Çözümleri' : 'e-Government Series'}</h5>
@@ -99,7 +104,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-ticaret', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Store size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Sprout size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'e-Ticaret & Pazaryeri' : 'e-Commerce & Marketplace'}</h5>
@@ -111,7 +116,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-tahsilat', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <CreditCard size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Shell size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Tahsilat Platformu' : 'E-Collection Platform'}</h5>
@@ -121,7 +126,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-ekstre', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Network size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Bird size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Ekstre & Açık Bankacılık' : 'E-Statement & Open Banking'}</h5>
@@ -131,7 +136,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-pos', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <BarChart3 size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Sparkles size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-POS Takip & Raporlama' : 'E-POS Tracking & Reporting'}</h5>
@@ -141,7 +146,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-dbs', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Landmark size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Acorn size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-DBS Sistemi' : 'E-DBS System'}</h5>
@@ -151,7 +156,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-payment', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Network size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Bird size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Ödeme (TÖS)' : 'E-Payment (Bulk)'}</h5>
@@ -161,7 +166,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-cashflow', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <History size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Fish size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-Nakit Akışı' : 'E-Cash Flow'}</h5>
