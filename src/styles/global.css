@@ -48,79 +48,147 @@
 }
 
 :root {
+  /* === ENY DUAL-BRAND COLOR SYSTEM — V2 ===
+     PRIMARY  (#82165f) = Harezm DNA — güven, derinlik, kurumsal
+     ACCENT   (#d0fd17) = Eny enerjisi — hız, fintech, CTA
+     KURALLAR: Açık zeminde #D0FD17 ASLA metin rengi değil → #6B820B kullan
+               Buton BG #D0FD17 → metin mutlaka #000000 (siyah)
+  */
+  --primary: #82165f;          /* Harezm kök rengi */
+  --primary-dark: #5e0f45;     /* Hover / pressed */
+  --primary-light: #B34E8F;    /* V2: Dark mode parlayan mürdüm (Harezm dark) */
+  --primary-soft: rgba(130, 22, 95, 0.12);
+  --primary-glow: rgba(130, 22, 95, 0.35);
+
+  --accent: #D0FD17;           /* Eny enerji rengi — sadece CTA/vurgu/buton */
+  --accent-dark: #BCE313;      /* Hover darker */
+  --accent-glow: rgba(208, 253, 23, 0.45);
+  --accent-soft: rgba(208, 253, 23, 0.12);
+
+  /* V2: Okunabilirlik token — açık zemin için #D0FD17 yerine bu */
+  --accent-text-readable: #6B820B;  /* Koyu lime — sadece beyaz/açık zemin */
+
+  /* Backwards compat aliases */
   --lime: #D0FD17;
-  --lime-glow: rgba(208, 253, 23, 0.55);
+  --lime-glow: rgba(208, 253, 23, 0.45);
   --lime-soft: rgba(208, 253, 23, 0.12);
+
   --gold: #D4AF37;
-  --gray: #71717A; /* Industrial Gray for B2B readability */
+  --gray: #92969b;             /* Neutral: açıklama, disabled, icon default */
   --trans: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root,
 [data-theme="dark"] {
-  --bg: #050806;
-  --bg2: #0A0F0D;
-  --surface: #111A13;
-  --border: rgba(42, 61, 46, 0.8);
-  --word-base: #111a13;
-  --word-on: #2a3d2e;
+  /* === V2: Eny Dark Mode — Lime alt tonlu siyah ===
+     BG: #0D0F02 (Lime-siyah — V2 spec)
+     Surface: #23260A (Lime kart yüzeyi — V2 spec)
+  */
+
+  /* Backgrounds — çok hafif lime hint, olive değil */
+  --bg: #050701;               /* Neredeyse siyah, mikro lime ton */
+  --bg2: #0c0e03;              /* Çok koyu, barely-visible lime */
+  --surface: #151706;          /* Kart yüzeyi — derin ama olive değil */
+
+  /* Borders */
+  --border: rgba(208, 253, 23, 0.10);  /* Çok hafif lime border */
+  --border-focus: #82165f;             /* Focus: Harezm primary */
+
+  /* Intro / word stream vars */
+  --word-base: #0c0e03;
+  --word-on: #1e2106;
   --word-glow: #D0FD17;
   --logo-color: #ffffff;
-  --logo-sub: #3a5c3e;
+  --logo-sub: #82165f;
   --domain-color: #D0FD17;
-  --tagline: #3a5c3e;
+  --tagline: #82165f;
   --corner: rgba(208, 253, 23, 0.45);
   --particle-a: 0.55;
   --particle-b: 0.25;
-  --line-c: rgba(42, 61, 46, 0.45);
+  --line-c: rgba(130, 22, 95, 0.35);
   --scan-c: rgba(208, 253, 23, 0.5);
-  --btn-c: #2a3d2e;
+  --btn-c: #82165f;
   --btn-h: #D0FD17;
-  --text: #E8EDE9;
-  /* added typical readable text color */
-  --text-70: rgba(232, 237, 233, 0.70);
-  --text-40: rgba(232, 237, 233, 0.40);
-  --nav-pill-bg: rgba(208, 253, 23, 0.15);
+
+  /* Text */
+  --text: #F0EDF2;             /* Off-white, primary'e sıcak */
+  --text-70: rgba(240, 237, 242, 0.70);
+  --text-40: rgba(240, 237, 242, 0.40);
+
+  /* Nav */
+  --nav-pill-bg: rgba(208, 253, 23, 0.15);  /* V2: Lime pill — dark tema */
   --nav-pill-text: #D0FD17;
-  --accent-text: #D0FD17; /* Signature Neon in dark mode */
-  --nav-bg: rgba(5, 8, 6, 0.85);
+  --accent-text: #D0FD17;
+  --nav-bg: rgba(13, 15, 2, 0.90);          /* V2: Lime-siyah nav bg */
+
+  /* Icon states (yeni sistem) */
+  --icon-default: #92969b;
+  --icon-hover: #B34E8F;        /* V2: Parlayan mürdüm hover — dark */
+  --icon-active: #D0FD17;
+
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --bg: #f4f7f0;
-  --bg2: #edf2e8;
-  --surface: #ffffff;
-  --border: rgba(160, 190, 140, 0.6);
-  --word-base: #d0ddc8;
-  --word-on: #8aab78;
-  --word-glow: #3a6b28;
-  --logo-color: #0e1f0b;
-  --logo-sub: #6b9a56;
-  --domain-color: #2a6018;
-  --tagline: #7aaa60;
-  --corner: rgba(42, 100, 25, 0.5);
-  --particle-a: 0.35;
-  --particle-b: 0.15;
-  --line-c: rgba(120, 170, 90, 0.3);
-  --scan-c: rgba(80, 160, 40, 0.4);
-  --btn-c: #8aab78;
-  --btn-h: #2a6018;
-  --text: #1A1C1F;
-  --text-70: rgba(26, 28, 31, 0.70);
-  --text-40: rgba(26, 28, 31, 0.40);
-  --gray: #64748b; /* Slate Gray for icons */
-  --lime: #D0FD17; /* Original Neon Lime */
-  --nav-pill-bg: #D0FD17;
-  --nav-pill-text: #000000;
-  --accent-text: #1A1C1F; 
-  --nav-bg: rgba(244, 247, 240, 0.92);
-  
-  /* ── LIGHT MODE: Lime Pill Sistemi ── */
-  --lime-pill-bg:     #eefab5;
-  --lime-pill-text:   #2d4000;
-  --lime-pill-border: #c4e830;
-  
+  /* === V2: LIGHT THEME — Harezm surface, güçlü hiyerarşi ===
+     KURAL 1: Accent (#D0FD17) açık zemin üstünde ASLA metin/ikon değil.
+     KURAL 2: Buton BG #D0FD17 ise metin mutlaka #000000 (siyah).
+     KURAL 3: Primary (#82165f) border, hover, focus için kullanılır.
+     KURAL 4: Okunabilir lime metin → #6B820B (var(--accent-text-readable))
+  */
+
+  /* Backgrounds */
+  --bg: #ffffff;               /* Ana zemin: saf beyaz */
+  --bg2: #F5F0F2;              /* V2: Harezm mürdüm alt tonlu surface */
+  --surface: #ffffff;          /* Card yüzeyi: saf beyaz */
+  --surface-harezm: #F5F0F2;  /* V2: Harezm surface tonu — alternatif card */
+
+  /* Borders */
+  --border: #e5e7eb;           /* Default border: nötr gri */
+  --border-focus: #82165f;     /* Focus/hover: primary */
+
+  /* Intro / word stream vars */
+  --word-base: #ede8f0;
+  --word-on: #c8b0d0;
+  --word-glow: #82165f;
+  --logo-color: #111111;
+  --logo-sub: #82165f;
+  --domain-color: #82165f;
+  --tagline: #92969b;
+  --corner: rgba(130, 22, 95, 0.4);
+  --particle-a: 0.3;
+  --particle-b: 0.12;
+  --line-c: rgba(130, 22, 95, 0.15);
+  --scan-c: rgba(130, 22, 95, 0.3);
+  --btn-c: #82165f;
+  --btn-h: #5e0f45;
+
+  /* Text */
+  --text: #111111;             /* Primary text */
+  --text-70: #92969b;          /* Secondary text: açıklama */
+  --text-40: rgba(17, 17, 17, 0.40);
+
+  /* Nav */
+  --nav-pill-bg: #D0FD17;      /* Accent pill: bg aktif — geniş alanda */
+  --nav-pill-text: #000000;    /* V2: Siyah metin (kontrast garantili) */
+  --accent-text: #111111;      /* Light'ta metin her zaman koyu */
+  --nav-bg: rgba(255, 255, 255, 0.95);
+
+  /* Icon states */
+  --icon-default: #92969b;
+  --icon-hover: #82165f;
+  --icon-active: #82165f;      /* Light'ta active = primary (neon değil!) */
+
+  /* Accent pill sistemi (label/tag için) */
+  --lime-pill-bg: #D0FD17;     /* V2: Accent bg — sadece geniş buton/grafik */
+  --lime-pill-text: #000000;   /* V2: Siyah metin — kontrast garantili */
+  --lime-pill-border: #BCE313;
+
+  /* Primary pill sistemi (badge/section için) */
+  --primary-pill-bg: rgba(130, 22, 95, 0.08);
+  --primary-pill-text: #82165f;
+  --primary-pill-border: rgba(130, 22, 95, 0.25);
+
   color-scheme: light;
 }
 
@@ -138,20 +206,33 @@
 
 /* Tailwind v4 Theme Bridge */
 @theme {
+  /* === Dual-brand tokens — V2 === */
+  --color-primary: var(--primary);            /* #82165f — Harezm DNA */
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light); /* V2: #B34E8F — Dark mod parlayan mürdüm */
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);              /* #D0FD17 — Eny enerjisi */
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-text-readable: var(--accent-text-readable); /* V2: #6B820B — Açık zemin lime metin */
+  --color-surface-harezm: var(--surface-harezm); /* V2: #F5F0F2 — Harezm surface */
+
   --color-bg: var(--bg);
   --color-bg2: var(--bg2);
   --color-surface: var(--surface);
-  --color-lime: var(--lime);
+  --color-lime: var(--lime);             /* backwards compat */
   --color-lime-glow: var(--lime-glow);
   --color-gold: var(--gold);
   --color-text-main: var(--text);
   --color-text-70: var(--text-70);
   --color-text-40: var(--text-40);
   --color-border-main: var(--border);
-  --color-border-hover: var(--lime-soft);
+  --color-border-focus: var(--border-focus);
+  --color-border-hover: var(--primary-soft);
 
-  --color-primary: var(--lime);
-  --color-primary-dark: #7A9610;
+  --color-icon-default: var(--icon-default);
+  --color-icon-hover: var(--icon-hover);
+  --color-icon-active: var(--icon-active);
+
   --color-surface-container: var(--bg2);
   --color-surface-container-low: var(--bg);
   --color-surface-container-lowest: var(--surface);
@@ -245,63 +326,100 @@ h1, h2, h3, h4, h5, h6, p, span, div {
   letter-spacing: -0.04em;
 }
 
-/* === ICON VISIBILITY FIX === */
-/* Universal: targets ALL bg-lime/10 icon containers (mega menu, products, services) */
+/* === ICON SİSTEMİ (Yeni hiyerarşi) ===
+   default: #92969b (neutral)
+   hover:   #82165f (primary)
+   active:  #D0FD17 (accent — dark) / #82165f (accent — light)
+*/
 
-/* ── Light Mode: Dark gray container + Neon lime icon = Max contrast ── */
-[data-theme="light"] .bg-lime\/10 {
-  background-color: #374151 !important; /* gray-700: dark enough for neon to pop */
-  border: 1px solid #4b5563 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+/* ── Evrensel icon default ── */
+.material-symbols-outlined,
+.lucide-icon {
+  color: var(--icon-default);
+  transition: color 0.3s ease, filter 0.3s ease;
 }
 
-/* Force ALL icons inside bg-lime/10 containers to neon lime in light mode */
-[data-theme="light"] .bg-lime\/10 .material-symbols-outlined,
-[data-theme="light"] .bg-lime\/10 > span {
-  color: #D0FD17 !important; /* Original neon lime — brand color preserved */
-  filter: drop-shadow(0 0 4px rgba(208, 253, 23, 0.4));
+/* ── Hover: primary rengi ── */
+.group:hover .material-symbols-outlined,
+.group:hover .lucide-icon,
+a:hover .material-symbols-outlined,
+button:hover .material-symbols-outlined {
+  color: var(--icon-hover);
 }
 
-/* Also handle text-text-main icons that start black (e.g., product cards) */
-[data-theme="light"] .bg-lime\/10.text-text-main .material-symbols-outlined {
+/* ── Icon container: bg-lime/10 ── */
+/* DARK: neon accent üstünde parlar */
+[data-theme="dark"] .bg-lime\/10 {
+  background: rgba(130, 22, 95, 0.15);
+  border: 1px solid rgba(130, 22, 95, 0.3);
+}
+
+[data-theme="dark"] .bg-lime\/10 .material-symbols-outlined,
+[data-theme="dark"] .bg-lime\/10 .lucide-icon,
+[data-theme="dark"] .bg-lime\/10 > span {
   color: #D0FD17 !important;
+  filter: drop-shadow(0 0 8px rgba(208, 253, 23, 0.5));
 }
 
-/* ── Light Mode: Hover states ── */
+[data-theme="dark"] .bg-lime\/10:hover,
+[data-theme="dark"] .group:hover .bg-lime\/10 {
+  background: rgba(130, 22, 95, 0.25);
+  border-color: #D0FD17;
+  box-shadow: 0 0 20px rgba(208, 253, 23, 0.12);
+}
+
+/* LIGHT: primary mor container — neon KULLANMA */
+[data-theme="light"] .bg-lime\/10 {
+  background: rgba(130, 22, 95, 0.08) !important;
+  border: 1px solid rgba(130, 22, 95, 0.2) !important;
+}
+
+[data-theme="light"] .bg-lime\/10 .material-symbols-outlined,
+[data-theme="light"] .bg-lime\/10 .lucide-icon,
+[data-theme="light"] .bg-lime\/10 > span {
+  color: #82165f !important;   /* Primary — okunur, kontrastlı */
+  filter: none;
+}
+
 [data-theme="light"] .bg-lime\/10:hover,
-[data-theme="light"] .group:hover .bg-lime\/10,
-[data-theme="light"] [class*="group-hover"] .bg-lime\/10 {
-  background-color: #1f2937 !important; /* gray-800: deeper on hover */
-  border-color: #D0FD17 !important;
-  box-shadow: 0 4px 16px rgba(208, 253, 23, 0.15);
+[data-theme="light"] .group:hover .bg-lime\/10 {
+  background: rgba(130, 22, 95, 0.14) !important;
+  border-color: #82165f !important;  /* Primary border hover */
+  box-shadow: 0 4px 16px rgba(130, 22, 95, 0.12);
 }
 
-/* ── Dark Mode: Keep original neon glow ── */
-[data-theme="dark"] .bg-lime\/10 .material-symbols-outlined {
-  color: var(--lime);
-  filter: drop-shadow(0 0 10px var(--lime-soft));
+[data-theme="light"] .group:hover .bg-lime\/10 .material-symbols-outlined,
+[data-theme="light"] .group:hover .bg-lime\/10 .lucide-icon {
+  color: #82165f !important;
 }
 
-/* ── Also fix glass-card icon fallbacks (for cards without bg-lime/10) ── */
-.glass-card .material-symbols-outlined {
-  color: var(--gray);
+/* ── glass-card icon fallback ── */
+.glass-card .material-symbols-outlined,
+.glass-card .lucide-icon {
+  color: var(--icon-default);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-[data-theme="dark"] .glass-card .material-symbols-outlined {
-  color: var(--lime);
-  filter: drop-shadow(0 0 10px var(--lime-soft));
+[data-theme="dark"] .glass-card .material-symbols-outlined,
+[data-theme="dark"] .glass-card .lucide-icon {
+  color: #92969b;
 }
 
-.glass-card:hover .material-symbols-outlined {
-  color: var(--accent-text);
+.glass-card:hover .material-symbols-outlined,
+.glass-card:hover .lucide-icon {
+  color: var(--icon-hover);
   transform: scale(1.1);
-  filter: drop-shadow(0 0 15px var(--lime-glow));
 }
 
-/* Products page specific fix */
+[data-theme="dark"] .glass-card:hover .material-symbols-outlined,
+[data-theme="dark"] .glass-card:hover .lucide-icon {
+  color: #D0FD17;
+  filter: drop-shadow(0 0 12px rgba(208, 253, 23, 0.4));
+}
+
+/* Products page */
 .urunler-icon-fix .material-symbols-outlined {
-  color: var(--text) !important;
+  color: var(--icon-default) !important;
 }
 
 /* Base Styles */
@@ -319,15 +437,15 @@ section {
 
 /* Selection */
 ::selection {
-  background: var(--lime);
-  color: #050806;
+  background: var(--primary);
+  color: #ffffff;
 }
 
 /* ========================================
    GLASS CARD
    ======================================== */
 .glass-card {
-  background: rgba(17, 26, 19, 0.45);
+  background: rgba(18, 20, 5, 0.55);   /* Koyu lime-hint glass — olive değil */
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -393,14 +511,14 @@ section {
   font-family: var(--font-mono);
   font-size: 36px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);        /* Dark: neon accent — metric = enerji */
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -0.02em;
 }
 
 [data-theme="light"] .metric-value {
-  color: #2a6018;
+  color: var(--primary);       /* Light: primary mor — okunur, kontrastlı */
 }
 
 .metric-label {
@@ -409,11 +527,14 @@ section {
   font-weight: 400;
 }
 
-/* ── LIGHT MODE: Lime Pill Uygulamaları ── */
+/* ── LIGHT MODE: Section Label & Tag Sistemi ──
+   section-label → primary pill (mor, kurumsal)
+   case-tag → accent pill (neon, enerji — ama sadece küçük etiketlerde)
+*/
 [data-theme="light"] .section-label {
-  color: var(--lime-pill-text);
-  background: var(--lime-pill-bg);
-  border: 1px solid var(--lime-pill-border);
+  color: var(--primary-pill-text);
+  background: var(--primary-pill-bg);
+  border: 1px solid var(--primary-pill-border);
   padding: 4px 12px;
   border-radius: 6px;
   display: inline-flex;
@@ -422,15 +543,15 @@ section {
 }
 
 [data-theme="light"] .case-tag {
-  color: var(--lime-pill-text);
-  background: var(--lime-pill-bg);
-  border: 1px solid var(--lime-pill-border);
+  color: var(--primary-pill-text);
+  background: var(--primary-pill-bg);
+  border: 1px solid var(--primary-pill-border);
   padding: 2px 7px;
   border-radius: 3px;
 }
 
 [data-theme="light"] .metric-value {
-  color: var(--lime-pill-text) !important;
+  color: var(--primary) !important;   /* Primary mor — okunur */
 }
 
 [data-theme="light"] .metric-value::after {
@@ -438,22 +559,22 @@ section {
   display: block;
   height: 3px;
   width: 100%;
-  background: var(--lime);
+  background: var(--accent);          /* Accent çizgi — küçük dozda neon */
   border-radius: 2px;
   margin-top: 4px;
 }
 
 [data-theme="light"] .case-metric-val {
-  color: var(--lime-pill-text) !important;
+  color: var(--primary) !important;
 }
 
 [data-theme="light"] .case-metric-item {
-  border-left-color: var(--lime);
+  border-left-color: var(--primary);  /* Primary border */
 }
 
 [data-theme="light"] .global-feature-icon {
-  background: var(--lime-pill-text);
-  box-shadow: 0 0 0 2px var(--lime-pill-bg), 0 0 0 3px var(--lime-pill-border);
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(130, 22, 95, 0.12);
 }
 
 [data-theme="light"] .neon-glow {
@@ -474,9 +595,9 @@ section {
 }
 
 .case-card:hover {
-  border-color: rgba(208, 253, 23, 0.25);
+  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(130, 22, 95, 0.12);
 }
 
 .case-card::before {
@@ -531,24 +652,24 @@ section {
 }
 
 .case-metric-item {
-  border-left: 2px solid var(--lime);
+  border-left: 2px solid var(--accent);  /* Dark: accent — enerji */
   padding-left: 12px;
 }
 
 [data-theme="light"] .case-metric-item {
-  border-left-color: #2a6018;
+  border-left-color: var(--primary);     /* Light: primary — kurumsal */
 }
 
 .case-metric-val {
   font-family: var(--font-mono);
   font-size: 24px;
   font-weight: 700;
-  color: var(--lime);
+  color: var(--accent);
   line-height: 1;
 }
 
 [data-theme="light"] .case-metric-val {
-  color: #2a6018;
+  color: var(--primary);
 }
 
 .case-metric-label {
@@ -579,13 +700,13 @@ section {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--lime);
+  background: var(--accent);   /* Dark: neon nokta */
   flex-shrink: 0;
   margin-top: 6px;
 }
 
 [data-theme="light"] .global-feature-icon {
-  background: #2a6018;
+  background: var(--primary);  /* Light: primary mor nokta */
 }
 
 .global-feature-text {
@@ -603,13 +724,13 @@ section {
   padding: 80px 24px;
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(208, 253, 23, 0.06) 0%, transparent 50%, rgba(208, 253, 23, 0.03) 100%);
-  border: 1px solid rgba(208, 253, 23, 0.1);
+  background: linear-gradient(135deg, rgba(208, 253, 23, 0.06) 0%, rgba(15, 17, 4, 0.6) 50%, rgba(208, 253, 23, 0.03) 100%);
+  border: 1px solid rgba(208, 253, 23, 0.12);
 }
 
 [data-theme="light"] .cta-section {
-  background: linear-gradient(135deg, rgba(42, 96, 24, 0.04) 0%, transparent 50%, rgba(42, 96, 24, 0.02) 100%);
-  border-color: rgba(42, 96, 24, 0.1);
+  background: linear-gradient(135deg, rgba(130, 22, 95, 0.05) 0%, rgba(245, 240, 242, 0.8) 50%, rgba(130, 22, 95, 0.02) 100%);  /* V2: Harezm surface tonu */
+  border-color: rgba(130, 22, 95, 0.12);
 }
 
 .cta-section h2 {
@@ -638,6 +759,10 @@ section {
   flex-wrap: wrap;
 }
 
+/* === CTA BUTONLAR ===
+   CTA Primary = ACCENT (#d0fd17) — her iki tema da
+   CTA Secondary = PRIMARY (#82165f) border stili
+*/
 .cta-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -647,30 +772,35 @@ section {
   font-weight: 700;
   padding: 16px 36px;
   border-radius: 12px;
-  background: var(--lime);
-  color: #0A0F0D;
+  background: var(--accent);   /* Accent neon — her zaman */
+  color: #111111;              /* Koyu metin — kontrast garantili */
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 30px rgba(208, 253, 23, 0.15);
+  box-shadow: 0 0 24px rgba(208, 253, 23, 0.20);
+  border: 2px solid transparent;
 }
 
 .cta-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 40px rgba(208, 253, 23, 0.35);
-  background: #BCEB14;
+  background: var(--accent-dark);
+  box-shadow: 0 6px 32px rgba(208, 253, 23, 0.30);
+  border-color: var(--primary); /* Hover'da primary border — premium his */
 }
 
+/* Light'ta da aynı — accent CTA evrensel */
 [data-theme="light"] .cta-btn-primary {
-  background: #2a6018;
-  color: #fff;
-  box-shadow: 0 0 30px rgba(42, 96, 24, 0.15);
+  background: var(--accent);
+  color: #111111;
+  box-shadow: 0 0 24px rgba(208, 253, 23, 0.25);
 }
 
 [data-theme="light"] .cta-btn-primary:hover {
-  background: #1f4c12;
-  box-shadow: 0 6px 40px rgba(42, 96, 24, 0.35);
+  background: var(--accent-dark);
+  border-color: var(--primary);
+  box-shadow: 0 6px 32px rgba(130, 22, 95, 0.20);
 }
 
+/* Secondary button: primary rengi */
 .cta-btn-ghost {
   display: inline-flex;
   align-items: center;
@@ -681,16 +811,18 @@ section {
   padding: 16px 32px;
   border-radius: 12px;
   background: transparent;
-  color: var(--text-70);
-  border: 1px solid var(--border);
+  color: var(--primary);
+  border: 1px solid var(--primary);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cta-btn-ghost:hover {
-  border-color: var(--lime);
-  color: var(--lime);
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
   transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(130, 22, 95, 0.25);
 }
 
 /* ========================================
@@ -701,13 +833,13 @@ section {
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--lime);
+  color: var(--accent);        /* Dark: accent neon */
   margin-bottom: 16px;
   display: block;
 }
 
 [data-theme="light"] .section-label {
-  color: #4E5F00;
+  color: var(--primary);       /* Light: primary mor — okunur */
 }
 
 /* ========================================
@@ -724,8 +856,9 @@ section {
 }
 
 .service-card:hover {
-  border-color: rgba(208, 253, 23, 0.2);
+  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
   transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(130, 22, 95, 0.10);
 }
 
 [data-theme="light"] .service-card {
@@ -748,8 +881,9 @@ section {
 }
 
 .tech-card:hover {
-  border-color: rgba(208, 253, 23, 0.2);
+  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
   transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(130, 22, 95, 0.10);
 }
 
 [data-theme="light"] .tech-card {
@@ -808,6 +942,48 @@ section {
 }
 
 .glass-card-border:hover {
-  border-color: var(--lime-glow);
+  border-color: var(--primary);       /* Primary hover border */
+  box-shadow: 0 0 0 1px var(--primary-soft);
   background: rgba(17, 26, 19, 0.6);
+}
+
+/* ========================================
+   FOCUS STATES — Accessibility
+   ======================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   INPUT / FORM sistemi
+   ======================================== */
+input, textarea, select {
+  border-color: var(--border);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--border-focus);  /* Primary focus */
+  box-shadow: 0 0 0 3px var(--primary-soft);
+  outline: none;
+}
+
+/* ========================================
+   LINK HOVERs
+   ======================================== */
+a.text-link {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+a.text-link:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
 }

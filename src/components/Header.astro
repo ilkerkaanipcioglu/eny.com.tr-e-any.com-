@@ -3,8 +3,15 @@ import { t, getLocalePath, getAlternateLangPath, type Lang } from '../i18n/utils
 import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
 import { 
-  ChevronDown, 
-  Acorn,
+  Check,
+  Globe,
+  Quote,
+  Moon,
+  Sun,
+  MessageSquare,
+  ChevronDown,
+  ChevronRight,
+  Wallet,
   Fish,
   Bird,
   Sprout,
@@ -12,17 +19,11 @@ import {
   Waves,
   Leaf,
   Sparkles,
-  CreditCard, 
-  Network, 
-  BarChart3, 
-  Landmark, 
-  History,
-  LayoutDashboard,
   ArrowRight,
   Menu,
   X,
-  Globe,
-  Check
+  LayoutDashboard,
+  Grid3x3
 } from '@lucide/astro';
 
 interface Props {
@@ -84,7 +85,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <div class="grid grid-cols-2 gap-x-4 gap-y-1">
                                 <a href={getLocalePath('/urunler', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Acorn size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Wallet size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'eny Nakit Yönetimi' : 'Cash Management Hub'}</h5>
@@ -146,7 +147,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                                 <a href={getLocalePath('/e-dbs', lang)} class="flex items-start gap-4 p-3.5 rounded-xl hover:bg-bg2 transition-colors group/item">
                                     <div class="w-11 h-11 rounded-lg bg-lime/10 text-lime flex items-center justify-center shrink-0 group-hover/item:scale-110 transition-transform">
-                                        <Acorn size={24} class="lucide-icon icon-bounce-hover" />
+                                        <Grid3x3 size={24} class="lucide-icon icon-bounce-hover" />
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="font-bold text-text-main text-[15px] mb-1 group-hover/item:text-lime transition-colors">{lang === 'tr' ? 'E-DBS Sistemi' : 'E-DBS System'}</h5>
@@ -191,7 +192,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                                 </p>
                                 <a href={getLocalePath('/iletisim', lang)} class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-xl bg-black text-white font-bold text-xs uppercase tracking-widest hover:shadow-xl hover:-translate-y-0.5 transition-all">
             {t('navCta', lang)}
-                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    <ArrowRight size={16} />
                                 </a>
                             </div>
                         </div>
@@ -216,7 +217,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <!-- Col 1 -->
                             <div>
                                 <h4 class="text-[11px] font-bold tracking-widest text-lime uppercase mb-5 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-[16px]">domain</span> {lang === 'tr' ? 'Endüstri Çözümleri' : 'Industry Solutions'}
+                                    <Shell size={16} class="lucide-icon" /> {lang === 'tr' ? 'Endüstri Çözümleri' : 'Industry Solutions'}
                                 </h4>
                                 <ul class="space-y-3.5">
                                     <li><a href={getLocalePath('/hizmetler/e-donusum', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{t('footerSvcTv', lang)}</a></li>
@@ -233,7 +234,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <!-- Col 2 -->
                             <div>
                                 <h4 class="text-[11px] font-bold tracking-widest text-lime uppercase mb-5 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-[16px]">school</span> {lang === 'tr' ? 'Platform & Destek' : 'Platform & Support'}
+                                    <Grid3x3 size={16} class="lucide-icon" /> {lang === 'tr' ? 'Platform & Destek' : 'Platform & Support'}
                                 </h4>
                                 <ul class="space-y-3.5">
                                     <li><a href={getLocalePath('/iletisim', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">{lang === 'tr' ? 'API Dokümantasyonu' : 'API Documentation'}</a></li>
@@ -246,13 +247,13 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                         <div class="flex-[1.2] bg-bg2 p-8 relative flex flex-col overflow-hidden border-l border-border">
                             <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-lime/10 rounded-full blur-[40px]"></div>
                             <div class="relative z-10 text-left h-full flex flex-col">
-                                <span class="material-symbols-outlined text-lime text-3xl mb-4">architecture</span>
+                                <Wallet size={32} class="text-lime mb-4 lucide-icon icon-bounce-hover" />
                                 <h4 class="font-bold text-lg mb-2 text-text-main">{lang === 'tr' ? 'Mükemmel Mimari' : 'Flawless Architecture'}</h4>
                                 <p class="text-[13px] text-text-70 leading-relaxed font-light flex-grow">
                                     {lang === 'tr' ? 'Tüm finansal yapınızı uçtan uca tek sistem üzerinde sıfır manuel iş prensibiyle tasarlıyoruz.' : 'We design your entire financial structure end-to-end on a single system with zero manual work.'}
                                 </p>
                                 <a href={getLocalePath('/hizmetler', lang)} class="inline-flex items-center gap-1.5 text-xs font-bold text-lime hover:text-white transition-colors">
-                                    {lang === 'tr' ? 'Tüm Hizmetleri Gör' : 'View All Services'} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    {lang === 'tr' ? 'Tüm Hizmetleri Gör' : 'View All Services'} <ArrowRight size={14} />
                                 </a>
                             </div>
                         </div>
@@ -264,7 +265,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navAbout', lang)}
-                    <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+                    <ChevronDown size={18} class="group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 
                 <div class="absolute top-full -translate-x-2/3 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
@@ -272,7 +273,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-2xl w-[500px] flex overflow-hidden backdrop-blur-3xl p-8 grid grid-cols-2 gap-8">
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[16px]">corporate_fare</span> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
+                                <Bird size={16} class="lucide-icon" /> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/hakkimizda', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-semibold">{t('navAbout', lang)}</a></li>
@@ -282,7 +283,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                         </div>
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <span class="material-symbols-outlined text-[16px]">library_books</span> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
+                                <Leaf size={16} class="lucide-icon" /> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/insight', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">eny Insight</a></li>
@@ -302,20 +303,20 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <!-- Lang Dropdown (Desktop) -->
             <div class="relative group hidden lg:flex h-full items-center">
                 <button class="flex items-center gap-1.5 px-2 py-2 rounded-lg text-sm font-medium text-text-70 group-hover:text-text-main hover:bg-bg2 transition-colors duration-200">
-                    <span class="material-symbols-outlined text-[18px]">language</span>
+                    <Globe size={18} />
                     {lang === 'tr' ? 'TR' : 'EN'}
-                    <span class="material-symbols-outlined text-[18px] text-text-40 group-hover:rotate-180 transition-transform duration-300">keyboard_arrow_down</span>
+                    <ChevronDown size={18} class="text-text-40 group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 <div class="absolute top-full right-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
                     <div class="absolute -top-4 right-0 w-full h-4"></div>
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-xl w-[140px] flex py-2 flex-col overflow-hidden backdrop-blur-3xl">
                         <a href={getAlternateLangPath(currentPath, 'en')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="tr">
                             Türkçe 
-                            {lang === 'tr' && <span class="material-symbols-outlined text-[16px]">check</span>}
+                            {lang === 'tr' && <Check size={16} />}
                         </a>
                         <a href={getAlternateLangPath(currentPath, 'tr')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="en">
                             English
-                            {lang === 'en' && <span class="material-symbols-outlined text-[16px]">check</span>}
+                            {lang === 'en' && <Check size={16} />}
                         </a>
                     </div>
                 </div>
@@ -352,7 +353,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
         <!-- CTA (Mobile) -->
         <a href={getLocalePath('/iletisim', lang)} class="w-full text-center bg-lime text-black px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2">
             {t('navCta', lang)}
-            <span class="material-symbols-outlined">arrow_forward</span>
+            <ArrowRight size={20} />
         </a>
         
 

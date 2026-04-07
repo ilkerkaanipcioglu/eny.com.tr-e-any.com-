@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  MessageSquare 
+} from '@lucide/astro';
 import { t } from '../i18n/utils';
 const lang = 'tr' as const;
 ---
@@ -30,7 +35,7 @@ const lang = 'tr' as const;
                         
                         <div id="form-success" class="hidden text-center py-12 animate-fade-in">
                             <div class="w-20 h-20 bg-teal/10 text-teal rounded-full flex items-center justify-center mx-auto mb-6">
-                                <span class="material-symbols-outlined text-4xl">check_circle</span>
+                                <CheckCircle size={40} class="lucide-icon" />
                             </div>
                             <h3 class="text-2xl font-medium mb-4">{t('formSuccess', lang)}</h3>
                             <button onclick="window.location.reload()" class="text-plum text-sm font-medium hover:underline">Yeni bir mesaj gönder</button>
@@ -64,7 +69,7 @@ const lang = 'tr' as const;
 
                             <button type="submit" id="submit-btn" class="w-full bg-plum text-white py-5 rounded-xl font-medium hover:bg-plum-hover transition-all flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed" data-fs-submit-btn>
                                 <span>{t('formSubmit', lang)}</span>
-                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                <ArrowRight size={16} class="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </form>
                     </div>
@@ -101,7 +106,7 @@ const lang = 'tr' as const;
                                                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                                 </a>
                                                 <a href="https://wa.me/905302394989" target="_blank" class="w-10 h-10 rounded-full bg-bg2 flex items-center justify-center text-text-70 hover:text-green-500 transition-all border border-border-main hover:border-green-500/50">
-                                                    <span class="material-symbols-outlined text-xl">chat</span>
+                                                    <MessageSquare size={20} class="lucide-icon" />
                                                 </a>
                                             </div>
                                         </div>
@@ -143,7 +148,7 @@ const lang = 'tr' as const;
                                                     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                                 </a>
                                                 <a href="https://wa.me/905332399875" target="_blank" class="w-10 h-10 rounded-full bg-bg2 flex items-center justify-center text-text-70 hover:text-green-500 transition-all border border-border-main hover:border-green-500/50">
-                                                    <span class="material-symbols-outlined text-xl">chat</span>
+                                                    <MessageSquare size={20} class="lucide-icon" />
                                                 </a>
                                             </div>
                                         </div>
@@ -170,35 +175,35 @@ const lang = 'tr' as const;
                         <div class="space-y-3">
                             <h3 class="text-[10px] font-bold text-text-40 uppercase tracking-widest">{t('officeIstanbul', lang)}</h3>
                             <a href="https://wa.me/905332388975" target="_blank" class="flex items-center gap-2 text-text-main hover:text-green-500 transition-colors group">
-                                <span class="material-symbols-outlined text-lg opacity-50 group-hover:opacity-100">chat</span>
+                                <MessageSquare size={18} class="opacity-50 group-hover:opacity-100" />
                                 <span class="text-xs font-medium">WhatsApp</span>
                             </a>
                         </div>
                         <div class="space-y-3">
                             <h3 class="text-[10px] font-bold text-text-40 uppercase tracking-widest">{t('officeSakarya', lang)}</h3>
                             <a href="https://wa.me/905332388975" target="_blank" class="flex items-center gap-2 text-text-main hover:text-green-500 transition-colors group">
-                                <span class="material-symbols-outlined text-lg opacity-50 group-hover:opacity-100">chat</span>
+                                <MessageSquare size={18} class="opacity-50 group-hover:opacity-100" />
                                 <span class="text-xs font-medium">WhatsApp</span>
                             </a>
                         </div>
                         <div class="space-y-3">
                             <h3 class="text-[10px] font-bold text-text-40 uppercase tracking-widest">{t('officeKonya', lang)}</h3>
                             <a href="https://wa.me/905332388975" target="_blank" class="flex items-center gap-2 text-text-main hover:text-green-500 transition-colors group">
-                                <span class="material-symbols-outlined text-lg opacity-50 group-hover:opacity-100">chat</span>
+                                <MessageSquare size={18} class="opacity-50 group-hover:opacity-100" />
                                 <span class="text-xs font-medium">WhatsApp</span>
                             </a>
                         </div>
                         <div class="space-y-3">
                             <h3 class="text-[10px] font-bold text-text-40 uppercase tracking-widest">{t('officeNairobi', lang)}</h3>
                             <a href="https://wa.me/254721746268" target="_blank" class="flex items-center gap-2 text-text-main hover:text-green-500 transition-colors group">
-                                <span class="material-symbols-outlined text-lg opacity-50 group-hover:opacity-100">chat</span>
+                                <MessageSquare size={18} class="opacity-50 group-hover:opacity-100" />
                                 <span class="text-xs font-medium">WhatsApp</span>
                             </a>
                         </div>
                         <div class="space-y-3">
                             <h3 class="text-[10px] font-bold text-text-40 uppercase tracking-widest">{t('officeMozambique', lang)}</h3>
                             <a href="https://wa.me/254721746268" target="_blank" class="flex items-center gap-2 text-text-main hover:text-green-500 transition-colors group">
-                                <span class="material-symbols-outlined text-lg opacity-50 group-hover:opacity-100">chat</span>
+                                <MessageSquare size={18} class="opacity-50 group-hover:opacity-100" />
                                 <span class="text-xs font-medium">WhatsApp</span>
                             </a>
                         </div>

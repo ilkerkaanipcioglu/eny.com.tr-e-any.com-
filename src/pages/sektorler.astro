@@ -2,6 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { 
+  Leaf, 
+  Sprout, 
+  Acorn, 
+  Fish, 
+  Bird, 
+  Waves,
+  ArrowRight
+} from '@lucide/astro';
 const lang = 'tr' as const;
 ---
 <Layout title="Sektörler | eny" lang={lang}>
@@ -23,8 +32,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-600 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">storefront</span>
+                    <div class="w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Leaf size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Perakende ve<br/>Hızlı Tüketim</h2>
                 </div>
@@ -45,8 +54,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
+                    <div class="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Sprout size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Üretim ve<br/>Otomotiv Sanayi</h2>
                 </div>
@@ -67,8 +76,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">domain</span>
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Acorn size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-on-background mb-4">İnşaat ve<br/>Gayrimenkul (GYO)</h2>
                 </div>
@@ -89,8 +98,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">account_balance</span>
+                    <div class="w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Fish size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Finansal Hizmetler<br/>ve Holdingler</h2>
                 </div>
@@ -111,8 +120,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-8 border-b border-outline-variant/10 bg-surface-container-lowest hover:bg-surface transition-colors duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">local_shipping</span>
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Bird size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-on-background mb-4">Lojistik ve<br/>Tedarik Zinciri</h2>
                 </div>
@@ -135,7 +144,7 @@ const lang = 'tr' as const;
         <div class="max-w-4xl mx-auto px-8 text-center text-on-background">
             <h2 class="text-3xl font-bold font-headline mb-6">Siz de Kendi Sektörünüzde<br/>Öncü Olmak İster misiniz?</h2>
             <a href="/iletisim" class="inline-flex items-center gap-2 bg-on-background text-white px-8 py-3 rounded-lg font-bold hover:-translate-y-1 hover:shadow-xl transition-all">
-                Bizimle İletişime Geçin <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                Bizimle İletişime Geçin <ArrowRight size={16} />
             </a>
         </div>
     </section>
