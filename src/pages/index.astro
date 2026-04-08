@@ -4,14 +4,11 @@ import IntroAnimation from '../components/IntroAnimation.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
-  Bot, 
-  Sprout, 
-  Layers,
+  Turtle, 
+  Snail, 
+  Bird,
   ArrowRight
 } from '@lucide/astro';
-
-const Shell = Bot;
-const Bird = Layers;
 ---
 
 <Layout 
@@ -247,14 +244,14 @@ const Bird = Layers;
       
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
         <div class="tech-card reveal reveal-d1">
-          <Shell size={32} class="text-lime mb-5 block lucide-icon icon-bounce-hover" />
+          <Turtle size={32} class="text-lime mb-5 block lucide-icon icon-bounce-hover" />
           <h4 style="font-size:19px; font-weight:700; color:var(--text); margin-bottom:12px;">Zero-Trust Güvenlik</h4>
           <p style="font-size:14px; color:var(--text-70); line-height:1.65;">
             Verileriniz yalnızca şifrelenmez; uluslararası standartlarda parçalanarak soyutlanır. Askeri düzeyde koruma, her katmanda.
           </p>
         </div>
         <div class="tech-card reveal reveal-d2">
-          <Sprout size={32} class="text-lime mb-5 block lucide-icon icon-bounce-hover" />
+          <Snail size={32} class="text-lime mb-5 block lucide-icon icon-bounce-hover" />
           <h4 style="font-size:19px; font-weight:700; color:var(--text); margin-bottom:12px;">API-First Mimari</h4>
           <p style="font-size:14px; color:var(--text-70); line-height:1.65;">
             Herhangi bir ERP veya kendi yazılımınızla saatler içinde entegre olun. REST ve GraphQL desteğiyle kapsamlı dokümantasyon.

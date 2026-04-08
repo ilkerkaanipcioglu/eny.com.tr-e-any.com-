@@ -3,22 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
-  Zap,
-  Layers,
-  Bot,
+  Nut,
+  Bird,
+  Fish,
   ArrowRight,
-  Cpu,
+  Rabbit,
   Quote,
-  Network
+  Sailboat,
+  Flame,
+  Shell,
+  Candy,
+  Ghost,
+  Cpu
 } from '@lucide/astro';
-
-const Acorn = Zap;
-const Fish = Bot;
-const Bird = Layers;
-const Sprout = Zap;
-const Shell = Bot;
-const Leaf = Layers;
-const Sparkles = Zap;
 const lang = 'tr' as const;
 ---
 <Layout title="Ürünler | eny" lang={lang}>
@@ -74,7 +71,7 @@ const lang = 'tr' as const;
                 <!-- 3 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Acorn size={32} class="lucide-icon icon-bounce-hover" />
+                        <Nut size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-DBS</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
@@ -88,7 +85,7 @@ const lang = 'tr' as const;
                 <!-- 4 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Network size={32} class="lucide-icon icon-bounce-hover" />
+                        <Sailboat size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-Ödeme (TÖS)</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
@@ -102,7 +99,7 @@ const lang = 'tr' as const;
                 <!-- 5 -->
                 <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Sparkles size={32} class="lucide-icon icon-bounce-hover" />
+                        <Ghost size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Devlet Serisi</h3>
                     <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
@@ -143,7 +140,7 @@ const lang = 'tr' as const;
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <Cpu size={14} />
+                        <Rabbit size={14} />
                     </div>
                     <div>
                         <h4 class="text-sm font-bold text-on-background">eny Insight Series</h4>
