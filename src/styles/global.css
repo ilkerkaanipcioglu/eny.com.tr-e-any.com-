@@ -364,10 +364,10 @@ button:hover .material-symbols-outlined {
 }
 
 /* ── Icon container: bg-lime/10 ── */
-/* DARK: neon accent üstünde parlar */
+/* DARK: neon lime accent — Eny kimliği (purple KULLANMA) */
 [data-theme="dark"] .bg-lime\/10 {
-  background: rgba(130, 22, 95, 0.15);
-  border: 1px solid rgba(130, 22, 95, 0.3);
+  background: rgba(208, 253, 23, 0.08);
+  border: 1px solid rgba(208, 253, 23, 0.2);
 }
 
 [data-theme="dark"] .bg-lime\/10 .material-symbols-outlined,
@@ -379,34 +379,34 @@ button:hover .material-symbols-outlined {
 
 [data-theme="dark"] .bg-lime\/10:hover,
 [data-theme="dark"] .group:hover .bg-lime\/10 {
-  background: rgba(130, 22, 95, 0.25);
+  background: rgba(208, 253, 23, 0.14);
   border-color: #D0FD17;
   box-shadow: 0 0 20px rgba(208, 253, 23, 0.12);
 }
 
-/* LIGHT: primary mor container — neon KULLANMA */
+/* LIGHT: nötr koyu ikon container — lime accent border */
 [data-theme="light"] .bg-lime\/10 {
-  background: rgba(130, 22, 95, 0.08) !important;
-  border: 1px solid rgba(130, 22, 95, 0.2) !important;
+  background: rgba(17, 17, 17, 0.05) !important;
+  border: 1px solid rgba(17, 17, 17, 0.12) !important;
 }
 
 [data-theme="light"] .bg-lime\/10 .material-symbols-outlined,
 [data-theme="light"] .bg-lime\/10 .lucide-icon,
 [data-theme="light"] .bg-lime\/10 > span {
-  color: #82165f !important;   /* Primary — okunur, kontrastlı */
+  color: #111111 !important;   /* Koyu metin — okunur, kontrastlı */
   filter: none;
 }
 
 [data-theme="light"] .bg-lime\/10:hover,
 [data-theme="light"] .group:hover .bg-lime\/10 {
-  background: rgba(130, 22, 95, 0.14) !important;
-  border-color: #82165f !important;  /* Primary border hover */
-  box-shadow: 0 4px 16px rgba(130, 22, 95, 0.12);
+  background: rgba(208, 253, 23, 0.12) !important;
+  border-color: #D0FD17 !important;  /* Lime accent border hover */
+  box-shadow: 0 4px 16px rgba(208, 253, 23, 0.12);
 }
 
 [data-theme="light"] .group:hover .bg-lime\/10 .material-symbols-outlined,
 [data-theme="light"] .group:hover .bg-lime\/10 .lucide-icon {
-  color: #82165f !important;
+  color: #111111 !important;
 }
 
 /* ── glass-card icon fallback ── */
