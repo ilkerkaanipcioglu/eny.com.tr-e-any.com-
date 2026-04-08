@@ -4,14 +4,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
   Flame, 
-  Bird, 
+  Ham, 
   Worm, 
   Clover, 
   Ghost, 
   Nut,
   ArrowRight,
   Gem,
-  Quote
+  Quote,
+  Sprout
 } from '@lucide/astro';
 const lang = 'tr' as const;
 ---
@@ -50,7 +51,7 @@ const lang = 'tr' as const;
                 <!-- 3 -->
                 <div class="bg-surface-container-low p-10 rounded-2xl hover:-translate-y-1 hover:shadow-2xl transition-all group duration-500 border border-outline-variant/10 relative overflow-hidden">
                     <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-                    <Bird size={40} class="text-primary mb-6 relative z-10 lucide-icon icon-bounce-hover" />
+                    <Ham size={40} class="text-primary mb-6 relative z-10 lucide-icon icon-bounce-hover" />
                     <h3 class="text-2xl font-bold font-headline mb-4 relative z-10">Low-Code Platformlar</h3>
                     <p class="text-on-surface-variant mb-6 text-sm leading-relaxed relative z-10">Esnek teknoloji platformlarıyla entegrasyonlar yazın, veri madenciliği yapın ve işletmenize özel uygulamaları ERP çekirdeğine dokunmadan geliştirin.</p>
                     <a href="/iletisim" class="text-primary text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all relative z-10">Platformu Keşfet <ArrowRight size={16} /></a>
@@ -93,7 +94,7 @@ const lang = 'tr' as const;
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <Acorn size={20} class="lucide-icon" />
+                        <Sprout size={20} class="lucide-icon" />
                     </div>
                     <div>
                         <h4 class="text-sm font-bold text-on-background">eny Platform Vision</h4>

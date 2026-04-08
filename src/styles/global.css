@@ -51,7 +51,7 @@
   /* === ENY DUAL-BRAND COLOR SYSTEM — V2 ===
      PRIMARY  (#82165f) = Harezm DNA — güven, derinlik, kurumsal
      ACCENT   (#d0fd17) = Eny enerjisi — hız, fintech, CTA
-     KURALLAR: Açık zeminde #D0FD17 ASLA metin rengi değil → #6B820B kullan
+     KURALLAR: Açık zeminde #D0FD17 ASLA metin rengi değil → #82165F (mor) kullan
                Buton BG #D0FD17 → metin mutlaka #000000 (siyah)
   */
   --primary: #82165f;          /* Harezm kök rengi */
@@ -66,7 +66,7 @@
   --accent-soft: rgba(208, 253, 23, 0.12);
 
   /* V2: Okunabilirlik token — açık zemin için #D0FD17 yerine bu */
-  --accent-text-readable: #6B820B;  /* Koyu lime — sadece beyaz/açık zemin */
+  --accent-text-readable: #82165F;  /* Marka mürdüm — açık zemin okunurluk */
 
   /* Backwards compat aliases */
   --lime: #D0FD17;
@@ -137,7 +137,7 @@
      KURAL 1: Accent (#D0FD17) açık zemin üstünde ASLA metin/ikon değil.
      KURAL 2: Buton BG #D0FD17 ise metin mutlaka #000000 (siyah).
      KURAL 3: Primary (#82165f) border, hover, focus için kullanılır.
-     KURAL 4: Okunabilir lime metin → #6B820B (var(--accent-text-readable))
+     KURAL 4: Okunabilir metin → #82165F (var(--accent-text-readable))
   */
 
   /* Backgrounds — V4.4 Shared Light System */
@@ -461,7 +461,7 @@ section {
    GLASS CARD
    ======================================== */
 .glass-card {
-  background: rgba(18, 20, 5, 0.55);   /* Koyu lime-hint glass — olive değil */
+  background: rgba(17, 17, 17, 0.85);   /* Koyu nötr glass */
   border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -643,7 +643,7 @@ section {
 }
 
 [data-theme="light"] .case-tag {
-  color: #4E5F00;
+  color: #82165F;
 }
 
 .case-title {

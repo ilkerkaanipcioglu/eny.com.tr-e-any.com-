@@ -3,18 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
-  Zap,
-  Layers,
-  Bot,
+  Clover,
+  Nut,
+  Sprout,
+  Fish,
+  Bird,
   ArrowRight
 } from '@lucide/astro';
 
-const Acorn = Zap;
-const Bird = Layers;
-const Fish = Bot;
-const Leaf = Zap;
-const Sprout = Layers;
-const Waves = Bot;
 const lang = 'tr' as const;
 ---
 <Layout title="Sektörler | eny" lang={lang}>
@@ -37,7 +33,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Zap size={32} class="lucide-icon icon-bounce-hover" />
+                        <Clover size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Perakende ve<br/>Hızlı Tüketim</h2>
                 </div>
@@ -59,7 +55,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Layers size={32} class="lucide-icon icon-bounce-hover" />
+                        <Nut size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Üretim ve<br/>Otomotiv Sanayi</h2>
                 </div>
@@ -81,7 +77,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Zap size={32} class="lucide-icon icon-bounce-hover" />
+                        <Sprout size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">İnşaat ve<br/>Gayrimenkul (GYO)</h2>
                 </div>
@@ -103,7 +99,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Bot size={32} class="lucide-icon icon-bounce-hover" />
+                        <Fish size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Finansal Hizmetler<br/>ve Holdingler</h2>
                 </div>
@@ -125,7 +121,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Zap size={32} class="lucide-icon icon-bounce-hover" />
+                        <Bird size={32} class="lucide-icon icon-bounce-hover" />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Lojistik ve<br/>Tedarik Zinciri</h2>
                 </div>
