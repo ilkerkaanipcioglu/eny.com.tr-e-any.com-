@@ -2,6 +2,30 @@
 import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { 
+  Bug, 
+  Turtle, 
+  Bird, 
+  Worm, 
+  Shell, 
+  Cat,
+  Rabbit,
+  Snail,
+  Squirrel
+} from '@lucide/astro';
+
+const iconMap: Record<string, any> = {
+    'analytics': Bug,
+    'account_balance': Turtle,
+    'payments': Bird,
+    'terminal': Shell,
+    'account_tree': Bug,
+    'handshake': Worm,
+    'storefront': Cat,
+    'default': Snail
+};
+
+const IconComponent = iconMap[Astro.props.icon] || iconMap.default;
 
 interface RelatedService {
     title: string;
@@ -54,8 +78,8 @@ const {
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-plum)_0%,_transparent_50%)] opacity-5 pointer-events-none"></div>
         <div class="max-w-container mx-auto px-8 md:px-12 relative z-10 animate-fade-up">
             <div class="flex items-center gap-4 mb-8">
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-bg2 border border-border">
-                    <span class="material-symbols-outlined text-teal text-2xl">{icon}</span>
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-bg2 border border-border group-hover:scale-110 transition-transform">
+                    <IconComponent size={24} class="text-teal" />
                 </div>
                 <div class="h-px flex-1 max-w-[100px] bg-border-main"></div>
                 <a href="/hizmetler" class="text-text-40 text-sm font-medium hover:text-plum transition-colors uppercase tracking-wider">Tüm Hizmetler</a>
@@ -108,7 +132,7 @@ const {
                         <div>
                             <h2 class="text-2xl md:text-3xl mb-6 font-medium">{resultTitle.replace(/^03\s*—\s*/, '')}</h2>
                             <div class="glass-card p-8 rounded-2xl border-l-4 border-l-teal relative overflow-hidden">
-                                <span class="material-symbols-outlined absolute right-4 bottom-4 text-8xl text-bg opacity-50 pointer-events-none">trending_up</span>
+                                <Rabbit size={80} class="absolute right-4 bottom-4 text-bg opacity-20 pointer-events-none" />
                                 <div class="relative z-10 prose prose-lg prose-invert max-w-none text-text-70 font-light leading-relaxed">
                                     <p>{resultText}</p>
                                 </div>
@@ -122,7 +146,7 @@ const {
             {visionContent && (
                 <section class="mt-24">
                     <div class="glass-card p-10 rounded-2xl border border-border-main relative overflow-hidden bg-bg2">
-                        <span class="material-symbols-outlined text-6xl text-plum opacity-20 mb-6 block">format_quote</span>
+                        <Bird size={48} class="text-plum opacity-20 mb-6 block" />
                         {visionTitle && (
                             <h3 class="text-xs font-medium tracking-widest text-plum uppercase mb-6">{visionTitle}</h3>
                         )}
@@ -130,7 +154,7 @@ const {
                             "{visionContent}"
                         </p>
                         <div class="flex items-center gap-4 relative z-10 mt-8 pt-6 border-t border-border-main/50">
-                            <span class="material-symbols-outlined text-teal text-2xl">architecture</span>
+                            <Bug size={24} class="text-teal" />
                             <div>
                                 <h4 class="text-sm font-medium text-text-main">eny Platform Vision</h4>
                                 <span class="text-xs text-text-70 uppercase tracking-widest">{lang === 'tr' ? 'Mimari Bakış Açısı' : 'Architectural Perspective'}</span>
@@ -165,7 +189,7 @@ const {
                             <li>
                                 <a href={service.href} class="flex items-center justify-between group">
                                     <span class="text-text-70 group-hover:text-plum transition-colors">{service.title}</span>
-                                    <span class="material-symbols-outlined text-sm text-text-40 group-hover:text-plum transition-colors opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">arrow_forward</span>
+                                    <Rabbit size={14} class="text-text-40 group-hover:text-plum transition-all opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0" />
                                 </a>
                             </li>
                         ))}

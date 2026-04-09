@@ -3,15 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
+  Bug, 
   Rabbit, 
+  Snail, 
   Turtle, 
-  Clover, 
-  Gem, 
-  Sailboat, 
-  Quote, 
-  Skull, 
-  Nut,
-  ArrowRight
+  Fish, 
+  Bird, 
+  Skull,
+  Nut
 } from '@lucide/astro';
 const lang = 'tr' as const;
 ---
@@ -44,15 +43,15 @@ const lang = 'tr' as const;
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3">
-                            <Rabbit size={20} class="text-primary" />
+                            <Bug size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Domain Uzmanlığı (Sadece Finans)</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <Turtle size={20} class="text-primary" />
+                            <Rabbit size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Boutique & Agile Yaklaşım</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <Clover size={20} class="text-primary" />
+                            <Snail size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Tam Şeffaflık ve Proaktif İletişim</span>
                         </li>
                     </ul>
@@ -62,12 +61,12 @@ const lang = 'tr' as const;
                     <!-- Decor element -->
                     <div class="absolute -inset-10 bg-gradient-to-tr from-primary/10 to-transparent blur-3xl -z-10 rounded-full"></div>
                     <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 shadow-lg transform translate-y-8">
-                        <Gem size={32} class="text-primary mb-4 block" />
+                        <Turtle size={32} class="text-primary mb-4 block" />
                         <h4 class="font-bold text-on-background text-lg mb-2">15+ Yıl</h4>
                         <p class="text-sm text-on-surface-variant">Kurumsal Sistem Uzmanlığı</p>
                     </div>
                     <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                        <Sailboat size={32} class="text-primary mb-4 block" />
+                        <Fish size={32} class="text-primary mb-4 block" />
                         <h4 class="font-bold text-on-background text-lg mb-2">Global Etki</h4>
                         <p class="text-sm text-on-surface-variant">40+ Enterprise Proje, 5 Kıta</p>
                     </div>
@@ -83,7 +82,7 @@ const lang = 'tr' as const;
                 <div class="absolute w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none -right-40 -top-40"></div>
                 <div class="absolute w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none -left-20 -bottom-20"></div>
                 
-                <Quote size={48} class="text-primary/20 mb-8 block relative z-10" />
+                <Bird size={48} class="text-primary/20 mb-8 block relative z-10" />
                 <h3 class="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-8 relative z-10">DATA SOVEREIGNTY</h3>
                 <p class="text-xl md:text-2xl text-on-surface font-light leading-relaxed mb-6 relative z-10 italic">
                     "Kurumsal sistemler giderek birbirine bağlandıkça ve yapay zeka yetenekleri hassas operasyonel verilere erişim gerektirdikçe, verinin nerede bulunduğu ve kimin kontrol ettiği sorusu IT politikasından yönetim kurulu risk yönetimine taşındı. GDPR, KVKK ve birden fazla yargı bölgesinde gelişmekte olan veri egemenliği gereklilikleri, veri yerleşimi ve işleme üzerine katı sınırlar getiriyor."
