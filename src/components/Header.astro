@@ -1,4 +1,4 @@
-﻿---
+---
 import { t, getLocalePath, getAlternateLangPath, type Lang } from '../i18n/utils';
 import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
@@ -216,7 +216,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                         <div class="flex-[3] p-8 bg-bg/95 grid grid-cols-2 gap-8">
                             <!-- Col 1 -->
                             <div>
-                                <h4 class="text-[11px] font-bold tracking-widest text-lime uppercase mb-5 flex items-center gap-2">
+                                <h4 class="text-[11px] font-bold tracking-widest text-accent-text-readable uppercase mb-5 flex items-center gap-2">
                                     <Shell size={16} class="lucide-icon" /> {lang === 'tr' ? 'Endüstri Çözümleri' : 'Industry Solutions'}
                                 </h4>
                                 <ul class="space-y-3.5">
@@ -233,7 +233,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
 
                             <!-- Col 2 -->
                             <div>
-                                <h4 class="text-[11px] font-bold tracking-widest text-lime uppercase mb-5 flex items-center gap-2">
+                                <h4 class="text-[11px] font-bold tracking-widest text-accent-text-readable uppercase mb-5 flex items-center gap-2">
                                     <Grid3x3 size={16} class="lucide-icon" /> {lang === 'tr' ? 'Platform & Destek' : 'Platform & Support'}
                                 </h4>
                                 <ul class="space-y-3.5">

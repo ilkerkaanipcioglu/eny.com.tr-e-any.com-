@@ -18,7 +18,7 @@ const lang = 'tr' as const;
 <Layout title="Hakkımızda | eny" lang={lang}>
     <Header lang={lang} />
     <!-- Hero -->
-    <section class="relative pt-40 pb-24 bg-surface-container overflow-hidden">
+    <section class="relative pt-64 md:pt-48 pb-24 bg-surface-container overflow-hidden">
         <div class="max-w-[1920px] mx-auto px-12 md:px-24">
             <div class="text-center max-w-5xl mx-auto">
                 <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-widest uppercase mb-6">FELSEFEMİZ</span>
@@ -84,9 +84,15 @@ const lang = 'tr' as const;
                 <div class="absolute w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none -left-20 -bottom-20"></div>
                 
                 <Quote size={48} class="text-primary/20 mb-8 block relative z-10" />
-                <h3 class="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-8 relative z-10">08 · DATA SOVEREIGNTY</h3>
+                <h3 class="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-8 relative z-10">DATA SOVEREIGNTY</h3>
+                <p class="text-xl md:text-2xl text-on-surface font-light leading-relaxed mb-6 relative z-10 italic">
+                    "Kurumsal sistemler giderek birbirine bağlandıkça ve yapay zeka yetenekleri hassas operasyonel verilere erişim gerektirdikçe, verinin nerede bulunduğu ve kimin kontrol ettiği sorusu IT politikasından yönetim kurulu risk yönetimine taşındı. GDPR, KVKK ve birden fazla yargı bölgesinde gelişmekte olan veri egemenliği gereklilikleri, veri yerleşimi ve işleme üzerine katı sınırlar getiriyor."
+                </p>
+                <p class="text-xl md:text-2xl text-on-surface font-light leading-relaxed mb-6 relative z-10 italic">
+                    "Kurumsal sistem mimarisi, bilinçli bir tasarımla hayata geçirildiğinde güçlü veri egemenliği kontrolleri sağlar: genel bulutun uygulanabilir olmadığı organizasyonlar için yerinde ve özel bulut seçenekleri, tedarikçi kilitlenmesini önleyen API-first entegrasyon desenleri ve veri erişiminin her zaman kasıtlı olmasını güvence altına alan rol bazlı erişim mimarisi."
+                </p>
                 <p class="text-xl md:text-2xl text-on-surface font-light leading-relaxed mb-10 relative z-10 italic">
-                    "Kurumsal sistemler giderek birbirine bağlandıkça ve yapay zeka yetenekleri hassas operasyonel verilere erişim gerektirdikçe, verinin nerede bulunduğu ve kimin kontrol ettiği sorusu IT politikasından yönetim kurulu risk yönetimine taşındı. GDPR, KVKK ve birden fazla yargı bölgesinde gelişmekte olan veri egemenliği gereklilikleri, veri yerleşimi ve işleme üzerine katı sınırlar getiriyor. Kurumsal sistem mimarisi, bilinçli bir tasarımla hayata geçirildiğinde güçlü veri egemenliği kontrolleri sağlar: genel bulutun uygulanabilir olmadığı organizasyonlar için yerinde ve özel bulut seçenekleri, tedarikçi kilitlenmesini önleyen API-first entegrasyon desenleri ve veri erişiminin her zaman kasıtlı olmasını güvence altına alan rol bazlı erişim mimarisi. eny'in veri egemenliğine yaklaşımı basit bir ilkeye dayanır: inşa ettiğimiz sistemler organizasyona hizmet etmeli — tersi değil. Her mimari karar, uzun vadeli kontrol sorusu karşısında değerlendirilir: veriniz, kurallarınız, koşullarınız."
+                    "eny'in veri egemenliğine yaklaşımı basit bir ilkeye dayanır: inşa ettiğimiz sistemler organizasyona hizmet etmeli — tersi değil. Her mimari karar, uzun vadeli kontrol sorusu karşısında değerlendirilir: veriniz, kurallarınız, koşullarınız."
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-10 pt-10 border-t border-outline-variant/10">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">

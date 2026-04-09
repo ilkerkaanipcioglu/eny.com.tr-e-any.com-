@@ -24,7 +24,7 @@ const { lang = 'tr' } = Astro.props;
                     </button>
                     <!-- Wordmark (Home Link) -->
                     <a href={getLocalePath('/', lang)} class="flex items-center group">
-                        <span class="text-3xl font-extrabold tracking-tighter text-text-main group-hover:text-lime transition-colors duration-300" style="font-family: var(--font-sans)">eny<span class="text-lime">.</span></span>
+                        <span class="text-3xl font-extrabold tracking-tighter text-text-main group-hover:text-accent-text-readable transition-colors duration-300" style="font-family: var(--font-sans)">eny<span class="text-accent-text-readable">.</span></span>
                     </a>
                 </div>
             </div>
@@ -79,7 +79,7 @@ const { lang = 'tr' } = Astro.props;
                <!-- Social & Context Bar -->
         <div class="border-t border-border-main py-8 flex flex-wrap items-center justify-between gap-6 text-xs text-text-40">
             <div class="flex items-center gap-6">
-                <a href="https://wa.me/905332388975" target="_blank" class="hover:text-lime transition-colors flex items-center gap-2">
+                <a href="https://wa.me/905332388975" target="_blank" class="hover:text-accent-text-readable transition-colors flex items-center gap-2">
                    <MessageSquare size={18} class="lucide-icon" /> WhatsApp
                 </a>
                 <a href="mailto:info@eny.com.tr" class="hover:text-lime transition-colors flex items-center gap-2">
@@ -96,8 +96,8 @@ const { lang = 'tr' } = Astro.props;
         <!-- Bottom Bar -->
         <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left font-mono uppercase">
             <div class="flex items-center gap-3">
-                <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
-                <span class="text-[10px] text-lime tracking-widest uppercase">{lang === 'tr' ? 'Sistem Durumu: Operasyonel' : 'System Status: Operational'}</span>
+                <span class="w-2 h-2 rounded-full bg-accent-text-readable animate-pulse"></span>
+                <span class="text-[10px] text-accent-text-readable tracking-widest uppercase">{lang === 'tr' ? 'Sistem Durumu: Operasyonel' : 'System Status: Operational'}</span>
             </div>
             <span class="text-[10px] text-text-40 tracking-widest">© 2026 ENY INFRASTRUCTURE. ALL RIGHTS RESERVED.</span>
             <div class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs text-text-40">

@@ -76,7 +76,7 @@ const {
                     <div class="flex items-start gap-6">
                         <span class="text-text-40 font-serif text-5xl opacity-30 mt-1">01</span>
                         <div>
-                            <h2 class="text-2xl md:text-3xl mb-6 font-medium">{problemTitle}</h2>
+                            <h2 class="text-2xl md:text-3xl mb-6 font-medium">{problemTitle.replace(/^01\s*—\s*/, '')}</h2>
                             <div class="prose prose-lg prose-invert max-w-none text-text-70 font-light leading-relaxed">
                                 <p>{problemText}</p>
                             </div>
@@ -91,7 +91,7 @@ const {
                     <div class="flex items-start gap-6">
                         <span class="text-plum font-serif text-5xl opacity-40 mt-1">02</span>
                         <div>
-                            <h2 class="text-2xl md:text-3xl mb-6 font-medium text-plum">{solutionTitle}</h2>
+                            <h2 class="text-2xl md:text-3xl mb-6 font-medium text-plum">{solutionTitle.replace(/^02\s*—\s*/, '')}</h2>
                             <div class="prose prose-lg prose-invert max-w-none text-text-main font-light leading-relaxed">
                                 <p>{solutionText}</p>
                             </div>
@@ -106,7 +106,7 @@ const {
                     <div class="flex items-start gap-6">
                         <span class="text-teal font-serif text-5xl opacity-40 mt-1">03</span>
                         <div>
-                            <h2 class="text-2xl md:text-3xl mb-6 font-medium">{resultTitle}</h2>
+                            <h2 class="text-2xl md:text-3xl mb-6 font-medium">{resultTitle.replace(/^03\s*—\s*/, '')}</h2>
                             <div class="glass-card p-8 rounded-2xl border-l-4 border-l-teal relative overflow-hidden">
                                 <span class="material-symbols-outlined absolute right-4 bottom-4 text-8xl text-bg opacity-50 pointer-events-none">trending_up</span>
                                 <div class="relative z-10 prose prose-lg prose-invert max-w-none text-text-70 font-light leading-relaxed">
@@ -189,10 +189,10 @@ const {
     </div>
 
     <!-- Bottom CTA -->
-    <section class="py-24 bg-bg2 border-t border-border-main flex justify-center text-center px-8">
-        <div class="max-w-2xl">
-            <h2 class="text-3xl font-medium mb-6">{lang === 'tr' ? 'Mimari Değişim Başlasın' : 'Start the Architectural Change'}</h2>
-            <p class="text-text-70 font-light mb-8">
+    <section class="py-20 bg-bg2 border-t border-border-main px-6">
+        <div class="md:max-w-2xl max-w-full mx-auto text-center">
+            <h2 class="text-3xl font-medium mb-6 md:max-w-xl max-w-full mx-auto">{lang === 'tr' ? 'Mimari Değişim Başlasın' : 'Start the Architectural Change'}</h2>
+            <p class="text-text-70 font-light mb-8 md:max-w-lg max-w-full mx-auto">
                 {lang === 'tr' 
                     ? 'Finansal operasyonlarınızı otomatize etmek ve sistemlerinizi geleceğe hazırlamak için ilk adımı atın.' 
                     : 'Take the first step to automate your financial operations and prepare your systems for the future.'}

@@ -15,7 +15,7 @@ const lang = 'tr' as const;
 ---
 <Layout title="Sektörler | eny" lang={lang}>
     <Header lang={lang} />
-    <section class="pt-40 pb-24 bg-bg px-8 border-b border-border-main">
+    <section class="pt-40 pb-24 bg-bg px-6 md:px-8 border-b border-border-main">
         <div class="max-w-[1440px] mx-auto">
             <h1 class="display-lg text-5xl md:text-7xl font-bold font-headline text-text tracking-tight mb-8">
                 Sektörünüzün Çetin<br/>Dinamiklerini Biliyoruz.
@@ -29,7 +29,7 @@ const lang = 'tr' as const;
     <!-- Sectors Detailed List -->
     <section class="py-0">
         <!-- 1: Perakende -->
-        <article class="py-24 px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
+        <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -43,7 +43,7 @@ const lang = 'tr' as const;
                         <p class="text-text leading-relaxed">Binlerce mağazadan, onlarca farklı POS cihazından aynı anda akan devasa işlemin mutabakatı, ciro primlerinin hesaplanması ve nakit lojistiğinin takibi korkunç bir operasyonel yüktür.</p>
                     </div>
                     <div>
-                        <h4 class="text-sm tracking-widest text-lime uppercase font-bold mb-4">eny Çözümü</h4>
+                        <h4 class="text-sm tracking-widest text-accent-text-readable uppercase font-bold mb-4">eny Çözümü</h4>
                         <p class="text-text leading-relaxed font-light">POS Veri Ambarı ve Nakit Yönetim Entegrasyonuyla tüm nakit akışını anlık izleyen, mağaza bazlı kârlılık çıkaran otomatik yapılar kuruyoruz.</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const lang = 'tr' as const;
         </article>
 
         <!-- 2: Uretim -->
-        <article class="py-24 px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
+        <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -73,7 +73,7 @@ const lang = 'tr' as const;
         </article>
 
         <!-- 3: Insaat Gayrimenkul -->
-        <article class="py-24 px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
+        <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -87,7 +87,7 @@ const lang = 'tr' as const;
                         <p class="text-text leading-relaxed">Çok sayıda alışveriş merkezi veya ofis projesinde; yüzlerce kiracının sözleşmelerini, ciroya endeksli kira artışlarını ve ortak alan gider masraflarını hatasız yönetememek.</p>
                     </div>
                     <div>
-                        <h4 class="text-sm tracking-widest text-lime uppercase font-bold mb-4">eny Çözümü</h4>
+                        <h4 class="text-sm tracking-widest text-accent-text-readable uppercase font-bold mb-4">eny Çözümü</h4>
                         <p class="text-text leading-relaxed font-light">Merkezi gayrimenkul yönetim sistemleri uygulayarak IFRS 16 hesaplamalarını, m² bazlı faturalandırmayı ve tesis bakım uyarılarını tamamen otomatize ediyoruz.</p>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const lang = 'tr' as const;
         </article>
 
         <!-- 4: Bankacilik Finans -->
-        <article class="py-24 px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
+        <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -117,7 +117,7 @@ const lang = 'tr' as const;
         </article>
 
         <!-- 5: Lojistik -->
-        <article class="py-24 px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
+        <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -131,7 +131,7 @@ const lang = 'tr' as const;
                         <p class="text-text leading-relaxed">Karmaşık filo masrafları, yakıt maliyetleri ve gümrük faturalarının işlenmesinde yaşanan gecikmelerin şirket bütçesinde kör noktalar yaratması.</p>
                     </div>
                     <div>
-                        <h4 class="text-sm tracking-widest text-lime uppercase font-bold mb-4">eny Çözümü</h4>
+                        <h4 class="text-sm tracking-widest text-accent-text-readable uppercase font-bold mb-4">eny Çözümü</h4>
                         <p class="text-text leading-relaxed font-light">Dijital arşiv ve fatura otomasyon sistemleriyle nakliye ve tedarikçi faturalarını OCR üzerinden saniyeler içinde işleyerek anlık gider görünürlüğü sağlıyoruz.</p>
                     </div>
                 </div>
