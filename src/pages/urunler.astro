@@ -37,92 +37,118 @@ const lang = 'tr' as const;
     <!-- Products Grid -->
     <section class="py-24 bg-surface-container-lowest border-t border-outline-variant/10">
         <div class="max-w-7xl mx-auto px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- 1 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Shell size={32} class="lucide-icon icon-bounce-hover" />
+            
+            <!-- Category: e-Belge & Mevzuat -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
+                    <div class="w-10 h-10 rounded-full bg-plum/10 text-plum flex items-center justify-center">
+                        <Ghost size={20} />
                     </div>
-                    <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Tahsilat</h3>
-                    <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
-                        Sanal POS entegrasyonları ile tahsilat süreçlerinizi dijitalleştirin. Gelen ödemeler otomatik olarak muhasebe modülüyle eşleşir ve muhasebeleşir.
-                    </p>
-                    <a href="/e-tahsilat" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <ArrowRight size={16} />
-                    </a>
+                    <h2 class="text-2xl font-bold font-sans text-text">e-Belge & Mevzuat Çözümleri</h2>
                 </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- e-Fatura -->
+                    <div class="glass-card p-8 rounded-2xl border border-border-main hover:border-plum transition-all group flex flex-col bg-bg3/30">
+                        <h3 class="text-xl font-bold font-sans mb-3 text-text">e-Fatura & e-Arşiv</h3>
+                        <p class="text-text-70 text-xs leading-relaxed mb-6 flex-grow">GİB standartlarında fatura oluşturma, gönderme ve saklama süreçlerinde tam otomasyon.</p>
+                        <a href="/iletisim" class="text-plum font-mono text-[10px] tracking-widest uppercase hover:underline">Hemen İncele →</a>
+                    </div>
+                    <!-- e-Defter -->
+                    <div class="glass-card p-8 rounded-2xl border border-border-main hover:border-plum transition-all group flex flex-col bg-bg3/30">
+                        <h3 class="text-xl font-bold font-sans mb-3 text-text">e-Defter</h3>
+                        <p class="text-text-70 text-xs leading-relaxed mb-6 flex-grow">Yevmiye ve Kebir defterlerinizi dijital ortamda mühürleyerek yasal geçerlilik kazandırın.</p>
+                        <a href="/iletisim" class="text-plum font-mono text-[10px] tracking-widest uppercase hover:underline">Hemen İncele →</a>
+                    </div>
+                    <!-- e-İrsaliye -->
+                    <div class="glass-card p-8 rounded-2xl border border-border-main hover:border-plum transition-all group flex flex-col bg-bg3/30">
+                        <h3 class="text-xl font-bold font-sans mb-3 text-text">e-İrsaliye</h3>
+                        <p class="text-text-70 text-xs leading-relaxed mb-6 flex-grow">Lojistik ve sevkiyat süreçlerinizi kağıtsız, anlık ve izlenebilir bir yapıya dönüştürün.</p>
+                        <a href="/iletisim" class="text-plum font-mono text-[10px] tracking-widest uppercase hover:underline">Hemen İncele →</a>
+                    </div>
+                    <!-- TMS 29 -->
+                    <div class="glass-card p-8 rounded-2xl border border-border-main hover:border-plum transition-all group flex flex-col bg-bg3/30">
+                        <h3 class="text-xl font-bold font-sans mb-3 text-text">Enflasyon Muh.</h3>
+                        <p class="text-text-70 text-xs leading-relaxed mb-6 flex-grow">TMS 29 standartlarında enflasyon düzeltmesi hesaplamalarını otomatize edin.</p>
+                        <a href="/enflasyon-muhasebesi" class="text-plum font-mono text-[10px] tracking-widest uppercase hover:underline">Hemen İncele →</a>
+                    </div>
+                </div>
+            </div>
 
-                <!-- 2 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full lg:col-span-2 relative overflow-hidden bg-bg3/30">
-                    <div class="absolute right-0 top-0 w-64 h-64 bg-lime/20 blur-3xl group-hover:bg-lime/30 transition-colors pointer-events-none opacity-20"></div>
-                    <div class="w-16 h-16 rounded-2xl bg-lime text-black flex justify-center items-center mb-8 group-hover:scale-110 transition-transform relative z-10">
-                        <Bird size={32} class="lucide-icon icon-bounce-hover" />
+            <!-- Category: e-Finans & Nakit Yönetimi -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
+                    <div class="w-10 h-10 rounded-full bg-lime/10 text-lime flex items-center justify-center">
+                        <Bird size={20} />
                     </div>
-                    <h3 class="text-3xl font-bold font-sans mb-4 text-text relative z-10">Banka Hub (Multi-Bank Connectivity)</h3>
-                    <p class="text-text-70 text-lg leading-relaxed mb-8 max-w-2xl relative z-10">
-                        Ayrı ayrı banka portallarına girmeye son. Tüm hesap hareketlerinizi, MT940 mutabakatlarınızı ve anlık bakiye görüntülemelerinizi tek bir ekrandan, doğrudan sisteminiz üzerinden gerçekleştirin. Yapay zeka ile otomatik eşleştirme.
-                    </p>
-                    <a href="/e-ekstre" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline mt-auto relative z-10">
-                        DETAYLARI İNCELE <ArrowRight size={16} />
-                    </a>
+                    <h2 class="text-2xl font-bold font-sans text-text">e-Finans & Nakit Yönetimi</h2>
                 </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Banka Hub -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30 relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-32 h-32 bg-lime/10 blur-2xl pointer-events-none"></div>
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ekstre (Banka Hub)</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Tüm banka hareketlerinizi tek ekrandan izleyin, AI ile otomatik muhasebe eşleştirmesi yapın.</p>
+                        <a href="/e-ekstre" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- E-DBS -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-DBS Sistemi</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Bayi ağınızdaki tahsilat riskini banka garantisiyle e-DBS üzerinden yönetin.</p>
+                        <a href="/e-dbs" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- E-POS -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-POS Raporlama</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Fiziksel ve sanal tüm POS akışlarınızı anlık takip edin, banka komisyonlarını denetleyin.</p>
+                        <a href="/e-pos" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- E-Payment -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ödeme (TÖS)</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Toplu ödeme talimatlarını sisteminizden doğrudan bankalara güvenli şekilde iletin.</p>
+                        <a href="/e-payment" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- E-Cashflow -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Nakit Akışı</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Geleceğe yönelik nakit tahminlerini veriye dayalı senaryolarla raporlayın.</p>
+                        <a href="/e-cashflow" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- Hazine -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Hazine & Risk</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Döviz pozisyonu, faiz riski ve likidite analizini uçtan uca kontrol edin.</p>
+                        <a href="/iletisim" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">e-KONUŞALIM <ArrowRight size={14} /></a>
+                    </div>
+                </div>
+            </div>
 
-                <!-- 3 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Nut size={32} class="lucide-icon icon-bounce-hover" />
+            <!-- Category: e-Ticaret & Operasyon -->
+            <div>
+                <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
+                    <div class="w-10 h-10 rounded-full bg-accent-text-readable/10 text-accent-text-readable flex items-center justify-center">
+                        <Cpu size={20} />
                     </div>
-                    <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-DBS</h3>
-                    <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
-                        Çok bankalı Doğrudan Borçlandırma Sistemi ile bayi ağınızdan yapacağınız tahsilatları tek panelden yönetin ve nakit akışınızı garanti altına alın.
-                    </p>
-                    <a href="/e-dbs" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <ArrowRight size={16} />
-                    </a>
+                    <h2 class="text-2xl font-bold font-sans text-text">e-Ticaret & Operasyon</h2>
                 </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- e-Ticaret -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col bg-bg3/30 relative overflow-hidden">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ticaret & Pazaryeri</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">Pazaryeri entegrasyonları, hak ediş takibi ve stok senkronizasyonunda tam otonom yapı.</p>
+                        <a href="/e-ticaret" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                    <!-- e-Tahsilat -->
+                    <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col bg-bg3/30 relative overflow-hidden">
+                        <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Tahsilat Platformu</h3>
+                        <p class="text-text-70 text-sm leading-relaxed mb-8">B2B ve B2C tahsilatları online kanallar üzerinden güvenle yapın.</p>
+                        <a href="/e-tahsilat" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <ArrowRight size={14} /></a>
+                    </div>
+                </div>
+            </div>
 
-                <!-- 4 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Sailboat size={32} class="lucide-icon icon-bounce-hover" />
-                    </div>
-                    <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-Ödeme (TÖS)</h3>
-                    <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
-                        Farklı banka ve hesaplara aynı anda toplu ödeme işlemleri gerçekleştirin, onay hiyerarşinizi doğrudan ERP sisteminizden yönetin.
-                    </p>
-                    <a href="/e-payment" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <ArrowRight size={16} />
-                    </a>
-                </div>
-
-                <!-- 5 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Ghost size={32} class="lucide-icon icon-bounce-hover" />
-                    </div>
-                    <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Devlet Serisi</h3>
-                    <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
-                        e-Fatura, e-Defter, e-İrsaliye ve e-Arşiv süreçlerinizde GİB mevzuatlarıyla %100 uyumlu, kesintisiz sistem entegrasyonu.
-                    </p>
-                    <a href="/iletisim" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-sm tracking-wide group-hover:underline">
-                        e-KONUŞALIM <ArrowRight size={16} />
-                    </a>
-                </div>
-
-                <!-- 6 -->
-                <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-text-main group-hover:text-lime flex justify-center items-center mb-8 group-hover:scale-110 transition-transform">
-                        <Fish size={32} class="lucide-icon icon-bounce-hover" />
-                    </div>
-                    <h3 class="text-2xl font-bold font-sans mb-4 text-text">E-Nakit Akışı</h3>
-                    <p class="text-text-70 text-sm leading-relaxed mb-8 flex-grow">
-                        Tüm finansal hareketlerinizi gerçek zamanlı izleyin, geleceğe yönelik nakit akışı tahminlemeleri ve senaryo planlamaları yapın.
-                    </p>
-                    <a href="/e-cashflow" class="inline-flex items-center gap-2 text-lime font-mono text-sm tracking-wide group-hover:underline">
-                        DETAYLARI İNCELE <ArrowRight size={16} />
-                    </a>
-                </div>
+        </div>
+    </section>
 
             </div>
         </div>

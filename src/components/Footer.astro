@@ -33,24 +33,23 @@ const { lang = 'tr' } = Astro.props;
             <div class="md:col-span-2">
                 <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{t('footerQuickLinks', lang)}</h4>
                 <ul class="space-y-3">
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hizmetler', lang)}>{t('navServices', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/lokalizasyon', lang)}>{t('navRollout', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/urunler', lang)}>{t('navSolutions', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/teknoloji', lang)}>{t('navTechnology', lang)}</a></li>
                     <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/hakkimizda', lang)}>{t('navAbout', lang)}</a></li>
                     <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/iletisim', lang)}>{t('navContact', lang)}</a></li>
                 </ul>
             </div>
 
-            <!-- Services -->
+            <!-- Solutions -->
             <div class="md:col-span-3">
-                <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{t('footerServices', lang)}</h4>
+                <h4 class="font-sans font-medium text-text-main text-sm uppercase tracking-widest mb-6">{t('navSolutions', lang)}</h4>
                 <ul class="space-y-3">
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-ticaret', lang)}>{t('footerSvcCbc', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-dbs', lang)}>{t('footerSvcDbs', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-payment', lang)}>{t('footerSvcPay', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-cashflow', lang)}>{t('footerSvcCash', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-tahsilat', lang)}>{t('footerSvcEt', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-ekstre', lang)}>{t('footerSvcEks', lang)}</a></li>
-                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-pos', lang)}>{t('footerSvcPos', lang)}</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/urunler', lang)}>Regtech & e-Belge</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-ekstre', lang)}>e-Ekstre & Banka Hub</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-dbs', lang)}>e-DBS Sistemi</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-ticaret', lang)}>e-Ticaret & Pazaryeri</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-tahsilat', lang)}>e-Tahsilat Platformu</a></li>
+                    <li><a class="text-text-70 text-sm hover:text-plum transition-colors font-light" href={getLocalePath('/e-payment', lang)}>e-Ödeme (TÖS)</a></li>
                 </ul>
             </div>
 
