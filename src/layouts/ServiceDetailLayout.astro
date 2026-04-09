@@ -188,19 +188,5 @@ const {
         </aside>
     </div>
 
-    <!-- Bottom CTA -->
-    <section class="py-20 bg-bg2 border-t border-border-main px-6">
-        <div class="md:max-w-2xl max-w-full mx-auto text-center">
-            <h2 class="text-3xl font-medium mb-6 md:max-w-xl max-w-full mx-auto">{lang === 'tr' ? 'Mimari Değişim Başlasın' : 'Start the Architectural Change'}</h2>
-            <p class="text-text-70 font-light mb-8 md:max-w-lg max-w-full mx-auto">
-                {lang === 'tr' 
-                    ? 'Finansal operasyonlarınızı otomatize etmek ve sistemlerinizi geleceğe hazırlamak için ilk adımı atın.' 
-                    : 'Take the first step to automate your financial operations and prepare your systems for the future.'}
-            </p>
-            <a href={lang === 'tr' ? '/iletisim' : '/en/contact'} class="inline-flex items-center gap-2 bg-plum text-white px-8 py-4 rounded-lg font-medium hover:bg-plum-hover transition-colors">
-                {lang === 'tr' ? 'Görüşme Ayarla' : 'Schedule a Call'} <span class="material-symbols-outlined text-sm">arrow_outward</span>
-            </a>
-        </div>
-    </section>
     <Footer lang={lang} />
 </Layout>
