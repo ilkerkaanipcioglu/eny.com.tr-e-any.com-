@@ -3,7 +3,9 @@ import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { 
-  Bug, 
+  TreeDeciduous,
+  Tent,
+  Star,
   Turtle, 
   Bird, 
   Worm, 
@@ -15,11 +17,11 @@ import {
 } from '@lucide/astro';
 
 const iconMap: Record<string, any> = {
-    'analytics': Bug,
+    'analytics': TreeDeciduous,
     'account_balance': Turtle,
     'payments': Bird,
     'terminal': Shell,
-    'account_tree': Bug,
+    'account_tree': Tent,
     'handshake': Worm,
     'storefront': Cat,
     'default': Snail
@@ -154,7 +156,7 @@ const {
                             "{visionContent}"
                         </p>
                         <div class="flex items-center gap-4 relative z-10 mt-8 pt-6 border-t border-border-main/50">
-                            <Bug size={24} class="text-teal" />
+                            <Star size={24} class="text-teal" />
                             <div>
                                 <h4 class="text-sm font-medium text-text-main">eny Platform Vision</h4>
                                 <span class="text-xs text-text-70 uppercase tracking-widest">{lang === 'tr' ? 'Mimari Bakış Açısı' : 'Architectural Perspective'}</span>

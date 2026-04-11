@@ -1,62 +1,45 @@
-# Implementation Plan: Eny Product-Only Pivot
+# Implementation Plan - Unconventional Icon System Refinement
 
-The objective is to remove all legacy consultancy/consulting residues (Harezm heritage) from `eny.com.tr` and transition the brand to be strictly focused on its "e-product" suite (e-Fatura, e-Defter, e-Tahsilat, etc.).
-
-## User Review Required
-
-> [!IMPORTANT]
-> - **Navigation Change**: "Hizmetler" (Services) will be renamed to "Çözümler" (Solutions) or "Ürünler" (Products) to move away from the service provider identity.
-> - **Page Removal/Merge**: `lokalizasyon.astro` (Consultancy focused) will be removed or merged into the product suite.
-> - **Hakkımızda (About Us)**: The narrative will shift from "15 years of consultancy" to "Evolution as a Finance Operating System Provider".
+The user has requested to eliminate all instances of the `Bug` icon. The mobile menu icon must be replaced with the standard 3-line (`Menu`) icon. For all other `Bug` replacements, unique nature, plant, or animal icons will be used, strictly ensuring no repeated usage across different headings.
 
 ## Proposed Changes
 
-### 1. Internationalization (i18n)
-#### [MODIFY] [translations.ts](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/i18n/translations.ts)
-- **Purge**: Delete keys related to `svcOutsourceTitle`, `svcAmsTitle`, `svcGlobalTitle` (Roll-out).
-- **Rename**: Change `navServices` to "Çözümler" (Solutions).
-- **Rebrand**: Update `aboutP1`, `aboutP2`, `aboutP3` to reflect a software/product company identity.
-- **Product Focus**: Update `svcPageDesc` and other headers to emphasize "Product Infrastructure".
+### 1. `src/components/Header.astro`
+- Update mobile menu toggle from `Bug` to `Menu`.
+- Replace `Bug` in Solutions Mega Menu Trigger with `Sprout`.
+- Replace `Bug` in About Mega Menu Trigger with `Leaf`.
+- Replace `Bug` in Hakkımızda List Header with `Mushroom`.
+- Replace `Bug` in İçerik & Yasal List Header with `Feather`.
 
-### 2. Navigation & Layout
-#### [MODIFY] [Header.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Header.astro)
-- Rename the "Hizmetler" menu item to "Çözümler".
-- Remove "Roll-out & Lokalizasyon" or merge it into the "Çözümler" dropdown as a product capability.
-- Ensure the mega-menu focuses on product icons and direct product links.
+### 2. `src/pages/urunler.astro`
+- Replace `Bug` in "e-Ticaret & Operasyon" header with `TreePine`.
+- Replace `Bug` in "eny Insight Series" block with `Fish`.
 
-#### [MODIFY] [Footer.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/components/Footer.astro)
-- Standardize labels to "Ürünler" and "Çözümler".
-- Remove "Lokalizasyon" and "Roll-out" links.
+### 3. `src/pages/teknoloji.astro`
+- Replace `Bug` under "Finansal Yapay Zeka" with `Cat`.
+- Replace `Bug` under "Low-Code Platformlar" with `Dog`.
+- Replace `Bug` under "Süreç Madenciliği" with `Trees`.
+- Replace `Bug` in "eny Insight Series" block with `CloudRain`.
 
-### 3. Core Pages
-#### [MODIFY] [index.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/index.astro)
-- Update "Expertise" badges to "Product Capability" badges.
-- Ensure all "Detaylı İncele" links point to product pages or a unified solutions explorer.
+### 4. `src/pages/sektorler.astro`
+- Replace `Bug` for "Üretim ve Otomotiv Sanayi" with `Cherry`.
+- Replace `Bug` for "İnşaat ve Gayrimenkul (GYO)" with `Mountain`.
 
-#### [MODIFY] [hizmetler.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/hizmetler.astro)
-- **Major Refactor**: Convert this into a "Solutions Overview" page.
-- Remove sections: "AMS", "Outsourcing", "ERP Modernization (as a service)".
-- Instead, showcase how the `eny` products solve these enterprise problems.
+### 5. `src/pages/index.astro`
+- Replace `Bug` for "API-First Mimari" with `Clover`.
 
-#### [DELETE] [lokalizasyon.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/lokalizasyon.astro)
-- This content is currently consultancy-heavy. Relevant regulatory compliance content will be moved to the "e-Government Series" product descriptions.
+### 6. `src/pages/hakkimizda.astro`
+- Replace `Bug` for "Domain Uzmanlığı" with `Flower`.
 
-#### [MODIFY] [hakkimizda.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/hakkimizda.astro)
-- Remove Harezm consultancy history if present.
-- Define `eny` as the "Finance Infrastructure Firm".
+### 7. `src/layouts/ServiceDetailLayout.astro`
+- Replace `Bug` mapped to `analytics` with `TreeDeciduous`.
+- Replace `Bug` mapped to `account_tree` with `Tent`.
+- Replace `Bug` in the "eny Platform Vision" block with `Campfire`.
 
 ## Open Questions
 
-> [!NOTE]
-> 1. Should we keep the "Sektörler" (Industries) page? It is somewhat product-agnostic but useful for showcasing product fit.
-> 2. For the "Ürünler" menu, should we group them by "Regtech" vs "Fintech" vs "E-commerce" categories?
+None. The specific icons proposed are standard Lucide nature/animal icons and they will be imported explicitly.
 
 ## Verification Plan
-
-### Automated Tests
-- `npm run build` to ensure no broken links or missing translation keys.
-
-### Manual Verification
-- Visual audit of the Header/Footer to ensure no "Consultancy" or "Service" vibe.
-- Check /hizmetler (or the new /cozumler) to ensure it only lists product-based value propositions.
-- Verify `translations.ts` doesn't contain "danışmanlık" (consultancy) or "dış kaynak" (outsourcing).
+- Build check: `npm run build`
+- Manual browser verification to ensure no missing icon imports (`lucide`) cause build errors.

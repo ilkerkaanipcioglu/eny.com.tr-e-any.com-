@@ -9,7 +9,11 @@ import {
   Bird,
   Flower,
   Worm,
-  Bug,
+  Menu,
+  Sprout,
+  Leaf,
+  Sun,
+  Feather,
   Rat,
   Fish,
   Cat,
@@ -67,7 +71,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${isActivePath('/urunler') ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navSolutions', lang)}
-                    <Bug size={18} class="group-hover:rotate-180 transition-transform duration-300" />
+                    <Sprout size={18} class="group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 
                 <!-- Mega Menu Panel -->
@@ -168,7 +172,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navAbout', lang)}
-                    <Bug size={18} class="group-hover:rotate-180 transition-transform duration-300" />
+                    <Leaf size={18} class="group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 
                 <div class="absolute top-full -translate-x-2/3 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
@@ -176,7 +180,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-2xl w-[500px] flex overflow-hidden backdrop-blur-3xl p-8 grid grid-cols-2 gap-8">
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <Bug size={16} class="lucide-icon" /> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
+                                <Sun size={16} class="lucide-icon" /> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/hakkimizda', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-semibold">{t('navAbout', lang)}</a></li>
@@ -186,7 +190,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                         </div>
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <Bug size={16} class="lucide-icon" /> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
+                                <Feather size={16} class="lucide-icon" /> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/insight', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">eny Insight</a></li>
@@ -206,20 +210,16 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <!-- Lang Dropdown (Desktop) -->
             <div class="relative group hidden lg:flex h-full items-center">
                 <button class="flex items-center gap-1.5 px-2 py-2 rounded-lg text-sm font-medium text-text-70 group-hover:text-text-main hover:bg-bg2 transition-colors duration-200">
-                    <Turtle size={18} />
                     {lang === 'tr' ? 'TR' : 'EN'}
-                    <Bug size={18} class="text-text-40 group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 <div class="absolute top-full right-0 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
                     <div class="absolute -top-4 right-0 w-full h-4"></div>
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-xl w-[140px] flex py-2 flex-col overflow-hidden backdrop-blur-3xl">
                         <a href={getAlternateLangPath(currentPath, 'en')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'tr' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="tr">
                             Türkçe 
-                            {lang === 'tr' && <Clover size={16} />}
                         </a>
                         <a href={getAlternateLangPath(currentPath, 'tr')} class={`px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${lang === 'en' ? 'text-lime bg-lime/10 font-bold' : 'text-text-70 hover:bg-bg2 hover:text-text-main'}`} data-lang-switcher="en">
                             English
-                            {lang === 'en' && <Clover size={16} />}
                         </a>
                     </div>
                 </div>
@@ -231,7 +231,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             
             <!-- Hamburger Button (Mobile) -->
             <button id="mobile-menu-btn" class="md:hidden flex flex-col items-center justify-center w-10 h-10 text-text-main hover:bg-bg2 rounded-lg transition-colors focus:outline-none" aria-label="Menu Toggle">
-                <Bug size={28} id="menu-icon" />
+                <Menu size={28} id="menu-icon" />
             </button>
         </div>
     </div>
