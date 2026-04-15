@@ -76,7 +76,7 @@ const { lang = 'tr' } = Astro.props;
                 </a>
             </div>
                <!-- Social & Context Bar -->
-        <div class="border-t border-border-main py-8 flex flex-wrap items-center justify-between gap-6 text-xs text-text-40">
+        <div class="border-t border-border-main py-8 flex flex-wrap items-start md:items-center justify-between gap-6 text-xs text-text-40">
             <div class="flex items-center gap-6">
                     <Shrimp size={18} class="lucide-icon" /> WhatsApp
                 <a href="mailto:info@eny.com.tr" class="hover:text-lime transition-colors flex items-center gap-2">
@@ -90,13 +90,25 @@ const { lang = 'tr' } = Astro.props;
         </div>
         </div>
 
+        <!-- Tuval — Art Exhibition Badge -->
+        <div class="border-t border-border-main py-5 flex flex-wrap items-center justify-center md:justify-between gap-4">
+            <a href="/tuval" class="flex items-center gap-3 group" style="text-decoration:none;">
+                <img src="/art/innovation.png" alt="" class="w-8 h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity" style="filter: hue-rotate(40deg) saturate(2) brightness(1.1);" />
+                <div>
+                    <span class="text-[10px] font-bold tracking-widest uppercase block" style="color:var(--accent);">{lang === 'tr' ? 'Tuval · Aylık Sergi' : 'Tuval · Monthly Exhibition'}</span>
+                    <span class="text-xs text-text-40 group-hover:text-text-70 transition-colors">lesstupid · {lang === 'tr' ? 'Nisan 2026' : 'April 2026'}</span>
+                </div>
+            </a>
+            <span class="text-[10px] text-text-40 italic hidden md:block">{lang === 'tr' ? 'Her ay farklı bir sanatçı, farklı bir akım.' : 'A different artist, a different movement, every month.'}</span>
+        </div>
+
         <!-- Bottom Bar -->
-        <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left font-mono uppercase">
-            <div class="flex items-center gap-3">
-                <span class="w-2 h-2 rounded-full bg-accent-text-readable animate-pulse"></span>
-                <span class="text-[10px] text-accent-text-readable tracking-widest uppercase">{lang === 'tr' ? 'Sistem Durumu: Operasyonel' : 'System Status: Operational'}</span>
+        <div class="border-t border-border-main pt-6 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 text-center md:text-left font-mono uppercase">
+            <div class="flex items-center justify-center md:justify-start gap-3 w-full md:w-auto">
+                <span class="w-2 h-2 rounded-full bg-accent-text-readable animate-pulse shrink-0"></span>
+                <span class="text-[10px] text-accent-text-readable tracking-widest uppercase whitespace-nowrap">{lang === 'tr' ? 'Sistem Durumu: Operasyonel' : 'System Status: Operational'}</span>
             </div>
-            <span class="text-[10px] text-text-40 tracking-widest">© 2026 ENY INFRASTRUCTURE. ALL RIGHTS RESERVED.</span>
+            <span class="text-[10px] text-text-40 tracking-widest whitespace-nowrap">© 2026 ENY INFRASTRUCTURE. ALL RIGHTS RESERVED.</span>
             <div class="flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-8 text-xs text-text-40">
                 <a class="hover:text-plum transition-colors" href={getLocalePath('/kvkk', lang)}>{t('footerKvkk', lang)}</a>
                 <a class="hover:text-plum transition-colors" href={getLocalePath('/gizlilik-politikasi', lang)}>{t('footerPrivacy', lang)}</a>

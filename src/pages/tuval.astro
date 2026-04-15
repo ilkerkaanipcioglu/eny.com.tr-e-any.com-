@@ -1,0 +1,342 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArtIllustration from '../components/ArtIllustration.astro';
+
+const exhibition = {
+  artist: "Diana Valeanu",
+  studio: "lesstupid",
+  movement: "Absürd İllüstrasyon",
+  period: "Nisan 2026",
+  description: "El çizimi, minimal ve absürd illüstrasyonlar. Siyah mürekkep çizgileri ve tek renk splash ile karakterize edilen, sıra dışı bir görsel dil. Her ay farklı bir sanatçı veya akım, grup sitelerimizin görsel kimliğine eşlik ediyor.",
+  link: "https://lesstupid.com",
+  illustrations: [
+    { id: "vision", file: "/art/vision.png", title: "Vizyon" },
+    { id: "workspace", file: "/art/workspace.png", title: "Çalışma Alanı" },
+    { id: "growth", file: "/art/growth.png", title: "Büyüme" },
+    { id: "connection", file: "/art/connection.png", title: "Bağlantı" },
+    { id: "strategy", file: "/art/strategy.png", title: "Strateji" },
+    { id: "innovation", file: "/art/innovation.png", title: "İnovasyon" },
+  ]
+};
+---
+
+<Layout 
+  title="Tuval — Aylık Görsel Sergi" 
+  description="Eny grup sitelerinde her ay değişen sanat sergisi. Bu ay: lesstupid — el çizimi absürd illüstrasyonlar."
+  lang="tr"
+>
+  <Header lang="tr" />
+
+  <!-- Hero -->
+  <section class="tuval-hero">
+    <div class="tuval-hero-inner">
+      <div class="tuval-hero-text">
+        <span class="tuval-label">Tuval · Aylık Görsel Sergi</span>
+        <h1 class="tuval-title">
+          Bu Ayın<br/>
+          <em>Görsel Dili</em>
+        </h1>
+        <p class="tuval-subtitle">
+          Her ay farklı bir sanatçı, farklı bir akım. Sitelerimizdeki illüstrasyonlar bu sergiden beslenir.
+        </p>
+      </div>
+      <div class="tuval-hero-art">
+        <ArtIllustration src="/art/vision.png" alt="Vizyon illüstrasyonu" size="xl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Info -->
+  <section class="tuval-artist-section">
+    <div class="tuval-container">
+      <div class="tuval-artist-card">
+        <div class="tuval-artist-info">
+          <span class="tuval-tag">Bu Ayın Akımı</span>
+          <h2 class="tuval-artist-name">{exhibition.movement}</h2>
+          <p class="tuval-artist-by">
+            <strong>{exhibition.artist}</strong> · {exhibition.studio}
+          </p>
+          <p class="tuval-artist-period">{exhibition.period}</p>
+        </div>
+        <div class="tuval-artist-desc">
+          <p>{exhibition.description}</p>
+          <a href={exhibition.link} target="_blank" rel="noopener" class="tuval-link">
+            {exhibition.studio} →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="tuval-gallery-section">
+    <div class="tuval-container">
+      <h2 class="tuval-section-title">Sergi</h2>
+      <div class="tuval-gallery">
+        {exhibition.illustrations.map((ill) => (
+          <div class="tuval-gallery-item">
+            <div class="tuval-gallery-img">
+              <ArtIllustration src={ill.file} alt={ill.title} size="lg" />
+            </div>
+            <p class="tuval-gallery-label">{ill.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="tuval-manifesto">
+    <div class="tuval-container">
+      <div class="tuval-manifesto-inner">
+        <h2>Steril Değiliz.</h2>
+        <p>
+          Teknoloji şirketleri genellikle soğuk ve mesafeli görünür. Biz öyle değiliz. Her ay farklı bir sanatçının eserlerini 
+          dijital alanlarımıza taşıyoruz — çünkü iyi mühendislik ve iyi estetik aynı kökten beslenir: <em>detaylara takıntılı olmak.</em>
+        </p>
+        <p class="tuval-manifesto-small">
+          Sanatçı veya illüstratör müsünüz? Eserlerinizi sergimizde görmek isterseniz bize ulaşın.
+        </p>
+        <a href="/iletisim" class="tuval-cta">Eserlerinizi Gönderin</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="tr" />
+</Layout>
+
+<style>
+  /* ================ ENY TUVAL STYLES ================ */
+  
+  .tuval-hero {
+    position: relative;
+    padding: 160px 32px 80px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .tuval-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .tuval-hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .tuval-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .tuval-title {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .tuval-title em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .tuval-subtitle {
+    color: var(--text-70);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.65;
+    max-width: 460px;
+  }
+  .tuval-hero-art {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tuval-container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .tuval-section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .tuval-artist-section {
+    padding: 80px 0;
+    background: var(--surface, var(--bg2));
+    border-bottom: 1px solid var(--border);
+  }
+  .tuval-artist-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 48px;
+    padding: 48px;
+    background: var(--bg);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .tuval-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #111;
+    background: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .tuval-artist-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .tuval-artist-by {
+    font-size: 15px;
+    color: var(--text-70);
+    margin-bottom: 4px;
+  }
+  .tuval-artist-by strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .tuval-artist-period {
+    font-size: 13px;
+    color: var(--text-40);
+    font-family: var(--font-mono);
+  }
+  .tuval-artist-desc p {
+    font-size: 16px;
+    color: var(--text-70);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .tuval-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .tuval-link:hover { opacity: 0.7; }
+
+  .tuval-gallery-section {
+    padding: 80px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .tuval-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .tuval-gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .tuval-gallery-img {
+    background: var(--surface, var(--bg2));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .tuval-gallery-img:hover {
+    border-color: var(--accent);
+  }
+  .tuval-gallery-label {
+    font-size: 13px;
+    color: var(--text-40);
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+  }
+
+  .tuval-manifesto {
+    padding: 100px 0;
+    background: var(--surface, var(--bg2));
+    border-bottom: 1px solid var(--border);
+  }
+  .tuval-manifesto-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .tuval-manifesto h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .tuval-manifesto p {
+    font-size: 17px;
+    color: var(--text-70);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .tuval-manifesto-small {
+    font-size: 14px !important;
+    color: var(--text-40) !important;
+    font-style: italic;
+    margin-bottom: 28px !important;
+  }
+  .tuval-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #111;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .tuval-cta:hover { opacity: 0.85; }
+
+  @media (max-width: 768px) {
+    .tuval-hero { padding: 120px 20px 60px; }
+    .tuval-hero-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .tuval-subtitle { margin: 0 auto; }
+    .tuval-artist-card { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+    .tuval-gallery { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+  @media (max-width: 480px) {
+    .tuval-gallery { grid-template-columns: 1fr; }
+  }
+</style>
