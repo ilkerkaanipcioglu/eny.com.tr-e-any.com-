@@ -5,9 +5,9 @@ import Footer from '../components/Footer.astro';
 import ArtIllustration from '../components/ArtIllustration.astro';
 
 const exhibition = {
-  artist: "Diana Valeanu",
+  artist: "",
   studio: "lesstupid",
-  movement: "Absürd İllüstrasyon",
+  movement: "El Çizimi İllüstrasyon",
   period: "Nisan 2026",
   description: "El çizimi, minimal ve absürd illüstrasyonlar. Siyah mürekkep çizgileri ve tek renk splash ile karakterize edilen, sıra dışı bir görsel dil. Her ay farklı bir sanatçı veya akım, grup sitelerimizin görsel kimliğine eşlik ediyor.",
   link: "https://lesstupid.com",
@@ -56,7 +56,7 @@ const exhibition = {
           <span class="tuval-tag">Bu Ayın Akımı</span>
           <h2 class="tuval-artist-name">{exhibition.movement}</h2>
           <p class="tuval-artist-by">
-            <strong>{exhibition.artist}</strong> · {exhibition.studio}
+            {exhibition.studio}
           </p>
           <p class="tuval-artist-period">{exhibition.period}</p>
         </div>
