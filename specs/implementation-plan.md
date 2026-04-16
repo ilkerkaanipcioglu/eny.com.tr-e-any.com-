@@ -1,31 +1,37 @@
-# Implementation Plan - Fix Vertical Text Rendering
+# Plan - Adjusting Illustration Highlights to Brand Color
 
-This plan addresses the issue where text (specifically the "Every Financial Process" heading) renders vertically (letter by letter) on the English homepage. This is likely due to a CSS conflict between global heading styles and inline `max-width` constraints.
+The user wants the highlight color of the illustrations on `eny.com.tr` to match the "neon lime" color of the "E-KONUŞALIM" button (`#D0FD17`) exactly.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The subagent determined that a `hue-rotate(22deg)` (down from `40deg`) with increased saturation is the best way to match the original yellow-gold highlights of the art to the neon lime brand color.
 
 ## Proposed Changes
 
-### Styles & Layout
+### [Component] ArtIllustration
 
-#### [MODIFY] [global.css](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/styles/global.css)
-- Refine heading styles to ensure consistent width and prevent unexpected letter-by-letter wrapping.
-- Specifically, I will check if `text-wrap: balance` and `overflow-wrap: break-word` are causing the collapse and adjust accordingly.
+#### [MODIFY] src/components/ArtIllustration.astro
+- Update the `hue-rotate` values and increase saturation/brightness for the `brand` and `minimal` variants to achieve the correct neon lime look.
 
-#### [MODIFY] [index.astro](file:///b:/DEV/HAREZM_EKOSISTEMI/eny.com.tr/src/pages/en/index.astro)
-- Standardize the `h2` heading style.
-- Remove redundant inline `max-width` that may be conflicting with responsive Tailwind classes.
-- Ensure the text uses `w-full` and `max-w-[600px]` classes correctly.
+```css
+/* Brand: Neon Lime #D0FD17 */
+.art-variant-brand img {
+  filter: hue-rotate(22deg) saturate(2) brightness(1.1);
+}
 
-## Git Workflow
-1. Apply CSS/Astro fixes.
-2. `git add .`
-3. `git commit -m "fix: resolve vertical text rendering on English homepage"`
-4. `git push`
+/* Minimal: Subtle lime tint with the correct brand hue */
+.art-variant-minimal img {
+  filter: hue-rotate(22deg) saturate(0.7) brightness(1.05);
+}
+```
 
 ## Verification Plan
 
 ### Automated Tests
-- Run `npm run build` to ensure no regression or build errors.
+- N/A (Visual adjustment)
 
 ### Manual Verification
-- Verify the layout logic.
-- After pushing, the user can verify the live site.
+- View `http://localhost:4321/tuval` in the browser.
+- Compare the "Vizyon" (brand variant) and "Büyüme" (minimal variant) highlights with the "E-KONUŞALIM" button.
+- A browser screenshot will be captured to confirm the match.
