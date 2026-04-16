@@ -319,10 +319,11 @@
 /* Prevents stray scripts or layout shifts from splitting words into vertical columns on mobile */
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-  word-break: keep-all;
+  word-break: normal;
   overflow-wrap: break-word;
   hyphens: none;
-  width: 100%; /* Ensure headings take full available width */
+  width: 100%;
+  min-width: 0; /* Prevent flex-item collapse */
 }
 
 h1, h2, h3, h4, h5, h6, p, span {

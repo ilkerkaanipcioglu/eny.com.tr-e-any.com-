@@ -1,0 +1,93 @@
+---
+// EmailAuthGate.astro
+---
+<div id="tools-auth-gate" class="fixed inset-0 z-[9999] flex items-center justify-center bg-surface/90 backdrop-blur-sm transition-opacity duration-300">
+  <div class="bg-surface border border-border p-8 rounded-2xl shadow-2xl max-w-md w-full relative overflow-hidden">
+    <!-- Glow effect -->
+    <div class="absolute -top-24 -right-24 w-48 h-48 bg-lime/20 blur-[60px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="material-symbols-outlined text-lime text-3xl">lock</span>
+        <h2 class="font-syne font-bold text-2xl text-text">Sistem Erişimi</h2>
+      </div>
+      
+      <p class="text-text-60 mb-6 font-mono text-sm leading-relaxed">
+        Eny TOOLS altyapısı sadece yetkili Harezm/Eny/İpcioğlu personeline açıktır. Devam etmek için onaylı e-posta adresinizi giriniz.
+      </p>
+
+      <form id="tools-auth-form" class="flex flex-col gap-4">
+        <div>
+          <input 
+            type="email" 
+            id="auth-email-input"
+            required
+            placeholder="isim@eny.com.tr" 
+            class="w-full bg-surface-alt border border-border rounded-xl px-4 py-3 text-text font-mono placeholder:text-text-40 focus:outline-none focus:border-lime focus:ring-1 focus:ring-lime transition-all"
+          />
+          <p id="auth-error" class="text-[#E63946] text-xs font-mono mt-2 hidden">Yetkisiz erişim denemesi (Bilinmeyen E-posta).</p>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="w-full bg-lime hover:bg-lime/90 text-[#050806] font-syne font-bold py-3 rounded-xl transition-colors duration-200 mt-2"
+        >
+          Doğrula & Gir
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Allowed SHA-256 Hashes
+  const approvedHashes = [
+    "1a4e2c45e4b1cfb78f64d06b5fedde5b013089518c76023b3c3a69b78d53fec9", // eny.com.tr
+    "0d72f3b5bfbd834810e05046a06fb3e29c24aeba5144826ae9212f402a7d6316", // harezm.com
+    "c9a84fe04bce7724038120b9ee89f5aad06056119569ce1d46661f0aad632896"  // ipcioglu.com
+  ];
+
+  // Helper function to hash email
+  async function hashEmail(email) {
+    const msgUint8 = new TextEncoder().encode(email.trim().toLowerCase());
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const gate = document.getElementById('tools-auth-gate');
+    const form = document.getElementById('tools-auth-form');
+    const emailInput = document.getElementById('auth-email-input');
+    const errorMsg = document.getElementById('auth-error');
+
+    // Check stored session
+    const storedHash = localStorage.getItem('eny_tools_auth');
+    if (storedHash && approvedHashes.includes(storedHash)) {
+      gate.style.display = 'none'; // Unlock immediately
+      document.body.style.overflow = 'auto';
+      return;
+    }
+
+    // Default state: lock body scrolling
+    document.body.style.overflow = 'hidden';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value;
+      const hash = await hashEmail(email);
+
+      if (approvedHashes.includes(hash)) {
+        localStorage.setItem('eny_tools_auth', hash);
+        gate.classList.add('opacity-0');
+        setTimeout(() => {
+          gate.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Restore scroll
+        }, 300);
+      } else {
+        errorMsg.classList.remove('hidden');
+        emailInput.classList.add('border-[#E63946]', 'ring-[#E63946]');
+      }
+    });
+  });
+</script>

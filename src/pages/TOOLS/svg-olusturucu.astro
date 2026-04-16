@@ -1,0 +1,348 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EmailAuthGate from '../../components/tools/EmailAuthGate.astro';
+---
+
+<Layout title="SVG Dönüştürücü | Eny Tools">
+  <EmailAuthGate />
+  
+  <main class="min-h-screen bg-surface text-text pt-32 pb-20 relative overflow-hidden">
+    <!-- Decorators -->
+    <div class="absolute top-0 left-0 w-[50vw] h-[50vh] bg-lime/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+      
+      <!-- Header -->
+      <div class="mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <a href="/TOOLS" class="inline-flex items-center gap-2 text-text-40 hover:text-lime transition-colors mb-4 font-mono text-sm uppercase">
+            <span class="material-symbols-outlined text-lg">arrow_back</span>
+            Dashboard'a Dön
+          </a>
+          <h1 class="font-syne font-bold text-4xl md:text-5xl tracking-tight mb-4 text-white">
+            Akıllı SVG <span class="text-lime">Oluşturucu</span>
+          </h1>
+          <p class="text-text-60 font-mono max-w-2xl">
+            Siyah-beyaz raster (yapay zeka) çizimleri anında Harezm/Eny sistemlerine uygun renklendirilebilir path (vektör) kodlarına dönüştürür.
+          </p>
+        </div>
+        <div class="bg-surface-alt border border-border rounded-xl p-4 flex gap-4 text-sm font-mono text-text-60">
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-black rounded-full border border-border"></div> Çizgi (Kalıcı)</div>
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-white rounded-full border border-border"></div> Şeffaf (Silinir)</div>
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-[#ffdc00] rounded-full border border-border"></div> Accent (Dinamik)</div>
+        </div>
+      </div>
+
+      <!-- Main Tool Area -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Left: Upload -->
+        <div class="flex flex-col gap-6">
+          <div id="drop-zone" class="border-2 border-dashed border-border hover:border-lime bg-surface bg-opacity-50 h-[400px] rounded-3xl flex flex-col items-center justify-center transition-all cursor-pointer group relative overflow-hidden">
+            
+            <input type="file" id="file-input" accept="image/png, image/jpeg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
+            
+            <div id="upload-content" class="text-center p-6 mt-4 z-10 transition-opacity duration-300">
+              <span class="material-symbols-outlined text-6xl text-lime mb-4 group-hover:scale-110 transition-transform">cloud_upload</span>
+              <h3 class="font-syne font-bold text-xl text-white mb-2">Görseli Sürükle veya Seç</h3>
+              <p class="text-text-60 font-mono text-xs">PNG veya JPG (Max: 5MB)</p>
+            </div>
+
+            <!-- Image Preview (Hidden by default) -->
+            <img id="image-preview" class="absolute inset-0 w-full h-full object-contain p-4 opacity-0 z-10 pointer-events-none transition-opacity duration-300" />
+          </div>
+
+          <div class="flex gap-4">
+            <button id="convert-btn" disabled class="flex-1 bg-lime hover:bg-lime/90 disabled:bg-[#131514] disabled:text-text-40 disabled:cursor-not-allowed text-[#050806] font-syne font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+              <span class="material-symbols-outlined">auto_fix</span>
+              SVG'ye Dönüştür
+            </button>
+            <button id="reset-btn" class="px-6 border border-border hover:border-text-40 text-white font-syne font-bold rounded-xl flex items-center justify-center transition-all">
+              Sıfırla
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Result -->
+        <div class="flex flex-col gap-6 h-full">
+          <div class="border border-border bg-[#131514] rounded-3xl p-6 h-[400px] flex flex-col relative">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-syne font-bold text-xl text-white">Çıktı & Ön İzleme</h3>
+              <!-- Theme Toggle locally -->
+              <div class="flex gap-2">
+                <button id="theme-eny" class="w-6 h-6 rounded-full bg-lime border border-white/20 active-ring"></button>
+                <button id="theme-harezm" class="w-6 h-6 rounded-full bg-[#82165F] border border-white/20"></button>
+                <button id="theme-ipcioglu" class="w-6 h-6 rounded-full bg-[#E63946] border border-white/20"></button>
+              </div>
+            </div>
+
+            <!-- The Output SVG Container -->
+            <div id="svg-result-container" class="flex-1 flex items-center justify-center border border-white/5 rounded-xl bg-surface-alt bg-[url('/images/pattern/grid.png')] text-white" style="--bg-size:20px; --accent: #D0FD17;">
+              <div class="text-text-40 font-mono text-sm" id="empty-state">Henüz dönüşüm yapılmadı.</div>
+            </div>
+            
+            <!-- Loading Overlay -->
+            <div id="loading" class="absolute inset-0 bg-[#131514]/90 backdrop-blur-sm z-30 hidden items-center justify-center rounded-3xl flex-col">
+              <div class="w-12 h-12 border-4 border-lime/20 border-t-lime rounded-full animate-spin mb-4"></div>
+              <p class="font-mono text-lime text-sm animate-pulse">Optimizasyon yapılıyor...</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+             <button id="copy-btn" disabled class="flex-1 border border-lime text-lime hover:bg-lime/10 disabled:border-border disabled:text-text-40 disabled:hover:bg-transparent disabled:cursor-not-allowed font-syne font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all">
+              <span class="material-symbols-outlined">content_copy</span>
+              SVG Kodunu Kopyala
+            </button>
+            <button id="download-btn" disabled class="px-6 bg-white hover:bg-white/90 text-black font-syne font-bold disabled:bg-[#131514] disabled:text-text-40 disabled:cursor-not-allowed rounded-xl flex items-center justify-center transition-all">
+              <span class="material-symbols-outlined">download</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<!-- Load ImageTracerJS -->
+<script is:inline src="/tools/imagetracer_v1.2.6.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fileInput = document.getElementById('file-input');
+    const imagePreview = document.getElementById('image-preview');
+    const uploadContent = document.getElementById('upload-content');
+    const convertBtn = document.getElementById('convert-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const loading = document.getElementById('loading');
+    
+    const svgResultContainer = document.getElementById('svg-result-container');
+    const emptyState = document.getElementById('empty-state');
+    const copyBtn = document.getElementById('copy-btn');
+    const downloadBtn = document.getElementById('download-btn');
+    
+    const themeEny = document.getElementById('theme-eny');
+    const themeHarezm = document.getElementById('theme-harezm');
+    const themeIpcioglu = document.getElementById('theme-ipcioglu');
+
+    let currentImageData = null;
+    let currentSvgCode = null;
+    let currentFilename = 'icon.svg';
+
+    // Handle Upload
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        currentFilename = file.name.replace(/\.[^/.]+$/, "") + ".svg";
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          imagePreview.src = event.target.result;
+          imagePreview.classList.remove('opacity-0');
+          uploadContent.classList.add('opacity-0');
+          convertBtn.disabled = false;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Reset
+    resetBtn.addEventListener('click', () => {
+      fileInput.value = '';
+      imagePreview.src = '';
+      imagePreview.classList.add('opacity-0');
+      uploadContent.classList.remove('opacity-0');
+      convertBtn.disabled = true;
+      copyBtn.disabled = true;
+      downloadBtn.disabled = true;
+      currentImageData = null;
+      currentSvgCode = null;
+      svgResultContainer.innerHTML = '';
+      svgResultContainer.appendChild(emptyState);
+    });
+
+    // Theme toggles
+    function setActiveTheme(btn, color) {
+      [themeEny, themeHarezm, themeIpcioglu].forEach(b => b.classList.remove('ring-2', 'ring-white', 'ring-offset-2', 'ring-offset-[#131514]'));
+      btn.classList.add('ring-2', 'ring-white', 'ring-offset-2', 'ring-offset-[#131514]');
+      svgResultContainer.style.setProperty('--accent', color);
+    }
+    setActiveTheme(themeEny, '#D0FD17'); // Default Eny
+
+    themeEny.addEventListener('click', () => setActiveTheme(themeEny, '#D0FD17'));
+    themeHarezm.addEventListener('click', () => setActiveTheme(themeHarezm, '#82165F'));
+    themeIpcioglu.addEventListener('click', () => setActiveTheme(themeIpcioglu, '#E63946'));
+
+    // Custom Tracing options matches strict node implementation
+    const customPalette = [
+      { r: 0, g: 0, b: 0, a: 255 },         // Black 
+      { r: 255, g: 255, b: 255, a: 255 },   // White
+      { r: 255, g: 220, b: 0, a: 255 }      // Yellow
+    ];
+
+    const tracerOptions = {
+      pal: customPalette,
+      colorsampling: 0,
+      layering: 1,      // FIXED: Restored to 1 (0 crashes the tracer)
+      ltres: 3,         // MORE AGGRESSIVE: Smooth lines and fewer points
+      qtres: 3,         // MORE AGGRESSIVE
+      pathomit: 32,     // AGGRESSIVE: Ignore small 32px noise specs
+      rightangleenhance: false, 
+      scale: 1,
+      roundcoords: 1, 
+      viewbox: true,
+      desc: false, 
+      lcpr: 0, 
+      qcpr: 0,
+    };
+
+    // Helper: color distance
+    function colorDistance(r1, g1, b1, r2, g2, b2) {
+      return Math.sqrt(Math.pow(r1 - r2, 2) + Math.pow(g1 - g2, 2) + Math.pow(b1 - b2, 2));
+    }
+
+    // Convert Process
+    convertBtn.addEventListener('click', () => {
+      if (!imagePreview.src) return;
+
+      loading.style.display = 'flex';
+      setTimeout(() => {
+        // Draw to an offscreen canvas to clean pixels and extract ImageData
+        const img = new Image();
+        img.onload = () => {
+          
+          // Downscale huge images to max 1024px to prevent memory crashes and huge SVGs
+          let MAX_SIZE = 1024;
+          let width = img.width;
+          let height = img.height;
+          
+          if (width > height) {
+            if (width > MAX_SIZE) {
+              height *= MAX_SIZE / width;
+              width = MAX_SIZE;
+            }
+          } else {
+            if (height > MAX_SIZE) {
+              width *= MAX_SIZE / height;
+              height = MAX_SIZE;
+            }
+          }
+
+          const cvs = document.createElement('canvas');
+          cvs.width = width;
+          cvs.height = height;
+          const ctx = cvs.getContext('2d');
+          
+          // White background wrapper
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, cvs.width, cvs.height);
+          ctx.drawImage(img, 0, 0, cvs.width, cvs.height);
+          
+          const imgData = ctx.getImageData(0, 0, cvs.width, cvs.height);
+          const data = imgData.data;
+
+          // PIXEL SNAPPING (Pre-processing)
+          // Force every pixel to exact palette colors (Black, White, or Yellow)
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i], g = data[i+1], b = data[i+2];
+            
+            // Check distances
+            const distBlack = colorDistance(r, g, b, 0, 0, 0);
+            const distWhite = colorDistance(r, g, b, 255, 255, 255);
+            const distYellow = colorDistance(r, g, b, 255, 220, 0);
+
+            if (distYellow < 80) { // Snapping tolerance for yellow highlight
+                data[i] = 255; data[i+1] = 220; data[i+2] = 0;
+            } else if (distBlack < 130) { // Aggressive snapping for black lines
+                data[i] = 0; data[i+1] = 0; data[i+2] = 0;
+            } else {
+                // Everything else becomes strictly white
+                data[i] = 255; data[i+1] = 255; data[i+2] = 255;
+            }
+          }
+          ctx.putImageData(imgData, 0, 0);
+
+          // Trace!
+          let svgstr = window.ImageTracer.imagedataToSVG(imgData, tracerOptions);
+
+          // We don't have SVGO on client side, so we use string manipulation to perform optimizations!
+          // 1. Post Process Colors. Now we are 100% sure the string will output exactly these RGBs.
+          svgstr = svgstr.replace(/fill="rgb\(0,0,0\)"/g, 'fill="currentColor"');
+          svgstr = svgstr.replace(/stroke="rgb\(0,0,0\)"/g, 'stroke="currentColor"');
+          
+          svgstr = svgstr.replace(/fill="rgb\(255,255,255\)"/g, 'fill="transparent"');
+          svgstr = svgstr.replace(/stroke="rgb\(255,255,255\)"/g, 'stroke="transparent"');
+          
+          svgstr = svgstr.replace(/fill="rgb\(255,220,0\)"/g, 'fill="var(--accent, #D0FD17)"');
+          svgstr = svgstr.replace(/stroke="rgb\(255,220,0\)"/g, 'stroke="var(--accent, #D0FD17)"');
+
+          // Clean transparent bodies to lighten SVG file and avoid blocking clicks
+          svgstr = svgstr.replace(/<path[^>]*fill="transparent"[^>]*\/>/gi, '');
+          svgstr = svgstr.replace(/ stroke="transparent"/gi, '');
+          
+          svgstr = svgstr.replace(/ stroke="none"/gi, '');
+          svgstr = svgstr.replace(/ stroke-width="[^"]*"/gi, '');
+          svgstr = svgstr.replace(/ opacity="[^"]*"/gi, '');
+
+          // Reduce namespace bloat
+          // We can remove Dimensions manually to let viewBox scale smoothly
+          svgstr = svgstr.replace(/width="[^"]+" height="[^"]+" /i, '');
+
+          currentSvgCode = svgstr;
+          
+          // Display
+          svgResultContainer.innerHTML = `<div style="width:100%; height:100%; padding:20%; display:flex; justify-content:center; align-items:center;">${svgstr}</div>`;
+          // Style fix for the inner SVG
+          const appendedSvg = svgResultContainer.querySelector('svg');
+          if (appendedSvg) {
+              appendedSvg.style.width = '100%';
+              appendedSvg.style.height = '100%';
+          }
+
+          copyBtn.disabled = false;
+          downloadBtn.disabled = false;
+          loading.style.display = 'none';
+        };
+        img.src = imagePreview.src;
+      }, 50); // slight delay for loading spinner UI render
+    });
+
+    // Copy SVG
+    copyBtn.addEventListener('click', () => {
+      if (currentSvgCode) {
+        try {
+          navigator.clipboard.writeText(currentSvgCode).then(() => {
+            const orig = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<span class="material-symbols-outlined">check</span> Kopyalandı!';
+            setTimeout(() => copyBtn.innerHTML = orig, 2000);
+          }).catch(err => {
+            console.error("Clipboard Hatası:", err);
+            alert("Kopyalama hatası: Güvenli bağlantı (HTTPS) veya pano erişim izni gerekiyor olabilir.");
+          });
+        } catch(e) {
+          alert("Kopyalama engellendi!");
+        }
+      }
+    });
+
+    // Download SVG
+    downloadBtn.addEventListener('click', () => {
+      if (currentSvgCode) {
+        try {
+          const blob = new Blob([currentSvgCode], { type: 'image/svg+xml;charset=utf-8' });
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = currentFilename || 'icon.svg';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        } catch(err) {
+          console.error("İndirme Hatası:", err);
+          alert("İndirme işlemi başarısız oldu. Lütfen tarayıcı ayarlarınızı kontrol edin.");
+        }
+      }
+    });
+
+  });
+</script>

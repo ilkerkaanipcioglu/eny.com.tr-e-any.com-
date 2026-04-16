@@ -47,6 +47,11 @@ export function getLocalePath(path: string, lang: Lang): string {
 }
 
 export function getAlternateLangPath(currentPath: string, currentLang: Lang): string {
+  // Normalize path by removing trailing slash (unless it's exactly "/")
+  const normPath = currentPath.length > 1 && currentPath.endsWith('/') 
+    ? currentPath.slice(0, -1) 
+    : currentPath;
+
   if (currentLang === 'tr') {
     // TR → EN
     const map: Record<string, string> = {
@@ -76,7 +81,7 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/e-ekstre': '/en/e-statement',
       '/e-pos': '/en/e-pos',
     };
-    return map[currentPath] || `/en${currentPath}`;
+    return map[normPath] || (normPath.startsWith('/en') ? normPath : `/en${normPath === '/' ? '' : normPath}`);
   } else {
     // EN → TR
     const map: Record<string, string> = {
@@ -107,6 +112,6 @@ export function getAlternateLangPath(currentPath: string, currentLang: Lang): st
       '/en/e-statement': '/e-ekstre',
       '/en/e-pos': '/e-pos',
     };
-    return map[currentPath] || currentPath.replace('/en', '');
+    return map[normPath] || (normPath.startsWith('/en') ? normPath.replace(/^\/en/, '') || '/' : normPath);
   }
 }
