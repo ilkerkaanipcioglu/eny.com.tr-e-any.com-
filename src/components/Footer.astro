@@ -2,7 +2,7 @@
 import { t, getLocalePath, type Lang } from '../i18n/utils';
 import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
-import { Bird, Shrimp } from '@lucide/astro';
+import Icon from './Icon.astro';
 
 interface Props {
   lang?: Lang;
@@ -72,15 +72,15 @@ const { lang = 'tr' } = Astro.props;
                 </a>
                 {/* 4 - Email */}
                 <a href="mailto:info@eny.com.tr" class="w-10 h-10 rounded-xl bg-bg3 border border-border-main flex items-center justify-center text-text-40 hover:bg-plum hover:text-white transition-colors" title="Email">
-                    <Bird size={18} class="lucide-icon" />
+                    <Icon name="icon_09_mail" size={18} />
                 </a>
             </div>
                <!-- Social & Context Bar -->
         <div class="border-t border-border-main py-8 flex flex-wrap items-start md:items-center justify-between gap-6 text-xs text-text-40">
             <div class="flex items-center gap-6">
-                    <Shrimp size={18} class="lucide-icon" /> WhatsApp
+                    <Icon name="icon_21_phone" size={18} /> WhatsApp
                 <a href="mailto:info@eny.com.tr" class="hover:text-lime transition-colors flex items-center gap-2">
-                   <Bird size={18} class="lucide-icon" /> info@eny.com.tr
+                   <Icon name="icon_09_mail" size={18} /> info@eny.com.tr
                 </a>
             </div>
             <div class="flex items-center gap-6">

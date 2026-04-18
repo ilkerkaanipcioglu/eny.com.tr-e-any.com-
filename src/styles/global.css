@@ -53,16 +53,7 @@
   --trans: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ENY Light Theme — Contrast Solution (V7.1) */
-[data-theme="light"] {
-  /* Technique 1: Black chip for small labels */
-  --eny-label-bg: #111;
-  --eny-label-text: hsl(72, 98%, 54%);
-
-  /* Technique 5: Accent only mode */
-  --eny-accent: hsl(72, 98%, 54%);
-  --eny-text-readable: #111;
-}
+/* ENY Light Theme — Contrast Solution (V7.1) from tokens.css */
 
 :root,
 [data-theme="dark"] {
@@ -79,37 +70,37 @@
 
 [data-theme="light"] {
   /* === V2: LIGHT THEME — Harezm surface, güçlü hiyerarşi ===
-     KURAL 1: Accent (#D0FD17) açık zemin üstünde ASLA metin/ikon değil.
-     KURAL 2: Buton BG #D0FD17 ise metin mutlaka #000000 (siyah).
-     KURAL 3: Primary (#82165f) border, hover, focus için kullanılır.
-  /* KURAL 4: Okunabilir metin → #82165F (var(--accent-text-readable)) */
-  --accent-text-readable: #82165F;  /* Purple for light mode contrast */
+     KURAL 1: Accent (var(--accent)) açık zemin üstünde ASLA metin/ikon değil.
+     KURAL 2: Buton BG var(--accent) ise metin mutlaka #000000 (siyah).
+     KURAL 3: Primary (var(--primary)) border, hover, focus için kullanılır.
+  /* KURAL 4: Okunabilir metin → var(--primary) (var(--accent-text-readable)) */
+  --accent-text-readable: var(--primary);  /* Contract-driven readability */
 
   /* Backgrounds — V4.4 Shared Light System */
   --bg: #F5F4F2;               /* V4.4: Ortak ana arka plan — ılık mat gri */
   --bg2: #EDECEA;              /* V4.4: Ortak surface / kart */
-  --surface: #F5F4F2;          /* Card yüzeyi: shared bg tone */
+  --surface: var(--bg);        /* Card yüzeyi: shared bg tone */
   --surface-harezm: #F5ECF2;  /* V4.4: Harezm tinted surface — alternatif card */
 
   /* Borders */
   --border: #DDDBD8;           /* V4.4: Ortak border rengi */
-  --border-focus: #82165f;     /* Focus/hover: primary */
+  --border-focus: var(--primary);     /* Focus/hover: dynamic primary */
 
   /* Intro / word stream vars */
   --word-base: #ede8f0;
   --word-on: #c8b0d0;
-  --word-glow: #82165f;
+  --word-glow: var(--primary);
   --logo-color: #111111;
-  --logo-sub: #82165f;
-  --domain-color: #82165f;
+  --logo-sub: var(--primary);
+  --domain-color: var(--primary);
   --tagline: #92969b;
-  --corner: rgba(130, 22, 95, 0.4);
+  --corner: hsla(var(--h), var(--s), var(--l), 0.4);
   --particle-a: 0.3;
   --particle-b: 0.12;
-  --line-c: rgba(130, 22, 95, 0.15);
-  --scan-c: rgba(130, 22, 95, 0.3);
-  --btn-c: #82165f;
-  --btn-h: #5e0f45;
+  --line-c: hsla(var(--h), var(--s), var(--l), 0.15);
+  --scan-c: hsla(var(--h), var(--s), var(--l), 0.3);
+  --btn-c: var(--primary);
+  --btn-h: var(--primary);
 
   /* Text */
   --text: #111111;             /* Primary text */
@@ -117,25 +108,25 @@
   --text-40: rgba(17, 17, 17, 0.40);
 
   /* Nav */
-  --nav-pill-bg: #D0FD17;      /* Accent pill: bg aktif — geniş alanda */
+  --nav-pill-bg: var(--eny-accent);      /* V7.1 Context */
   --nav-pill-text: #000000;    /* V2: Siyah metin (kontrast garantili) */
   --accent-text: #111111;      /* Light'ta metin her zaman koyu */
   --nav-bg: rgba(245, 244, 242, 0.95);  /* V4.4: #F5F4F2 based nav */
 
   /* Icon states */
   --icon-default: #92969b;
-  --icon-hover: #82165f;
-  --icon-active: #82165f;      /* Light'ta active = primary (neon değil!) */
+  --icon-hover: var(--primary);
+  --icon-active: var(--primary);      /* Light'ta active = primary (neon değil!) */
 
   /* Accent pill sistemi (label/tag için) */
-  --lime-pill-bg: #D0FD17;     /* V2: Accent bg — sadece geniş buton/grafik */
-  --lime-pill-text: #000000;   /* V2: Siyah metin — kontrast garantili */
-  --lime-pill-border: #BCE313;
+  --lime-pill-bg: var(--eny-accent);     /* V7.1 technique */
+  --lime-pill-text: var(--eny-label-bg);   /* High contrast swap */
+  --lime-pill-border: hsla(var(--h), var(--s), var(--l), 0.3);
 
   /* Primary pill sistemi (badge/section için) */
-  --primary-pill-bg: rgba(130, 22, 95, 0.08);
-  --primary-pill-text: #82165f;
-  --primary-pill-border: rgba(130, 22, 95, 0.25);
+  --primary-pill-bg: hsla(var(--h), var(--s), var(--l), 0.08);
+  --primary-pill-text: var(--primary);
+  --primary-pill-border: hsla(var(--h), var(--s), var(--l), 0.25);
 
   color-scheme: light;
 }

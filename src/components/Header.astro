@@ -2,31 +2,7 @@
 import { t, getLocalePath, getAlternateLangPath, type Lang } from '../i18n/utils';
 import type { TranslationKey } from '../i18n/translations';
 import ThemeToggle from './ThemeToggle.astro';
-import { 
-  Clover,
-  Turtle,
-  Quote,
-  Bird,
-  Flower,
-  Worm,
-  Menu,
-  Sprout,
-  Leaf,
-  Sun,
-  Feather,
-  Rat,
-  Fish,
-  Cat,
-  Snail,
-  Waves,
-  Sparkles,
-  Rabbit,
-  Skull,
-  LayoutDashboard,
-  Grid3x3,
-  Squirrel,
-  Wallet
-} from '@lucide/astro';
+import Icon from './Icon.astro';
 
 interface Props {
   lang?: Lang;
@@ -71,7 +47,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${isActivePath('/urunler') ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navSolutions', lang)}
-                    <Sprout size={18} class="group-hover:rotate-180 transition-transform duration-300" />
+                    <Icon name="icon_25_plus_add" size={18} animate class="group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 
                 <!-- Mega Menu Panel -->
@@ -87,7 +63,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <!-- Column 1: Regtech -->
                             <div>
                                 <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-6 flex items-center gap-2">
-                                    <Rat size={16} class="text-lime" /> {lang === 'tr' ? 'Regtech & e-Belge' : 'Regtech & e-Docs'}
+                                    <Icon name="icon_04_user" size={16} class="text-lime" /> {lang === 'tr' ? 'Regtech & e-Belge' : 'Regtech & e-Docs'}
                                 </h4>
                                 <div class="space-y-1">
                                     <a href={getLocalePath('/urunler', lang)} class="flex flex-col p-3 rounded-xl hover:bg-bg2 transition-colors group/item">
@@ -108,7 +84,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <!-- Column 2: Fintech -->
                             <div>
                                 <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-6 flex items-center gap-2">
-                                    <Squirrel size={16} class="text-lime" /> {lang === 'tr' ? 'Fintech & Hazine' : 'Fintech & Treasury'}
+                                    <Icon name="icon_12_star" size={16} class="text-lime" /> {lang === 'tr' ? 'Fintech & Hazine' : 'Fintech & Treasury'}
                                 </h4>
                                 <div class="space-y-1">
                                     <a href={getLocalePath('/e-ekstre', lang)} class="flex flex-col p-3 rounded-xl hover:bg-bg2 transition-colors group/item">
@@ -133,7 +109,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                             <!-- Column 3: E-Commerce -->
                             <div>
                                 <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-6 flex items-center gap-2">
-                                    <Cat size={16} class="text-lime" /> {lang === 'tr' ? 'e-Ticaret & Operasyon' : 'e-Commerce & Ops'}
+                                    <Icon name="icon_08_chat" size={16} class="text-lime" /> {lang === 'tr' ? 'e-Ticaret & Operasyon' : 'e-Commerce & Ops'}
                                 </h4>
                                 <div class="space-y-1">
                                     <a href={getLocalePath('/e-ticaret', lang)} class="flex flex-col p-3 rounded-xl hover:bg-bg2 transition-colors group/item">
@@ -172,7 +148,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             <div class="relative group h-full flex items-center">
                 <button class={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-default ${(isActivePath('/hakkimizda') || isActivePath('/sektorler') || isActivePath('/insight')) ? 'bg-nav-pill-bg text-nav-pill-text shadow-sm' : 'text-text-70 group-hover:text-accent-text'}`}>
                     {t('navAbout', lang)}
-                    <Leaf size={18} class="group-hover:rotate-180 transition-transform duration-300" />
+                    <Icon name="icon_01_home" size={18} animate class="group-hover:rotate-180 transition-transform duration-300" />
                 </button>
                 
                 <div class="absolute top-full -translate-x-2/3 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 translate-y-3 transition-all duration-300 z-[60]">
@@ -180,7 +156,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                     <div class="bg-bg/95 shadow-[0_16px_50px_rgba(0,0,0,0.15)] border border-border rounded-2xl w-[500px] flex overflow-hidden backdrop-blur-3xl p-8 grid grid-cols-2 gap-8">
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <Sun size={16} class="lucide-icon" /> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
+                                <Icon name="icon_06_heart" size={16} class="text-lime" /> {lang === 'tr' ? 'Hakkımızda' : 'About Us'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/hakkimizda', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-semibold">{t('navAbout', lang)}</a></li>
@@ -190,7 +166,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
                         </div>
                         <div>
                             <h4 class="text-[11px] font-bold tracking-widest text-text-40 uppercase mb-5 flex items-center gap-2">
-                                <Feather size={16} class="lucide-icon" /> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
+                                <Icon name="icon_14_edit" size={16} class="text-lime" /> {lang === 'tr' ? 'İçerik & Yasal' : 'Insights & Legal'}
                             </h4>
                             <ul class="space-y-3.5">
                                 <li><a href={getLocalePath('/insight', lang)} class="text-[14px] text-text-main hover:text-lime transition-colors font-medium">eny Insight</a></li>
@@ -231,7 +207,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
             
             <!-- Hamburger Button (Mobile) -->
             <button id="mobile-menu-btn" class="md:hidden flex flex-col items-center justify-center w-10 h-10 text-text-main hover:bg-bg2 rounded-lg transition-colors focus:outline-none" aria-label="Menu Toggle">
-                <Menu size={28} id="menu-icon" />
+                <Icon name="icon_22_menu" size={28} id="menu-icon" />
             </button>
         </div>
     </div>
@@ -256,7 +232,7 @@ const isHomePage = currentPath === '/' || currentPath === '/en' || currentPath =
         <!-- CTA (Mobile) -->
         <a href={getLocalePath('/iletisim', lang)} class="w-full text-center bg-lime text-black px-6 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-lg flex items-center justify-center gap-2">
             {t('navCta', lang)}
-            <Rabbit size={20} />
+            <Icon name="icon_07_send" size={20} />
         </a>
         
 
