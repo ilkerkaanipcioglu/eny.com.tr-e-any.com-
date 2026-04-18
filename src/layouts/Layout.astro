@@ -22,7 +22,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
 ---
 
 <!DOCTYPE html>
-<html class="scroll-smooth" lang={lang}>
+<html class="scroll-smooth" lang={lang} data-brand="eny" data-state="idle">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -104,6 +104,12 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
         }
         
         applyTheme();
+
+        // Brand & State Management (Contract V7.1)
+        window.HAREZM = {
+          setState: (state) => document.documentElement.setAttribute('data-state', state),
+          setBrand: (brand) => document.documentElement.setAttribute('data-brand', brand)
+        };
 
         // Listen for OS changes only if no manual preference stored
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {

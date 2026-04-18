@@ -47,88 +47,33 @@
   animation: bounce-subtle 0.6s ease-in-out;
 }
 
+@import "./tokens.css";
+
 :root {
-  /* === ENY DUAL-BRAND COLOR SYSTEM — V2 ===
-     PRIMARY  (#82165f) = Harezm DNA — güven, derinlik, kurumsal
-     ACCENT   (#d0fd17) = Eny enerjisi — hız, fintech, CTA
-     KURALLAR: Açık zeminde #D0FD17 ASLA metin rengi değil → #82165F (mor) kullan
-               Buton BG #D0FD17 → metin mutlaka #000000 (siyah)
-  */
-  --primary: #82165f;          /* Harezm kök rengi */
-  --primary-dark: #5e0f45;     /* Hover / pressed */
-  --primary-light: #B34E8F;    /* V2: Dark mode parlayan mürdüm (Harezm dark) */
-  --primary-soft: rgba(130, 22, 95, 0.12);
-  --primary-glow: rgba(130, 22, 95, 0.35);
-
-  --accent: #D0FD17;           /* Eny enerji rengi — sadece CTA/vurgu/buton */
-  --accent-dark: #BCE313;      /* Hover darker */
-  --accent-glow: rgba(208, 253, 23, 0.45);
-  --accent-soft: rgba(208, 253, 23, 0.12);
-
-  /* V2: Okunabilirlik token — açık zemin için #D0FD17 yerine bu */
-  --accent-text-readable: #D0FD17;  /* Eny Lime — default for dark/contextual */
-
-  /* Backwards compat aliases */
-  --lime: #D0FD17;
-  --lime-glow: rgba(208, 253, 23, 0.45);
-  --lime-soft: rgba(208, 253, 23, 0.12);
-
-  --gold: #D4AF37;
-  --gray: #92969b;             /* Neutral: açıklama, disabled, icon default */
   --trans: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ENY Light Theme — Contrast Solution (V7.1) */
+[data-theme="light"] {
+  /* Technique 1: Black chip for small labels */
+  --eny-label-bg: #111;
+  --eny-label-text: hsl(72, 98%, 54%);
+
+  /* Technique 5: Accent only mode */
+  --eny-accent: hsl(72, 98%, 54%);
+  --eny-text-readable: #111;
 }
 
 :root,
 [data-theme="dark"] {
-  /* === V2: Eny Dark Mode — Lime alt tonlu siyah ===
-     BG: Palette V4.4 specifies #111111 as Eny dark base
-     Surface: #1C1C1C, Card: #222222
-  */
-
-  /* Backgrounds — V4.4 Palette: #111111 → #1C1C1C → #222222 */
-  --bg: #111111;               /* V4.4: Eny dark panel BG */
-  --bg2: #1C1C1C;              /* V4.4: Surface — nötr mat koyu */
-  --bg3: #1A1A1A;              /* Shared system intermediate tone */
-  --surface: #222222;          /* V4.4: Kart arka planı */
-  --surface-on: #f0f0f0;
-
-  /* Borders — V4.4 shared + neon accent */
-  --border: rgba(208, 253, 23, 0.15);  /* Slightly stronger Neon Lime border */
-  --outline: #333333;                  /* V4.4: Shared dark border */
-  --border-focus: #82165f;             /* Focus: Harezm primary */
-
-  /* Intro / word stream vars — Neutral context */
-  --word-base: #000000;
-  --word-on: #0a0c02;
-  --word-glow: #D0FD17;
-  --logo-color: #ffffff;
-  --logo-sub: #82165f;
-  --domain-color: #D0FD17;
-  --tagline: #82165f;
-  --corner: rgba(208, 253, 23, 0.45);
-  --particle-a: 0.55;
-  --particle-b: 0.25;
-  --line-c: rgba(130, 22, 95, 0.35);
-  --scan-c: rgba(208, 253, 23, 0.5);
-  --btn-c: #82165f;
-  --btn-h: #D0FD17;
-
-  /* Text */
-  --text: #F0EDF2;             /* Off-white, primary'e sıcak */
+  --bg: #111111;              
+  --bg2: #1C1C1C;             
+  --surface: #222222;        
+  --text: #F0EDF2;            
   --text-70: rgba(240, 237, 242, 0.70);
   --text-40: rgba(240, 237, 242, 0.40);
-
-  /* Nav */
-  --nav-pill-bg: rgba(208, 253, 23, 0.15);  /* V2: Lime pill — dark tema */
-  --nav-pill-text: #D0FD17;
-  --accent-text: #D0FD17;
-  --nav-bg: rgba(17, 17, 17, 0.90);          /* V4.4: #111111 based nav bg */
-
-  /* Icon states (yeni sistem) */
-  --icon-default: #92969b;
-  --icon-hover: #B34E8F;        /* V2: Parlayan mürdüm hover — dark */
-  --icon-active: #D0FD17;
-
+  --border: hsla(var(--h), var(--s), var(--l), 0.15);
+  --nav-bg: rgba(17, 17, 17, 0.90);
   color-scheme: dark;
 }
 
