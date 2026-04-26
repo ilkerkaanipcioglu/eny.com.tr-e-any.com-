@@ -2,14 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { 
-  Rat,
-  Turtle,
-  TreePine,
-  Fish,
-  Rabbit,
-  Bird
-} from '@lucide/astro';
+import Icon from '../components/Icon.astro';
 const lang = 'tr' as const;
 ---
 <Layout title="Ürünler | eny" lang={lang}>
@@ -35,8 +28,8 @@ const lang = 'tr' as const;
             <!-- Category: e-Belge & Mevzuat -->
             <div class="mb-16">
                 <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
-                    <div class="w-10 h-10 rounded-full bg-plum/10 text-plum flex items-center justify-center">
-                        <Rat size={20} />
+                    <div class="text-plum flex items-center justify-center">
+                        <Icon name="icon_25_check_confirm" size={24} />
                     </div>
                     <h2 class="text-2xl font-bold font-sans text-text">e-Belge & Mevzuat Çözümleri</h2>
                 </div>
@@ -71,8 +64,8 @@ const lang = 'tr' as const;
             <!-- Category: e-Finans & Nakit Yönetimi -->
             <div class="mb-16">
                 <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
-                    <div class="w-10 h-10 rounded-full bg-lime/10 text-lime flex items-center justify-center">
-                        <Turtle size={20} />
+                    <div class="text-lime flex items-center justify-center">
+                        <Icon name="icon_20_lock_security" size={24} />
                     </div>
                     <h2 class="text-2xl font-bold font-sans text-text">e-Finans & Nakit Yönetimi</h2>
                 </div>
@@ -82,37 +75,37 @@ const lang = 'tr' as const;
                         <div class="absolute right-0 top-0 w-32 h-32 bg-lime/10 blur-2xl pointer-events-none"></div>
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ekstre (Banka Hub)</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Tüm banka hareketlerinizi tek ekrandan izleyin, AI ile otomatik muhasebe eşleştirmesi yapın.</p>
-                        <a href="/e-ekstre" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-ekstre" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- E-DBS -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-DBS Sistemi</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Bayi ağınızdaki tahsilat riskini banka garantisiyle e-DBS üzerinden yönetin.</p>
-                        <a href="/e-dbs" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-dbs" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- E-POS -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-POS Raporlama</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Fiziksel ve sanal tüm POS akışlarınızı anlık takip edin, banka komisyonlarını denetleyin.</p>
-                        <a href="/e-pos" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-pos" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- E-Payment -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ödeme (TÖS)</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Toplu ödeme talimatlarını sisteminizden doğrudan bankalara güvenli şekilde iletin.</p>
-                        <a href="/e-payment" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-payment" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- E-Cashflow -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Nakit Akışı</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Geleceğe yönelik nakit tahminlerini veriye dayalı senaryolarla raporlayın.</p>
-                        <a href="/e-cashflow" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-cashflow" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- Hazine -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col h-full bg-bg3/30">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Hazine & Risk</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Döviz pozisyonu, faiz riski ve likidite analizini uçtan uca kontrol edin.</p>
-                        <a href="/iletisim" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">e-KONUŞALIM <Rabbit size={14} /></a>
+                        <a href="/iletisim" class="inline-flex items-center gap-2 text-lime font-mono text-xs tracking-widest uppercase hover:underline mt-auto">e-KONUŞALIM <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                 </div>
             </div>
@@ -120,8 +113,8 @@ const lang = 'tr' as const;
             <!-- Category: e-Ticaret & Operasyon -->
             <div>
                 <div class="flex items-center gap-4 mb-10 border-b border-border-main pb-4">
-                    <div class="w-10 h-10 rounded-full bg-accent-text-readable/10 text-accent-text-readable flex items-center justify-center">
-                        <TreePine size={20} />
+                    <div class="text-accent-text-readable flex items-center justify-center">
+                        <Icon name="icon_17_share" size={24} />
                     </div>
                     <h2 class="text-2xl font-bold font-sans text-text">e-Ticaret & Operasyon</h2>
                 </div>
@@ -130,13 +123,13 @@ const lang = 'tr' as const;
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col bg-bg3/30 relative overflow-hidden">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Ticaret & Pazaryeri</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">Pazaryeri entegrasyonları, hak ediş takibi ve stok senkronizasyonunda tam otonom yapı.</p>
-                        <a href="/e-ticaret" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-ticaret" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                     <!-- e-Tahsilat -->
                     <div class="glass-card p-10 rounded-3xl border border-border-main hover:border-lime transition-all group flex flex-col bg-bg3/30 relative overflow-hidden">
                         <h3 class="text-2xl font-bold font-sans mb-4 text-text">e-Tahsilat Platformu</h3>
                         <p class="text-text-70 text-sm leading-relaxed mb-8">B2B ve B2C tahsilatları online kanallar üzerinden güvenle yapın.</p>
-                        <a href="/e-tahsilat" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Rabbit size={14} /></a>
+                        <a href="/e-tahsilat" class="inline-flex items-center gap-2 text-accent-text-readable font-mono text-xs tracking-widest uppercase hover:underline mt-auto">Detayları İncele <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" /></a>
                     </div>
                 </div>
             </div>
@@ -153,14 +146,14 @@ const lang = 'tr' as const;
         <div class="max-w-7xl mx-auto px-8">
             <div class="bg-surface-container-low p-10 md:p-14 rounded-3xl border border-outline-variant/20 relative overflow-hidden">
                 <div class="absolute w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none -right-10 -bottom-10"></div>
-                <Bird size={64} class="text-primary/20 mb-6 block" />
+                <Icon name="icon_03_notification" size={64} class="text-primary/20 mb-6" />
                 <h3 class="text-sm font-bold tracking-widest text-primary uppercase mb-6">KURUMSAL FİNANSAL RAPORLAMA</h3>
                 <p class="text-xl md:text-2xl text-on-background font-light leading-relaxed mb-8 relative z-10 italic">
                     "Birden fazla tüzel kişilik, bağlı ortaklık veya coğrafyada faaliyet gösteren organizasyonlar için finansal kapanış, genellikle finans takvimininin en emek yoğun sürecidir. Şirketlerarası eliminasyonlar, kur çevrimi ve çok standartlı raporlama gereksinimleri, haftalar süren ve yine de manuel müdahale gerektiren bir sürece dönüşebilir. Modern ERP sistemleri içine doğal olarak entegre edilmiş kurumsal raporlama araçları, konsolidasyon mantığını doğrudan merkezi deftere gömerek bu sorunu ele alır. 2025 ve 2026 sürümlerinde tanıtılan yeni kural motorları, en karmaşık dağıtım ve eliminasyon senaryolarını otomatize ederek çevrimdışı çalışma kitaplarına ve konsolidasyon uzmanlarına olan bağımlılığı azaltır. Merkezi Finans mimarisi bu yapıyı heterojen ortamlara genişletir — birden fazla yazılım sistemi işleten organizasyonlar, yan kuruluşların sistem geçişi gerektirmeksizin finansal verileri tek bir merkezde toplayabilir. Sonuç: tüm organizasyonda tek, denetlenebilir bir finansal gerçek — ve bu gerçeğe gerçek zamanlı erişim."
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-8 pt-8 border-t border-outline-variant/10">
                     <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <Fish size={14} />
+                        <Icon name="icon_02_search" size={14} class="text-primary" />
                     </div>
                     <div>
                         <h4 class="text-sm font-bold text-on-background">eny Insight Series</h4>

@@ -2,16 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { 
-  Flower, 
-  Rabbit, 
-  Snail, 
-  Turtle, 
-  Fish, 
-  Bird, 
-  Skull,
-  Nut
-} from '@lucide/astro';
+import Icon from '../components/Icon.astro';
 const lang = 'tr' as const;
 ---
 <Layout title="Hakkımızda | eny" lang={lang}>
@@ -43,15 +34,15 @@ const lang = 'tr' as const;
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3">
-                            <Flower size={20} class="text-primary" />
+                            <Icon name="icon_02_search" size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Domain Uzmanlığı (Sadece Finans)</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <Rabbit size={20} class="text-primary" />
+                            <Icon name="icon_07_send_arrow" size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Boutique & Agile Yaklaşım</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <Snail size={20} class="text-primary" />
+                            <Icon name="icon_08_chat_message" size={20} class="text-primary" />
                             <span class="text-on-background font-medium">Tam Şeffaflık ve Proaktif İletişim</span>
                         </li>
                     </ul>
@@ -61,12 +52,12 @@ const lang = 'tr' as const;
                     <!-- Decor element -->
                     <div class="absolute -inset-10 bg-gradient-to-tr from-primary/10 to-transparent blur-3xl -z-10 rounded-full"></div>
                     <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 shadow-lg transform translate-y-8">
-                        <Turtle size={32} class="text-primary mb-4 block" />
+                        <Icon name="icon_11_clock" size={32} class="text-primary mb-4" />
                         <h4 class="font-bold text-on-background text-lg mb-2">15+ Yıl</h4>
                         <p class="text-sm text-on-surface-variant">Kurumsal Sistem Uzmanlığı</p>
                     </div>
                     <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant/20 shadow-lg">
-                        <Fish size={32} class="text-primary mb-4 block" />
+                        <Icon name="icon_17_share" size={32} class="text-primary mb-4" />
                         <h4 class="font-bold text-on-background text-lg mb-2">Global Etki</h4>
                         <p class="text-sm text-on-surface-variant">40+ Enterprise Proje, 5 Kıta</p>
                     </div>
@@ -82,7 +73,7 @@ const lang = 'tr' as const;
                 <div class="absolute w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none -right-40 -top-40"></div>
                 <div class="absolute w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none -left-20 -bottom-20"></div>
                 
-                <Bird size={48} class="text-primary/20 mb-8 block relative z-10" />
+                <Icon name="icon_03_notification" size={48} class="text-primary/20 mb-8" />
                 <h3 class="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-8 relative z-10">DATA SOVEREIGNTY</h3>
                 <p class="text-xl md:text-2xl text-on-surface font-light leading-relaxed mb-6 relative z-10 italic">
                     "Kurumsal sistemler giderek birbirine bağlandıkça ve yapay zeka yetenekleri hassas operasyonel verilere erişim gerektirdikçe, verinin nerede bulunduğu ve kimin kontrol ettiği sorusu IT politikasından yönetim kurulu risk yönetimine taşındı. GDPR, KVKK ve birden fazla yargı bölgesinde gelişmekte olan veri egemenliği gereklilikleri, veri yerleşimi ve işleme üzerine katı sınırlar getiriyor."
@@ -95,7 +86,7 @@ const lang = 'tr' as const;
                 </p>
                 <div class="flex items-center gap-4 relative z-10 mt-10 pt-10 border-t border-outline-variant/10">
                     <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                        <Skull size={24} />
+                        <Icon name="icon_20_lock_security" size={24} class="text-primary" />
                     </div>
                     <div>
                         <h4 class="font-bold text-on-background">eny Insight Series</h4>
@@ -128,8 +119,8 @@ const lang = 'tr' as const;
                     <h3 class="font-bold text-xl text-on-background mb-2">Kıdemli Finansal Mimari Uzmanı</h3>
                     <p class="text-sm text-primary font-medium tracking-wide uppercase mb-6">eny'e Katılım: 2011</p>
                     <ul class="space-y-3 text-sm text-on-surface-variant mb-6">
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Kurumsal Finansal Muhasebe Uzmanlığı</li>
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Yönetim Muhasebesi ve Kontroling Uzmanlığı</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Kurumsal Finansal Muhasebe Uzmanlığı</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Yönetim Muhasebesi ve Kontroling Uzmanlığı</li>
                     </ul>
                     <div class="border-t border-outline-variant/20 pt-4">
                         <p class="text-xs font-bold text-on-background uppercase mb-2">Uzmanlık & Projeler</p>
@@ -142,8 +133,8 @@ const lang = 'tr' as const;
                     <h3 class="font-bold text-xl text-on-background mb-2">Hazine & Nakit Yönetimi Lideri</h3>
                     <p class="text-sm text-primary font-medium tracking-wide uppercase mb-6">eny'e Katılım: 2015</p>
                     <ul class="space-y-3 text-sm text-on-surface-variant mb-6">
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Hazine ve Risk Yönetimi Uzmanlığı</li>
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Nakit Yönetimi ve Likidite Tahminleme</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Hazine ve Risk Yönetimi Uzmanlığı</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Nakit Yönetimi ve Likidite Tahminleme</li>
                     </ul>
                     <div class="border-t border-outline-variant/20 pt-4">
                         <p class="text-xs font-bold text-on-background uppercase mb-2">Uzmanlık & Projeler</p>
@@ -156,8 +147,8 @@ const lang = 'tr' as const;
                     <h3 class="font-bold text-xl text-on-background mb-2">e-Dönüşüm & AI Çözümleri Lideri</h3>
                     <p class="text-sm text-primary font-medium tracking-wide uppercase mb-6">eny'e Katılım: 2019</p>
                     <ul class="space-y-3 text-sm text-on-surface-variant mb-6">
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Bulut Entegrasyon ve API Mimarisi</li>
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> Document Reporting Compliance (DRC)</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Bulut Entegrasyon ve API Mimarisi</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> Document Reporting Compliance (DRC)</li>
                     </ul>
                     <div class="border-t border-outline-variant/20 pt-4">
                         <p class="text-xs font-bold text-on-background uppercase mb-2">Uzmanlık & Projeler</p>
@@ -170,8 +161,8 @@ const lang = 'tr' as const;
                     <h3 class="font-bold text-xl text-on-background mb-2">Kıdemli UFRS/IFRS Uzmanı</h3>
                     <p class="text-sm text-primary font-medium tracking-wide uppercase mb-6">eny'e Katılım: 2012</p>
                     <ul class="space-y-3 text-sm text-on-surface-variant mb-6">
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> SPK Bağımsız Denetim Lisansı</li>
-                        <li class="flex items-start gap-2"><Nut size={16} class="text-primary shrink-0" /> IFRS/UFRS Raporlama Uzmanlığı</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> SPK Bağımsız Denetim Lisansı</li>
+                        <li class="flex items-start gap-2"><Icon name="icon_25_check_confirm" size={16} class="text-primary shrink-0" /> IFRS/UFRS Raporlama Uzmanlığı</li>
                     </ul>
                     <div class="border-t border-outline-variant/20 pt-4">
                         <p class="text-xs font-bold text-on-background uppercase mb-2">Uzmanlık & Projeler</p>

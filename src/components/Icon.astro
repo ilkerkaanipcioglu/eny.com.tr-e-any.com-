@@ -32,9 +32,25 @@ if (isSystemIcon) {
   const brandSuffix = brand === 'lesstupid' ? 'l' : 'e';
   const variantSuffix = selectedVariant;
   
-  // V3 Logic: Single source of truth
-  const fileName = `${name}_${brandSuffix}_${variantSuffix}.svg`;
-  finalPath = path.join(process.cwd(), 'public', 'icons', fileName);
+  // Cascading fallback: brand+variant → variant only → base icon
+  const candidates = [
+    `${name}_${brandSuffix}_${variantSuffix}.svg`,
+    `${name}_${variantSuffix}.svg`,
+    `${name}.svg`,
+  ];
+  
+  const iconsDir = path.join(process.cwd(), 'public', 'icons');
+  finalPath = '';
+  for (const candidate of candidates) {
+    const candidatePath = path.join(iconsDir, candidate);
+    if (fs.existsSync(candidatePath)) {
+      finalPath = candidatePath;
+      break;
+    }
+  }
+  if (!finalPath) {
+    finalPath = path.join(iconsDir, candidates[0]);
+  }
 } else {
   finalPath = path.join(process.cwd(), 'public', 'icons', `${name}.svg`);
 }
@@ -55,7 +71,12 @@ try {
       .replace(/<svg[^>]*>/, '') 
       .replace(/<\/svg>/, '')    
       .replace(/width="[^"]*"/g, '') 
-      .replace(/height="[^"]*"/g, '');
+      .replace(/height="[^"]*"/g, '')
+      // Remove background fills (common white/off-white values used in the vectorizer)
+      .replace(/fill="#f8f8f8"/gi, 'fill="none"')
+      .replace(/fill="#ffffff"/gi, 'fill="none"')
+      .replace(/stroke="#f8f8f8"/gi, 'stroke="none"')
+      .replace(/stroke="#ffffff"/gi, 'stroke="none"');
 
   } else {
     // Silent fallback to avoid crashing build, but warn in dev

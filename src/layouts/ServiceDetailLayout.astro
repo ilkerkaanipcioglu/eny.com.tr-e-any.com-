@@ -2,32 +2,20 @@
 import Layout from './Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { 
-  TreeDeciduous,
-  Tent,
-  Star,
-  Turtle, 
-  Bird, 
-  Worm, 
-  Shell, 
-  Cat,
-  Rabbit,
-  Snail,
-  Squirrel
-} from '@lucide/astro';
+import Icon from '../components/Icon.astro';
 
-const iconMap: Record<string, any> = {
-    'analytics': TreeDeciduous,
-    'account_balance': Turtle,
-    'payments': Bird,
-    'terminal': Shell,
-    'account_tree': Tent,
-    'handshake': Worm,
-    'storefront': Cat,
-    'default': Snail
+const iconNameMap: Record<string, string> = {
+    'analytics': 'icon_02_search',
+    'account_balance': 'icon_20_lock_security',
+    'payments': 'icon_07_send_arrow',
+    'terminal': 'icon_05_settings_gear',
+    'account_tree': 'icon_01_home',
+    'handshake': 'icon_08_chat_message',
+    'storefront': 'icon_17_share',
+    'default': 'icon_26_plus_add'
 };
 
-const IconComponent = iconMap[Astro.props.icon] || iconMap.default;
+const resolvedIconName = iconNameMap[Astro.props.icon] || iconNameMap.default;
 
 interface RelatedService {
     title: string;
@@ -81,7 +69,7 @@ const {
         <div class="max-w-container mx-auto px-8 md:px-12 relative z-10 animate-fade-up">
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-bg2 border border-border group-hover:scale-110 transition-transform">
-                    <IconComponent size={24} class="text-teal" />
+                    <Icon name={resolvedIconName} size={24} class="text-teal" />
                 </div>
                 <div class="h-px flex-1 max-w-[100px] bg-border-main"></div>
                 <a href="/hizmetler" class="text-text-40 text-sm font-medium hover:text-plum transition-colors uppercase tracking-wider">Tüm Hizmetler</a>
@@ -134,7 +122,7 @@ const {
                         <div>
                             <h2 class="text-2xl md:text-3xl mb-6 font-medium">{resultTitle.replace(/^03\s*—\s*/, '')}</h2>
                             <div class="glass-card p-8 rounded-2xl border-l-4 border-l-teal relative overflow-hidden">
-                                <Rabbit size={80} class="absolute right-4 bottom-4 text-bg opacity-20 pointer-events-none" />
+                                <Icon name="icon_03_notification" size={80} class="absolute right-4 bottom-4 text-bg opacity-20 pointer-events-none" />
                                 <div class="relative z-10 prose prose-lg prose-invert max-w-none text-text-70 font-light leading-relaxed">
                                     <p>{resultText}</p>
                                 </div>
@@ -148,7 +136,7 @@ const {
             {visionContent && (
                 <section class="mt-24">
                     <div class="glass-card p-10 rounded-2xl border border-border-main relative overflow-hidden bg-bg2">
-                        <Bird size={48} class="text-plum opacity-20 mb-6 block" />
+                        <Icon name="icon_03_notification" size={48} class="text-plum opacity-20 mb-6" />
                         {visionTitle && (
                             <h3 class="text-xs font-medium tracking-widest text-plum uppercase mb-6">{visionTitle}</h3>
                         )}
@@ -156,7 +144,7 @@ const {
                             "{visionContent}"
                         </p>
                         <div class="flex items-center gap-4 relative z-10 mt-8 pt-6 border-t border-border-main/50">
-                            <Star size={24} class="text-teal" />
+                            <Icon name="icon_25_check_confirm" size={24} class="text-teal" />
                             <div>
                                 <h4 class="text-sm font-medium text-text-main">eny Platform Vision</h4>
                                 <span class="text-xs text-text-70 uppercase tracking-widest">{lang === 'tr' ? 'Mimari Bakış Açısı' : 'Architectural Perspective'}</span>
@@ -191,7 +179,7 @@ const {
                             <li>
                                 <a href={service.href} class="flex items-center justify-between group">
                                     <span class="text-text-70 group-hover:text-plum transition-colors">{service.title}</span>
-                                    <Rabbit size={14} class="text-text-40 group-hover:text-plum transition-all opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0" />
+                                    <Icon name="icon_17_share" size={14} class="rotate-[-45deg] text-text-40 group-hover:text-plum transition-all opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0" />
                                 </a>
                             </li>
                         ))}

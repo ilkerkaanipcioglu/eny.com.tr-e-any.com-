@@ -2,15 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { 
-  Worm,
-  Rat,
-  Turtle,
-  Rabbit,
-  Cherry,
-  Mountain,
-  Waves
-} from '@lucide/astro';
+import Icon from '../components/Icon.astro';
 
 const lang = 'tr' as const;
 ---
@@ -34,7 +26,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Rat size={32} class="lucide-icon icon-bounce-hover" />
+                        <Icon name="icon_01_home" size={32} />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Perakende ve<br/>Hızlı Tüketim</h2>
                 </div>
@@ -55,8 +47,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Cherry size={32} class="lucide-icon icon-bounce-hover" />
+                    <div class="text-primary mb-6">
+                        <Icon name="icon_05_settings_gear" size={32} animate />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Üretim ve<br/>Otomotiv Sanayi</h2>
                 </div>
@@ -77,8 +69,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Mountain size={32} class="lucide-icon icon-bounce-hover" />
+                    <div class="text-lime mb-6">
+                        <Icon name="icon_01_home" size={32} />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">İnşaat ve<br/>Gayrimenkul (GYO)</h2>
                 </div>
@@ -99,8 +91,8 @@ const lang = 'tr' as const;
         <article class="py-24 px-6 md:px-8 border-b border-border-main bg-bg2 hover:bg-bg transition-all duration-700">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
-                    <div class="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Worm size={32} class="lucide-icon icon-bounce-hover" />
+                    <div class="text-primary mb-6">
+                        <Icon name="icon_20_lock_security" size={32} />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Finansal Hizmetler<br/>ve Holdingler</h2>
                 </div>
@@ -122,7 +114,7 @@ const lang = 'tr' as const;
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4">
                     <div class="w-16 h-16 rounded-2xl bg-lime/10 text-lime flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Turtle size={32} class="lucide-icon icon-bounce-hover" />
+                        <Icon name="icon_17_share" size={32} />
                     </div>
                     <h2 class="text-4xl font-headline font-bold text-text mb-4">Lojistik ve<br/>Tedarik Zinciri</h2>
                 </div>
@@ -145,7 +137,7 @@ const lang = 'tr' as const;
         <div class="max-w-4xl mx-auto px-8 text-center text-text">
             <h2 class="text-3xl font-bold font-headline mb-6">Siz de Kendi Sektörünüzde<br/>Öncü Olmak İster misiniz?</h2>
             <a href="/iletisim" class="inline-flex items-center gap-2 bg-lime text-black px-8 py-3 rounded-lg font-bold hover:-translate-y-1 hover:shadow-xl transition-all">
-                Bizimle İletişime Geçin <Rabbit size={16} />
+                Bizimle İletişime Geçin <Icon name="icon_17_share" size={12} class="rotate-[-45deg]" />
             </a>
         </div>
     </section>
