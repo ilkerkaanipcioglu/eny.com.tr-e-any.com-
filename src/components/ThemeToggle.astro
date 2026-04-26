@@ -56,16 +56,16 @@
     box-shadow: 0 4px 12px rgba(204, 220, 80, 0.2);
   }
 
-  [data-theme="dark"] .dark-btn { color: #050806; }
+  [data-theme="dark"] .dark-btn { color: #000; z-index: 20; }
   [data-theme="dark"] .light-btn { color: var(--text-40); }
-  [data-theme="dark"] .theme-pill-slider { transform: translateX(0); }
+  [data-theme="dark"] .theme-pill-slider { transform: translateX(0); background: var(--lime); }
 
   [data-theme="light"] .dark-btn { color: var(--text-40); }
-  [data-theme="light"] .light-btn { color: #fff; }
+  [data-theme="light"] .light-btn { color: #fff; z-index: 20; }
   [data-theme="light"] .theme-pill-slider { 
     transform: translateX(40px); 
     background: #3625BA;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(54, 37, 186, 0.2);
   }
 </style>
 
