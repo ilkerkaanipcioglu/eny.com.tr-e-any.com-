@@ -1,37 +1,38 @@
-# Plan - Adjusting Illustration Highlights to Brand Color
+# ENY.COM.TR Renk Sistemi Güncelleme Planı
 
-The user wants the highlight color of the illustrations on `eny.com.tr` to match the "neon lime" color of the "E-KONUŞALIM" button (`#D0FD17`) exactly.
+Bu plan, `eny.com.tr` için sağlanan yeni renk paletinin `brand` dizinindeki ana manifestoya ve `eny.com.tr` projesine entegre edilmesini amaçlamaktadır.
 
 ## User Review Required
 
-> [!IMPORTANT]
-> The subagent determined that a `hue-rotate(22deg)` (down from `40deg`) with increased saturation is the best way to match the original yellow-gold highlights of the art to the neon lime brand color.
+Yeni renk paleti iki ana tondan oluşuyor: **Mavi/Mor (Primary)** ve **Yeşil/Sarı (Accent)**.
+Mevcut sistemde tek bir `h, s, l` değeri (Lime) ile çalışılıyordu. Bu değişiklikle beraber:
+- **Primary Renk:** Majorelle Blue (`#6050DC`)
+- **Accent Renk:** Maximum Green Yellow (`#CCDC50`) 
+olarak sisteme tanımlanacak. Bu ayrım uygun mudur? Lütfen onaylayın veya değiştirilmesini istediğiniz noktaları belirtin.
 
 ## Proposed Changes
 
-### [Component] ArtIllustration
+### `b:\DEV\HAREZM_EKOSISTEMI\brand\manifest.toml`
+Mevcut `[brands.eny]` yapısını yeni primary renge (Majorelle Blue) uyarlayacağız.
+- `[brands.eny]` değerlerini `h=247`, `s=67`, `l=59` (Majorelle Blue) olarak güncelleyeceğiz.
+- `[light_contrast.eny]` altındaki `accent_color` değerini yeni Accent rengine (Maximum Green Yellow) uyarlayacağız.
+- Değişiklik sonrası `node generate_tokens.mjs` komutunu çalıştırarak token çıktılarını üreteceğiz.
 
-#### [MODIFY] src/components/ArtIllustration.astro
-- Update the `hue-rotate` values and increase saturation/brightness for the `brand` and `minimal` variants to achieve the correct neon lime look.
+### `b:\DEV\HAREZM_EKOSISTEMI\eny.com.tr\src\styles\global.css`
+Tailwind v4 `@theme` yapısına yeni renk paletini 6 kademeli (Primary ve Accent tonları) olarak doğrudan ekleyeceğiz.
+- `--color-eny-blue-dark: #3625BA;`
+- `--color-eny-blue-base: #6050DC;`
+- `--color-eny-blue-light: #9A90E9;`
+- `--color-eny-green-dark: #A9BA25;`
+- `--color-eny-green-base: #CCDC50;`
+- `--color-eny-green-light: #DFE990;`
+- Eski `accent` (lime) kullanımını yeni `eny-green-base` ile değiştireceğiz.
 
-```css
-/* Brand: Neon Lime #D0FD17 */
-.art-variant-brand img {
-  filter: hue-rotate(22deg) saturate(2) brightness(1.1);
-}
-
-/* Minimal: Subtle lime tint with the correct brand hue */
-.art-variant-minimal img {
-  filter: hue-rotate(22deg) saturate(0.7) brightness(1.05);
-}
-```
+### `b:\DEV\HAREZM_EKOSISTEMI\eny.com.tr\src\styles\tokens.css`
+- Güncellenen `tokens.css` dosyasını brand klasöründen buraya kopyalayarak entegrasyonu tamamlayacağız.
 
 ## Verification Plan
 
-### Automated Tests
-- N/A (Visual adjustment)
-
 ### Manual Verification
-- View `http://localhost:4321/tuval` in the browser.
-- Compare the "Vizyon" (brand variant) and "Büyüme" (minimal variant) highlights with the "E-KONUŞALIM" button.
-- A browser screenshot will be captured to confirm the match.
+- `npm run dev` komutuyla projeyi çalıştırıp UI üzerinde yeni mavi ve sarı/yeşil tonların kontrast sorunları oluşturmadan doğru şekilde uygulandığını kontrol edeceğiz.
+- Buton, etiket ve arkaplanlardaki yansımaları gözden geçireceğiz.

@@ -65,6 +65,17 @@
   --text-40: rgba(240, 237, 242, 0.40);
   --border: hsla(var(--h), var(--s), var(--l), 0.15);
   --nav-bg: rgba(17, 17, 17, 0.90);
+
+  /* ENY Palette — V8 Blue/Green */
+  --lime: #CCDC50;             /* Maximum Green Yellow */
+  --lime-glow: rgba(204, 220, 80, 0.5);
+  --lime-soft: rgba(204, 220, 80, 0.3);
+  --accent: #CCDC50;           /* Accent = eny-green-base */
+  --accent-dark: #A9BA25;      /* Accent dark = eny-green-dark */
+  --primary-dark: #3625BA;     /* eny-blue-dark */
+  --primary-light: #9A90E9;    /* eny-blue-light */
+  --primary-soft: rgba(96, 80, 220, 0.15);
+  --gold: #DFE990;             /* eny-green-light */
   color-scheme: dark;
 }
 
@@ -113,6 +124,17 @@
   --accent-text: #111111;      /* Light'ta metin her zaman koyu */
   --nav-bg: rgba(245, 244, 242, 0.95);  /* V4.4: #F5F4F2 based nav */
 
+  /* ENY Palette — V8 Light overrides */
+  --lime: #CCDC50;
+  --lime-glow: rgba(204, 220, 80, 0.4);
+  --lime-soft: rgba(204, 220, 80, 0.2);
+  --accent: #CCDC50;
+  --accent-dark: #A9BA25;
+  --primary-dark: #3625BA;
+  --primary-light: #9A90E9;
+  --primary-soft: rgba(96, 80, 220, 0.15);
+  --gold: #DFE990;
+
   /* Icon states */
   --icon-default: #92969b;
   --icon-hover: var(--primary);
@@ -146,13 +168,19 @@
 /* Tailwind v4 Theme Bridge */
 @theme {
   /* === Dual-brand tokens — V2 === */
+  --color-eny-blue-dark: #3625BA;
+  --color-eny-blue-base: #6050DC;
+  --color-eny-blue-light: #9A90E9;
+  --color-eny-green-dark: #A9BA25;
+  --color-eny-green-base: #CCDC50;
+  --color-eny-green-light: #DFE990;
   --color-primary: var(--primary);            /* #82165f — Harezm DNA */
   --color-primary-dark: var(--primary-dark);
   --color-primary-light: var(--primary-light); /* V2: #B34E8F — Dark mod parlayan mürdüm */
   --color-primary-soft: var(--primary-soft);
-  --color-accent: var(--accent);              /* #D0FD17 — Eny enerjisi */
-  --color-accent-dark: var(--accent-dark);
-  --color-accent-text-readable: var(--accent-text-readable); /* V2: #6B820B — Açık zemin lime metin */
+  --color-accent: var(--eny-green-base);      /* Eny enerjisi - Yeni Yeşil/Sarı */
+  --color-accent-dark: var(--eny-green-dark);
+  --color-accent-text-readable: var(--eny-blue-dark); /* V2: Açık zemin okunabilir metin */
   --color-surface-harezm: var(--surface-harezm); /* V2: #F5F0F2 — Harezm surface */
 
   --color-bg: var(--bg);
@@ -282,8 +310,8 @@ p {
 
 /* === ICON SİSTEMİ (Yeni hiyerarşi) ===
    default: #92969b (neutral)
-   hover:   #82165f (primary)
-   active:  #D0FD17 (accent — dark) / #82165f (accent — light)
+   hover:   #6050DC (primary)
+   active:  #CCDC50 (accent — dark) / #6050DC (accent — light)
 */
 
 /* ── Evrensel icon default ── */
@@ -302,24 +330,24 @@ button:hover .material-symbols-outlined {
 }
 
 /* ── Icon container: bg-lime/10 ── */
-/* DARK: neon lime accent — Eny kimliği (purple KULLANMA) */
+/* DARK: neon accent — Eny kimliği */
 [data-theme="dark"] .bg-lime\/10 {
-  background: rgba(208, 253, 23, 0.08);
-  border: 1px solid rgba(208, 253, 23, 0.2);
+  background: rgba(204, 220, 80, 0.08);
+  border: 1px solid rgba(204, 220, 80, 0.2);
 }
 
 [data-theme="dark"] .bg-lime\/10 .material-symbols-outlined,
 [data-theme="dark"] .bg-lime\/10 .lucide-icon,
 [data-theme="dark"] .bg-lime\/10 > span {
-  color: #D0FD17 !important;
-  filter: drop-shadow(0 0 8px rgba(208, 253, 23, 0.5));
+  color: #CCDC50 !important;
+  filter: drop-shadow(0 0 8px rgba(204, 220, 80, 0.5));
 }
 
 [data-theme="dark"] .bg-lime\/10:hover,
 [data-theme="dark"] .group:hover .bg-lime\/10 {
-  background: rgba(208, 253, 23, 0.14);
-  border-color: #D0FD17;
-  box-shadow: 0 0 20px rgba(208, 253, 23, 0.12);
+  background: rgba(204, 220, 80, 0.14);
+  border-color: #CCDC50;
+  box-shadow: 0 0 20px rgba(204, 220, 80, 0.12);
 }
 
 /* LIGHT: nötr koyu ikon container — lime accent border */
@@ -337,9 +365,9 @@ button:hover .material-symbols-outlined {
 
 [data-theme="light"] .bg-lime\/10:hover,
 [data-theme="light"] .group:hover .bg-lime\/10 {
-  background: rgba(208, 253, 23, 0.12) !important;
-  border-color: #D0FD17 !important;  /* Lime accent border hover */
-  box-shadow: 0 4px 16px rgba(208, 253, 23, 0.12);
+  background: rgba(204, 220, 80, 0.12) !important;
+  border-color: #CCDC50 !important;  /* Accent border hover */
+  box-shadow: 0 4px 16px rgba(204, 220, 80, 0.12);
 }
 
 [data-theme="light"] .group:hover .bg-lime\/10 .material-symbols-outlined,
@@ -367,8 +395,8 @@ button:hover .material-symbols-outlined {
 
 [data-theme="dark"] .glass-card:hover .material-symbols-outlined,
 [data-theme="dark"] .glass-card:hover .lucide-icon {
-  color: #D0FD17;
-  filter: drop-shadow(0 0 12px rgba(208, 253, 23, 0.4));
+  color: #CCDC50;
+  filter: drop-shadow(0 0 12px rgba(204, 220, 80, 0.4));
 }
 
 /* Products page */
@@ -544,7 +572,7 @@ section {
 
 [data-theme="light"] .global-feature-icon {
   background: var(--primary);
-  box-shadow: 0 0 0 3px rgba(130, 22, 95, 0.12);
+  box-shadow: 0 0 0 3px rgba(96, 80, 220, 0.12);
 }
 
 [data-theme="light"] .neon-glow {
@@ -565,9 +593,9 @@ section {
 }
 
 .case-card:hover {
-  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
+  border-color: rgba(96, 80, 220, 0.35);  /* Primary hover border */
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(130, 22, 95, 0.12);
+  box-shadow: 0 12px 40px rgba(96, 80, 220, 0.12);
 }
 
 .case-card::before {
@@ -597,7 +625,7 @@ section {
 }
 
 [data-theme="light"] .case-tag {
-  color: #82165F;
+  color: #6050DC;
 }
 
 .case-title {
@@ -694,13 +722,13 @@ section {
   padding: 80px 24px;
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(208, 253, 23, 0.06) 0%, rgba(15, 17, 4, 0.6) 50%, rgba(208, 253, 23, 0.03) 100%);
-  border: 1px solid rgba(208, 253, 23, 0.12);
+  background: linear-gradient(135deg, rgba(204, 220, 80, 0.06) 0%, rgba(15, 17, 4, 0.6) 50%, rgba(204, 220, 80, 0.03) 100%);
+  border: 1px solid rgba(204, 220, 80, 0.12);
 }
 
 [data-theme="light"] .cta-section {
-  background: linear-gradient(135deg, rgba(130, 22, 95, 0.05) 0%, rgba(245, 240, 242, 0.8) 50%, rgba(130, 22, 95, 0.02) 100%);  /* V2: Harezm surface tonu */
-  border-color: rgba(130, 22, 95, 0.12);
+  background: linear-gradient(135deg, rgba(96, 80, 220, 0.05) 0%, rgba(245, 240, 242, 0.8) 50%, rgba(96, 80, 220, 0.02) 100%);
+  border-color: rgba(96, 80, 220, 0.12);
 }
 
 .cta-section h2 {
@@ -731,7 +759,7 @@ section {
 
 /* === CTA BUTONLAR ===
    CTA Primary = ACCENT (#d0fd17) — her iki tema da
-   CTA Secondary = PRIMARY (#82165f) border stili
+   CTA Secondary = PRIMARY (#6050DC) border stili
 */
 .cta-btn-primary {
   display: inline-flex;
@@ -746,14 +774,14 @@ section {
   color: #111111;              /* Koyu metin — kontrast garantili */
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 24px rgba(208, 253, 23, 0.20);
+  box-shadow: 0 0 24px rgba(204, 220, 80, 0.20);
   border: 2px solid transparent;
 }
 
 .cta-btn-primary:hover {
   transform: translateY(-2px);
   background: var(--accent-dark);
-  box-shadow: 0 6px 32px rgba(208, 253, 23, 0.30);
+  box-shadow: 0 6px 32px rgba(204, 220, 80, 0.30);
   border-color: var(--primary); /* Hover'da primary border — premium his */
 }
 
@@ -761,13 +789,13 @@ section {
 [data-theme="light"] .cta-btn-primary {
   background: var(--accent);
   color: #111111;
-  box-shadow: 0 0 24px rgba(208, 253, 23, 0.25);
+  box-shadow: 0 0 24px rgba(204, 220, 80, 0.25);
 }
 
 [data-theme="light"] .cta-btn-primary:hover {
   background: var(--accent-dark);
   border-color: var(--primary);
-  box-shadow: 0 6px 32px rgba(130, 22, 95, 0.20);
+  box-shadow: 0 6px 32px rgba(96, 80, 220, 0.20);
 }
 
 /* Secondary button: primary rengi */
@@ -792,7 +820,7 @@ section {
   color: #ffffff;
   border-color: var(--primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(130, 22, 95, 0.25);
+  box-shadow: 0 4px 20px rgba(96, 80, 220, 0.25);
 }
 
 /* ========================================
@@ -826,9 +854,9 @@ section {
 }
 
 .service-card:hover {
-  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
+  border-color: rgba(96, 80, 220, 0.35);  /* Primary hover border */
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(130, 22, 95, 0.10);
+  box-shadow: 0 8px 32px rgba(96, 80, 220, 0.10);
 }
 
 [data-theme="light"] .service-card {
@@ -851,9 +879,9 @@ section {
 }
 
 .tech-card:hover {
-  border-color: rgba(130, 22, 95, 0.35);  /* Primary hover border */
+  border-color: rgba(96, 80, 220, 0.35);  /* Primary hover border */
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(130, 22, 95, 0.10);
+  box-shadow: 0 8px 32px rgba(96, 80, 220, 0.10);
 }
 
 [data-theme="light"] .tech-card {

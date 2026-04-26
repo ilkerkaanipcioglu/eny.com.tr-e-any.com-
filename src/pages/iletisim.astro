@@ -42,20 +42,33 @@ const lang = 'tr' as const;
                         </div>
 
                         <form id="contact-form" class="space-y-6">
+                            <input type="hidden" name="domain" value="eny.com.tr" />
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label for="name" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formName', lang)}</label>
                                     <input type="text" id="name" name="name" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all placeholder:text-text-40" placeholder="İsim Soyisim" data-fs-field />
                                 </div>
                                 <div class="space-y-2">
-                                    <label for="email" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formEmail', lang)}</label>
-                                    <input type="email" id="email" name="email" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all placeholder:text-text-40" placeholder="kurumsal@sirket.com" data-fs-field />
+                                    <label for="company" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formCompany', lang)}</label>
+                                    <input type="text" id="company" name="company" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all placeholder:text-text-40" placeholder="Şirketiniz" data-fs-field />
                                 </div>
                             </div>
                             
-                            <div class="space-y-2">
-                                <label for="subject" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formSubject', lang)}</label>
-                                <input type="text" id="subject" name="subject" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all placeholder:text-text-40" placeholder="Proje Detayı, e-Dönüşüm, Fintech Solutions..." data-fs-field />
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="email" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formEmail', lang)}</label>
+                                    <input type="email" id="email" name="email" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all placeholder:text-text-40" placeholder="kurumsal@sirket.com" data-fs-field />
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="projectType" class="text-xs font-medium text-text-40 uppercase tracking-widest">{t('formType', lang)}</label>
+                                    <select id="projectType" name="projectType" required class="w-full bg-bg border border-border-main rounded-xl px-4 py-4 text-text-main focus:border-plum outline-none transition-all data-fs-field">
+                                        <option value="">Seçiniz...</option>
+                                        <option value={t('formTypeOpt1', lang)}>{t('formTypeOpt1', lang)}</option>
+                                        <option value={t('formTypeOpt2', lang)}>{t('formTypeOpt2', lang)}</option>
+                                        <option value={t('formTypeOpt3', lang)}>{t('formTypeOpt3', lang)}</option>
+                                        <option value={t('formTypeOpt4', lang)}>{t('formTypeOpt4', lang)}</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="space-y-2">
@@ -228,7 +241,7 @@ const lang = 'tr' as const;
         if (form) {
             formspree('initForm', { 
                 formElement: '#contact-form', 
-                formId: 'xykbljdr',
+                formId: 'xbdqelnd',
                 onSuccess: () => {
                     form.classList.add('hidden');
                     successDiv.classList.remove('hidden');
