@@ -32,11 +32,9 @@ if (isSystemIcon) {
   const brandSuffix = brand === 'lesstupid' ? 'l' : 'e';
   const variantSuffix = selectedVariant;
   
-  // Cascading fallback: brand+variant → variant only → base icon
+  // Temporary: Only use base icons for now
   const candidates = [
-    `${name}_${brandSuffix}_${variantSuffix}.svg`,
-    `${name}_${variantSuffix}.svg`,
-    `${name}.svg`,
+    `${name}.svg`
   ];
   
   const iconsDir = path.join(process.cwd(), 'public', 'icons');
