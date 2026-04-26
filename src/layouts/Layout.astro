@@ -17,8 +17,50 @@ const {
   image = '/images/logo/eny_full_dark.png'
 } = Astro.props;
 
-// Default URL for eny.com.tr
-const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
+const normalizedTitle = title.replace(/\s*\|\s*eny\s*$/i, '').trim();
+const siteOrigin = 'https://eny.com.tr';
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin);
+const normalizedImage = new URL(image, siteOrigin).href;
+const currentPath = Astro.url.pathname;
+const isToolPage = currentPath.startsWith('/TOOLS');
+
+const trToEnPathMap = {
+  '/': '/en/',
+  '/hakkimizda': '/en/about',
+  '/iletisim': '/en/contact',
+  '/cerez-politikasi': '/en/cookie-policy',
+  '/gizlilik-politikasi': '/en/privacy-policy',
+  '/sektorler': '/en/industries',
+  '/teknoloji': '/en/technology',
+  '/urunler': '/en/products',
+  '/e-tahsilat': '/en/e-collection',
+  '/e-ticaret': '/en/e-commerce',
+  '/e-ekstre': '/en/e-statement'
+};
+
+const enToTrPathMap = {
+  '/en/': '/',
+  '/en/about': '/hakkimizda',
+  '/en/contact': '/iletisim',
+  '/en/cookie-policy': '/cerez-politikasi',
+  '/en/privacy-policy': '/gizlilik-politikasi',
+  '/en/industries': '/sektorler',
+  '/en/technology': '/teknoloji',
+  '/en/products': '/urunler',
+  '/en/e-collection': '/e-tahsilat',
+  '/en/e-commerce': '/e-ticaret',
+  '/en/e-statement': '/e-ekstre'
+};
+
+const trAltPath = currentPath.startsWith('/en/')
+  ? (enToTrPathMap[currentPath] || currentPath.replace(/^\/en/, '') || '/')
+  : currentPath;
+const enAltPath = currentPath.startsWith('/en/')
+  ? currentPath
+  : (trToEnPathMap[currentPath] || `/en${currentPath === '/' ? '/' : currentPath}`);
+
+const trAltUrl = new URL(trAltPath, siteOrigin).href;
+const enAltUrl = new URL(enAltPath, siteOrigin).href;
 ---
 
 <!DOCTYPE html>
@@ -26,22 +68,43 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://eny.com.tr');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | eny</title>
+    <title>{normalizedTitle} | eny</title>
     <meta name="description" content={description} />
     
     <!-- SEO / Canonical / Hreflang (Independent Domains) -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href={canonicalURL.href} />
-    <link rel="alternate" hreflang="tr" href="https://eny.com.tr/" />
-    <link rel="alternate" hreflang="en" href="https://eny.com.tr/en/" />
+    <link rel="alternate" hreflang="tr" href={trAltUrl} />
+    <link rel="alternate" hreflang="en" href={enAltUrl} />
     <link rel="alternate" hreflang="x-default" href="https://eny.com.tr/" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={isToolPage ? 'noindex, nofollow' : 'index, follow'} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL.href} />
-    <meta property="og:title" content={`${title} | eny`} />
+    <meta property="og:title" content={`${normalizedTitle} | eny`} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={normalizedImage} />
+    <meta property="og:image:alt" content={`${normalizedTitle} | eny`} />
+    <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_US'} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL.href} />
+    <meta name="twitter:title" content={`${normalizedTitle} | eny`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={normalizedImage} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "eny",
+      "url": siteOrigin,
+      "logo": normalizedImage,
+      "description": description,
+      "sameAs": []
+    })} />
 
     <!-- Geo-IP & Language Preference (Domain Specific) -->
     <script is:inline>
